@@ -1,0 +1,28 @@
+# Временные и вспомогательные файлы LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+*.run.xml
+*.bcf
+
+# Скомпилированные PDF (если не хотите их пушить)
+*.pdf
+
+# Файлы IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Другие временные файлы
+*~
+.DS_Store

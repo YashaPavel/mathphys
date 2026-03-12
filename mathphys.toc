@@ -1,0 +1,38 @@
+\xpg@aux {}{russian}
+\contentsline {chapter}{\numberline {1}Обобщенные функции}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Определения}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Класс основных обобщенных функций $\mathcal {D}(\mathbb {R})$}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Класс обобщенных функций $\mathcal {D}'(\mathbb {R})$}{4}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Регулярные и сингулярные обобщенные функции}{6}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Доказательство теоремы \ref {1}}{8}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Операции над обобщенными функциями}{9}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Умножение на гладкую функцию}{9}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Замена переменных}{9}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Дифференцирование}{9}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Сходимость}{9}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}Носитель обощенной функции}{9}{subsection.1.3.5}%
+\contentsline {section}{\numberline {1.4}Прямое произведение обобщенных функций}{9}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Пространство $\mathcal {D}'(\mathbb {R}^n)$ }{9}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Прямое произведение}{9}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Свёртка}{9}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Определение}{9}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Замечание}{9}{subsection.1.5.2}%
+\contentsline {section}{\numberline {1.6}Пространство Шварца $\mathcal {S}(\mathbb {R})$}{9}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Пространство быстро убывающих функций $\mathcal {S}(\mathbb {R})$}{9}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Преобразование Фурье}{9}{subsection.1.6.2}%
+\contentsline {section}{\numberline {1.7}Пространство Шварца $\mathcal {S}'(\mathbb {R})$ }{9}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Преобразования медленно растущих обобщенных функций $\mathcal {S}'(\mathbb {R})$}{9}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Преобразование Фурье на $\mathcal {S}'(\mathbb {R})$}{9}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Свёртка}{9}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.4}Случай $\mathbb {R}^n$}{9}{subsection.1.7.4}%
+\contentsline {chapter}{\numberline {2}Уравнения математической физики}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Введение}{10}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Типы уравнений}{10}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Краевые условия}{10}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Одномерное волновое уравнение}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Уравнение струны}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Метод Даламбера}{10}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Функция Грина для бесконечной струны}{10}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Волновое уравнение в $\mathbb {R}^3$}{10}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Функция Грина}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Решение волнового уравнения в $\mathbb {R}^3$ }{11}{subsection.2.3.2}%

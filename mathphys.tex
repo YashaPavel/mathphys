@@ -1,0 +1,1045 @@
+% !TEX program = xelatex
+\documentclass[12pt]{report}
+
+% -------------------------------------------------
+% ЯЗЫК И ШРИФТЫ (XeLaTeX)
+% -------------------------------------------------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Menlo}
+
+% -------------------------------------------------
+
+
+% -------------------------------------------------
+% ГЕОМЕТРИЯ
+% -------------------------------------------------
+\usepackage[
+  a4paper,
+  left=25mm,
+  right=20mm,
+  top=20mm,
+  bottom=25mm,
+  headheight=16pt
+]{geometry}
+
+% -------------------------------------------------
+% МАТЕМАТИКА
+% -------------------------------------------------
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+
+\newcommand{\supp}{\operatorname{supp}}
+
+% -------------------------------------------------
+% ГРАФИКА И ТАБЛИЦЫ
+% -------------------------------------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% -------------------------------------------------
+% ТИПОГРАФИКА
+% -------------------------------------------------
+\usepackage{microtype}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+% -------------------------------------------------
+% СПИСКИ
+% -------------------------------------------------
+\usepackage{xcolor}
+\usepackage{enumitem}
+\setlist{nosep}
+
+% -------------------------------------------------
+% -------------------------------------------------
+% ГИПЕРССЫЛКИ
+% -------------------------------------------------
+\usepackage[linktocpage=true]{hyperref}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={Конспект по математической физике},
+  pdfauthor={Яков Овсянников}
+}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% -------------------------------------------------
+% КОЛОНТИТУЛЫ
+% -------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small Конспект по математической физике}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{\small Конспект по математической физике}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% -------------------------------------------------
+% ОФОРМЛЕНИЕ ГЛАВ
+% -------------------------------------------------
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+{\thispagestyle{plain}\normalfont\centering}
+{\Huge\bfseries Глава \thechapter}
+{0.8cm}
+{\LARGE\bfseries}
+[\vspace{0.8cm}]
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}
+{\thesection.}
+{0.5em}
+{}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}
+{\thesubsection.}
+{0.5em}
+{}
+
+\titlespacing*{\chapter}{0pt}{0pt}{1cm}
+\titlespacing*{\section}{0pt}{2ex}{1ex}
+
+% -------------------------------------------------
+% ОГЛАВЛЕНИЕ
+% -------------------------------------------------
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\setlength{\cftbeforechapskip}{0.4em}
+
+% -------------------------------------------------
+% НУМЕРАЦИЯ
+% -------------------------------------------------
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+
+% -------------------------------------------------
+% ПОДПИСИ
+% -------------------------------------------------
+\captionsetup{
+  labelfont=bf,
+  font=small,
+  labelsep=period
+}
+
+% -------------------------------------------------
+% ЦВЕТНЫЕ БЛОКИ
+% -------------------------------------------------
+\usepackage[most]{tcolorbox}
+
+\definecolor{defback}{RGB}{235,245,255}
+\definecolor{defframe}{RGB}{70,120,200}
+
+\definecolor{exback}{RGB}{240,255,240}
+\definecolor{exframe}{RGB}{70,150,90}
+
+\definecolor{thmback}{RGB}{255,248,235}
+\definecolor{thmframe}{RGB}{210,140,40}
+
+\definecolor{lemmaback}{RGB}{250,245,255}
+\definecolor{lemmaframe}{RGB}{130,90,180}
+
+\definecolor{propback}{RGB}{245,250,255}
+\definecolor{propframe}{RGB}{70,110,170}
+
+\definecolor{remarkback}{RGB}{255,249,196}  
+\definecolor{remarkframe}{RGB}{212,175,55}  
+
+\definecolor{proofback}{RGB}{248,248,248}
+\definecolor{proofframe}{RGB}{120,120,120}
+
+% -------------------------------------------------
+% СЧЁТЧИКИ
+% -------------------------------------------------
+\newcounter{theoremctr}[chapter]
+\renewcommand{\thetheoremctr}{\thechapter.\arabic{theoremctr}}
+
+\newcounter{lemmactr}[chapter]
+\renewcommand{\thelemmactr}{\thechapter.\arabic{lemmactr}}
+
+\newcounter{propctr}[chapter]
+\renewcommand{\thepropctr}{\thechapter.\arabic{propctr}}
+
+\newcounter{remarkctr}[chapter]
+\renewcommand{\theremarkctr}{\thechapter.\arabic{remarkctr}}
+
+\newcounter{defctr}[chapter]
+\renewcommand{\thedefctr}{\thechapter.\arabic{defctr}}
+
+\newcounter{exectr}[chapter]
+\renewcommand{\theexectr}{\thechapter.\arabic{exectr}}
+
+% -------------------------------------------------
+% ИМЕНА ДЛЯ cleveref
+% -------------------------------------------------
+\crefname{theoremctr}{теорема}{теоремы}
+\Crefname{theoremctr}{Теорема}{Теоремы}
+
+\crefname{lemmactr}{лемма}{леммы}
+\Crefname{lemmactr}{Лемма}{Леммы}
+
+\crefname{propctr}{утверждение}{утверждения}
+\Crefname{propctr}{Утверждение}{Утверждения}
+
+\crefname{remarkctr}{замечание}{замечания}
+\Crefname{remarkctr}{Замечание}{Замечания}
+
+\crefname{defctr}{определение}{определения}
+\Crefname{defctr}{Определение}{Определения}
+
+\crefname{exectr}{упражнение}{упражнения}
+\Crefname{exectr}{Упражнение}{Упражнения}
+
+% -------------------------------------------------
+% ТЕОРЕМА
+% -------------------------------------------------
+\newtcolorbox{mytheorem}[1][]{
+  enhanced,
+  breakable,
+  colback=thmback,
+  colframe=thmframe,
+  boxrule=0.9pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  before=\refstepcounter{theoremctr},
+  title={Теорема~\thetheoremctr},
+  #1
+}
+
+% -------------------------------------------------
+% ЛЕММА
+% -------------------------------------------------
+\newtcolorbox{mylemma}[1][]{
+  enhanced,
+  breakable,
+  colback=lemmaback,
+  colframe=lemmaframe,
+  boxrule=0.9pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  before=\refstepcounter{lemmactr},
+  title={Лемма~\thelemmactr},
+  #1
+}
+
+% -------------------------------------------------
+% УТВЕРЖДЕНИЕ
+% -------------------------------------------------
+\newtcolorbox{myprop}[1][]{
+  enhanced,
+  breakable,
+  colback=propback,
+  colframe=propframe,
+  boxrule=0.9pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  before=\refstepcounter{propctr},
+  title={Утверждение~\thepropctr},
+  #1
+}
+
+% -------------------------------------------------
+% ОПРЕДЕЛЕНИЕ
+% -------------------------------------------------
+\newtcolorbox{mydef}[1][]{
+  enhanced,
+  breakable,
+  colback=defback,
+  colframe=defframe,
+  boxrule=0.8pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  before=\refstepcounter{defctr},
+  title={Определение~\thedefctr},
+  #1
+}
+% ------------------------------------------------- % ДОКАЗАТЕЛЬСТВО % ------------------------------------------------- 
+\newtcolorbox{myproof}{ enhanced, breakable, colback=proofback, colframe=proofframe, boxrule=0.8pt, arc=2mm, fonttitle=\bfseries, title={Доказательство} }
+
+% -------------------------------------------------
+% УПРАЖНЕНИЕ
+% -------------------------------------------------
+\newtcolorbox{myexe}[1][]{
+  enhanced,
+  breakable,
+  colback=exback,
+  colframe=exframe,
+  boxrule=0.8pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  before=\refstepcounter{exectr},
+  title={Упражнение~\theexectr},
+  #1
+}
+
+% -------------------------------------------------
+% ЗАМЕЧАНИЕ
+% -------------------------------------------------
+\newtcolorbox{myremark}[1][]{
+  enhanced,
+  breakable,
+  colback=remarkback,
+  colframe=remarkframe,
+  boxrule=0.8pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  before=\refstepcounter{remarkctr},
+  title={Замечание~\theremarkctr},
+  #1
+}
+
+% -------------------------------------------------
+% ПОЛЕЗНЫЕ КОМАНДЫ
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\p}{\partial}
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+
+\newcommand{\Pf}[1]{\mathrm{P}\dfrac{1}{#1}}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\skobka}[1]{\left( #1 \right)}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brackets}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+\newcommand{\DR}{\mathcal{D}(\R)}
+\newcommand{\SR}{\mathcal{S}(\R)}
+\newcommand{\SSR}{\mathcal{S}'(\R)}
+\newcommand{\dR}{\mathcal{D}'(\R^n)}
+\newcommand{\DDR}{\mathcal{D}'(\R)}
+
+
+\newcommand{\PP}{\mathrm{P}\dfrac{1}{x}}
+\newcommand{\px}[1]{\dfrac{1}{#1 \pm \mathrm{i}0}}
+
+\newcommand{\dopis}{\begin{center}\textbf{Дописать}\end{center}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\grad}{\Vec{\nabla}}
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
+\newcommand{\ubf}[1]{ \noindent\textbf{\underline{#1}}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\LL}{\mathscr{L}}
+
+\newcommand{\Alt}{\operatorname{Alt}}
+
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\Let}{\sqsupset}
+\newcommand{\sr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\podst}[1]{\left[ #1 \right]}
+\newcommand{\skob}[1]{\left( #1 \right)}
+
+\newcommand{\im}{\mathbb{C}}
+\newcommand{\INT}{\int\limits_{-\infty}^{+\infty}}
+\newcommand{\intpi}{\int\limits_{-\pi}^{+\pi}}
+\newcommand{\sign}{\operatorname{sign}}
+\renewcommand{\span}{\operatorname{span}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\ocup}{\overset{\circ}{\cup}}
+\newcommand{\spec}{\operatorname{spec}}
+
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\arcsh}{\operatorname{arcsh}}
+\newcommand{\arcch}{\operatorname{arcch}}
+\newcommand{\arctanh}{\operatorname{arctanh}}
+\newcommand{\arccth}{\operatorname{arccth}}
+\renewcommand{\phi}{\ensuremath{\varphi}}
+\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
+\renewcommand{\kappa}{\ensuremath{\varkappa}}
+\newcommand{\theme}[1]{\noindent\textbf{\underline{#1}}\vskip2mm}
+\newcommand{\bigO}{\underline{O}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\sumn}{\sum\limits_{n = 0}^{\infty}}
+\newcommand{\summ}{\sum\limits_{m = 0}^{\infty}}
+\newcommand{\sumk}{\sum\limits_{k = 0}^{\infty}}
+\newcommand{\sumin}{\sum\limits_{i = 1}^{n}}
+\newcommand{\SUMN}{\sum\limits_{n = 1}^{\infty}}
+\newcommand{\SUMM}{\sum\limits_{m = 1}^{\infty}}
+\newcommand{\SUMK}{\sum\limits_{k = 1}^{\infty}}
+\newcommand{\sumkn}{\sum\limits_{k = 1}^{n}}
+\newcommand{\SuM}{\sum\limits_{k = 1}^{m}}
+\newcommand{\smallo}[2]{\underset{#1}{\overline{o}\left(#2\right)}}
+\newcommand{\bigo}[2]{\underset{#1}{\underline{O}\left(#2\right)}}
+\newcommand{\F}{\mathcal{F}}
+
+% -------------------------------------------------
+% ПАРАМЕТРЫ ОГЛАВЛЕНИЯ
+% -------------------------------------------------
+
+\setcounter{secnumdepth}{3}
+\begin{document}
+
+% =================================================
+% ОБЛОЖКА
+% =================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+
+\vspace*{2.5cm}
+
+{\Huge\bfseries Конспект по математической физике \par}
+\vspace{0.8cm}
+
+\vspace{1.2cm}
+{\Large Весенний семестр 2026\par}
+
+\vfill
+
+{\large Лектор\par}
+\vspace{0.2cm}
+{\Large Филонов Николай Дмитриевич\par}
+
+\vspace{1.0cm}
+
+{\large Над файлом работали\par}
+\vspace{0.2cm}
+{\normalsize
+Яков Овсянников\par}
+
+\vspace{1.2cm}
+{\large Университет ИТМО\par}
+
+\end{titlepage}
+
+% =================================================
+% ОГЛАВЛЕНИЕ
+% =================================================
+\tableofcontents
+\clearpage
+
+% =================================================
+% ГЛАВА 1
+% =================================================
+\chapter{Обобщенные функции}
+
+\section{Определения}
+\subsection{Класс основных обобщенных функций \texorpdfstring{$\DR$}{D(R)}}
+
+\begin{mydef}
+\[
+\varphi \in \DR \Rightarrow
+\begin{cases}
+&\varphi \in C^{\infty}(\R),\\
+&\supp \varphi \text{ - компакт, где } 
+\supp \varphi = \overline{\{x: \varphi(x)\neq 0\}}
+\end{cases}
+\]
+\end{mydef}
+
+Рассмотрим типичный пример основной функции из $\DR$:
+\[
+\varphi(x)=
+\begin{cases}
+e^{\frac{1}{x^2-1}}, & |x|<1\\[0.5em]
+0, & |x|\ge 1
+\end{cases}
+\]
+
+Эта функция бесконечно дифференцируема на всей прямой и имеет компактный носитель, равный отрезку \( [-1,1] \).
+
+
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.6\textwidth,
+    height=0.45\textwidth,
+    samples=400,
+    axis lines=middle,
+    axis line style={thick},
+    xlabel={$x$},
+    ylabel={$\varphi(x)$},
+    xmin=-1.2, xmax=1.2,
+    ymin=0, ymax=0.42,
+    xtick={-1,-0.5,0,0.5,1},
+    ytick={0,0.1,0.2,0.3,0.4},
+    grid=both,
+    major grid style={gray!30},
+    minor grid style={gray!15},
+    tick style={black,thick},
+    label style={font=\small}
+]
+
+\addplot[
+    very thick,
+    blue,
+    smooth,
+    domain=-0.999:0.999
+]
+{exp(1/(x^2-1))};
+
+\addplot[thick, black] coordinates {(-1.2,0) (-1,0)};
+\addplot[thick, black] coordinates {(1,0) (1.2,0)};
+
+\end{axis}
+\end{tikzpicture}
+\caption{График функции \(\varphi(x)\)}
+\end{figure}
+
+
+\begin{myexe}
+    Доказать что $\varphi(x)\in \DR$
+\end{myexe}
+Тогда ясно, что $\DR$ -- линейное пространство
+
+\begin{mydef}
+    \[\varphi_k \xrightarrow{\DR} \varphi \Leftrightarrow \,\begin{aligned}
+&\exists A,B: \supp{\varphi_k},\supp{\varphi\subset [A,B]}\\
+&\varphi_k^{{(m)}}\xrightarrow{k\rightarrow \infty} \varphi^{{(m)}} \,\text{равномерно на} \,[A,B] \,for \,\forall m
+\end{aligned}\]
+\end{mydef}
+
+\begin{myexe}
+    Показать что $\DR$ -- не метризуемо, т.е. $\nexists \rho$ -- метрики: $\rho(\varphi_k,\varphi) \rightarrow0 \Leftrightarrow \varphi_k \xrightarrow{\DR} \varphi$
+\end{myexe}
+
+
+\subsection{Класс обобщенных функций \texorpdfstring{$\DDR$}{ }}
+
+\begin{mydef}
+    \[f\in\DDR \Leftrightarrow f -- \text{линейный непрерывный функционал на }\, \DR\]
+    \[f:\DR \rightarrow \mathbb{C}\]
+\end{mydef}
+Другими словами \[\varphi\rightarrow(f, \varphi)\]
+Посмоторим на линейность и непрерывность.
+\\ 
+\textbf{1) } Линейность: \\
+$(f,\lambda\varphi+\mu\psi)=\lambda(f,\varphi)+\mu(f,\psi)$ for $\forall \lambda,\mu\in\mathbb{C}$ and $\varphi,\psi \in \DR$\\
+\textbf{2) } Непрерывность:\\ Если $\varphi_k \xrightarrow{\DR} \varphi$, то $(f,\varphi_k)\rightarrow(f,\varphi)$
+
+
+\begin{myremark}
+    1) distribution\\
+    2) непрерывность достаточно проверять только в нуле\\
+    3) Если $f$- непрерывна и $\varphi_k\rightarrow0$, то $(f,\varphi_k)\rightarrow0$\\
+    4) Если $f$ -- линейный функционал и $\varphi_k\rightarrow0,$ то $(f,\varphi_k)\rightarrow0$\\
+    5) Пусть $\psi_k\xrightarrow{\DR} \psi$, тогда $(f,\psi_k)=(f,\psi_k-\psi)+(f,\psi)\rightarrow(f,\psi)$
+\end{myremark}
+Примеры таких функционалов:
+\begin{enumerate}
+\item 
+\[
+(\delta,\varphi)=\varphi(0)
+\]
+
+Если $\varphi_k \to \varphi$, то
+\[
+\varphi_k(0) \to \varphi(0).
+\]
+\item \label{2}\[
+\left(\PP,\varphi\right)=
+\operatorname{v.p.}\int\limits_{\R}\dfrac{\varphi(x)\dd x}{x}
+=
+\lim_{\varepsilon \to +0}
+\int\limits_{|x|>\varepsilon} \dfrac{\varphi(x)}{x}\,\dd x
+\] Предположим, что $\supp \subset[-R,R]$, тогда наш интеграл можно разбить на два:
+\[=\lim_{\varepsilon \to +0}\left(\int\limits_{-R}^{-\varepsilon}+\int\limits_{\varepsilon}^{R}\right)\dfrac{\varphi(x)}{x}\,\dd x = 
+\lim_{\varepsilon \to +0}\left(\int\limits_{-R}^{-\varepsilon}+\int\limits_{\varepsilon}^{R}\right)\dfrac{\varphi(x)-\varphi(0)}{x}\,\dd x=\int\limits_{-R}^{R}\dfrac{\varphi(x)-\varphi(0)}{x}\,\dd x\]
+Линейность этого факта достаточно очевидна, поэтому посмотрим на \textit{непрерывность}.
+\[] \varphi_k \xrightarrow{\DR}0  \quad and\quad ]R:\supp{\varphi_k}\subset[-R,R]\]Тогда получим следующую цепочку равенств:
+\[\left|(\PP,\varphi_k)\right|=\left|\int\limits_{-R}^{R}\dfrac{\varphi_k(x)-\varphi_k(0)}{x}\,\dd x \right|\leq 2R\cdot \max_{x \in [-R,R]}|\varphi_k'|\xrightarrow{k\to\infty}0\]
+
+\item  \[\left(\px{x},\varphi\right)=\lim_{\varepsilon\to+0}
+\int\limits_{\R}
+\dfrac{\varphi(x)}{x\pm \ii \varepsilon}\,\dd x\]
+
+
+
+Пусть $\varphi \in \DR$. Тогда существует $R>0$ такое, что
+\[
+\supp \varphi \subset [-R,R]
+\]
+Следовательно:
+\[
+\int\limits_{\R}
+\dfrac{\varphi(x)}{x\pm \ii \varepsilon}\,\dd x
+=
+\int\limits_{-R}^{R}
+\dfrac{\varphi(x)}{x\pm \ii \varepsilon}\,\dd x =
+\int\limits_{-R}^{R}
+\dfrac{x\,\varphi(x)}{x^2+\varepsilon^2}\,\dd x
+\mp
+\ii
+\int\limits_{-R}^{R}
+\dfrac{\varepsilon\,\varphi(x)}{x^2+\varepsilon^2}\,\dd x 
+\]
+
+Первый интеграл в точности совпал с выражением \eqref{2}, поэтому исследуем второй:
+
+\[
+\int\limits_{-R}^{R}
+\dfrac{\varepsilon\,\varphi(x)}{x^2+\varepsilon^2}\,\dd x
+=
+\int\limits_{-R}^{R}
+\dfrac{\varepsilon(\varphi(x)-\varphi(0))}{x^2+\varepsilon^2}\,\dd x
++
+\varphi(0)\int\limits_{-R}^{R}
+\dfrac{\varepsilon}{x^2+\varepsilon^2}\,\dd x
+\]
+Первый интеграл стремится к нулю при $\varepsilon\to +0$. Для второго имеем
+\[
+\int\limits_{-R}^{R}\dfrac{\varepsilon}{x^2+\varepsilon^2}\,\dd x
+=
+\int\limits_{-R/\varepsilon}^{R/\varepsilon}\dfrac{1}{1+t^2}\,\dd t
+\to
+\int\limits_{-\infty}^{\infty}\dfrac{1}{1+t^2}\,\dd t
+=
+\pi 
+\]
+Следовательно:
+\[
+\int\limits_{-R}^{R}
+\dfrac{\varepsilon\,\varphi(x)}{x^2+\varepsilon^2}\,\dd x
+\to
+\pi\,\varphi(0)
+\]
+То есть
+\[
+\lim_{\varepsilon\to+0}
+\int\limits_{-R}^{R}
+\dfrac{\varphi(x)}{x\pm \ii \varepsilon}\,\dd x
+=
+\left(\Pf{x},\varphi\right)
+\mp
+\ii \pi \varphi(0)
+\]
+Так как
+\[
+(\delta,\varphi)=\varphi(0),
+\]
+получаем
+\[
+\left(\dfrac{1}{x\pm \ii 0},\varphi\right)
+=
+\left(\Pf{x},\varphi\right)
+\mp
+\ii\pi(\delta,\varphi)
+\]
+\end{enumerate}
+\begin{myprop}
+Для любой функции $\varphi \in \DR$ существует предел:
+\[
+\left(\dfrac{1}{x\pm \ii 0},\varphi\right)
+\coloneqq
+\lim_{\varepsilon \to +0}
+\int\limits_{-\infty}^{\infty}
+\dfrac{\varphi(x)}{x\pm \ii \varepsilon}\,\dd x 
+\]
+Формула Сохоцкого выглядит следующим образом:
+\[
+\dfrac{1}{x\pm \ii 0}
+=
+\Pf{x}\mp \ii \pi \delta(x)
+\]
+\end{myprop}
+
+
+\subsection{Регулярные и сингулярные обобщенные функции}
+$f\in L_{1,loc}$ -- измеримая по Лебегу функция. $\int\limits_{a}^{b}\left|f(x)\right| \dd x< \infty$. Тогда $\Tilde{f}$ -- функционал такой что:
+\[(\Tilde{f},\varphi)=\int\limits_{\R}f(x)\varphi(x)\dd x \, - \text{линейный функционал на }\DR\Rightarrow \supp{\varphi_k} \subset [-R,R]\]
+\[\varphi_k\xrightarrow{\DR}0\Rightarrow|(\Tilde{f},\varphi)|\leq \int\limits_{-R}^{R}f(x)|\varphi_k(x)|\dd x\leq \int\limits_{-R}^{R}|f(x)|\max_{x \in [-R,R]}|\varphi_k'|\rightarrow0\]
+Видно, что функция непрерывна в нуле $\Rightarrow$ непрерывна везде $\Rightarrow \Tilde{f}\in \DDR$ 
+
+\begin{mydef}
+    $\Tilde{f}$-- \textit{регулярные} обобщенные функции, все остальные -- \textit{сингулярные}.
+    \[f:\R\rightarrow\mathbb{C}\]
+    \[\Tilde{f}:\DR\rightarrow\mathbb{C}\]
+\end{mydef}
+
+
+\begin{mytheorem}\label{1}
+    $] f\in L_{1,loc}$ и $] \int\limits_{\R}f(x)\varphi(x)\dd x=0 \,for\,\forall \varphi\in\DR\Rightarrow f =0$
+\end{mytheorem}
+Рассмотрим примеры сингулярных обощенных функций.
+\begin{enumerate}
+\item $\delta$ — сингулярно обобщенная функция
+\[
+(\delta, \varphi) = \varphi(0)
+\]
+Пусть $\delta = \tilde{f}$ и
+\[
+(\delta, \varphi) = \int\limits_{\R} f \varphi \, \dd x
+\]
+
+Возьмем $\varphi \in \mathcal{D}(\R)$ и 
+\[
+\psi = x \varphi(x) \in \mathcal{D}(\R),
+\]
+
+тогда получаем следующую цепочку равенств:
+\[
+(\delta, \psi) = 0 =
+\int\limits_{\R} f(x)\,x\,\varphi(x)\,\dd x
+\quad \forall \varphi \in \DR
+\]
+\[
+\Rightarrow \textbf{по теореме \ref{1}}
+\Rightarrow xf(x)=0 \ \textbf{п.в.}
+\]
+
+\[
+\Rightarrow f(x)=0 \ \textbf{п.в.}
+\]
+
+\[
+\Rightarrow
+\int\limits_{\R} f\varphi \,\dd x =0
+\Rightarrow (\delta,\varphi)=0
+\quad \forall \varphi
+\]
+
+\[
+\Rightarrow \textbf{что является противоречием}.
+\]
+
+\begin{myremark}
+\[
+(\delta,\varphi)
+=
+\int\limits_{\R}\delta(x)\varphi(x)\dd x
+=
+\varphi(0)
+\]
+\end{myremark}
+
+\item 
+$\PP$ -- сингулярно обобщенная функция.
+Пусть $\varphi \in \mathcal{D}(\R)$ и 
+\[
+\psi = x \varphi(x) \in \mathcal{D}(\R),
+\]
+Тогда получим:
+\[(\PP,\psi)=\operatorname{v.p.}\int\limits_{\R}\dfrac{\psi(x)\dd x}{x}
+=\int\limits_{\R}\varphi(x)\dd x\]
+Возьмем $\PP=\Tilde{f}$, тогда:
+\[(\PP,\psi)=\int\limits_{\R} f(x)\,\psi(x)\,\dd x=\int\limits_{\R} f(x)\,x\,\varphi(x)\,\dd x\Rightarrow \] ТУТ НЕ ДОДЕЛАЛ, ЗАПУТАЛСЯ
+\end{enumerate}
+\begin{myexe}
+    Показать что функция $\px{x}$ -- сингулярная обобщенная функция
+\end{myexe}
+
+\section{Доказательство теоремы \ref{1}}
+
+\begin{mylemma}
+    Пусть $g\in C(\R)$ и $\int\limits_{\R} g(x)\,\varphi(x)\,\dd x=0\quad \forall \varphi \in \DR\Rightarrow g\equiv0$
+\end{mylemma}
+\begin{myproof}
+$\varphi$ — вещественнозначные функции
+\[\int\limits_{\R}\operatorname{Re}g(x)\varphi(x)\dd x\ + \ii
+\int\limits_{\R}\operatorname{Im}g(x)\varphi(x)\dd x =0
+\Rightarrow\]
+\[\Rightarrow \int\limits_{\R}\operatorname{Re}g(x) \dd x =\int\limits_{\R}\operatorname{Im}g(x) \dd x = 0\]
+$g$ — вещественнозначные функции. Пусть:
+\[a:\, g(a)>0\Rightarrow \exists\delta>0:g(x)>\varepsilon>0 \, \text{при}\, |x-a|<\delta\]
+\end{myproof}
+\begin{myexe}
+    \[\exists\varphi \in \DR: \supp \varphi=[a-\delta,a+\delta]\,and\, \varphi(x)>0:(a-\delta,a+\delta)\]
+    Показать следующее противоречие:
+    \[\int\limits_{\R} g(x)\,\varphi(x)\,\dd x=
+    \int\limits_{a-\delta}^{a+\delta} g(x)\,\varphi(x)\,\dd x \geq 
+    \varepsilon \int\limits_{a-\delta}^{a+\delta}\varphi(x)\,\dd x\]
+\end{myexe}
+
+\section{Операции над обобщенными функциями}
+\subsection{Умножение на гладкую функцию}
+\subsection{Замена переменных}
+\subsection{Дифференцирование}
+\subsection{Сходимость}
+\subsection{Носитель обощенной функции}
+
+
+
+\section{Прямое произведение обобщенных функций}
+\subsection{Пространство \texorpdfstring{$\dR$}{ } }
+\subsection{Прямое произведение}
+
+
+\section{Свёртка}
+\subsection{Определение}
+\subsection{Замечание}
+
+
+
+\section{Пространство Шварца \texorpdfstring{$\SR$}{ }}
+\subsection{Пространство быстро убывающих функций \texorpdfstring{$\SR$}{ }}
+\subsection{Преобразование Фурье}
+
+
+\section{Пространство Шварца \texorpdfstring{$\SSR$}{ } }
+\subsection{Преобразования медленно растущих обобщенных функций \texorpdfstring{$\SSR$}{ }}
+\subsection{Преобразование Фурье на \texorpdfstring{$\SSR$}{ }}
+\subsection{Свёртка}
+\subsection{Случай \texorpdfstring{$\R^n$}{Rn}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ГЛАВА 2
+% =================================================
+\chapter{Уравнения математической физики}
+
+\section{Введение}
+\subsection{Типы уравнений}
+\subsection{Краевые условия}
+
+\section{Одномерное волновое уравнение}
+\subsection{Уравнение струны}
+\subsection{Метод Даламбера}
+\subsection{Функция Грина для бесконечной струны}
+
+
+
+\section{Волновое уравнение в \texorpdfstring{$\R^3$}{R3}}
+В этом разделе будет рассматривать решение волнового уравнение с граничными условиями:
+\[
+\begin{cases}
+    \dfrac{\p^2 u}{\p t^2} - c^2\Delta u = f(t,x), \ t\geq0, \ x\in\R^3\\
+    \\
+    u\Big|_{t=0} = \varphi(x), \quad \dfrac{\p u}{\p t}\Big|_{t=0} = \psi(x)
+\end{cases}
+\]
+\subsection{Функция Грина}
+В данном случае, мы не сможем также придумать замену, как у уравнении струны, поэтому будем искать функцию Грина $g\in C^\infty([0,\ \infty)),\D'(\R^3)$:
+\[
+\begin{cases}
+    \dfrac{\p^2 g}{\p t^2} - c^2\Delta g = 0\\
+    \\
+    g\xrightarrow[t\to0]{\D(\R^3)}0, \quad \dfrac{\p g}{\p t}\xrightarrow[t\to0]{\D'(\R^3)}\delta(x)
+\end{cases}
+\]
+
+Решение будем находить в три этапа:
+\begin{enumerate}
+    \item Сделаем преобразование Фурье по $x$, откуда получим $\hat{g}(t,\xi)$
+    \item Заведём функцию $\hat{g}_\epsilon(t,\xi) = \hat{g}e^{-\epsilon|\xi|}$, где $\epsilon>0$
+    \item Возьмем предел при $\varepsilon \rightarrow 0 $
+\end{enumerate}
+
+Как и сказали выше, сделаем преобразование фурье по $x$:
+$\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi^2_2+\xi^2_3$, 
+ наше уравнение перепишется в виде:
+\[
+ \dfrac{\p^2 \hat{g}(t,\xi)}{\p t^2} + c^2\xi^2\hat{g}(t,\xi) = 0
+\]
+В этом моменте, надо быть очень вниматлеьным, ведь наша функция Грина из $\D'(\R^3)$, а преобразование Фурье мы умеем делать 
+только в $S'(\R^3)$. Мы верим, что решение будет из $S'(\R^3)$. Решение уже последнего уравнения имеет знакомый нам вид:
+\[
+\hat{g}(t,\xi) = A\cos(c|\xi|t) + B\sin(c|\xi|t)
+\]
+
+Подставляя начальные условия для нахождения констант, получаем:
+\[
+\hat{g}\Big|_{t=0} = 0 \ \Rightarrow \ A = 0, \quad \dfrac{\p \hat{g}}{\p t} = Bc|\xi|\cos(c|\xi|t) \ \Rightarrow \ Bc|\xi| = \dfrac{1}{(2\pi)^{3/2}}
+\]
+
+
+
+
+
+
+\subsection{Решение волнового уравнения в \texorpdfstring{$\R^3$}{R3} }
+\begin{mytheorem} \label{45}
+    Пусть $\varphi \in C^3({\R}^3), \psi\in C^2(\R^2), f \in C^2([0,+\infty]\times\R^3)$\[
+\begin{cases}
+    \dfrac{\p^2 u}{\p t^2} - c^2\Delta u = f(t,x), \ t\geq0, \ x\in\R^3\\
+    \\
+    u\Big|_{t=0} = \varphi(x), \quad \dfrac{\p u}{\p t}\Big|_{t=0} = \psi(x)
+\end{cases}
+\]
+    Тогда $\exists!u\in C^2([0,+\infty]\times\R^3)$:
+    \[u=\dfrac{\partial g}{\partial t}\ast\varphi+g\ast \psi+G\ast f=\int\limits_{\R^3}\dfrac{\partial g}{\partial t}(t,x-y)\varphi(y)\dd y+
+    \int\limits_{\R^3}g(t,x-y)\psi(y)\dd y+\]
+    \[
+    +\int\limits_{0}^{t}\int\limits_{\R^3}g(t-\tau,x-y)f(\tau,y)\dd \tau \dd t= :u_1+u_2+u_3\]
+\end{mytheorem}
+
+
+\begin{myremark}
+    Именно условие $G\Big|_{t<0}=0$ выделяет единтсвенное решение задачи:
+    \[\dfrac{\p^2 G}{\p t^2} - c^2\Delta G = \delta(t,x)\]
+\end{myremark}
+\begin{myproof}
+    Сразу понимаем как выглядит второе и первое слагаемое:
+
+\[
+u_2(t,x) = \dfrac{1}{4\pi c^2t}\int\limits_{|x-y| = ct}\psi(y)\dd S(y)
+\]
+
+\[
+u_1(t,x) = \dfrac{\p}{\p t}\skobka{\dfrac{1}{4\pi c^2t}\int\limits_{|x-y| = ct}\phi(y)\dd S(y)} = (\text{обоб.ф.};\varphi)
+\]
+
+С третьим слагаемым разберемся внимательнее:
+\[
+u_3(t,x) = \int\limits_{0}^{t}\dfrac{\dd\tau}{4\pi c^2(t-\tau)}\int\limits_{|x-y| = c(t-\tau)}f(\tau,y)\dd S(y)= \begin{vmatrix}
+    t-\tau = s
+\end{vmatrix}=\]\[=\int\limits_{0}^{t}\dfrac{\dd s}{4\pi c^2s}\int\limits_{|x-y| = cs}f(t-s,y)\dd S(y)
+\]
+
+Перейдём в сферические координаты следуюзим образом $y = x+(cs,\omega,\psi)$ и раскроем $\dd S$:
+\[
+u_3(t,x) = \int\limits_{0}^{t}\dfrac{\dd s}{4\pi c^2s}c^2s^2\int\limits_{0}^{\pi}\int\limits_{0}^{2\pi}f(t-s,x+(cs,\omega,\psi))\sin\omega\dd \omega\dd \psi =  \int\limits_{|x-y|<ct}\dfrac{f(t-s,y)\dd y}{4\pi c^3s} 
+\]
+
+Записав, что $\dd S=c^2s^2\sin\omega\dd \omega\dd \psi \dd (cs)$, получим:
+\[
+u_3(t,x) = \int\limits_{|x-y|<ct}\dfrac{f\skobka{t-\frac{|x-y|}{c},y}\dd y}{4\pi c^2|x-y|}
+\]
+\end{myproof}
+
+\begin{myremark}
+    Формула:\[u_3(t,x) = \int\limits_{|x-y|<ct}\dfrac{f\skobka{t-\frac{|x-y|}{c},y}\dd y}{4\pi c^2|x-y|}\] называется \textbf{запаздывающим потенциалом}
+\end{myremark}
+
+Рассмотрим и вспомним некоторые равенства.
+\begin{itemize}
+
+
+\item Пусть $h\in C(\R^n)$, тогда производная от интеграла по шару по радиусу:
+    \[
+    \dfrac{\dd}{\dd r}\int\limits_{B_r(0)}h(x)\dd x = \int\limits_{S_r(0)}h(x)\dd S(x) 
+    \]
+ТУТ надо дописать вывод этой формулы 
+
+    
+    \item Теорема Гаусса-Остроградского:
+    \[
+    \int\limits_{\Omega}\operatorname{div}\Vec{f}(x)\dd x = \int\limits_{\p \Omega}(\Vec{f},\Vec{\nu})\dd S(x) \
+    \]
+Переписав в виде для $\grad \Vec{f}$, получим:
+    \[
+    \int\limits_{\Omega}\Delta v(x)\dd x = \int\limits_{\p\Omega}\dfrac{\p v}{\p \nu}\dd S(x)
+    \]
+
+    
+\end{itemize}
+
+Усреднее по сфере выглядит следующим образом:
+\[
+\overline{v}(r,x) = \dfrac{1}{4\pi }\int\limits_{|\omega|=1}v(x+r\omega)\dd S(\omega)=\dfrac{1}{4\pi r^2}\int\limits_{|x-y|=r}v(y)\dd S(y)
+\]
+
+\begin{mylemma}\label{98}
+
+Если у нас задано устреднее по сфере по формуле выше, то:
+\[
+\Let v\in C^2(\R^3) \ \Rightarrow \ \dfrac{\p^2 \overline{v}(r,x)}{\p r^2} + \dfrac{2}{r}\cdot\dfrac{\p\overline{v}(t,x)}{\p r} = \Delta_x\overline{v}(r,x)
+\]
+\end{mylemma}
+\begin{myproof}
+Напишем все нужные нам производные, пользуясь равенствами, которые записали выше:
+
+\[
+\dfrac{\p\overline{v}(r,x)}{\p r} = \dfrac{1}{4\pi }\int\limits_{|\omega|=1}\dfrac{\p v(x+r\omega)}{\p r}\dd S(\omega)=\dfrac{1}{4\pi r^2}\int\limits_{|x-y|=r}\dfrac{\p v(y)}{\p \nu}\dd S(y) = \dfrac{1}{4\pi r^2}\int\limits_{|x-y|<r}\Delta v(y)\dd y
+\]
+
+
+\[
+\dfrac{\p^2\overline{v}(r,x)}{\p r^2} = -\dfrac{1}{2\pi r^3}\int\limits_{|y-x|<r}\Delta v(y)\dd y + \dfrac{1}{4\pi r^2}\int\limits_{|y-x|=r}\Delta v(y)\dd S(y)
+\]
+
+Подставим в выражение из условия леммы, получаем:
+\[
+\dfrac{\p^2 \overline{v}(r,x)}{\p r^2} + \dfrac{2}{r}\cdot\dfrac{\p\overline{v}(r,x)}{\p r} = \dfrac{1}{4\pi r^2}\int\limits_{|y-x|=r}\delta v(y)\dd S(y)
+\]
+
+Теперь распишем правую часть выражения:
+\[
+\Delta_x\overline{v}(r,x) =\dfrac{1}{4\pi }\int\limits_{|\omega|=1}\Delta v(x+r\omega)\dd S(\omega)= \dfrac{1}{4\pi r^2}\int\limits_{|x-y|=r}\Delta v(y)\dd S(y)
+\]
+\end{myproof}
+
+\
+Докажем теорему \ref{45} для $u_2$ при $r=ct$.
+
+Запишем ранеее полученное выражение для $u_2$ и воспользуемся усреднением, которое только что изучили:
+\[
+u_2(t,x) = \dfrac{1}{4\pi c^2t}\int\limits_{|x-y|=ct}\psi(y)\dd S(y) = t\overline{\psi}(ct,x)
+\]
+
+Условие $u_2\Big|_{t=0} = 0$ становится очевидным.
+Подметим замечальные факт, что при деформации (сжатии) сферы,  среднее значение стремится к значению подынтегральной функции в центре(аналогично теореме о среднем в электростатике):
+\[
+\overline{v}(r,x) = \dfrac{1}{4\pi r^2}\int\limits_{|x-y|=r}v(y)\dd s(y) \ \xrightarrow[r\to0]{}v(x)
+\]
+
+Запишем производную по времени, опираясь на утверждение выше:
+\[
+\dfrac{\p u_2}{\p t} = \underbracket[0.2mm]{\overline{\psi}(ct,x)}_{\xrightarrow[t\to0]{}\psi(x)} + ct\underbracket[0.2mm]{\dfrac{\p \overline{\psi}}{\p r}(ct,x)}_{=\bigo{t\to0}{t}} \Rightarrow \dfrac{\p u_2}{\p t}\Big|_{t=0} = \psi(x)
+\]
+
+Запишем вторую производную:
+\[
+\dfrac{\p^2 u_2}{\p t^2} = 2c\dfrac{\p\overline{\psi}}{\p r}(ct,x) + c^2t\dfrac{\p^2\overline{\psi}}{\p r^2}(ct,x) = c^2t\skobka{\dfrac{\p^2\overline{\psi}}{\p r^2}(ct,x) + \dfrac{2}{r}\dfrac{\p\overline{\psi}}{\p r}(ct,x)}
+\]
+
+В скобках получили выражение из леммы \ref{98}:
+\[
+\dfrac{\p^2 u_2}{\p t^2} = c^2t\Delta_x\overline{\psi}(ct,x) = c^2\Delta_xu_2(t,x) \Rightarrow \dfrac{\p^2 u_2}{\p t^2} -c^2\Delta_xu_2(t,x)=0
+\]
+
+
+\end{document}

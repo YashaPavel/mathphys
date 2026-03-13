@@ -375,8 +375,6 @@
 \newcommand{\Let}{\sqsupset}
 \newcommand{\sr}[1]{\left\langle #1 \right\rangle}
 \newcommand{\podst}[1]{\left[ #1 \right]}
-\newcommand{\skob}[1]{\left( #1 \right)}
-
 \newcommand{\im}{\mathbb{C}}
 \newcommand{\INT}{\int\limits_{-\infty}^{+\infty}}
 \newcommand{\intpi}{\int\limits_{-\pi}^{+\pi}}
@@ -385,7 +383,6 @@
 \newcommand{\cl}{\operatorname{cl}}
 \newcommand{\ocup}{\overset{\circ}{\cup}}
 \newcommand{\spec}{\operatorname{spec}}
-
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\arcsh}{\operatorname{arcsh}}
 \newcommand{\arcch}{\operatorname{arcch}}
@@ -436,7 +433,7 @@
 
 {\large Лектор\par}
 \vspace{0.2cm}
-{\Large Филонов Николай Дмитриевич\par}
+{\Large Филонов Николай Дмитриевичччччччччч\par}
 
 \vspace{1.0cm}
 
@@ -699,7 +696,7 @@ $f\in L_{1,loc}$ -- измеримая по Лебегу функция. $\int\l
 
 
 \begin{mytheorem}\label{1}
-    $] f\in L_{1,loc}$ и $] \int\limits_{\R}f(x)\varphi(x)\dd x=0 \,for\,\forall \varphi\in\DR\Rightarrow f =0$
+    Пусть $ f\in L_{1,loc}$ и пусть $ \int\limits_{\R}f(x)\varphi(x)\dd x=0 \,for\,\forall \varphi\in\DR\Rightarrow f =0$
 \end{mytheorem}
 Рассмотрим примеры сингулярных обощенных функций.
 \begin{enumerate}
@@ -902,7 +899,8 @@ $\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi
 
 \subsection{Решение волнового уравнения в \texorpdfstring{$\R^3$}{R3} }
 \begin{mytheorem} \label{45}
-    Пусть $\varphi \in C^3({\R}^3), \psi\in C^2(\R^2), f \in C^2([0,+\infty]\times\R^3)$\[
+    Пусть $\varphi \in C^3({\R}^3), \psi\in C^2(\R^2), f \in C^2([0,+\infty]\times\R^3)$
+    \[
 \begin{cases}
     \dfrac{\p^2 u}{\p t^2} - c^2\Delta u = f(t,x), \ t\geq0, \ x\in\R^3\\
     \\
@@ -1041,5 +1039,88 @@ u_2(t,x) = \dfrac{1}{4\pi c^2t}\int\limits_{|x-y|=ct}\psi(y)\dd S(y) = t\overlin
 \dfrac{\p^2 u_2}{\p t^2} = c^2t\Delta_x\overline{\psi}(ct,x) = c^2\Delta_xu_2(t,x) \Rightarrow \dfrac{\p^2 u_2}{\p t^2} -c^2\Delta_xu_2(t,x)=0
 \]
 
+\begin{myexe}
+    Неоходимо проделать все выше полученное для $u_1$ и $u_3$, 
+    являеются решениями следующих систем:
+    \[
+\begin{cases}
+    \dfrac{\p^2 u_1}{\p t^2} - c^2\Delta u_1 = 0, \ t\geq0, \ x\in\R^3\\
+    \\
+    u_1\Big|_{t=0} = \varphi(x), \quad \dfrac{\p u_1}{\p t}\Big|_{t=0} = \psi(x)
+\end{cases}
+\]
+
+    \[
+\begin{cases}
+    \dfrac{\p^2 u_3}{\p t^2} - c^2\Delta u_3 = f(t,x), \ t\geq0, \ x\in\R^3\\
+    \\
+    u_3\Big|_{t=0} = \varphi(x), \quad \dfrac{\p u_3}{\p t}\Big|_{t=0} = \psi(x)
+\end{cases}
+\]
+
+
+
+     и показать, что $u\in C^2([0,\infty)\times\R^3)$
+\end{myexe}
+
+
+\section{Единственность решения волнового уравнения в $\R^n$}
+Единственность удобно показывать сразу в $\R^n$, так как во всех размерностях это показывается одинаково.
+\\ Напомним несколько равенств, которые использовали раньше:
+
+\[
+    \dfrac{\dd}{\dd r}\int\limits_{B_r}h(x)\dd x = \int\limits_{S_r}h(x)\dd S(x) 
+    \]
+    \[
+    \int\limits_{\Omega}\operatorname{div}\Vec{f}(x)\dd x = \int\limits_{\p \Omega}(\Vec{f},\Vec{\nu})\dd S(x) \
+    \]
+
+\begin{mylemma}
+    Рассмотрим сужающийся шар $B_{R-ct}$. Тогда, для функции $h\in C^2([0,+\infty]\times \R^{n+1})$ Верно равенство:
+\[
+\dfrac{\dd}{\dd t}\int\limits_{B_{R-ct}(0)}h(t,x)\dd x = \int\limits_{B_{R-ct}(0)}\dfrac{\p h(t,x)}{\p t}\dd x - c\int\limits_{S_{R-ct}(0)}h(t,x)\dd S(x)
+\]
+\label{34}
+\end{mylemma}
+
+\begin{mylemma}
+    Для функции $u\in C^2([0,\infty)\times\R^n)$, являющейся решением однородного волнового уравнения:
+\[
+\dfrac{\p^2 u}{\p t^2} - c^2\Delta u = 0
+\]
+Тогда выполняется следующее:
+\[
+\Psi(t) := \int\limits_{B_{R-ct}}\skobka{\skobka{\dfrac{\p u}{\p t}}^2 + c^2\skobka{\nabla_xu}^2}\dd x \ \Rightarrow \ \dfrac{\dd \Psi}{\dd t} \leq0
+\]
+\end{mylemma}
+
+\begin{myproof}
+    Для доказательтва напишем полную производную по времени и будем пользоваться леммой \ref{34}:
+\[
+\dfrac{\dd\Psi}{\dd t} = \int\limits_{B_{R-ct}}\dfrac{\p}{\p t}\skobka{\skobka{\dfrac{\p u}{\p t}}^2 + c^2\skobka{\nabla u}^2}\dd x - c\int\limits_{S_{R-ct}}\skobka{\skobka{\dfrac{\p u}{\p t}}^2 + c^2|\nabla u|^2}\dd S(x)
+\]
+
+Напишем первый интеграл внимательнее и вспомним, что $u$ является решением волнового уравнения:
+\[
+\dfrac{\p}{\p t}\skobka{\skobka{\dfrac{\p u}{\p t}}^2 + c^2\skobka{\nabla u}^2} = 2\dfrac{\p u}{\p t}\dfrac{\p^2 u}{\p t^2} + 2c^2\skobka{\nabla u,\dfrac{\p \nabla u}{\p t}} = \]\[=2c^2\skobka{\dfrac{\p u}{\p t}\Delta u + \skobka{\nabla u,\dfrac{\p \nabla u}{\p t}}} = 2c^2\operatorname{div}\skobka{\dfrac{\p u}{\p t}\nabla u}
+\]
+Вспомним векторное тождетсво:
+\[\operatorname{div}\varphi \vec{h}=(\nabla \varphi,\vec{h})+\varphi \cdot \operatorname{div}\vec{h}\]
+Тогда наш интгерал будет таким:
+\[
+2c^2\int\limits_{B_{R-ct}}\operatorname{div}\skobka{\dfrac{\p u}{\p t}\nabla u}\dd x = 2c^2\int\limits_{S_{R-ct}}\dfrac{\p u}{\p t}\dfrac{\p u}{\p \nu}\dd S(x)
+\]
+
+Подставим получивщееся выражение в интеграл выше и получим нужное нам условие:\[
+\dfrac{\dd\Psi}{\dd t} = c\int\limits_{S_{R-ct}}\skobka{2c\dfrac{\p u}{\p t}\dfrac{\p u}{\p \nu} - \skobka{\dfrac{\p u}{\p t}}^2 - c^2\skobka{\nabla u}^2}\dd S(x)\leq \]\[
+\leq c\int\limits_{S_{R-ct}}\skobka{\skobka{\skobka{\dfrac{\p u}{\p t}}^2 + c^2\skobka{\nabla u}^2} - \skobka{\dfrac{\p u}{\p t}}^2 - c^2\skobka{\nabla u}^2\dd S(x)}\leq0
+\]
+\end{myproof}
+
+\begin{myremark}
+    Если бы $$\int\limits_{\R^n}\skobka{\skobka{\dfrac{\p u}{\p t}}^2 + c^2\skobka{\nabla u}^2}\dd x \leq \infty, $$ то \[\Rightarrow \int\limits_{\R^n}\skobka{\skobka{\dfrac{\p u}{\p t}}^2 + c^2\skobka{\nabla u}^2}\dd x = \operatorname{const}\] --
+     что сильно походит на ЗСЭ. Функция $\Psi$ -- имеет смысл энергии. Шар сужается со скоростью $c$, поэтому внутрь ничего попасть не может, а наружи что-то выходить может.
+
+\end{myremark}
 
 \end{document}

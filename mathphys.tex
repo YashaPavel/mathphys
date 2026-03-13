@@ -1122,5 +1122,182 @@ u_2(t,x) = \dfrac{1}{4\pi c^2t}\int\limits_{|x-y|=ct}\psi(y)\dd S(y) = t\overlin
      что сильно походит на ЗСЭ. Функция $\Psi$ -- имеет смысл энергии. Шар сужается со скоростью $c$, поэтому внутрь ничего попасть не может, а наружи что-то выходить может.
 
 \end{myremark}
+Теперь для теоремы \ref{45} докажем единственность:
+
+Пусть $U \in C^2([0,+\infty]\times\R^3)$
+    \[
+\begin{cases}
+    \dfrac{\p^2 u}{\p t^2} - c^2\Delta u = f(t,x), \ t\geq0, \ x\in\R^3\\
+    \\
+    u\Big|_{t=0} = \varphi(x), \quad \dfrac{\p u}{\p t}\Big|_{t=0} = \psi(x)
+\end{cases}
+\]
+Единственность решения такой задачи равносильна тривиальности решения однородной. 
+Для определенности выберем  точку $(t_0,x_0)$ и посмотрим на  функцию:
+\[
+\Psi(t) = \int\limits_{B_{c(t_0 - t)}(x_0)}\skobka{\dfrac{\p u}{\p t}(t,x)}^2 + c^2\skobka{\nabla u(t,x)}^2\dd x
+\]
+
+Очевидно, что эта функция удовлетворяет следующим условиям из которых следует:
+\[
+\left.
+\begin{array}{l}
+\Psi(0) = 0 \\[4pt]
+\dfrac{d\Psi}{dt} \leq 0 \\[4pt]
+\Psi \geq 0
+\end{array}
+\right\}
+\quad \Rightarrow \quad
+\Psi \equiv 0 \ \Rightarrow \ \dfrac{\partial u}{\partial t} = 0; \ \nabla u = 0 \text{ в конусе}
+\]
+Мы не посмотрели на все условия, кроме граничных, поэтому обратимся к ним и получим:
+\[ \forall t\in(0,t_0):\begin{cases}
+    \dfrac{\p u(t,x_0)}{\p t}=0\\
+    u(0,x_0)=0
+\end{cases} \Rightarrow u(t_0,x_0)=0\, for\, \forall (t_0,x_0) \Rightarrow u\equiv 0 \]
+
+\begin{myremark}
+    в $\R^3$:
+
+\[
+u(t,x) = \dfrac{\dd}{\dd t}\skobka{\dfrac{1}{4\pi c^2t}\int\limits_{S_{ct}(x)=|x-y|=ct}\phi(y)\dd S(y)} + \dfrac{1}{4\pi c^2t}\int\limits_{S_{ct}(x)=|x-y|=ct}\psi(y)\dd S(y) +\]\[+ \dfrac{1}{4\pi c^2}\int\limits_{B_{ct}(x)}\dfrac{f\skobka{t - \frac{|x-y|}{c},y}}{|x-y|}\dd y
+\]
+
+ Это формула \textbf{Кирхгофа}. Рассмотрим случай, когда $f\equiv0$ и $\supp\phi\cup\supp\psi\subset K$ --- компакт.
+ Рассмотрим два характерных размера, которые имеют смысл в таком случае:
+ \begin{enumerate}
+    \item $d_1=\operatorname{dist}(x_2,K)$
+    \item $d_2=\max\limits_{y\in K}|x-y|$
+ \end{enumerate}
+ Ясно, что если $t<\dfrac{d_1}{c} \Rightarrow u(t,x)=0$, аналогично $t>\dfrac{d_2}{c}\Rightarrow u(t,x)=0$. СЮДА КРАСИВОЕ ФОТО РИСУНКА КАК В КОНСПЕКТЕ.
+
+\textbf{Передним фронтои волны} называется следующее множество:
+\[
+\left\{x :\, \operatorname{dist}(x,K) = ct\right\}
+\]
+
+\textbf{Задним фронтом}:
+\[
+\left\{x :\, \max\limits_{y\in K}|x-y|=ct\right\}
+\]
+\end{myremark}
+
+
+
+
+\begin{myexe}
+ При $n = 2$ необходимо проделать все выше изложенное и найти функцию Грина, которая выглядить так:
+\[
+g(t,x) = \dfrac{\theta(c^2t^2 - |x|^2)}{2\pi c\sqrt{c^2t^2 - |x|^2}}
+\]
+
+Следовательно, решение волнового уравнения представимо в виде:
+\[
+u_2(t,x) = \dfrac{1}{2\pi c}\int\limits_{|x-y|< ct}\dfrac{\psi(y)\dd y}{\sqrt{c^2t^2 - |x-y|^2}}
+\]
+
+В 2D передний фронт волны есть, а заднего фронта уже нет. 
+Понятная аналогия приводится из жизни: если в спокойную воду кинуть камешек, то от него пойдут круги -- передний фронт, но заднего фронта (последнего круга) не будет.
+\end{myexe}
+
+\section{Задача Штурма-Лиувилля}
+\subsection{Краевые задачи для обыыкновенного дифференциального уравнения второго поряда.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}

@@ -533,7 +533,7 @@ e^{\frac{1}{x^2-1}}, & |x|<1\\[0.5em]
 \begin{mydef}
     \[\varphi_k \xrightarrow{\DR} \varphi \Leftrightarrow \,\begin{aligned}
 &\exists A,B: \supp{\varphi_k},\supp{\varphi\subset [A,B]}\\
-&\varphi_k^{{(m)}}\xrightarrow{k\rightarrow \infty} \varphi^{{(m)}} \,\text{равномерно на} \,[A,B] \,for \,\forall m
+&\varphi_k^{{(m)}}\xrightarrow{k\rightarrow \infty} \varphi^{{(m)}} \,\text{равномерно на} \,[A,B] \,\text{для} \,\forall m
 \end{aligned}\]
 \end{mydef}
 
@@ -549,10 +549,10 @@ e^{\frac{1}{x^2-1}}, & |x|<1\\[0.5em]
     \[f:\DR \rightarrow \mathbb{C}\]
 \end{mydef}
 Другими словами \[\varphi\rightarrow(f, \varphi)\]
-Посмоторим на линейность и непрерывность.
+Посмотрим на линейность и непрерывность.
 \\ 
 \textbf{1) } Линейность: \\
-$(f,\lambda\varphi+\mu\psi)=\lambda(f,\varphi)+\mu(f,\psi)$ for $\forall \lambda,\mu\in\mathbb{C}$ and $\varphi,\psi \in \DR$\\
+$(f,\lambda\varphi+\mu\psi)=\lambda(f,\varphi)+\mu(f,\psi)$ для $\forall \lambda,\mu\in\mathbb{C}$ и $\varphi,\psi \in \DR$\\
 \textbf{2) } Непрерывность:\\ Если $\varphi_k \xrightarrow{\DR} \varphi$, то $(f,\varphi_k)\rightarrow(f,\varphi)$
 
 
@@ -584,7 +584,8 @@ $(f,\lambda\varphi+\mu\psi)=\lambda(f,\varphi)+\mu(f,\psi)$ for $\forall \lambda
 \[=\lim_{\varepsilon \to +0}\left(\int\limits_{-R}^{-\varepsilon}+\int\limits_{\varepsilon}^{R}\right)\dfrac{\varphi(x)}{x}\,\dd x = 
 \lim_{\varepsilon \to +0}\left(\int\limits_{-R}^{-\varepsilon}+\int\limits_{\varepsilon}^{R}\right)\dfrac{\varphi(x)-\varphi(0)}{x}\,\dd x=\int\limits_{-R}^{R}\dfrac{\varphi(x)-\varphi(0)}{x}\,\dd x\]
 Линейность этого факта достаточно очевидна, поэтому посмотрим на \textit{непрерывность}.
-\[] \varphi_k \xrightarrow{\DR}0  \quad and\quad ]R:\supp{\varphi_k}\subset[-R,R]\]Тогда получим следующую цепочку равенств:
+\[\varphi_k \xrightarrow{\DR}0  \quad \text{и}\quad \supp \varphi_k\subset[-R,R]\]
+Тогда получим следующую цепочку равенств:
 \[\left|(\PP,\varphi_k)\right|=\left|\int\limits_{-R}^{R}\dfrac{\varphi_k(x)-\varphi_k(0)}{x}\,\dd x \right|\leq 2R\cdot \max_{x \in [-R,R]}|\varphi_k'|\xrightarrow{k\to\infty}0\]
 
 \item  \[\left(\px{x},\varphi\right)=\lim_{\varepsilon\to+0}
@@ -696,11 +697,11 @@ $f\in L_{1,loc}$ -- измеримая по Лебегу функция. $\int\l
 
 
 \begin{mytheorem}\label{1}
-    Пусть $ f\in L_{1,loc}$ и пусть $ \int\limits_{\R}f(x)\varphi(x)\dd x=0 \,for\,\forall \varphi\in\DR\Rightarrow f =0$
+    Пусть $ f\in L_{1,loc}$ и пусть $ \int\limits_{\R}f(x)\varphi(x)\dd x=0 \,\text{для}\,\forall \varphi\in\DR\Rightarrow f =0$
 \end{mytheorem}
-Рассмотрим примеры сингулярных обощенных функций.
+Рассмотрим примеры сингулярных обобщенных функций.
 \begin{enumerate}
-\item $\delta$ — сингулярно обобщенная функция
+\item $\delta$ — сингулярная обобщенная функция
 \[
 (\delta, \varphi) = \varphi(0)
 \]
@@ -751,7 +752,7 @@ $f\in L_{1,loc}$ -- измеримая по Лебегу функция. $\int\l
 \end{myremark}
 
 \item 
-$\PP$ -- сингулярно обобщенная функция.
+$\PP$ -- сингулярная обобщенная функция.
 Пусть $\varphi \in \mathcal{D}(\R)$ и 
 \[
 \psi = x \varphi(x) \in \mathcal{D}(\R),
@@ -772,16 +773,16 @@ $\PP$ -- сингулярно обобщенная функция.
     Пусть $g\in C(\R)$ и $\int\limits_{\R} g(x)\,\varphi(x)\,\dd x=0\quad \forall \varphi \in \DR\Rightarrow g\equiv0$
 \end{mylemma}
 \begin{myproof}
-$\varphi$ — вещественнозначные функции
+$\varphi$ — вещественнозначная функция
 \[\int\limits_{\R}\operatorname{Re}g(x)\varphi(x)\dd x\ + \ii
 \int\limits_{\R}\operatorname{Im}g(x)\varphi(x)\dd x =0
 \Rightarrow\]
 \[\Rightarrow \int\limits_{\R}\operatorname{Re}g(x) \dd x =\int\limits_{\R}\operatorname{Im}g(x) \dd x = 0\]
-$g$ — вещественнозначные функции. Пусть:
+$g$ — вещественнозначная функция. Пусть:
 \[a:\, g(a)>0\Rightarrow \exists\delta>0:g(x)>\varepsilon>0 \, \text{при}\, |x-a|<\delta\]
 \end{myproof}
 \begin{myexe}
-    \[\exists\varphi \in \DR: \supp \varphi=[a-\delta,a+\delta]\,and\, \varphi(x)>0:(a-\delta,a+\delta)\]
+    \[\exists\varphi \in \DR: \supp \varphi=[a-\delta,a+\delta] \,\text{и}\, \varphi(x)>0 \text{ на }(a-\delta,a+\delta)\]
     Показать следующее противоречие:
     \[\int\limits_{\R} g(x)\,\varphi(x)\,\dd x=
     \int\limits_{a-\delta}^{a+\delta} g(x)\,\varphi(x)\,\dd x \geq 
@@ -793,7 +794,7 @@ $g$ — вещественнозначные функции. Пусть:
 \subsection{Замена переменных}
 \subsection{Дифференцирование}
 \subsection{Сходимость}
-\subsection{Носитель обощенной функции}
+\subsection{Носитель обобщенной функции}
 
 
 
@@ -1154,7 +1155,7 @@ u_2(t,x) = \dfrac{1}{4\pi c^2t}\int\limits_{|x-y|=ct}\psi(y)\dd S(y) = t\overlin
 \[ \forall t\in(0,t_0):\begin{cases}
     \dfrac{\p u(t,x_0)}{\p t}=0\\
     u(0,x_0)=0
-\end{cases} \Rightarrow u(t_0,x_0)=0\, for\, \forall (t_0,x_0) \Rightarrow u\equiv 0 \]
+\end{cases} \Rightarrow u(t_0,x_0)=0\, \text{для}\, \forall (t_0,x_0) \Rightarrow u\equiv 0 \]
 
 \begin{myremark}
     в $\R^3$:
@@ -1202,35 +1203,149 @@ u_2(t,x) = \dfrac{1}{2\pi c}\int\limits_{|x-y|< ct}\dfrac{\psi(y)\dd y}{\sqrt{c^
 
 \section{Задача Штурма-Лиувилля}
 \subsection{Краевые задачи для обыкновенного дифференциального уравнения второго поряда}
+Рассмотри типичное уравнение второго порядка:
+\[\begin{cases}
+y''(x) + p_1(x)y'(x) + p_2(x)y(x) = f(x)\\
+y(a)=y(b)=0
+\tag{1}
+\label{78}
+\end{cases}\]
 
 
 
 
 
+Мы знаем, что $ x\in[a,b], \ \ p_1,p_2,f\in C([a,b])$, и нам требуется найти $y\in C^2([a,b])$. Сразу запишем несколько замечаний.
+\begin{myremark}
+    Необязательно краевые условия брать нулевыми, в принципе они могут быть произвольными. Так как задача будет сводится к типичной, просто добалением другой функции.
+\end{myremark}
+\begin{myremark}
+    Краевые условия могут быть записаны в нескольких знамых нам видах:\\
+    условие Дирихле: $y(a)=A, \ y(b)=B$\\
+    условие Неймана: $y'(a)=A, \ y'(b)=B$\\
+В самом общем виде можно рассматривать смешанные условия(ПРОВЕРИТЬ УСЛВОИЯ В КОНСПЕКТЕ):
+\[\begin{cases}
+\alpha_0y(a)+\alpha_1y'(a)=A\\
+\beta_0y(b)+\beta_1y'(b)=B 
+\end{cases}\]
+В нашем курсе мы будем использовать только \textbf{условие Дирихле}.
+\end{myremark}
 
 
+\begin{mytheorem}
+    Предположим, что однородная задача \eqref{78} ($f\equiv0$), существует только тривиальное решение ($y\equiv0$), тогда:
+    \[\forall f \in C[a,b] \  \exists! y\in C^2[a,b],\] которое является решением задачи \eqref{78}. 
+\end{mytheorem}
+
+\begin{myproof}
+   Посмотрим на однородное уравнение:
+\[
+y''(x) + p_1(x)y'(x) + p_2(x)y(x) = 0
+\]
+
+У него есть фундаментальная система решений (ФСР), состоящая из двух линейнонезависимых 
+функций $\psi_1$ и $\psi_2$. Если $\psi_1(a) = 0$, то берём $\phi_1 = \psi_1$, если же $\psi_1\neq0$, то положим:
+\[
+\phi_1(x) = \psi_2(a)\psi_1(x) - \psi_1(a)\psi_2(x)\Rightarrow
+\]
+\[\begin{cases}
+    \varphi''_1+p_1\varphi'_1+p_2\varphi_1=0\\
+    \varphi_1(a)=0
+\end{cases}\]
+
+При таком построении $\phi_1\not\equiv0$, так как $\psi_1$ и $\psi_2$ линейнонезависимы.
+
+Аналогично: $\phi_2$ -- нетривиальное решение.
+\[\begin{cases}
+    \varphi''_2+p_1\varphi'_2+p_2\varphi_2=0\\
+    \varphi_2(b)=0
+\end{cases}\]
+
+$\{\phi_1,\phi_2\}$ также образуют фундаментальную систему решений нашей однородной задачи. 
+Они действительно ЛНЗ. Если бы $\phi_2(x) = \gamma\phi_1(x)\Rightarrow \phi_1$ --- нетривиальное решение решение исходной однородной задачи \eqref{78}. Но по условию теоремы требуем, чтобы там было только тривиальное решение.
+
+Теперь перейдём к решению неоднородного уравнения.
+\[\begin{cases}
+    y''+p_1y'+p_2y=0\\
+    y(a)=y(b)=0
+\end{cases}\] 
+Искать решешение мы будем знакомым способом -- \textit{методом вариации произвольной постоянной}:
+\[
+y(x) = C_1(x)\phi_1(x) + C_2(x)\phi_2(x)
+\]
+\[
+y' = C_1\phi_1' + C_2\phi_2'\]
+\[y'' = C_1\phi_1'' + C_2\phi_2'' + C_1'\phi_1' + C_2'\phi_2'\]
 
 
+Получаем систему:
+\[
+\begin{cases}
+    C'_1\phi_1 + C'_2\phi_2 = 0\\
+    C_1'\phi_1' + C_2'\phi_2' = f(x)
+\end{cases}
+\]
+
+Рассмотрим Вронскиан ($W$) этой системы:
+\[
+W(x) = \phi_1(x)\phi_2'(x) - \phi_1'(x)\phi_2(x)
+\]
+\[
+C_1'(x) = -\dfrac{f\phi_2}{W}, \ C_2'(x) = \dfrac{f\phi_1}{W}
+\]
+
+Из условий $y(a) = y(b) = 0$ сразу понятно, что $C_2(a) = C_1(b) = 0$, тогда:
+\[
+C_1(x) = \int\limits_{x}^{b}\dfrac{\phi_2(s)f(s)}{W(s)}\dd s, \ C_2(x) = \int\limits_{a}^{x}\dfrac{\phi_1(s)f(s)}{W(s)}\dd s\]
+
+Тем самым, мы показыли существования решения. Не стоит забывать про единственность, поэтому докажем её.
+Пусть есть два решения $y_1$ и $y_2$, но тогда $(y_1 - y_2)$ -- это решение однородного уравнения, которое обязано быть тривиальным, по условию теоремы. Получили, $y_1 \equiv y_2$.
+
+\end{myproof}
 
 
+\begin{mydef}
+    Функция Грина для задачи \eqref{78} --  $G(s,t), \ G\in C\skobka{[a,b]\times[a,b]}$ -- ядро интегрального оператора. Другими словами:
+\[
+\forall f\in C\skobka{[a,b]} \ \ \exists! \ y(s) = \int\limits_{a}^{b}G(s,t)f(t)\dd t
+\] 
+\end{mydef}
+
+Для нашей задачи функция Грина выглядит так:
+\[
+G(t,x) = 
+\begin{cases}
+    \dfrac{\phi_1(s)\phi_2(t)}{W(s)}, \ s\leq t\\
+    \dfrac{\phi_2(s)\phi_1(t)}{W(s)}, \ s>t
+\end{cases}
+\]
+Понимаем, что при $s=a=b$, наше кравевое условие не нарушается, потому что $G(a,t)=G(b,t)=0$
+
+\begin{mydef}
+    Функцию Грина для задачи \eqref{78}, мжно записать еще и следующим образом:
+    \[
+\begin{cases}
+    G''_{ss}(s,t) + p_1(s)G'_s(s,t) + p_2(s)G(s,t) = \delta(s-t)\\
+    G(a,t) = G(b,t) = 0
+\end{cases}
+\]
+\end{mydef}
+
+Рассматривая первую производную, получим:
+\[G'_s(s,t) = 
+\begin{cases}
+    \dfrac{\phi'_1(s)\phi_2(t)}{W(t)}, \ s\leq t\\
+    \dfrac{\phi_1(t)\phi_2'(s)}{W(t)}, \ s>t
+\end{cases}
+\]
+Так как мы считаем производную уже в обобщенном смысле, там надо проверить, нет ли скачка обычной производной:
+\[\dfrac{\p G(s,t)}{\p s}\Big|_{s=t+0}=\dfrac{\phi_1(s)\phi_2'(s)}{W(s)}\]
+\[\dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=\dfrac{\phi_1(s)\phi_2'(s)}{W(s)}\] Откуда видно, что $\dfrac{\p G(s,t)}{\p s}\Big|_{s=t+0} - \dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=1$, скачка нет.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{mytheorem}
+    Предположим, что у однородной задачи \eqref{78}, существует нетривиальное решение $y_0$
+\end{mytheorem}
 
 
 

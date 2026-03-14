@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../project"
+		},
+		{
+			"path": "../d_int"
+		}
+	],
+	"settings": {}
+}

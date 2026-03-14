@@ -1,4 +1,4 @@
-% !TEX program = xelatex
+%!TEX program = xelatex
 \documentclass[12pt]{report}
 
 % -------------------------------------------------
@@ -383,7 +383,7 @@
 \newcommand{\cl}{\operatorname{cl}}
 \newcommand{\ocup}{\overset{\circ}{\cup}}
 \newcommand{\spec}{\operatorname{spec}}
-\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\dom}{\operatorname{Dom}}
 \newcommand{\arcsh}{\operatorname{arcsh}}
 \newcommand{\arcch}{\operatorname{arcch}}
 \newcommand{\arctanh}{\operatorname{arctanh}}
@@ -406,7 +406,7 @@
 \newcommand{\smallo}[2]{\underset{#1}{\overline{o}\left(#2\right)}}
 \newcommand{\bigo}[2]{\underset{#1}{\underline{O}\left(#2\right)}}
 \newcommand{\F}{\mathcal{F}}
-
+\newcommand{\Cinf}{\text{C}^{\infty}}
 % -------------------------------------------------
 % ПАРАМЕТРЫ ОГЛАВЛЕНИЯ
 % -------------------------------------------------
@@ -441,7 +441,8 @@
 \vspace{0.2cm}
 {\normalsize
 Яков Овсянников\par}
-
+{\normalsize
+Лозовой Александр\par}
 \vspace{1.2cm}
 {\large Университет ИТМО\par}
 
@@ -763,7 +764,7 @@ $\PP$ -- сингулярная обобщенная функция.
 Возьмем $\PP=\Tilde{f}$, тогда:
 \[(\PP,\psi)=\int\limits_{\R} f(x)\,\psi(x)\,\dd x=\int\limits_{\R} f(x)\,x\,\varphi(x)\,\dd x\Rightarrow \] 
 \[\int\limits_{\R}x\,f(x)\,\phi(x)\,\dd x=\int\limits_{\R}\phi(x)\,\dd x \quad \forall \varphi\]
-\[\Rightarrow x\,f(x)=1 \textbf{п.в.} \Rightarrow f(x)=\dfrac{1}{x} \textbf{п.в.}\]
+\[\Rightarrow x\,f(x)=1 \textbf{ п.в. } \Rightarrow f(x)=\dfrac{1}{x} \textbf{ п.в.}\]
 \[\Rightarrow f(x)=\dfrac{1}{x}\notin L_{1,loc} \quad \forall x\neq0\]
 \end{enumerate}
 \begin{myexe}
@@ -794,6 +795,20 @@ $g$ — вещественнозначная функция. Пусть:
 
 \section{Операции над обобщенными функциями}
 \subsection{Умножение на гладкую функцию}
+\begin{mydef}
+    Пусть $f \in \DDR$, $\beta \in C^{\infty}(\R)$
+    \[(\beta f, \phi)\coloneqq(f,\beta \phi)\]
+\end{mydef} 
+\textbf{1)} Корректность: $\phi \in \DR \Rightarrow \beta \phi \in \DR$ \\
+\textbf{2)} Линейность: очевидна \\
+\textbf{3)} Непрерывность: $\phi_k \xrightarrow{\DR} 0 \Rightarrow \beta\phi_k \xrightarrow{\DR} 0$\\
+Производная m-ой степени: $(\beta\phi_k)^(m)=\sum\limits_{j=0}^{m}C_m^j\beta^(m-j)\phi_k^(j)$\\
+Примеры: \\\textbf{1)} Пусть $\beta \in C^{\infty}$ 
+ \[(\beta\delta, \phi)=(\delta, \beta\phi)=\beta(0)\phi(0)\]
+\textbf{2)} 
+\[(x\,\PP, \phi)=(\PP, x\phi)=\operatorname{v.p.}\int\limits_{\R}\dfrac{x\phi(x)}{x}\dd x=\int\limits_{\R}\phi(x)\dd x=(1, \phi)\]
+\[\Rightarrow x\,\PP=1\]
+
 \subsection{Замена переменных}
 \subsection{Дифференцирование}
 \subsection{Сходимость}
@@ -1068,7 +1083,7 @@ u_2(t,x) = \dfrac{1}{4\pi c^2t}\int\limits_{|x-y|=ct}\psi(y)\dd S(y) = t\overlin
 \end{myexe}
 
 
-\section{Единственность решения волнового уравнения в \texorpdfstring{$\R^n$}{R}}
+\section{Единственность решения волнового уравнения в \texorpdfstring{$\R^n$}{D(R)}}
 
 Единственность удобно показывать сразу в $\R^n$, так как во всех размерностях это показывается одинаково.
 \\ Напомним несколько равенств, которые использовали раньше:
@@ -1347,43 +1362,193 @@ G(t,x) =
 \[\dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=\dfrac{\phi_1(s)\phi_2'(s)}{W(s)}\] Откуда видно, что $\dfrac{\p G(s,t)}{\p s}\Big|_{s=t+0} - \dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=1$, скачка нет.
 
 
+
+
+
+
+
+
+
 \begin{mytheorem}
-    Предположим, что у однородной задачи \eqref{78}, существует нетривиальное решение $y_0$
+    Предположим, что у однородной задачи \eqref{78}, существует нетривиальное решение $y_0,$ тогда у неоднородного задачи либо нет рещений, либо их бесконечно много
 \end{mytheorem}
 
 
+\begin{myproof}
+    Если существует $y_1$ -- нетривиальное решение неоднородной задачи \eqref{78}, то $y(x)=y_1(x)+Cy_0(x)$ -- тоже решение.
+\end{myproof}
+
+\subsection{Примеры}
+
+\begin{enumerate}
+    \item Пусть $[a,b]=[0,l]$ и рассмотрим задачу:
+    \[
+    \begin{cases}
+        y''(x) + \lambda y(x) = 0\\
+        y(0) = y(l) = 0
+    \end{cases}
+    \]
+    \begin{itemize}
+       
+    
+     \item Если $\lambda = 0$, то $y(x) = Ax + B$, при этом   $A = B = 0$ (из граничных условий) $\Rightarrow y\equiv0$
+
+     \item Если $\lambda<0$, то:
+    \[
+    y(x) = A\ch(\sqrt{-\lambda}x) + B\sh(\sqrt{-\lambda}x)
+    \]
+    \[
+    y(0) = 0 \ \Rightarrow \ A = 0\]
+    \[ y(l) = 0 \ \Rightarrow \ B\sh(\sqrt{-\lambda}l) = 0 \ \Rightarrow \ B = 0
+    \]
+
+    $\Rightarrow y\equiv0$
+
+    \item  Если  $\lambda>0$, то:
+    \[
+    y(x) = A\cos(\sqrt{\lambda}x) + B\sin(\sqrt{\lambda}x)
+    \]
+      \[
+    y(0) = 0 \ \Rightarrow \ A = 0\]
+    \[ y(l) = 0 \ \Rightarrow \ B\sin(\sqrt{\lambda}l) = 0 \ \Rightarrow \ \sqrt{\lambda}l = \pi k
+    \]
+
+   Откуда:
+    \[
+    \lambda_k= \dfrac{\pi^2k^2}{l^20}, \ \ y_k = \sin\skobka{\dfrac{\pi k x}{l}} \quad k\in\N
+    \]
+\end{itemize}
+    \item Рассмотрим произвольный отрезок $[a,b]$:
+    \[
+    \begin{cases}
+        y''(x) + q(x)y(x) = f(x)\\
+        y(a) = y(b) = 0
+    \end{cases}
+    \]
+
+   И пусть $\phi(x)\not\equiv0$ -- решение однородной задачи:
+    \[
+    \begin{cases}
+        \phi'' + q\phi = 0\\
+        \phi(a) = \phi(b) = 0
+    \end{cases}
+    \]
+Посмотрим на следующие интегралы:
+    \[
+    \int\limits_{a}^{b}y''(x)\phi(x)\dd x = -\int\limits_{a}^{b}y'(x)\phi'(x)\dd x = \int\limits_{a}^{b}y(x)\phi''(x)\dd x
+    \]
+    Тогда расписав такой интеграл, получим:
+    \[
+    \int\limits_a^b\skobka{y''\phi + qy\phi}\dd x = \int\limits_{a}^by(\phi'' + q\phi)\dd x = 0
+    \]
+
+    В таком случае, если существует $y$, то $\int\limits_{a}^{b}f(x)\phi(x)\dd x = 0$ -- \textit{необходимое условие разрешимостию}
+\end{enumerate}
 
 
+\begin{myremark}
+    ТУТ ЗАМЕТКА ПРО ЛИНАЛ
+\end{myremark}
+У нас появился линеный оператор $L := \dfrac{\dd^2 }{\dd^2 x} + p_1(x)\dfrac{\dd }{\dd x} + p_2(x),$ где $\{\lambda_k\}_{k=1}^{\infty}$ -- собственные числа и $y_k=\sin(\frac{\pi k x}{l})$ -- собственные функции. 
+
+\subsection{Однородная задача Штурма-Лиувилля}
+
+Однородной (неоднородной) задачей Штурма-Лиувилля называется следующая система:
+\[
+\begin{cases}
+    (p(x)y'(x))' + (\lambda r(x) - q(x))y(x) = 0 \ ( = f(x))\\
+    \alpha_0y(a) + \alpha_1y'(a) = 0 \ ( = A)\\
+    \beta_0y(b) + \beta_1y'(b) = 0 \ ( = B)
+\end{cases},
+\]
+где $p\in C^1([a,b])$;\ $q,r\in C([a,b])$, при этом $\forall x\in[a,b] \ \ p(x),r(x)>0, \ |\alpha_0| + |\alpha_1|>0, \ |\beta_0| + |\beta_1| > 0$. 
+Тут $y\in C^2([a,b])$ --- неизвестная функция, а $\lambda\in\R$ --- это спектральный параметр.\\
+Мы будем рассматривать $y(a)=y(b)=0$, для таких условий, как мы уже знаем, существует всегда тривиальное решение $y\equiv0$.
+
+\begin{mydef}
+    Число $\lambda$ -- называется \textbf{собственным числом} однородной задачи Штурма-Лиувилля, если существует нетривиальное решение однородной задачи Штурма-Лиувилля.
+\end{mydef}
+
+\begin{myremark}
+    Может быть такое, что $p(x)>0 \ \ \forall x\in(a,b)$ и $p(a) = p(b) = 0$, тогда на $y(x)$ нет никаках краевых условий.
+\end{myremark}
+
+Рассмотрим пространство $C([a,b])$ и определим на нём скалярное произведение так:
+\[
+(f,g) = \int\limits_{a}^{b}f(x)g(x)r(x)\dd x
+\]
+
+Это скалярное произведение порождает норму:
+\[
+||f||_r^2 = \int\limits_a^bf^2(x)r(x)\dd x
+\]
+
+Понятно, что для них выполняются стандартные аксиомы. Это пространство называется \textbf{предгильбертовым} (до гильбертова не хватает полноты). 
+\begin{myremark}
+    Это пространтво всегда можно пополнить до $L_2([a,b])$
+\end{myremark}
+
+Определим в пространстве $C([a,b])$ такой оператор оператор:
+\[
+\LL = -\dfrac{1}{r(x)}\dfrac{\dd}{\dd x}\skobka{p(x)\dfrac{\dd}{\dd x}\cdot} + \dfrac{q(x)}{r(x)}\cdot
+\]
+
+Здесь точки указывают на места, куда мы будем <<подставлять>> функции, на которые действуем оператором: 
+\[
+\LL y = \dfrac{-(py')'+qy}{r}
+\]
+Очевидно, что $\LL$ -- это линейный оператор. Но он задан на бесконечномерном пространстве, поэтому его область опрделения:
+\[
+\dom\LL = \left\{f\in C^2([a,b]): \ f(a) = f(b) = 0\right\}
+\]
 
 
+\begin{myremark}
+    Утверждение о том, что $\lambda$ является собственным числом задачи Штурма-Лиувилля равносильно тому, что $\lambda$ является собственным числом оператора $\LL$. Другими словами:
+    \[\lambda - \text{c.ч} \Rightarrow y\not\equiv0: y\in \dom \LL: \LL y=\lambda y\]
+\end{myremark}
 
 
+\begin{myremark}
+Если $p(a) = p(b) = 0$, то $\dom\LL = C^2[a,b]$
+\end{myremark}
 
 
+\begin{mylemma}
+    $\LL$ --- симметричный оператор, то есть $(\LL f,g) = (f,\LL g) \ \ \forall f,g\in\dom\LL$
+\end{mylemma}
+
+\begin{myproof}
+    Напишем левую часть и воспользуемся формулой интегрирования по частям и не забудем, что $f(a) = f(b) = g(a) = g(b) = 0$:
+    \[
+(\LL f,g) = \int\limits_{a}^{b}\LL f(x)g(x)r(x)\dd x = \int\limits_{a}^{b}\skobka{-(pf')'g + qfg}\dd x = \int\limits_a^b\skobka{pf'g'+qfg}\dd x=
+\]
+
+\[
+= \int\limits_a^bf\skobka{-(pg')'+qg}\dd x = \int\limits_a^bf(x)(\LL g)(x) r(x)\dd x = (f,\LL g)
+\]
+\end{myproof}
+
+\begin{myremark}
+    Если $p(x)>0 \ \ \forall x\in(a,b)$ и  $p(a) = p(b) = 0$ доказательство аналогично. $\dom\LL = C^2[a,b]$ и $\LL$ -- симметричный оператор.
+    Но неинтегральные слагаемые будут зануляться уже за счет функции $p$, а не благодаря функциям $f$ и $g$.
+\end{myremark}
+
+\begin{myexe}
+    Показать, что при таких условиях:
+    \[\begin{cases}
+\alpha_0y(a)+\alpha_1y'(a)=0\\
+\beta_0y(b)+\beta_1y'(b)=0
+\end{cases}  \] оператор $\LL$ -- симметричный.
+\end{myexe}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{mytheorem}
+    Спектр оператора $\LL$ -- однократный, то есть собственные подпространства одномерыны $\LL y = \lambda y$. Собственные функции, соответствующие различным собственным числам, ортогональны.
+\end{mytheorem}
+\begin{myproof}
+    
+\end{myproof}
 
 
 

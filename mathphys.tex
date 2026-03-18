@@ -10,10 +10,8 @@
 \setotherlanguage{english}
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
+
 \setmonofont{Menlo}
-
-% -------------------------------------------------
-
 
 % -------------------------------------------------
 % ГЕОМЕТРИЯ
@@ -34,19 +32,12 @@
 \usepackage{mathrsfs}
 \usepackage{bm}
 
-\newcommand{\supp}{\operatorname{supp}}
-
 % -------------------------------------------------
 % ГРАФИКА И ТАБЛИЦЫ
 % -------------------------------------------------
 \usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage{tabularx}
+\usepackage{caption,subcaption}
+\usepackage{booktabs,multirow,array,longtable,tabularx}
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -59,18 +50,15 @@
 \usepackage{indentfirst}
 \usepackage{setspace}
 \onehalfspacing
-
 \setlength{\parindent}{1.25cm}
 \setlength{\parskip}{0pt}
 
 % -------------------------------------------------
 % СПИСКИ
 % -------------------------------------------------
-\usepackage{xcolor}
 \usepackage{enumitem}
 \setlist{nosep}
 
-% -------------------------------------------------
 % -------------------------------------------------
 % ГИПЕРССЫЛКИ
 % -------------------------------------------------
@@ -84,7 +72,6 @@
   pdftitle={Конспект по математической физике},
   pdfauthor={Яков Овсянников}
 }
-
 \usepackage[nameinlink,noabbrev]{cleveref}
 
 % -------------------------------------------------
@@ -103,14 +90,12 @@
   \fancyhead[C]{\small Конспект по математической физике}
   \fancyfoot[C]{\thepage}
   \renewcommand{\headrulewidth}{0.4pt}
-  \renewcommand{\footrulewidth}{0pt}
 }
 
 % -------------------------------------------------
 % ОФОРМЛЕНИЕ ГЛАВ
 % -------------------------------------------------
 \usepackage{titlesec}
-
 \titleformat{\chapter}[display]
 {\thispagestyle{plain}\normalfont\centering}
 {\Huge\bfseries Глава \thechapter}
@@ -166,22 +151,16 @@
 
 \definecolor{defback}{RGB}{235,245,255}
 \definecolor{defframe}{RGB}{70,120,200}
-
 \definecolor{exback}{RGB}{240,255,240}
 \definecolor{exframe}{RGB}{70,150,90}
-
 \definecolor{thmback}{RGB}{255,248,235}
 \definecolor{thmframe}{RGB}{210,140,40}
-
 \definecolor{lemmaback}{RGB}{250,245,255}
 \definecolor{lemmaframe}{RGB}{130,90,180}
-
 \definecolor{propback}{RGB}{245,250,255}
 \definecolor{propframe}{RGB}{70,110,170}
-
-\definecolor{remarkback}{RGB}{255,249,196}  
-\definecolor{remarkframe}{RGB}{212,175,55}  
-
+\definecolor{remarkback}{RGB}{255,249,196}
+\definecolor{remarkframe}{RGB}{212,175,55}
 \definecolor{proofback}{RGB}{248,248,248}
 \definecolor{proofframe}{RGB}{120,120,120}
 
@@ -211,19 +190,14 @@
 % -------------------------------------------------
 \crefname{theoremctr}{теорема}{теоремы}
 \Crefname{theoremctr}{Теорема}{Теоремы}
-
 \crefname{lemmactr}{лемма}{леммы}
 \Crefname{lemmactr}{Лемма}{Леммы}
-
 \crefname{propctr}{утверждение}{утверждения}
 \Crefname{propctr}{Утверждение}{Утверждения}
-
 \crefname{remarkctr}{замечание}{замечания}
 \Crefname{remarkctr}{Замечание}{Замечания}
-
 \crefname{defctr}{определение}{определения}
 \Crefname{defctr}{Определение}{Определения}
-
 \crefname{exectr}{упражнение}{упражнения}
 \Crefname{exectr}{Упражнение}{Упражнения}
 
@@ -290,8 +264,20 @@
   title={Определение~\thedefctr},
   #1
 }
-% ------------------------------------------------- % ДОКАЗАТЕЛЬСТВО % ------------------------------------------------- 
-\newtcolorbox{myproof}{ enhanced, breakable, colback=proofback, colframe=proofframe, boxrule=0.8pt, arc=2mm, fonttitle=\bfseries, title={Доказательство} }
+
+% -------------------------------------------------
+% ДОКАЗАТЕЛЬСТВО
+% -------------------------------------------------
+\newtcolorbox{myproof}{
+  enhanced,
+  breakable,
+  colback=proofback,
+  colframe=proofframe,
+  boxrule=0.8pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  title={Доказательство}
+}
 
 % -------------------------------------------------
 % УПРАЖНЕНИЕ
@@ -327,92 +313,100 @@
 
 % -------------------------------------------------
 % ПОЛЕЗНЫЕ КОМАНДЫ
-
+% -------------------------------------------------
+% Множества
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\p}{\partial}
-\newcommand{\dd}{\mathop{}\!\mathrm{d}}
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\LL}{\mathscr{L}}
+\renewcommand{\L}{\mathcal{L}}
 
-\newcommand{\Pf}[1]{\mathrm{P}\dfrac{1}{#1}}
+% Операторы
+\newcommand{\sign}{\operatorname{sign}}
+\renewcommand{\span}{\operatorname{span}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\dom}{\operatorname{Dom}}
+\newcommand{\Alt}{\operatorname{Alt}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\arcsh}{\operatorname{arcsh}}
+\newcommand{\arcch}{\operatorname{arcch}}
+\newcommand{\arctanh}{\operatorname{arctanh}}
+\newcommand{\arccth}{\operatorname{arccth}}
 
-\newcommand{\vect}[1]{\mathbf{#1}}
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\norm}[1]{\left\|#1\right\|}
-\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
-\newcommand{\skobka}[1]{\left( #1 \right)}
-\newcommand{\paren}[1]{\left(#1\right)}
-\newcommand{\brackets}[1]{\left[#1\right]}
-\newcommand{\set}[1]{\left\{#1\right\}}
-
+% Пространства
 \newcommand{\DR}{\mathcal{D}(\R)}
 \newcommand{\SR}{\mathcal{S}(\R)}
 \newcommand{\SSR}{\mathcal{S}'(\R)}
 \newcommand{\dR}{\mathcal{D}'(\R^n)}
 \newcommand{\DDR}{\mathcal{D}'(\R)}
+\newcommand{\Cinf}{\text{C}^{\infty}}
 
+% Производные и интегралы
+\newcommand{\p}{\partial}
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\grad}{\Vec{\nabla}}
 
+% Скобки
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\sr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\podst}[1]{\left[ #1 \right]}
+\newcommand{\skobka}[1]{\left( #1 \right)}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brackets}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+% Специальные функции
+\newcommand{\Pf}[1]{\mathrm{P}\dfrac{1}{#1}}
 \newcommand{\PP}{\mathrm{P}\dfrac{1}{x}}
 \newcommand{\px}[1]{\dfrac{1}{#1 \pm \mathrm{i}0}}
 
-\newcommand{\dopis}{\begin{center}\textbf{Дописать}\end{center}}
-\newcommand{\B}{\mathcal{B}}
-\newcommand{\grad}{\Vec{\nabla}}
-\newcommand{\RomanNumeralCaps}[1]
-    {\MakeUppercase{\romannumeral #1}}
-\newcommand{\ubf}[1]{ \noindent\textbf{\underline{#1}}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\D}{\mathcal{D}}
-
-\newcommand{\LL}{\mathscr{L}}
-
-\newcommand{\Alt}{\operatorname{Alt}}
-
-\renewcommand{\L}{\mathcal{L}}
-\newcommand{\Let}{\sqsupset}
-\newcommand{\sr}[1]{\left\langle #1 \right\rangle}
-\newcommand{\podst}[1]{\left[ #1 \right]}
-\newcommand{\im}{\mathbb{C}}
+% Суммы и интегралы
 \newcommand{\INT}{\int\limits_{-\infty}^{+\infty}}
 \newcommand{\intpi}{\int\limits_{-\pi}^{+\pi}}
-\newcommand{\sign}{\operatorname{sign}}
-\renewcommand{\span}{\operatorname{span}}
-\newcommand{\cl}{\operatorname{cl}}
-\newcommand{\ocup}{\overset{\circ}{\cup}}
-\newcommand{\spec}{\operatorname{spec}}
-\newcommand{\dom}{\operatorname{Dom}}
-\newcommand{\arcsh}{\operatorname{arcsh}}
-\newcommand{\arcch}{\operatorname{arcch}}
-\newcommand{\arctanh}{\operatorname{arctanh}}
-\newcommand{\arccth}{\operatorname{arccth}}
-\renewcommand{\phi}{\ensuremath{\varphi}}
-\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
-\renewcommand{\kappa}{\ensuremath{\varkappa}}
-\newcommand{\theme}[1]{\noindent\textbf{\underline{#1}}\vskip2mm}
-\newcommand{\bigO}{\underline{O}}
+\newcommand{\sumn}{\sum_{n=0}^{\infty}}
+\newcommand{\summ}{\sum_{m=0}^{\infty}}
+\newcommand{\sumk}{\sum_{k=0}^{\infty}}
+\newcommand{\SUMN}{\sum_{n=1}^{\infty}}
+\newcommand{\SUMM}{\sum_{m=1}^{\infty}}
+\newcommand{\SUMK}{\sum_{k=1}^{\infty}}
+\newcommand{\sumin}{\sum_{i=1}^{n}}
+\newcommand{\sumkn}{\sum_{k=1}^{n}}
+\newcommand{\SuM}{\sum_{k=1}^{m}}
 \newcommand{\disp}{\displaystyle}
-\newcommand{\sumn}{\sum\limits_{n = 0}^{\infty}}
-\newcommand{\summ}{\sum\limits_{m = 0}^{\infty}}
-\newcommand{\sumk}{\sum\limits_{k = 0}^{\infty}}
-\newcommand{\sumin}{\sum\limits_{i = 1}^{n}}
-\newcommand{\SUMN}{\sum\limits_{n = 1}^{\infty}}
-\newcommand{\SUMM}{\sum\limits_{m = 1}^{\infty}}
-\newcommand{\SUMK}{\sum\limits_{k = 1}^{\infty}}
-\newcommand{\sumkn}{\sum\limits_{k = 1}^{n}}
-\newcommand{\SuM}{\sum\limits_{k = 1}^{m}}
+
+% Оценки
 \newcommand{\smallo}[2]{\underset{#1}{\overline{o}\left(#2\right)}}
 \newcommand{\bigo}[2]{\underset{#1}{\underline{O}\left(#2\right)}}
-\newcommand{\F}{\mathcal{F}}
-\newcommand{\Cinf}{\text{C}^{\infty}}
-% -------------------------------------------------
-% ПАРАМЕТРЫ ОГЛАВЛЕНИЯ
-% -------------------------------------------------
+\newcommand{\bigO}{\underline{O}}
 
+% Разное
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\Let}{\sqsupset}
+\newcommand{\ocup}{\overset{\circ}{\cup}}
+\newcommand{\dopis}{\begin{center}\textbf{Дописать}\end{center}}
+\newcommand{\ubf}[1]{\noindent\textbf{\underline{#1}}}
+\newcommand{\theme}[1]{\noindent\textbf{\underline{#1}}\vskip2mm}
+\newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
+
+% Переопределения греческих букв
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\kappa}{\varkappa}
+% -------------------------------------------------
 \setcounter{secnumdepth}{3}
 \begin{document}
+
 
 % =================================================
 % ОБЛОЖКА
@@ -1012,7 +1006,7 @@ u_3(t,x) = \int\limits_{|x-y|<ct}\dfrac{f\skobka{t-\frac{|x-y|}{c},y}\dd y}{4\pi
 \[
 \dfrac{\p\overline{v}(r,x)}{\p r} = \dfrac{1}{4\pi }\int\limits_{|\omega|=1}\dfrac{\p v(x+r\omega)}{\p r}\dd S(\omega)=\dfrac{1}{4\pi r^2}\int\limits_{|x-y|=r}\dfrac{\p v(y)}{\p \nu}\dd S(y) = \dfrac{1}{4\pi r^2}\int\limits_{|x-y|<r}\Delta v(y)\dd y
 \]
-  git checkout main
+  
 
 \[
 \dfrac{\p^2\overline{v}(r,x)}{\p r^2} = -\dfrac{1}{2\pi r^3}\int\limits_{|y-x|<r}\Delta v(y)\dd y + \dfrac{1}{4\pi r^2}\int\limits_{|y-x|=r}\Delta v(y)\dd S(y)
@@ -1547,7 +1541,7 @@ G(t,x) =
     Спектр оператора $\LL$ -- однократный, то есть собственные подпространства одномерыны $\LL y = \lambda y$. Собственные функции, соответствующие различным собственным числам, ортогональны.
 \end{mytheorem}
 \begin{myproof}
-    czxgkadvguk
+    czxgkadvgukывмоилыофилмиолафыывимц
 \end{myproof}
 
 

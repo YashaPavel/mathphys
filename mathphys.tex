@@ -1541,19 +1541,90 @@ G(t,x) =
     Спектр оператора $\LL$ -- однократный, то есть собственные подпространства одномерыны $\LL y = \lambda y$. Собственные функции, соответствующие различным собственным числам, ортогональны.
 \end{mytheorem}
 \begin{myproof}
-    czxgkadvgukывмоилыофилмиолафыывимц
+    \begin{enumerate}
+        \item Сначала посмотрим на первое утверждение. \\Пусть у нас имеется собстенное число -- $\lambda$, которому 
+        соответствуют две собственные функции $U,V$, для который выполнена однородная щадача Штурма-Лиувилля:
+        \[\begin{cases}
+            (pu')'=(q-\lambda r)u\\
+            (pv')'=(q-\lambda r )v
+        \end{cases}\]
+    Далее посмотрим на следующую комбинацию, $p(u'v-uv')$, которую продифференцируем, тогда:
+    \[\skobka{p(u'v-uv')}'=(pu'v)'-(puv')'=(pu')'v - u(pv')'  = u(q-\lambda r)v - (q-\lambda r)uv = 0 
+    \Rightarrow\]\[\Rightarrow p(u'v-uv') = const\ \text{на } [a,b]\]
+    
+    Чтобы понять, какая, именно это константа, рассомтрим значение выше введеного соотношения в точке $a$. Так как $u(a)=v(a)=0$, то:
+    \[p(u'v-uv')\Big|_{x=a}=0\Rightarrow p(u'v-uv')=0 \Rightarrow u'v=uv' \Rightarrow v=cu, \ \text{где $c$ -- некоторая константа}
+    \] 
+        \item Теперь посмотрим на второе утверждение. Пусть $\lambda$ и $\mu$ -- это два различных собственных числа, которым соответствуют $u$ и $v$, тогда:
+\[\begin{cases}
+    (pu')'=(q-\lambda r)u\\
+    (pv')'=(q-\mu r )v
+\end{cases} \Rightarrow \lambda \neq \mu \Rightarrow \int\limits_{a}^{b}u(x)v(x)r(x)\dd x = 0 \]
+    Напишем скалярное произведение этих функций и воспользуемся симметричностью оператора:
+    \[
+    \lambda(u,v)_r = \skobka{\LL u,v}_r = \skobka{u,\LL v}_r = \mu(u,v)_r
+    \]
+
+    Тогда для $\lambda\neq\mu$ это равенство выполняется только в том случае, когда $(u,v)=0$, то есть собственные функции ортогональны.
+
+    \end{enumerate}
+    \label{56}
 \end{myproof}
 
+\begin{myremark}
+    Если $p(a) = p(b) = 0$, то все выше показанное работает, в том числе и теорема \eqref{56}.
+    \[p(u'v-uv')\Big|_{x=a}=0 \Rightarrow p(u'v-uv')=0 \Rightarrow u'v-uv'=0 \ \text{в }[a,b]\]
+\end{myremark}
+
+\begin{myremark}
+    Выше мы думали про все функции, как про вещественнозначные, однако можно рассмотреть комплексный случай, но $p,q,r$ оставить вещественными. 
+    $y, \lambda$ -- комплексные. Тогда $\LL$ -- это эрмитов оператор, а не симметричный, но все доказательства аналогично переносятся и сохраняются.
+    Перепишем скалярное произведение для комплексного случая:
+    \[(f,g) = \int\limits_{a}^{b}f(x)\overline{g(x)}r(x)\dd x\]
+    Квадрат нормы -- это:
+    \[||f||^2 = (f,f) = \int\limits_{a}^{b}|f(x)|^2r(x)\dd x\]
+    Так как по определению $\LL$ -- симметричный оператор, то для него выполняется следующее:
+    \[(\LL f,g)_r = (f,\LL g)_r \]
+    \[\lambda ||f||^2 = \skobka{\LL f,f}_r = \skobka{f,\LL f}_r = \overline{\lambda}||f||^2 \Rightarrow \lambda = \overline{\lambda}\]
+    Тогда для комплексного случая, если $\lambda$ и $\mu$ -- это два различных собственных числа, которым соответствуют $u$ и $v$, то:
+    \[\lambda(u,v)_r =  \overline{\mu}(u,v)_r=\mu(u,v)_r\]   
+    Собственные функции можно выбрать вещестенными:
+    \[\begin{cases}
+        (py')'+(\lambda r -q)y=0\\
+        y(a)=y(b)=0
+    \end{cases}\]
+   \[\begin{cases}
+        \skobka{p(\operatorname{Re }y)}' + (\lambda r - q)\operatorname{Re }y = 0\\
+        \skobka{p(\operatorname{Im }y)}' + (\lambda r - q)\operatorname{Im }y = 0
+    \end{cases} \Rightarrow \operatorname{Im }y= \gamma \operatorname{Re}, \ \gamma\in \R \Rightarrow\]
+    \[\Rightarrow y(x)=(1+\ii \gamma)\operatorname{Re}y\]
+\end{myremark}
 
 
 
+\begin{myexe}
+    Пусть $\lambda$ -- это собственное число задачи Штурма-Лиувилля, которому соответствует собственная функция $\varphi$, тогда $\LL \varphi = \lambda \varphi$.  Рассмотрим следующую задачу:
+\[\begin{cases}
+    (py')' + (\lambda r - q)y = f(x)\\
+y(a) = A, y(b) = B
+\end{cases}\]
+Показать, что если \[\int\limits_{a}^{b}f(x)\varphi(x)r(x)\dd x = Ap(a)\varphi'(a)-Bp(b)\varphi'(b),\] то существует решение задачи.
+\end{myexe}
 
 
 
+\subsection{Нули собственных функций}
+Мы рассматриваем однородную задачу Штурма-Лиувилля:
+\[
+        (py')' + \lambda r- q y = 0
+\]
+Пусть $p(x)>0$, тогда мы можем поделить уравнение на $p(x)$ и получить:
+\[
+    y'' + \dfrac{p'}{p}y' + \dfrac{\lambda r-q}{p}y = 0\]
 
-
-
-
+\begin{mylemma}
+    
+\end{mylemma}
 
 
 

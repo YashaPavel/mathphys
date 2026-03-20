@@ -1623,8 +1623,251 @@ y(a) = A, y(b) = B
     y'' + \dfrac{p'}{p}y' + \dfrac{\lambda r-q}{p}y = 0\]
 
 \begin{mylemma}
-    
+    Пусть функция $y\in C^2([a,b])$ удовлетворяет следующему уравнению:
+\[
+y'' + p_1y' + p_2y = 0,
+\]
+где $p_1,p_2\in C([a,b])$, и $y\not\equiv0$, то функция $y$  \textbf{конечное} количество нулей.
 \end{mylemma}
+
+\begin{myproof}
+    Будем доказывать от противного. Пусть существует $y(x_k) = 0, \ k = 1,2,\dots$. По теореме Вейерштрасса (тут можно наверное ссылку) существует подпоследовательность $\{x_{n_{\alpha}}\}$ которая сходится к $x_0 \in [a,b]$. 
+    Так как $y \in C^2$, то $y \ in C \Rightarrow y(x_0)=0$. Распишем по определению $y'(x_0)$:
+    \[y'(x_0)=\lim \dfrac{y(x_{n_{\alpha}})-y(x_0)}{x_{n_{\alpha}}-x_0}=0, \] тогда в точке $x_0$ имеем:
+    \[\begin{cases}
+        y(x_0)=0\\
+        y'(x_0)=0
+    \end{cases} \Rightarrow \text{по теореме о существование единственного \\решения (мб тут ссылку на теорему или что-то)} \Rightarrow y \equiv 0
+    \]
+\end{myproof}
+
+
+\begin{mytheorem}
+    Пусть у нас есть следующие уравнения:
+    \[
+(pu')' + gu = 0 \ \text{и} \ (pv')' + hv = 0,
+\] Для которых, $u,v$ -- нетривиальные решения, где $p\in C^1([a,b]), \ p(x)>0 \ \ \forall x, \ g,h\in C([a,b])$ и $h(x)>g(x) \ \ \forall x \in(a,b)$.
+Тогда, между двумя любыми нулями функции $u$, лежит хотя бы один ноль функции $v$.
+\end{mytheorem}
+
+\begin{myproof}
+    Пусть у нас имеется $x_1,x_2$ -- два соседних нуля функции $u$. НУО будем считать, что $u(x)>0 \ \forall x\in(x_1,x_2)$. Откуда сразу ясно, что $u'(x_1)>0$ и $u'(x_2)<0$. Мы хотим показать, что в нашем интервале, функция $v$ обнуляется хотя бы один раз.
+    Будем смотреть от противного. Пусть $v(x)\neq0 \ \forall x\in(x_1,x_2)$ --- тогда НУО  $v(x)>0 \ \forall x\in(x_1,x_2), \ v(x_1)\geq0, \ v(x_2)\geq 0$. Рассмотрим вспомогательную непрерывную функцию $F(x) = p(x)u'(x)v(x) - p(x)u(x)v'(x)$ и вычислим ее производную:
+    \[
+F'(x) = (pu')v+(pu')v'-u(pv')' -(pv')u'=(pu')'v-(pv')u' = -guv+huv=(h-g)uv
+>0 \] \[ \text{для} \ \forall x\in(x_1,x_2) \Rightarrow\]$F$ монотонно (строго) возрастает на $(x_1,x_2)$. Обратим внимание на значение вспомогательной функции:
+\[F(x_1) = \underbrace{p(x_1)}_{>0}\underbrace{u'(x_1)}_{>0}\underbrace{v(x_1)}_{\geq0}\geq0\]
+\[F(x_2) = \underbrace{p(x_1)}_{>0}\underbrace{u'(x_1)}_{<0}\underbrace{v(x_1)}_{\geq0}\leq0
+\]
+Видим, что получили противоречние так как $F$ -- строго возрастает! Наше начальное предаоление о том, что $v(x)\neq0$, неверно и $v(x)=0$ на $(x_1,x_2)$.
+\end{myproof}
+
+Рассмотрим теперь задачу Коши:
+\[
+\begin{cases}
+    (p\psi')' + (\lambda r - q)\psi = 0\\
+    \psi(a) = 0, \quad \psi'(a) = 1
+\end{cases}
+\]
+
+По теореме о единственности решение $\psi$ существует и единственно.
+Будем считать $\psi(x,\lambda)$, где $x\in[a,b], \ \lambda\in\R$.
+
+
+
+\begin{mylemma}
+    $\lambda$ --- это собственное число задачи Штурма-Лиувилля $ \Leftrightarrow \psi(b,\lambda) = 0$
+\end{mylemma}
+
+
+\begin{myproof}
+    $\mathbf{(\impliedby)}$ Тут все очев,  $\psi(\cdot,\lambda)$ --- это нетривиальное решение задачи Штурма-Лиувилля.
+    $\mathbf{(\implies)}$ Пусть теперь $\exists y\not\equiv0$ удовлетворяет нашей задаче:
+\[
+\begin{cases}
+    (py')' + (\lambda r - q)y = 0\\
+    y(a) = y(b) = 0
+\end{cases}
+\]
+
+Посмотрим на пару функций $y(x)$ и $y'(a)\psi(x,\lambda)$ --- они обе являются решениями нашей задачи, в точке $a$ они обе зануляются, а их производные в точке $a$ равны $y'(a)$. Тогда по теорема о единственности мы понимаем, что $y(x)\equiv y'(a)\psi(x,\lambda)$ --- отсюда ясно, что $\psi(b,\lambda) = 0$.
+\end{myproof}
+
+\begin{mylemma}
+    Пусть $\lambda\leq \min\limits_{x\in[a,b]}\dfrac{q(x)}{r(x)} \Rightarrow  \psi(x,\lambda)$, не имеет корней на $(a,b)$, то есть $\psi(x,\lambda)\neq0 \ \ \forall x>a$
+\end{mylemma}
+
+\begin{myproof}
+    Опять же, будем доказывать от противного. Пусть $c\in(a,b)$ --- это первый нуль функции $\psi: \psi(a,\lambda)=0= \psi(c,\lambda)$. НУО $\psi(x,\lambda)>0 \ \forall x\in(a,c)$ и мы знаем $\lambda\leq \min\limits_{x\in[a,b]}\dfrac{q(x)}{r(x)} \ \forall x\in[a,b]$, то есть $q(x) - \lambda r(x)\geq0 \ \forall x\in[a,b]$. Тогда:
+\[
+    (p\psi')' = \underbrace{(\lambda r - q)}_{\geq0}\underbrace{\psi}_{>0} \geq 0 \Rightarrow p(x)\psi'(x) \geq p(a)\psi'(a) = 1 \ \forall x\in[a,c] \]
+    Тогда легко увидеть, что $\psi'(x)>0 \ \ \forall z\in[a,c] \implies \psi(c)>0$ -- получили противоречие.
+\end{myproof}
+
+
+\begin{myremark}
+    Пусть у функции $\psi$ есть нули на на $[a,b]$, обозначим их за $z_j(\lambda)$ и расположим в порядке возрастания, тогда:
+\[a<z_1(\lambda)<\dots<z_j(\lambda)<b<z_{k+1}(\lambda)<\dots\]
+Такие, что $\psi(z_j(\lambda),\lambda) = 0 \Rightarrow \psi'_x(z,\lambda)\neq0 \Rightarrow z_j(\lambda)$ -- непрерывная по $\lambda$ функция. 
+\end{myremark}
+
+\begin{mylemma}
+Функции $z_j(\lambda)$ не возрастают по $\lambda$.
+\end{mylemma}
+
+\begin{myproof}
+    Обозначим $z_0(\lambda)\equiv a$. Будем доказывать по индукции, которая рабоатет по j.
+    \begin{enumerate}
+    \item База: $j = 0$ 
+    \item Предположение: $z_j(\lambda_1)\leq z_j(\lambda_0)$
+    \item Переход $j\to j+1$:
+
+    Пусть $\lambda_0<\lambda_1$ -- и посмотрим на следующие уравнения:
+
+    \[
+    \lambda_0: \quad (p\psi')' + (\lambda_0r - q)\psi = 0
+    \]
+    \[
+    \lambda_1: \quad (p\psi')' + (\lambda_1r - q)\psi = 0
+    \]
+    \[
+    \lambda_1r(x) - q(x)>\lambda_0r(x) - q(x) \ \ \forall x
+    \]
+
+    По теореме Штурма, между двумя $\forall$ нулями $\psi(x,\lambda_0)$ лежит какой-то ноль $\psi(x,\lambda_1)$, то есть:
+    \[
+    z_j(\lambda_0) < z_k(\lambda_1) < z_{j+1}(\lambda_0)
+    \]
+    Воспользуемся предположением индукции, получаем, что $k\geq j+1$ и, соответственно, $z_{j+1}(\lambda_1)\leq z_k(\lambda_1)<z_{j+1}(\lambda_0)$ -- это, то, что нам нужно показать.
+\end{enumerate}
+\end{myproof}
+
+\begin{myremark}
+    $z_j$ строго убывает по $\lambda$. Доказательство аналогично, но надо будет использовать строгое неравенство в теореме Штурма.
+\end{myremark}
+
+\begin{myremark}
+    Пусть у нас имеется отрезок $[\mu_1, \mu_2]\in \R$, тогда у задачи Штурма-Лиувилля конечное число собственных чилел $\lambda \in [\mu_1, \mu_2]$.  Если бы это было не так, то у функции $\psi(x,\lambda)$ было бы бесконечно много нулей, что является противоречием.
+\end{myremark}
+
+
+
+
+
+\begin{mytheorem}
+    Спектр однородной задачи Штурма-Лиувилля дискретен, ограничен снизу $\LL y_n=\lambda_ny_n$, где $\lambda_n$ -- собственные числа, $y_n$ -- собственные функции. 
+    Если $\lambda_n\to \infty$, то $y_n$ имееет $(n-1)$ нулей на $[a,b]$ и $y_n$ образуют ортогональную полноную систему в $L_2([a,b])$
+\end{mytheorem}
+
+
+
+\begin{myproof}
+    Сейчас мы не показали, что собственных чисел $\{\lambda_n\}$ бесконечно много, и \textit{полноту} $y_n$. Это мы покажем в следующем семестре, остальное мы все показали. 
+
+\end{myproof}
+
+
+Рассмотрим следующий пример:
+
+$p\equiv1, \ \ r\equiv1, \ \ q\equiv0$, и наш отрезок $[a,b]=[0,\pi]$:
+\[
+\begin{cases}
+    y'' + \lambda y = 0\\
+    y(0) = y(\pi) = 0
+\end{cases}
+\]
+
+Решение такой задачи при $\lambda>0$ нам известно:
+$y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных условий понимаем, что $C_2=0$ и $\lambda_n=n^2;\  n\in \Z$. Тогда собственные функции имеют вид:
+\[y_n=C_1\sin(nx) \]Нормируя в $L_2$, получим: \[y_n=\sqrt{\dfrac{2}{\pi}}\sin(nx)
+\]
+
+Если рассмотреть похожую задачу, но вместо условия $y(\pi)=0$ будем иметь условие $y'(0)=1$, тогда решение 
+будет иметь вид:
+\[\psi = \dfrac{\sin(\sqrt{\lambda}y)}{\sqrt{\lambda}}\] (ТУТ НАДО НАПИСАТЬ КАК-ТО НОРМАЛЬНО ПРО ЛЯМБДЫ И ЭТОТ ПРИМЕР, КОТОРЫЙ РЯДОВКИН РИСОВАЛ)
+
+\begin{myexe}
+    Показать, что для задачи с $p = r\equiv1$ и $q\in C([0,\pi])$ на отрезке $[0,\pi]$:
+\[
+\begin{cases}
+    y'' + \lambda y - qy = 0\\
+    y(0) = y(\pi) = 0
+\end{cases}
+\]
+
+Выполнено следующие: $\lambda_n = n^2 + \bigo{n\to\infty}{1}$   
+\end{myexe}
+
+
+\section{Неоднородная конечная струна}
+В этом параграфе, мы смотрим на неоднородную струну на $[a,b]$, с некотороми условиями:
+\[
+\begin{cases}
+    \dfrac{\p^2 u(t,x)}{\p t^2} - \dfrac{\p}{\p x}\skobka{p(x)\dfrac{\p u(t,x)}{\p x}} = f(t,x)\\
+    \\
+    u\Big|_{t = 0} = \phi(x), \quad\dfrac{\p u}{\p t}\Big|_{t=0} = \psi(x)\\
+    \\
+    u\Big|_{x = a} = 0,\quad u\Big|_{x = b} = 0
+\end{cases}
+\] Мы сформулируем основной рецепт решения такой задачи, думая что наши функции "супер хорошие".
+\subsection{Решение начальной краевой задачи}
+
+Мы возьмем $r\equiv1, \ q\equiv0$, и $p(x)>0 \ \forall x$. Посмотрим на одно из слагаемых из нашей задачи, как за задачу Штурма-Лиувилля:
+\[
+\begin{cases}
+    -(py')' = \lambda y\\
+    y(a) = y(b) = 0
+\end{cases}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

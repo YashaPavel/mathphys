@@ -1820,9 +1820,61 @@ $y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных �
 \end{cases}
 \]
 
-\gamma
+Мы имееем бесконечный набор положительных собстенных чисел $\lambda_n \xrightarrow[n\to0] \ +\infty$ и соответсвующих им собственных функций $y_n$, набор которых полон в $\L_2([a,b])$.
+Функция считается нормированной, если:
+\[||y_||_{\L_2[a,b]}=1 \Leftrightarrow \int y^2_n(x)=1\]
+Таким образом, каждую функцию мы можем разлодить в ряд фурье по собсвтенным функциям $y_n$:
+\[f(x,t)=\sum\limits_{n=1}^{\infty}y_n(x)f_n(t)\]
+\[\phi(x,t)=\sum\limits_{n=1}^{\infty}y_n(x)\phi_n\]
+\[\psi(x,t)=\sum\limits_{n=1}^{\infty}y_n(x)\psi_n\]
+\begin{myremark}
+    
+\end{myremark}
 
 
+
+
+
+
+\section{Уравнение теплопроводности}
+\subsection{Вывод}
+Будем рассматриватт тепловой поток $\vec{W}(t,x)=-k\nabla u,$ где $u(t,x)$-- температура. Из школы мы поним, что имеем набор некоторых констант: $$c,\rho, k = const,$$где $c$ -- удельная теплоемкость вещества, $\rho$ -- плотность вещества. 
+
+Сейчас рассмотрим область $\Omega \in \R^n$ и запишем изменение тепловой
+энергии в промежутке времени от $t_1$ до $t_2$. Энергия представялет в виде $\int c\rho u(t,x)\dd x$, тогда ее изменение приминает вид:
+\[\int c\rho(u_2(t_2,x)-u_1(t_1,x))\dd x=-\int\limits_{t_1}^{t_2}\dd t\int_{\p\Omega}(\vec{W}(t,x),\nu(x))\dd S(x)=
+\int\limits_{t_1}^{t_2}\dd t\int_{\Omega}\operatorname{div}\vec{W}(t,x)\dd x \Rightarrow\]
+\[c\rho \dfrac{\p u}{\p t}=-\operatorname{div}\vec{W}(t,x)=k\Delta u(k,x)\Rightarrow\]
+\[\dfrac{\p u}{\p t}+a \Delta u = 0(=F(t,x)),\] где $a\dfrac{k}{c\rho}$, $F(t,x)$ --  возмоджный источник тепла.
+\begin{mydef}
+    Уравнением тпелопроводности будем называть следующуй вещь:
+    \[\dfrac{\p u}{\p t}+a\Delta u = 0(=F(t,x))\]
+\end{mydef}
+
+
+\subsection{Уравнение теплопроводности в $\R^n$}
+
+Сейчас будем считать, что $a=1$, тогда наша задача такая:
+\[
+\begin{cases}
+    \dfrac{\p u}{\p t}-\Delta u = 0, \ t\geq 0, x \in \R^n\\
+    \vspace{0.5pt}
+    u \Big|_{t=0}= \phi(x)
+\end{cases}
+\]
+Сделаем преобразование Фурье по x:
+\[V(t,\xi)=\dfrac{1}{(2\pi)^{n/2}}\int_{\r^n}e^{-i\xi x }u(t,x)\dd x=F(u)\] Тогда задача принимает следующий вид:
+
+
+
+\[\displaystyle
+\begin{cases}
+    \dfrac{\p V(t,\xi)}{\p t}+\xi^2V=0\\
+    \vspace{0.5pt}
+    V(\xi,0)= \hat{\phi}(\xi), \ \text{где} \ \hat{\phi} = \left(\dfrac{1}{\sqrt{2 \pi}}\right)^{n}
+ \int_{\R^n}\phi(x)e^{-ix\xi}\dd x
+\end{cases}
+\]
 
 
 

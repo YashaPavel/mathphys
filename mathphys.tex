@@ -73,7 +73,14 @@
   pdfauthor={Яков Овсянников}
 }
 \usepackage[nameinlink,noabbrev]{cleveref}
-
+\usepackage{philex}
+\bpaformat{1}{}{}
+\renewcommand{\lbpa}[2]{%
+  \refstepcounter{ExNo}%
+  \noindent #2 \hfill (\theExNo)%
+  \label{#1}%
+  \par\medskip
+}
 % -------------------------------------------------
 % КОЛОНТИТУЛЫ
 % -------------------------------------------------
@@ -163,7 +170,8 @@
 \definecolor{remarkframe}{RGB}{212,175,55}
 \definecolor{proofback}{RGB}{248,248,248}
 \definecolor{proofframe}{RGB}{120,120,120}
-
+\definecolor{exampleback}{RGB}{26, 240, 240}
+\definecolor{exampleframe}{RGB}{161, 196, 196}
 % -------------------------------------------------
 % СЧЁТЧИКИ
 % -------------------------------------------------
@@ -185,6 +193,8 @@
 \newcounter{exectr}[chapter]
 \renewcommand{\theexectr}{\thechapter.\arabic{exectr}}
 
+\newcounter{examplectr}[chapter]
+\renewcommand{\theexamplectr}{\thechapter.\arabic{examplectr}}
 % -------------------------------------------------
 % ИМЕНА ДЛЯ cleveref
 % -------------------------------------------------
@@ -200,7 +210,8 @@
 \Crefname{defctr}{Определение}{Определения}
 \crefname{exectr}{упражнение}{упражнения}
 \Crefname{exectr}{Упражнение}{Упражнения}
-
+\crefname{examplectr}{пример}{примеры}
+\Crefname{examplectr}{Пример}{Примеры}
 % -------------------------------------------------
 % ТЕОРЕМА
 % -------------------------------------------------
@@ -310,6 +321,23 @@
   title={Замечание~\theremarkctr},
   #1
 }
+% -------------------------------------------------
+% Пример
+% -------------------------------------------------
+
+\newtcolorbox{myexample}[1][]{
+  enhanced,
+  breakable,
+  colback=examplebackback,
+  colframe=exampleframeframe,
+  boxrule=0.8pt,
+  arc=2mm,
+  fonttitle=\bfseries,
+  before=\refstepcounter{examplectr},
+  title={Пример~\theexamplectr},
+  #1
+}
+
 
 % -------------------------------------------------
 % ПОЛЕЗНЫЕ КОМАНДЫ
@@ -526,10 +554,10 @@ e^{\frac{1}{x^2-1}}, & |x|<1\\[0.5em]
 Тогда ясно, что $\DR$ -- линейное пространство
 
 \begin{mydef}
-    \[\varphi_k \xrightarrow{\DR} \varphi \Leftrightarrow \,\begin{aligned}
+    \lbpn{zeroo}{\[\varphi_k \xrightarrow{\DR} \varphi \Leftrightarrow \,\begin{aligned}
 &\exists A,B: \supp{\varphi_k},\supp{\varphi\subset [A,B]}\\
 &\varphi_k^{{(m)}}\xrightarrow{k\rightarrow \infty} \varphi^{{(m)}} \,\text{равномерно на} \,[A,B] \,\text{для} \,\forall m
-\end{aligned}\]
+\end{aligned}\]}
 \end{mydef}
 
 \begin{myexe}
@@ -679,7 +707,7 @@ $(f,\lambda\varphi+\mu\psi)=\lambda(f,\varphi)+\mu(f,\psi)$ для $\forall \lam
 
 
 \subsection{Регулярные и сингулярные обобщенные функции}
-$f\in L_{1,loc}$ -- измеримая по Лебегу функция. $\int\limits_{a}^{b}\left|f(x)\right| \dd x< \infty$. Тогда $\Tilde{f}$ -- функционал такой что:
+\lbpa{zero}{$f\in L_{1,loc}$ -- измеримая по Лебегу функция. $\int\limits_{a}^{b}\left|f(x)\right| \dd x< \infty$.} Тогда $\Tilde{f}$ -- функционал такой что:
 \[(\Tilde{f},\varphi)=\int\limits_{\R}f(x)\varphi(x)\dd x \, - \text{линейный функционал на }\DR\Rightarrow \supp{\varphi_k} \subset [-R,R]\]
 \[\varphi_k\xrightarrow{\DR}0\Rightarrow|(\Tilde{f},\varphi)|\leq \int\limits_{-R}^{R}f(x)|\varphi_k(x)|\dd x\leq \int\limits_{-R}^{R}|f(x)|\max_{x \in [-R,R]}|\varphi_k'|\rightarrow0\]
 Видно, что функция непрерывна в нуле $\Rightarrow$ непрерывна везде $\Rightarrow \Tilde{f}\in \DDR$ 
@@ -792,20 +820,88 @@ $g$ — вещественнозначная функция. Пусть:
 \begin{mydef}
     Пусть $f \in \DDR$, $\beta \in C^{\infty}(\R)$
     \[(\beta f, \phi)\coloneqq(f,\beta \phi)\]
-\end{mydef} 
+\end{mydef} \\
 \textbf{1)} Корректность: $\phi \in \DR \Rightarrow \beta \phi \in \DR$ \\
 \textbf{2)} Линейность: очевидна \\
 \textbf{3)} Непрерывность: $\phi_k \xrightarrow{\DR} 0 \Rightarrow \beta\phi_k \xrightarrow{\DR} 0$\\
-Производная m-ой степени: $(\beta\phi_k)^(m)=\sum\limits_{j=0}^{m}C_m^j\beta^(m-j)\phi_k^(j)$\\
-Примеры: \\\textbf{1)} Пусть $\beta \in C^{\infty}$ 
+Производная m-ой степени: $(\beta\phi_k)^{(m)}=\sum\limits_{j=0}^{m}C_m^j\beta^{(m-j)}\phi_k^{(j)}$\\
+\begin{myexample}
+\textbf{1)} Пусть $\beta \in C^{\infty}$ 
  \[(\beta\delta, \phi)=(\delta, \beta\phi)=\beta(0)\phi(0)\]
 \textbf{2)} 
 \[(x\,\PP, \phi)=(\PP, x\phi)=\operatorname{v.p.}\int\limits_{\R}\dfrac{x\phi(x)}{x}\dd x=\int\limits_{\R}\phi(x)\dd x=(1, \phi)\]
 \[\Rightarrow x\,\PP=1\]
-
+\end{myexample}
 \subsection{Замена переменных}
+
+\lbpa{first}{Пусть $C: \R\rightarrow\R$ - биекция, $C\in\Cinf, \, C'\neq0 \quad \forall x$, и такие же условия на $C^{-1}$.}
+$$(f\circ C, \phi)=\int\limnits_Rf(C(x))\phi(x)\dd x=\int\limits_Rf(y)\phi(C^{-1}(y))\dfrac{\dd y}{|C'(C^{-1}y)|}$$ \\
+Первое равенство обусловлено тем, что $f\in L_{1, loc}$, т.е. \ref{zero}.
+\begin{mydef}
+    Пусть $f\in \DDR$, $\quad C$ удовлетворяет \ref{first}. 
+    $$(f\circ C, \phi)=\int\limnits_Rf(C(x))\phi(x)\dd x:=\bigg(f, \dfrac{\phi(C^{-1}(\cdot))}{|C'(C^{-1}(\cdot))|})\bigg)$$
+\end{mydef} \\
+\textbf{1)} Корректность: $\dfrac{\phi(C^{-1}(\cdot))}{|C'(C^{-1}(\cdot))|} \in \DR$ \\
+\textbf{2)} Линейность выполняется\\
+\textbf{3)} Непрерывность: $\phi_k \xrightarrow{\DR} 0 \Rightarrow \dfrac{\phi_k(C^{-1}(\cdot))}{|C'(C^{-1}(\cdot))|} \xrightarrow{\DR} 0$\\
+\begin{myexample}
+    $C(x)=\alpha x, \, \alpha \neq 0, \, C^{-1}(y)=\frac{y}{\alpha}$
+    $$\int \delta(\alpha x)\phi(x)\dd x=\bigg(\delta, \dfrac{\phi(\frac{y}{\alpha})}{|\alpha|}\bigg)=\dfrac{\phi(0)}{|\alpha|} \Rightarrow$$
+    $\Rightarrow \delta(\alpha x)=\frac{1}{|\alpha|}\delta(x)$
+
+\end{myexample}
+\begin{myremark}
+    $$\nexist \, c\circ f$$ 
+    Эта композиция не определена(пример: $(\delta(x))^2=?$)
+\end{myremark}
 \subsection{Дифференцирование}
+\begin{mydef}
+    Пусть $f\in\DDR$
+    $$(f', \phi)=-(f,\phi')$$
+\end{mydef}
+Корректность, линейность и непрерывность(\ref{zeroo}) очевидны.
+\begin{myexample}
+    \textbf{1)} $\theta(x) := \left[ 
+      \begin{gathered} 
+        1, \, x>0, \\ 
+        0, \, x<0; \\ 
+      \end{gathered} 
+\right$, \, $(\theta, \phi)=\int\limits_{0}^{\infty}\phi(x)\dd x$
+$$(\theta', \phi)=-(\theta, \phi')=-\int\limits_{0}^{\infty}\phi'(x)\dd x=-0+\phi(0) \, \Rightarrow \, (\theta', \phi)=(\delta, \phi)$$
+\textbf{2)} $(\delta', \phi)=-\phi'(0)$ \\
+\textbf{3)} $(f^{(m)}, \phi)=(-1)^m(f, \phi^{(m)})$ \\
+\textbf{4)} Пусть $f\in\DDR, \, \beta \in \Cinf(\R), \, \phi\in\DR$
+$$(\beta f)'=\beta'f+f'\beta$$
+$((\beta f)', \phi)=-(\beta f, \phi')=-(f, \beta\phi')=-(f, (\beta\phi)'-\beta'\phi)=-(f,(\beta\phi)')+(f,\beta'\phi)=(\beta f', \phi)+(\beta' f, \phi)$
+\end{myexample}
+\begin{myexe}
+    \textbf{1)} $(\ln|x|)'=\PP$ \\
+    \textbf{2)} $f\in\DDR, \, f'=0 \, \Rightarrow \, f=const$ \\
+    \textbf{3)} $f^{(m)}=0 \Rightarrow f -$ полином$, \deg f<m$ \\
+    \textbf{4)} $f$ - регулярно обобщённая функция, $f\big |_{(-\infty; 0)} \in C^1(-\infty; 0], \, f\big |_{(0, \infty)}\in C^1[0; \infty)$ \\
+    Тогда $f_{\text{обоб.ф.}}'=f_{\text{классич}}'+h\delta(x), \, h=f(+0)-f(-0)$
+\end{myexe}
 \subsection{Сходимость}
+\begin{mydef}
+    $$f_k\xrightarrow{\DDR}f \, \Leftrightarrow \, (f_k, \phi)\xrightarrow[k\to\infty]{} (f, \phi) \, \forall\phi\in\DR$$
+\end{mydef}
+Свойства: \\
+1) $f_k\xrightarrow{\DDR}f, \, g_k\xrightarrow{\DDR}g \, \Rightarrow \, f_k+g_k\xrightarrow{\DDR}f+g$ \\
+2) $\alpha_k \rightarrow \alpha$ в $C \, \Rightarrow \alpha_kf_k\xrightarrow{\DDR}\alpha f$ 
+\begin{myremark}
+    $$f_k\xrightarrow{\DDR}f \Rightarrow f_k'\xrightarrow{\DDR}f'$$
+$(f_k',\phi)=-(f_k,\phi') \rightarrow -(f, \phi')=(f', \phi)$
+\end{myremark}
+\begin{myexe}
+    $$f_k(x)=\cos(kx)\xrightarrow[k\to\infty]{\DDR}0$$
+\end{myexe}
+\begin{mytheorem}
+    Пусть $f_k$ - кусочно непрерывна и $\in L_1(\R)$, и \\
+    1) $f_k(x)\geqslant0$ почти всюду. \\
+    2) $\forall a>0 \, \int\limits_{a}^{-a}f_k(x)\dd x \xrightarrow[k\to\infty]{} 1$ \\
+    3) $\int\limits_Rf_k(x)\dd x=1$ \\
+Тогда $f_k\xrightarrow{\DDR}\delta(x)$.
+\end{mytheorem}
 \subsection{Носитель обобщенной функции}
 
 

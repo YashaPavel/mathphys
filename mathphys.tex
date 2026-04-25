@@ -81,6 +81,12 @@
   \label{#1}%
   \par\medskip
 }
+\newcommand{\lbpn}[2]{%
+  \refstepcounter{ExNo}%
+  \noindent #2 \hfill (\theExNo)%
+  \label{#1}%
+  \par\medskip
+}
 % -------------------------------------------------
 % КОЛОНТИТУЛЫ
 % -------------------------------------------------
@@ -328,8 +334,8 @@
 \newtcolorbox{myexample}[1][]{
   enhanced,
   breakable,
-  colback=examplebackback,
-  colframe=exampleframeframe,
+  colback=exampleback,
+  colframe=exampleframe,
   boxrule=0.8pt,
   arc=2mm,
   fonttitle=\bfseries,
@@ -387,7 +393,7 @@
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\norm}[1]{\left\|#1\right\|}
 \newcommand{\avg}[1]{\left\langle #1 \right\rangle}
-\newcommand{\sr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
 \newcommand{\podst}[1]{\left[ #1 \right]}
 \newcommand{\skobka}[1]{\left( #1 \right)}
 \newcommand{\paren}[1]{\left(#1\right)}
@@ -820,7 +826,8 @@ $g$ — вещественнозначная функция. Пусть:
 \begin{mydef}
     Пусть $f \in \DDR$, $\beta \in C^{\infty}(\R)$
     \[(\beta f, \phi)\coloneqq(f,\beta \phi)\]
-\end{mydef} \\
+\end{mydef} 
+
 \textbf{1)} Корректность: $\phi \in \DR \Rightarrow \beta \phi \in \DR$ \\
 \textbf{2)} Линейность: очевидна \\
 \textbf{3)} Непрерывность: $\phi_k \xrightarrow{\DR} 0 \Rightarrow \beta\phi_k \xrightarrow{\DR} 0$\\
@@ -835,12 +842,12 @@ $g$ — вещественнозначная функция. Пусть:
 \subsection{Замена переменных}
 
 \lbpa{first}{Пусть $C: \R\rightarrow\R$ - биекция, $C\in\Cinf, \, C'\neq0 \quad \forall x$, и такие же условия на $C^{-1}$.}
-$$(f\circ C, \phi)=\int\limnits_Rf(C(x))\phi(x)\dd x=\int\limits_Rf(y)\phi(C^{-1}(y))\dfrac{\dd y}{|C'(C^{-1}y)|}$$ \\
+$$(f\circ C, \phi)=\int\limits_Rf(C(x))\phi(x)\dd x=\int\limits_Rf(y)\phi(C^{-1}(y))\dfrac{\dd y}{|C'(C^{-1}y)|}$$ \\
 Первое равенство обусловлено тем, что $f\in L_{1, loc}$, т.е. \ref{zero}.
 \begin{mydef}
     Пусть $f\in \DDR$, $\quad C$ удовлетворяет \ref{first}. 
-    $$(f\circ C, \phi)=\int\limnits_Rf(C(x))\phi(x)\dd x:=\bigg(f, \dfrac{\phi(C^{-1}(\cdot))}{|C'(C^{-1}(\cdot))|})\bigg)$$
-\end{mydef} \\
+    $$(f\circ C, \phi)=\int\limits_Rf(C(x))\phi(x)\dd x:=\bigg(f, \dfrac{\phi(C^{-1}(\cdot))}{|C'(C^{-1}(\cdot))|})\bigg)$$
+\end{mydef} 
 \textbf{1)} Корректность: $\dfrac{\phi(C^{-1}(\cdot))}{|C'(C^{-1}(\cdot))|} \in \DR$ \\
 \textbf{2)} Линейность выполняется\\
 \textbf{3)} Непрерывность: $\phi_k \xrightarrow{\DR} 0 \Rightarrow \dfrac{\phi_k(C^{-1}(\cdot))}{|C'(C^{-1}(\cdot))|} \xrightarrow{\DR} 0$\\
@@ -851,7 +858,7 @@ $$(f\circ C, \phi)=\int\limnits_Rf(C(x))\phi(x)\dd x=\int\limits_Rf(y)\phi(C^{-1
 
 \end{myexample}
 \begin{myremark}
-    $$\nexist \, c\circ f$$ 
+    $$\nexists \, c\circ f$$ 
     Эта композиция не определена(пример: $(\delta(x))^2=?$)
 \end{myremark}
 \subsection{Дифференцирование}
@@ -866,7 +873,7 @@ $$(f\circ C, \phi)=\int\limnits_Rf(C(x))\phi(x)\dd x=\int\limits_Rf(y)\phi(C^{-1
         1, \, x>0, \\ 
         0, \, x<0; \\ 
       \end{gathered} 
-\right$, \, $(\theta, \phi)=\int\limits_{0}^{\infty}\phi(x)\dd x$
+\right]$, \, $(\theta, \phi)=\int\limits_{0}^{\infty}\phi(x)\dd x$
 $$(\theta', \phi)=-(\theta, \phi')=-\int\limits_{0}^{\infty}\phi'(x)\dd x=-0+\phi(0) \, \Rightarrow \, (\theta', \phi)=(\delta, \phi)$$
 \textbf{2)} $(\delta', \phi)=-\phi'(0)$ \\
 \textbf{3)} $(f^{(m)}, \phi)=(-1)^m(f, \phi^{(m)})$ \\

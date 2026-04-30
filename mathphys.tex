@@ -965,9 +965,9 @@ $$\frac{1}{\sqrt{\pi t}}\int\limits_{-a}^{a}e^{-\frac{x^2}{t}}\dd x=\frac{1}{\sq
     $$[A,B]\cap[C, D]=\emptyset \Rightarrow (f, \psi)=0$$
 \end{mylemma}
 \begin{myproof}
-    Если $x\in[C, D]$, т.е. $x\not\in[A,B]$ то $\exists O(x):f|_{O(x)}=0 \, \forall x\in[C, D], \, [C, D]\underset{X}{\subset}$-покрытие $[C,D]$ этими окрестностями. $[C, D]$-компакт $\Rightarrow [C, D]\subset\cup_{j=1}^{N}\theta(x_j)$ - конечное подпокрытие.
+    Если $x\in[C, D]$, т.е. $x\not\in[A,B]$ то $\exists O(x):f|_{O(x)}=0 \quad \forall x\in[C, D], \, [C, D]\subset\underset{X}{\cup}O(x)$-покрытие $[C,D]$ этими окрестностями. $[C, D]$-компакт $\Rightarrow [C, D]\subset\cup_{j=1}^{N}\theta(x_j)$ - конечное подпокрытие.
     Разбиение единицы, подчинённое этому покрытию: 
-    $$\{\xi_j\}_{j=1}^{N}, \, \xi_j\in\Cinf_0(\R), \sum_{j=1}^{N}\xi_j(x)=1 \quad \forall x\in[C, D] \supp \xi_j\subset O(x_j)$$
+    $$\{\xi_j\}_{j=1}^{N}, \, \xi_j\in\Cinf_0(\R), \sum_{j=1}^{N}\xi_j(x)=1 \quad \forall x\in[C, D], \, \supp \xi_j\subset O(x_j)$$
     $$(f, \psi)=(f, \sum_{j=1}^{N}\xi_j\psi)=\sum_{j=1}^{N}(f, \xi_j\psi)=0, \, \text{т.к. } \supp(\xi_j\psi)\subset O(x_j)(\text{т.к. }\xi_j\psi\in\DR)$$
 \end{myproof}
 \begin{mytheorem}

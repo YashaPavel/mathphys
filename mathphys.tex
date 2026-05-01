@@ -6,6 +6,9 @@
 % -------------------------------------------------
 \usepackage{fontspec}
 \usepackage{polyglossia}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{patterns, arrows.meta}
 \setdefaultlanguage{russian}
 \setotherlanguage{english}
 \setmainfont{Times New Roman}
@@ -378,7 +381,8 @@
 \newcommand{\DR}{\mathcal{D}(\R)}
 \newcommand{\SR}{\mathcal{S}(\R)}
 \newcommand{\SSR}{\mathcal{S}'(\R)}
-\newcommand{\dR}{\mathcal{D}'(\R^n)}
+\newcommand{\dR}{\mathcal{D}(\R^n)}
+\newcommand{\ddR}{\mathcal{D}'(\R^n)}
 \newcommand{\DDR}{\mathcal{D}'(\R)}
 \newcommand{\Cinf}{\text{C}^{\infty}}
 
@@ -980,16 +984,139 @@ $$\frac{1}{\sqrt{\pi t}}\int\limits_{-a}^{a}e^{-\frac{x^2}{t}}\dd x=\frac{1}{\sq
     $\exists f\in\DDR, \, f\neq g^{(m)} \, \forall m\in \N_0, \forall g\in\C(\R)$(если не накладывать условие ограниченности носителя)
 \end{myexe}
 \begin{mytheorem}
-    $$f\in\DDR, \supp f = \{0\} \Rightarrow\exists k\in \N_0, c_0, c_1, \cdots c_k \in C \quad f=\sum_{j=0}^{k}c_j\delta^{(j)}$$
+    $$f\in\DDR, \supp f = \{0\} \Rightarrow\exists k\in \N_0, c_0, c_1, \dots c_k \in C \quad f=\sum_{j=0}^{k}c_j\delta^{(j)}$$
 \end{mytheorem}
 \begin{myexe}
     Доказать эту теорему используя предыдущую и упраженение из 1.3.4
 \end{myexe}
 \section{Прямое произведение обобщенных функций}
-\subsection{Пространство \texorpdfstring{$\dR$}{ } }
+\subsection{Пространство \texorpdfstring{$\ddR$}{ } }
+\begin{mydef}
+    $$\phi\in\dR \Leftrightarrow \supp \phi - \text{ компакт}, \, \phi\in\Cinf(\R^n)$$
+    $\phi: \R^n\longrightarrow\C$
+\end{mydef}
+Шар: $B_R=B_R(0)=\{x\in\R^n: |x|<R\}$.
+\begin{mydef}
+    $$\phi_k\xrightarrow{\dR}\phi\quad\Leftrightarrow\begin{cases} 1)\exists R: \supp \phi_k\subset B_R, \supp \phi \subset B_R \\ 2)\D^\alpha\phi_k \xrightarrow[k\to+\infty]{}\D'\phi -\text{ равеномерно, }\forall \text{ мультииндексов }\alpha \end{cases}$$
+\end{mydef}
+$\alpha=(\alpha_1, \alpha_2, \dots), \D^\alpha=\dfrac{\partial^{\alpha_1}\partial^{\alpha_2}\dots\partial^{\alpha_n}}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\dots\partial x_n^{\alpha_n}}$
+\begin{mydef}
+    $$f\in\ddR \Leftrightarrow f - \text{ линейный непрерывный функционал на } \dR$$
+\begin{itemize}
+    \item $(\beta f, \phi)=(f, \beta\phi) \quad \beta\in\Cinf(\R^n) $
+    \item $(\D^\alpha f, \phi)=(-1)^{|\alpha|}(f, \D^\alpha\phi) \quad |\alpha|=\alpha_1+\alpha_2+\dots+\alpha_n$
+    \item $f_k\xrightarrow{\ddR}f\Leftrightarrow(f_k, \phi)\longrightarrow(f,\phi) \quad \forall\phi\in\dR$
+\end{itemize}
+\end{mydef}
+\begin{myexample}
+    $S$ - гладкая поверхность
+    $$(\delta_S, \phi)=\int\limits_S\phi(x)\dd S(x)$$
+$\delta_S\in\ddR$
+\end{myexample}
+
 \subsection{Прямое произведение}
+$f, g\in\DDR \quad \int\limits_{\R^2}f(x)g(y)\phi(x, y)\dd x\dd y$ - это то, чего мы пытаемся добится прямым произведением.
+\begin{mylemma}
+    Пусть $\phi\in\D(\R^2)$, пусть $x\in\R$ - фиксированный.
+    $$\frac{\phi(x+h, y) - \phi(x, y)}{h}\xrightarrow[h\to0]{\D(\R_y)}\frac{\partial \phi}{\partial x}(x,y)$$
+\end{mylemma}
+\begin{myproof}
+    
+
+\begin{tikzpicture}[scale=1.2, thick, >=Stealth]
+
+\draw[->] (0,0) -- (6,0) node[below right] {$x$};
+\draw[->] (0,0) -- (0,5) node[above left] {$y$};
 
 
+\node[below left] at (0,0) {$0$};
+
+
+\def\A{1}
+\def\B{5}
+\def\C{0.5}
+\def\D{4}
+
+\draw[blue, thick] (\A,\C) rectangle (\B,\D);
+\node[blue, above] at ({\A+(\B-\A)/2}, \D) {прямоугольник};
+
+
+\node[below] at (\A, \C) {$A$};
+\node[below] at (\B, \C) {$B$};
+\node[left] at (\A, \C) {$C$};
+\node[left] at (\A, \D) {$D$};
+
+\draw[red, thick, pattern=north east lines, pattern color=red] 
+  (1.5,1.2) -- (2.5,2.0) -- (3.2,1.8) -- (4.2,3.0) -- (4.0,3.5) -- (2.0,2.5) -- cycle;
+
+
+\node[purple, left] at (4.5, 2.5) {$\supp \phi$};
+\draw[->, thick, purple] (4.5, 2.5) -- (2.8, 2.0);
+
+
+\def\x{1.8}
+\def\h{1.8}
+\def\xph{3.6}
+
+\draw[dashed, thick, green!50!black] (\x, \C) -- (\x, \D);
+\draw[dashed, thick, green!50!black] (\xph, \C) -- (\xph, \D);
+
+
+\node[below, green!50!black] at (\x, \C) {$x$};
+\node[below, green!50!black] at (\xph, \C) {$x+h$};
+
+\end{tikzpicture} \\
+$\supp\phi\subset[A, B]\times[C, D], \,$ делаем сужение на вертикальные прямые: 
+$$\supp\frac{\phi(x+h, \cdot) - \phi(x, \cdot)}{h}\subset [C, D] , \quad \supp\frac{\partial\phi(x, \cdot)}{\partial x}\subset[C, D]$$
+$$\bigg|\phi(x+h, y) - \phi(x, y) - h\dfrac{\partial\phi(x, y)}{\partial x}\bigg|\leq(\text{ряд тейлора}) h^2\underset{y\in[C,D]}{\max}\bigg|\dfrac{\partial^2\phi(x,y)}{\partial x^2}\bigg|\leq h^2\underset{\R^2}{\max}\bigg|\dfrac{\partial^2\phi}{\partial x^2}\bigg|$$
+Деля на $h$ обе части равенства: 
+$$\bigg|\dfrac{\phi(x+h, y) - \phi(x, y)}{h}-\dfrac{\partial \phi(x,y)}{\partial x}\bigg|\leq h\underset{\R^2}{\max}\bigg| \dfrac{\partial^2\phi(x,y)}{\partial x^2}\ \bigg|\Rightarrow$$
+$$\Rightarrow \dfrac{\phi(x+h, \cdot)-\phi(x,\cdot)}{h}\rightarrow\frac{\partial\phi(x,\cdot)}{\partial x} \text{ равномерно на всей оси}$$
+Для производных аналогично:
+$$\dfrac{\dfrac{\partial^k\phi}{\partial y^k}(x+h, y)-\dfrac{\partial^k\phi}{\partial y^k}(x, y)}{h}\xrightarrow[h\to0]{}\dfrac{\partial^{k+1}\phi(x,y)}{\partial x\partial^ky} \text{ равномерно}$$
+\end{myproof}
+\begin{mylemma}
+    Пусть $g\in\DDR, \, f\in\D(\R^2)$. 
+    $$\psi(x):=(g,\phi(x,\cdot))\Rightarrow\psi\in\DR \quad \psi^{(l)}(x)=\bigg(g, \frac{\partial^l\phi}{\partial x^l}(x, \cdot)\bigg)$$
+Примечание: $g$ действует на $\cdot$.
+\end{mylemma}
+\begin{myproof}
+    $\supp\phi\subset[A, B]\times[C, D] \Rightarrow \supp\psi\subset[A, B]$
+    $$\dfrac{\psi(x+h)-\psi(x)}{h}=\bigg(g, \dfrac{\phi(x+h, \cdot)-\phi(x,\cdot)}{h}\bigg)\xrightarrow[h\to0]{\text{лемма 1.1}}\bigg(g, \dfrac{\partial \phi(x,\cdot)}{\partial x}\bigg) \Rightarrow$$
+    $$\Rightarrow\exists\psi'(x)=\bigg(g, \dfrac{\partial\phi(x,\cdot)}{\partial x}\bigg)$$
+    Далее по индукции получаем, что $\exists \psi^{(l)}(x)=\bigg(g,\dfrac{\partial^l \phi(x, \cdot)}{\partial x^l}\bigg)$
+\end{myproof}
+\begin{mylemma}
+    Пусть $g\in\DDR, \, \phi_k\in\D(\R^2)$, пусть $\phi_k\xrightarrow{\D(\R^2)}0$
+    $$\psi_k=(g, \phi_k(x, \cdot))\Rightarrow\psi_k\xrightarrow{\DDR}0$$
+\end{mylemma}
+\begin{myproof}
+    $\supp\phi_k\subset[A, B]\times[C, D] \Rightarrow \supp\psi_k\subset[A, B]$
+    Достаточно доказать, что $\psi_k\xrightarrow[k\to+\infty]{}0$ равномерно(в силу леммы 1.2(потому что производные строятся точно так же)). Пойдём от противного(сходится неравномерно): $\exists\varepsilon>0, \exists k_j(\to+\infty),x_j:|\psi_{k_j}(x_j)|\geq\varepsilon \Leftrightarrow |(g,\phi_{k_j}(x_j, \cdot))|\geq\varepsilon$
+    Пусть $w_j(y)=\phi_{k_j}(x_j, y), \quad w_j\xrightarrow{\DR}0, \supp w_j\subset[C,D]$ \\
+    $$w_j^{(m)}=\dfrac{\partial^m\phi_{k_j}}{\partial y^m}(x_j, y)\xrightarrow[\text{равномерно}]{}0 \Rightarrow (g, w_j)\longrightarrow 0(\text{ потому что g-непрерывный функционал})$$
+    Но, по предположению $|(g, w_j)|\geq\varepsilon$ значит противоречие.
+\end{myproof}
+\begin{myproof}
+    Пусть $f, g \in \DDR$. Прямое произведение:
+    $$(f(x)g(y), \phi)=(f(x),(g, \phi(x,\cdot)))$$
+\end{myproof}
+Корректность следует из леммы 1.2, линейность очевидна, а непрерывность следует из леммы 3, $f(x)g(y)\in\D(\R^2)$
+\begin{mytheorem}
+    Прямое произведение - коммутативно: $f(x)g(y)=g(y)f(x)$
+    $$(f(x),(g,\phi(x,\cdot)))=(g(y),(f,\phi(\cdot,y)))$$
+\end{mytheorem}
+\begin{myproof}
+    без доказательства
+\end{myproof}
+\begin{myremark}
+    1) $\delta(x)\delta(y)=\delta(x,y)$\\
+    2)$\dfrac{\partial}{\partial x}\bigg(f(x)g(y)\bigg)=f'(x)g(y)$ \\
+    $\dfrac{\partial}{\partial y}\bigg(f(x)g(y)\bigg)=f(x)g'(y)$ \\
+    $\bigg(\dfrac{\partial}{\partial y}\bigg(f(x)g(y)\bigg), \phi\bigg)=-\bigg(f(x)g(y), \dfrac{\partial \phi}{\partial y}\bigg)=-\bigg(f(x), \bigg(g,\dfrac{\partial\phi(x,\cdot)}{\partial y}\bigg)\bigg)=\bigg(f(x),(g',\phi(x,\cdot))\bigg)=\bigg(f(x)g'(y),\phi\bigg)$ \\
+    3) $f\in\ddR, g\in\D'(\R^m)$ \\
+    $f(x)g(y)\in\D'(\R^{n+m})$
+\end{myremark}
 \section{Свёртка}
 \subsection{Определение}
 \subsection{Замечание}

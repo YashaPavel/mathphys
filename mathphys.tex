@@ -1017,8 +1017,8 @@ $\delta_S\in\ddR$
 \subsection{Прямое произведение}
 $f, g\in\DDR \quad \int\limits_{\R^2}f(x)g(y)\phi(x, y)\dd x\dd y$ - это то, чего мы пытаемся добится прямым произведением.
 \begin{mylemma}
-    Пусть $\phi\in\D(\R^2)$, пусть $x\in\R$ - фиксированный.
-    $$\frac{\phi(x+h, y) - \phi(x, y)}{h}\xrightarrow[h\to0]{\D(\R_y)}\frac{\partial \phi}{\partial x}(x,y)$$
+    \lbpn{second}{Пусть $\phi\in\D(\R^2)$, пусть $x\in\R$ - фиксированный.
+    $$\frac{\phi(x+h, y) - \phi(x, y)}{h}\xrightarrow[h\to0]{\D(\R_y)}\frac{\partial \phi}{\partial x}(x,y)$$}
 \end{mylemma}
 \begin{myproof}
     
@@ -1119,10 +1119,87 @@ $$\dfrac{\dfrac{\partial^k\phi}{\partial y^k}(x+h, y)-\dfrac{\partial^k\phi}{\pa
 \end{myremark}
 \section{Свёртка}
 \subsection{Определение}
-\subsection{Замечание}
-
-
-
+Пусть $\phi, \psi \in \DR$, мы хотим под сверткой понимать что то подобное: 
+$$(\phi\ast\psi)(x)=\int\limits_\R\phi(x-y)\psi(y)\dd y=\begin{vmatrix}
+    x-y=z \\
+    y=x-z
+\end{vmatrix}=\int\limits_\R\phi\psi(x-z)\dd z=(\psi\ast\phi)(x)$$
+Ещё мы хотим: $\phi\ast\psi\in\DR$, $(\phi\ast\psi)'=\phi'\ast\psi=\phi\ast\psi'$
+\begin{mydef}
+    Пусть $f\in\DDR, \,\, \phi\in\DR$. Тогда свёртка:
+    $$(f\ast\phi)(x)=(f,\phi(x-\cdot))$$
+\end{mydef}
+\begin{myexample}
+    $$\delta\ast\phi=\phi$$
+\end{myexample}
+\begin{mytheorem}
+    Пусть $f\in\DDR, \,\, \phi\in\DR \Rightarrow$
+    $$\Rightarrow f\ast\phi\in\Cinf(\R), \quad (f\ast\phi)'=f'\ast\phi=f\ast\phi'$$ 
+\end{mytheorem}
+\begin{myproof}
+    Пусть $x\in\R$, 
+    $$\dfrac{\phi(x+h-\cdot)-\phi(x-\cdot)}{h}\xrightarrow[h\to0]{\DR}\phi'(x-\cdot) \quad \text{доказательство аналогично \ref{second}}$$
+    $$\dfrac{(f\ast\phi)(x+h)-(f\ast\phi)(x)}{h}=\dfrac{1}{h}\bigg((f,\phi(x+h-\cdot))-(f,\phi(x-\cdot))\bigg)$$
+    $$=\bigg(f, \dfrac{\phi(x+h-\cdot)-\phi(x-\cdot)}{h}\bigg)\xrightarrow[h\to0]{}(f,\phi'(x-\cdot))=(f\ast\phi')(x) \Rightarrow$$
+    $$\Rightarrow \exists (f\ast\phi)'(x)=(f\ast\phi')(x) \xRightarrow{\text{по индукции}}(f\ast\phi)^{(m)}(x)=(f\ast\phi^{(m)})(x) \Rightarrow$$
+    $$\Rightarrow \quad f\ast\phi\in\Cinf(\R)$$
+Очевидно, что $\phi'(x-y)=-\phi'_y(x-y)$. Тогда 
+$$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
+Последнее равенство обусловлено тем, что обобщенная функция $f$ действует по переменной $\cdot$.
+\end{myproof}
+\subsection{Замечания}
+\begin{myremark}
+    1) $f\in\ddR, \,\, \phi\in\dR$, $(f\ast\phi)(x)=(f,\phi(x-\cdot))$
+    $$f\ast\phi\in\Cinf(\R), \quad \D^\alpha(f\ast\phi)=(\D^\alpha f\ast\phi)=(f\ast\D^\alpha\phi)$$
+    2) Можно ли определить свёртку от двух обобщённых функций, вообще говоря нет, потому что как минимум оно может быть не компактно: $\phi=\psi=1$. Тогда 
+    $$1\ast 1=\int\limits_R 1\dd y=+\infty$$
+    Пусть $f, g\in\DDR$. Что бы мы ожидали получить зная понятие регулярных функций: 
+    $$(f\ast g, \phi)=\int\limits_\R\int\limits_\R f(x-y)g(y)\phi(x)\dd x\dd y=|x=y+z|=\int\limits_\R\int\limits_\R f(z)g(y)\phi(y+z)\dd y \dd z$$
+    $$(f\ast g,\phi)=(f(x)g(y),\phi(x+y))$$
+    Но тут есть проблема: $\phi(x,y):=\phi(x+y)$, здесь носитель не компактный, это можно увидеть на графике:
+ \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/2.png}
+        \caption{}
+        \label{fig:enter-label}
+    \end{figure}
+Поэтому такое определение нам не подойдёт.
+\end{myremark}
+\begin{myexe}
+    1) $\exists \eta\in\DR: \quad \eta|_{[a,b]}=1$. Выглядит она вот так:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/3.png}
+        \caption{}
+        \label{fig:enter-label}
+    \end{figure}
+    2) Пусть $f\in\DDR, \quad \supp f \subset (a, b)$ \\
+    Пусть $\eta\in\DR: \quad \eta|_[a,b]=1 \Rightarrow \eta f=f$
+\end{myexe}
+Определим свёртку обобщенных функций правильно.
+\begin{mydef}
+    Пусть $f, g\in\DDR \quad \supp \subset(a, b)$. 
+    $$(f\ast g, \phi)=(f(x)g(y),\underbrace{\phi(x+y)\eta(x)}_{\in\D(\R^2)})$$
+\end{mydef}
+На рисунке с носителем, мы таким образом вырезаем параллелограмм.
+\begin{myexe}
+    $\phi_k\xrightarrow{\DR}0 \quad \Rightarrow \quad \phi_k(x+y)\eta(x)\xrightarrow{\D(\R^2)}0$
+\end{myexe}
+\begin{myexe}
+    Определение не зависит от выбора $\eta$.
+\end{myexe}
+\begin{myremark}
+    1) Пусть $f,g\in\DDR, \quad \supp g\subset(c, d)$, то 
+    $$(f\ast g, \phi)=(f(x)g(y), \phi(x+y)\eta(y))$$
+    Здесь уже $\eta|_{[c, d]}=1$ \\
+    2) $\supp f, \, \supp g$ - компактные, то можно определить и так и так: $f\ast g=g\ast f$ \\
+    3) $\delta\ast f=f$ \\
+    4) Можно так же дифференцировать: $(f\ast g)'=f'\ast g=f\ast g'$. \\
+    $$(\{\text{обобщённые функции с компактным }\supp\}, \ast) - \text{ коммутативная алгебра с единицей}$$
+    Анти-пример - $\theta, \delta', 1$ и это не будет алгеброй: \\
+    $(\theta\ast \delta')\ast 1=(\theta\ast\delta)'\ast1=\theta'\ast1=\delta\ast1=1$ \\
+    $\theta\ast (\delta'\ast 1)=\theta\ast(\delta\ast1)'=\theta\ast1'=\delta\ast0=0$
+\end{myremark}
 \section{Пространство Шварца \texorpdfstring{$\SR$}{ }}
 \subsection{Пространство быстро убывающих функций \texorpdfstring{$\SR$}{ }}
 \subsection{Преобразование Фурье}

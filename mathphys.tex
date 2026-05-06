@@ -934,10 +934,13 @@ $(f_k',\phi)=-(f_k,\phi') \rightarrow -(f, \phi')=(f', \phi)$
     $\{f_k\}$ - $\delta$-образная.
 \end{myremark}
 \begin{myexample}
-    1)$f_k(x)=\left[\begin{gathered}
-        k, \quad 0<x<\frac{1}{k} &
-        0, \quad \text{иначе}
-    \end{gathered} \xrightarrow{\DDR}\delta$
+    1)\[
+f_k(x)=
+\begin{cases}
+k, & 0<x<\dfrac{1}{k},\\
+0, & \text{иначе},\end{cases}
+\quad \xrightarrow[k\to\infty]{\DDR} \delta(x).
+\]
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\linewidth]{pics/1.png}
@@ -2242,9 +2245,8 @@ $y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных �
 \end{cases}
 \]
 Сделаем преобразование Фурье по x:
-\[V(t,\xi)=\dfrac{1}{(2\pi)^{n/2}}\int_{\r^n}e^{-i\xi x }u(t,x)\dd x=F(u)\] Тогда задача принимает следующий вид:
-
-
+\[V(t,\xi)=\dfrac{1}{(2\pi)^{n/2}}\int_{\r^n}e^{-i\xi x }u(t,x)\dd x=F(u)\] 
+Тогда задача принимает следующий вид:
 
 \[\displaystyle
 \begin{cases}
@@ -2254,54 +2256,189 @@ $y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных �
  \int_{\R^n}\phi(x)e^{-ix\xi}\dd x
 \end{cases}
 \]
+Тогда решение такой задачи:
+\[V(t,\xi)=e^{-\xi^2t}\hat{\phi}(\xi)\]
+Сделаем обратное преобразование Фурье и получим искомую функцию $u$:
+\[u(t,x)=\mathcal{F}^{-1}[V]=\dfrac{1}{(2\pi)^{n/2}} \mathcal{F}^{-1}[e^{-\xi^2t}]*\phi\]
+
+
+
+\begin{mylemma}
+    Пусть $t>0$, тогда $\mathcal{F}^{1}[e^{-\xi^2t}](x) = \mathcal{F}^{-1}[e^{-tx^2}]=(2\pi)^{-n/2}e^{-\xi^2/(4t)}$
+\end{mylemma}
+\begin{myproof}
+    Давайте напишем левую часть:
+    \[\int\limits_{\R^n} e^{-tx^2}e^{-i\xi x}\dd x=\int\limits_{\R^n} \exp\left({\sum\limits_{j=1}^n -t x_j^2 - i \xi_j x_j }\right)\dd x_j \]
+    Правая часть тоже разложиться на компоненты, тогда нам надо показать, что для каждого $j$ выполняется следующее:
+    \[\int\limits_{-\infty}^{+\infty} e^{-tx_j^2 - i \xi_j x_j}\dd x_j = \sqrt{\dfrac{\pi}{t}}e^{-\xi_j^2/(4t)}\]
+    Нам достаточно рассмотреть одномерный случай $n=1$, тогда рассмотреваем следующую функцию $f(x)=e^{-tx^2}$, получим:
+    \[\mathcal{F}(f)(\xi)=\dfrac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} f(x)(x)e^{-ix\xi}\dd x\]
+    \[\mathcal{F}(e^{-tx^2})(0)\dd x=\dfrac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} e^{-tx^2}\dd x=\dfrac{1}{\sqrt{2t}}\]
+    Заметим, что для нашей функции $f$ выполняется следующее:
+    \[f'(x)=-2txe^{-tx^2}=-2txf(x) \]
+    \[\left(\mathcal{F}[f]\right)'(\xi)=\mathcal{F}[-ixf(x)](\xi)=\dfrac{i}{2t}\mathcal{F}[-2txf](\xi)=\dfrac{i}{2t}\mathcal{F}[f'](\xi)=\dfrac{-\xi}{2t}\mathcal{F}[f](\xi)\Rightarrow\]
+    \[\mathcal{F}(\xi)=\dfrac{\exp\left(\dfrac{-\xi^2}{4t}\right)}{\sqrt{2t}}\]
+    Тогда:
+    \[u(t,x)=\dfrac{1}{(4 \pi t)^{n/2}} \int_{\R^n} e^{-|x-y|^2/(4t)} \phi(y) \dd y=\dfrac{1}{(2\pi)^{n/2}}\mathcal{F}^{-1}[e^{-\xi^2t}]*\phi\]
+\end{myproof}
+
+
+
+\begin{mytheorem}
+    Пусть функция $\phi$ непрерывна и ограничена в $\R^n$ и 
+\[
+u(t,x) = \dfrac{1}{(4\pi t)^{n/2}}\int\limits_{\R^n}e^{-|x-y|^2/4t}\phi(y)\dd y
+\]
+
+Тогда:
+\begin{enumerate}
+    \item $u\in C^{\infty}((0,\infty)\times\R^n)$;
+    \item $\dfrac{\p u}{\p t} - \Delta u = 0$;
+    \item $u(t,x)\xrightarrow[t\to0]{}\phi(x)$
+\end{enumerate}
+\end{mytheorem}
+
+\begin{myproof}
+    \[
+   \dfrac{\p u}{\p t} 
+   = \dfrac{1}{(4\pi t)^{n/2}} \int_{\R^n} \left( \dfrac{-n}{2t}+\dfrac{|x-y|^2}{4t^2}\right) e^{-|x-y|^2/4t}  \phi(y) \dd y\]
+   \[\dfrac{\p u}{\p x_j}=\dfrac{-1}{(4 \pi t )^{n/2}} \int_{\R^n} e^{-|x-y|^2/4t}  \phi(y) \dd y \left( \dfrac{x_j-y_j}{2t}\right)\]
+   \[\dfrac{\p^2 u}{\p x_j^2}=\dfrac{1}{(4 \pi t )^{n/2}} \int_{\R^n} e^{-|x-y|^2/4t}  \phi(y) \dd y \left( \dfrac{-1}{2t}+\dfrac{(x_j-y_j)^2}{4t^2}\right)\]
+   Мы просто посчитала все производные и видим, что $\dfrac{\p u}{\p t} - \Delta u = 0$. \\
+   Давайте вспомним лемму о $\delta$ -- образных последовательностях, которая гласит, что если $f\in C(\R^n)$ и $f$ ограничена, то:
+\begin{enumerate}
+    \item \[f_m \in \L_1(\R^n), f_m \neq 0 \qquad \text{почти всюду}\]
+    \item   \[\int_{\R^n}f_m(x)\dd x = 1\]
+    \item \[\int_{B_a(0)}f_m (x)\dd x \xrightarrow[m\to\infty]{}1, \ \forall a>0\]
+\end{enumerate}
+Тогда:
+\[\int_{\R^n}f_m(x)\eta(x)\dd x \xrightarrow[m\to\infty]{}\eta(0), \ \forall \eta\, \text{непрерывная и ограниченная}\] 
+Пусть $f_m \xrightarrow{m\to\infty}{}0$, тогда рассмотрев:
+\[f_m(y)=\dfrac{1}{(4\pi t_m)^{n/2}}e^{-|y|^2/4t_m}\]
+И отсюда прекрасно видно, что для леммы все выполненно, тоогда теорема верна.
+\[\int_{\R^n}f_m(x-y)\varphi(y)\dd x =|z=x-y|=\int_{\R^n} f_m(z)\varphi(x-z)\dd z \xrightarrow[m\to\infty]{}\varphi(x)
+\]
+Теперь покажем следующие факты:
+\begin{enumerate}
+    \item \[\int_{\R^n}e^{-|x-y|^2/4t}\dd y =\begin{vmatrix}
+        z_j=\dfrac{y_j}{2\sqrt{t}}\\
+        \dd y_j = 2\sqrt{t}\dd z_j  
+    \end{vmatrix}=(2\sqrt{t})^n \int_{\R^n} e^{-|z|^2}\dd z=(2\sqrt{t})^n\left(\sqrt{\pi}\right)^n\]
+    Откуда сразу видно, что первое условие леммы о $\delta$ -- образных последовательностях выполнено.
+    \item \[1\neq \int_{B_a(0)}e^{-|y|^2}\dd y \neq \int_{\text{квадрат со стороной }b}e^{-|y|^2}\dd y=(2\sqrt{t}^n)\int_{\text{квадрат со стороной }b}e^{-|z|^2}\dd z\]
+    Далее все хотим сводить к интегралу Пуассона, тогда:
+    \[\int\limits_{-\frac{b}{2\sqrt{t}}}^{\frac{b}{2\sqrt{t}}}e^{-|z|^2}\dd z \xrightarrow[b\to\infty]{}\int\limits_{0}^{\infty}e^{-z^2}\dd z\]
+    Значит $\int\limits_{-\frac{b}{2\sqrt{t}}}^{\frac{b}{2\sqrt{t}}}e^{-|z|^2}\dd z \xrightarrow[t\to0]{}  \sqrt{\pi}$, откуда сразу видно, что третье условие леммы о $\delta$ -- образных последовательностях выполнено.
+\end{enumerate}
+\end{myproof}
+
+
+\subsection{Комментарии}
+\begin{enumerate}
+    \item В общем случае (при $a\neq 1$) решение имеет вид:
+    \[
+    u(t,x) = \dfrac{1}{(4\pi at)^{n/2}}\int\limits_{\R^n}e^{|x-y|^2/4at}\phi(y)\dd y
+    \]
+
+
+    \item Бесконечное сглаживание:
+
+    Как только $t = \epsilon>0$, решение сразу же становится бесконечно гладким
+
+    \item Бесконечная скорость тепла:
+
+    \item Принцип максимума:
+    Пусть $T_1 = \sup\limits_{x\in\R^n}\phi(x)$, тогда:
+    \[u(t,x)\leq (4\pi t)^{-n/2}T_1\int\limits_{\R^n}e^{-|x-y|^2/4t}\dd y = T_1\]
+    Аналогично, если $T_2 = \inf\limits_{x\in\R^n}\phi(x)$, то $u(t,x)\geq T_2$. Тогда $T_2\leq u(t,x)\leq T_1$ -- это и есть принцип максимума для уравнения теплопроводности.
+    С минимум доказательство аналогично, только везлде надо будет поменять знак неравенств.
+
+    \item Закон сохранения энергии:
+    
+    Пусть $\phi$ --- интегрируема в $\R^n$, тогда
+    \[
+    \int\limits_{\R^n}u(t,x)\dd x = \int\limits_{\R^n}\int\limits_{\R^n}\dfrac{1}{(4\pi t)^{n/2}}e^{-|x-y|^2/4t}\phi(y)\dd y\dd x = \int\limits_{\R^n}\phi(y)\dd y
+    \]
 
 
 
 
+    \item Уравнение Шрёдингера:
+
+
+    \[
+    \begin{cases}
+        i\dfrac{\p \psi}{\p t} = \Delta\psi\\
+        \\
+        \psi\Big|_{t=0} = \psi_0(x)
+    \end{cases}
+    \]
+
+    То есть мы просто взяли $t \to -it$. Решение такого уравнения:
+    \[
+    \psi(t,x) = \skobka{\dfrac{i}{4\pi t}}^{n/2}\int\limits_{\R^n}e^{-i|x-y|^2/4t}\psi_0(y)\dd y
+    \]
+
+    В этом случае надо сделать пару оговорок по поводу условий. Нужно требовать $\psi_0\in\L_2(\R^n)$ -- чтобы была сходимость и $\psi(t_i)\in\L_2(\R^n)$ -- чтобы сохранялась норма. Тогда $\psi$ -- это решение уравнения Шрёдингера, так как $\psi$ -- это просто $u$ при $t \to -it$. 
+\end{enumerate}
 
 
 
+\subsection{Неоднородное уравнение теплопроводности}
+Мы прекрасно знаем функцию Грина:
+\[
+g(t,x) = \dfrac{1}{(4\pi t)^{n/2}}e^{-|x-y|^2/4t},
+\]
+которая решаеет такое уравнение:
+\[
+\begin{cases}
+    \dfrac{\p g}{\p t} - \Delta g = 0, \ \ t>0 \forall x \in \R^n\\
+    g\xrightarrow[t\to0]{}\delta(x)
+\end{cases}
+\]
 
 
+\begin{myexe}
+    Показать, что такая функция:
+    \[G(t,x)=\begin{cases}
+    g(t,x), \ t>0\\
+    0, \ t\leq0
+    \end{cases},\] решает следующее уравнение:
+\[\dfrac{\p G}{\p t} - \Delta G = \delta(t,x); \, \text{в}\, \mathcal{D}'(\R^{n+1})\]
+\end{myexe}
 
+\begin{mytheorem}
+    Пусть $\varphi$ -- непрерывная и ограниченная функция в $\R^n$, $f\in C^{1,2}([0,\infty)\times\R^n)$ -- функция с компактным носителем, $f\in C_{0}([0,\infty)\times\R^n)$.\\
+    Тогда  существует единственное решение $u\in C^{1,2}((0,\infty)\times\R^n)$, непрерывное и ограниченное в $[0,\infty)\times\R^n$ и удовлетворяющее системе:
+\[
+\begin{cases}
+    \dfrac{\p u}{\p t} - \Delta u = f(t,x), \ \ t>0\\\\
+    u\Big|_{t=0} = \phi(x)
+\end{cases}
+\]
 
+Причём это решение имеет следующий вид:
+\[
+u(t,x) = \int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4t}}{(4\pi t)^{n/2}}\phi(y)\dd y + \int\limits_{0}^{t}\int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4(t-\tau)}}{(4\pi(t-\tau))^{n/2}}f(\tau, y)\dd y\dd \tau =:u_1 + u_2
+\]
+\end{mytheorem}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{myproof}
+    Рассмотрев однородную задачу, мы уже знаем, что $u_1$ -- это решение такой задачи:
+    \[\begin{cases}
+        \dfrac{\p u_1}{\p t} - \Delta u_1 = 0, \ \ t>0\\\\
+        u_1\Big|_{t=0} = \phi(x)
+    \end{cases}, \] причем:
+    \[u_1(t,x) = \int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4t}}{(4\pi t)^{n/2}}\phi(y)\dd y\]
+    
+    Теперь остается решение такой задачи:
+    \[\begin{cases}
+        \dfrac{\p u_2}{\p t} - \Delta u_2 = f(t,x), \ \ t>0\\\\
+        u_2\Big|_{t=0} = 0
+    \end{cases}\]
+    причем надо проверить, что $u_2$ -- это решение такой задачи:
+    \[u_2(t,x) = \int\limits_{0}^{t}\int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4(t-\tau)}}{(4\pi(t-\tau))^{n/2}}f(\tau, y)\dd y\dd \tau\]
+\end{myproof}
 
 
 

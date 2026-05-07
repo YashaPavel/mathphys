@@ -1205,9 +1205,68 @@ $$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
 \end{myremark}
 \section{Пространство Шварца \texorpdfstring{$\SR$}{ }}
 \subsection{Пространство быстро убывающих функций \texorpdfstring{$\SR$}{ }}
+На $\DDR$ не определить преобразование Фурье, поэтому нужно сузить класс обобщенных функци, но расширить класс основных.
+\begin{mydef}
+    $$\phi\in\SR \quad \Leftrightarrow \quad \begin{cases}
+        1) \phi\in\Cinf(\R) \\
+        2)\forall l, m \,\, \exists C_{lm}: \, |x^l\phi^{(m)}\leq C_{lm} \forall x\in\R
+    \end{cases}$$
+2 можно записать как $\phi^{(m)}=O(x^{-l}) \,\, \forall m, l, \quad x\to\infty$, т.е. любая производная функции убывает быстрее любой степени.
+\end{mydef}
+\begin{myremark}
+    $$\phi\in\SR \quad \Rightarrow \quad x\phi\in\SR$$
+    Домножение возможно, т.к. убывает быстрее любой степени и функция так же остаётся гладкой.
+\end{myremark}
+\begin{myexe}
+    1) $\DR\in\SR$ \\
+    2) $e^{-x^2}\in\SR\backslash\DR$
+\end{myexe}
+\begin{mydef}
+    $$\phi_k\xrightarrow{\SR}\phi \quad\Leftrightarrow\quad \forall l,m\in \N_0 \,\,\,\, x^l\phi^{(m)}_k(x)\rightarrow x^l\phi^{(m)}(x)\text{ равномерно на } \R$$
+\end{mydef}
+$\SR$ - метризуемо. Доказательство состоит из двух упражнений: 
+\begin{myexe} 
+    1)$\rho=\displaystyle\sum\limits_{l,m=0}^{\infty}\dfrac{\underset{\R}{max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|}{2^{l+m}(1+\underset{\R}{max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|)}$. Надо доказать, что это метрика(неотрицательная, невырожденная, неравенство треугольника) \\
+    2) $\phi_k\xrightarrow[k\to\infty]{\SR}\phi \quad \Leftrightarrow \quad \rho(\phi_k, \phi) \xrightarrow[k\to\infty]{}0$
+\end{myexe}
+Сущесвтенно, что это пространство - алгебра.
+\begin{mylemma}
+    Пусть $\phi, \psi\in\SR \quad \Rightarrow \quad \phi\psi\in\SR,\,\, \phi\ast\psi\in\SR$
+\end{mylemma}
+\begin{myproof}
+    С произведением всё очевидно, перемножение так же даёт бесконечно гладкую функицю и так же производные убиывают быстрее любой степени.
+    $$(\phi\ast\psi)(x)=\int\limits_\R\phi(x-y)\psi(y)\dd y$$
+    Рассмотрим:
+    $$x^m(\phi\ast\psi)\underset{((x-y)+y)^m}{=}\int\limits_\R\sum\limits_{k=0}^{m}C^k_m(x-y)^{m-k}\phi(x-y)y^m\psi(y)\dd y$$
+Последнее равенство - разложение в бином Ньютона. По определению функции из пространства Шварца: 
+    $$|(x-y)^{m-k}\phi(x-y)|\leq C_1 \quad \forall x, y$$
+    $$|y^m\psi(y)|\leq\dfrac{C_2}{1+y^2}$$
+Тогда получаем: 
+$$\bigg|\int\limits_\R(x-y)^{m-k}\phi(x-y)y^m\psi(y)\dd y\bigg|\leq C_1C_2\int\limits_\R\dfrac{\dd y}{1+y^2}\leq\infty$$
+Тогда получаем, что $\phi\ast\psi=O(x^{-m}), \quad x\to\infty$. Для производной все логично:
+$$(\phi\ast\psi)^{(j)}=\phi^{(j)}\ast\psi \quad \Rightarrow \quad (\phi\ast\psi)^{(j)}=O(x^{-m}), \quad x\to\infty$$
+\end{myproof}
 \subsection{Преобразование Фурье}
-
-
+\begin{mydef}
+    Пусть $\phi\in\SR$, преобразование Фурье:
+    $$(\F\phi)(\xi)=\widehat{\phi}(\xi)=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi(x)\dd x$$
+\end{mydef}
+Важное свойство заключается в том, что производная тоже гладкая функция и вот как она выглядит(производная по $\xi$):
+$$\widehat{\phi}'(\xi)=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}(-ix\phi(x))\dd x$$
+$$\widehat{\phi}'(\xi)=-i(x\phi)\hat{}\quad (\widehat{\phi})^{(l)}=((-ix)^l\phi)\hat{}$$
+$$\widehat{\phi'}=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi'\dd x\underset{\text{интегр. по частям}}{=}\frac{i\xi}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi(x)\dd x$$
+Интегрирование по частям: первый член зануляется из за того, что $\phi$ быстро убывающая.
+$$\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{\phi}(\xi)$$
+\begin{myremark}
+    Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R) \quad \Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к. 
+    $$|\widehat{\phi}(\xi)|\leq\frac{1}{\sqrt{2\pi}}\int\limits_\R|\phi(x)|\dd x$$
+\end{myremark}
+\begin{myexe}
+    $$\phi\in\L_1(\R) \quad \Rightarrow \quad \begin{align}
+        1) \widehat{\phi} \text{ - непрерывна} \\
+        2) \widehat{\phi}\xrightarrow[\xi\to\infty]{}0
+    \end{align}$$
+\end{myexe}
 \section{Пространство Шварца \texorpdfstring{$\SSR$}{ } }
 \subsection{Преобразования медленно растущих обобщенных функций \texorpdfstring{$\SSR$}{ }}
 \subsection{Преобразование Фурье на \texorpdfstring{$\SSR$}{ }}

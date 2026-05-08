@@ -1209,12 +1209,12 @@ $$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
 \begin{mydef}
     $$\phi\in\SR \quad \Leftrightarrow \quad \begin{cases}
         1) \phi\in\Cinf(\R) \\
-        2)\forall l, m \,\, \exists C_{lm}: \, |x^l\phi^{(m)}\leq C_{lm} \forall x\in\R
+        2)\forall l, m \,\, \exists C_{lm}: \, |x^l\phi^{(m)}|\leq C_{lm} \forall x\in\R
     \end{cases}$$
-2 можно записать как $\phi^{(m)}=O(x^{-l}) \,\, \forall m, l, \quad x\to\infty$, т.е. любая производная функции убывает быстрее любой степени.
+2 можно записать как $\phi^{(m)}=O(x^{-l}) \quad \forall m, l \,\,\,\, x\to\infty$, т.е. любая производная функции убывает быстрее любой степени.
 \end{mydef}
 \begin{myremark}
-    $$\phi\in\SR \quad \Rightarrow \quad x\phi\in\SR$$
+    \lbpn{forth}{$$\phi\in\SR \quad \Rightarrow \quad x\phi\in\SR$$}
     Домножение возможно, т.к. убывает быстрее любой степени и функция так же остаётся гладкой.
 \end{myremark}
 \begin{myexe}
@@ -1226,7 +1226,7 @@ $$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
 \end{mydef}
 $\SR$ - метризуемо. Доказательство состоит из двух упражнений: 
 \begin{myexe} 
-    1)$\rho=\displaystyle\sum\limits_{l,m=0}^{\infty}\dfrac{\underset{\R}{\max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|}{2^{l+m}(1+\underset{\R}{max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|)}$. Надо доказать, что это метрика(неотрицательная, невырожденная, неравенство треугольника) \\
+    1)$\rho=\displaystyle\sum\limits_{l,m=0}^{\infty}\dfrac{\underset{\R}{\max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|}{2^{l+m}(1+\underset{\R}{\max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|)}$. Надо доказать, что это метрика(неотрицательная, невырожденная, неравенство треугольника) \\
     2) $\phi_k\xrightarrow[k\to\infty]{\SR}\phi \quad \Leftrightarrow \quad \rho(\phi_k, \phi) \xrightarrow[k\to\infty]{}0$
 \end{myexe}
 Сущесвтенно, что это пространство - алгебра.
@@ -1242,7 +1242,7 @@ $\SR$ - метризуемо. Доказательство состоит из �
     $$|(x-y)^{m-k}\phi(x-y)|\leq C_1 \quad \forall x, y$$
     $$|y^m\psi(y)|\leq\dfrac{C_2}{1+y^2}$$
 Тогда получаем: 
-$$\bigg|\int\limits_\R(x-y)^{m-k}\phi(x-y)y^m\psi(y)\dd y\bigg|\leq C_1C_2\int\limits_\R\dfrac{\dd y}{1+y^2}\leq\infty$$
+$$\bigg|\int\limits_\R(x-y)^{m-k}\phi(x-y)y^m\psi(y)\dd y\bigg|\leq C_1C_2\int\limits_\R\dfrac{\dd y}{1+y^2}<\infty$$
 Тогда получаем, что $\phi\ast\psi=O(x^{-m}), \quad x\to\infty$. Для производной все логично:
 $$(\phi\ast\psi)^{(j)}=\phi^{(j)}\ast\psi \quad \Rightarrow \quad (\phi\ast\psi)^{(j)}=O(x^{-m}), \quad x\to\infty$$
 \end{myproof}
@@ -1256,7 +1256,7 @@ $$\widehat{\phi}'(\xi)=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}(-ix\phi(x
 $$\widehat{\phi}'(\xi)=-i(x\phi)\hat{}\quad (\widehat{\phi})^{(l)}=((-ix)^l\phi)\hat{}$$
 $$\widehat{\phi'}=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi'\dd x\underset{\text{интегр. по частям}}{=}\frac{i\xi}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi(x)\dd x$$
 Интегрирование по частям: первый член зануляется из за того, что $\phi$ быстро убывающая.
-$$\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{\phi}(\xi)$$
+\lbpn{third}{$$\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{\phi}(\xi)$$}
 \begin{myremark}
     Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R)\Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к. 
     $$|\widehat{\phi}(\xi)|\leq\frac{1}{\sqrt{2\pi}}\int\limits_\R|\phi(x)|\dd x$$
@@ -1270,6 +1270,86 @@ $$\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{
 \end{aligned}
 \]
 \end{myexe}
+\begin{mylemma}
+    $$\phi\in\SR \quad \Rightarrow \quad \widehat{\phi}\in\SR$$
+\end{mylemma}
+\begin{myproof}
+Пусть для некоторого $n \in \mathbb{N}$ справедливо
+\[
+\widehat{\varphi^{(n)}}(\xi) = (i\xi)^n\,\widehat{\varphi}(\xi).
+\]
+Рассмотрим $(n+1)$-ю производную:
+\[
+\widehat{\varphi^{(n+1)}}(\xi)
+= \widehat{(\varphi^{(n)})'}(\xi).
+\]
+Применяя уже доказанный случай $n=1$ к функции $\varphi^{(n)}$, получаем
+\[
+\widehat{(\varphi^{(n)})'}(\xi)
+= i\xi\,\widehat{\varphi^{(n)}}(\xi).
+\]
+Подставляя индукционное предположение, имеем
+\[
+\widehat{\varphi^{(n+1)}}(\xi)
+= i\xi \cdot \widehat{\varphi^{(n)}}(\xi)
+= i\xi \cdot (i\xi)^n\,\widehat{\varphi}(\xi)
+= (i\xi)^{n+1}\,\widehat{\varphi}(\xi).
+\]
+Таким образом, утверждение верно для $n+1$, что завершает индукционный переход. Отсюда мы получаем:
+$$\xi^m\widehat{\phi}(\xi)=(-i)^m(\phi^{(m)})\hat{}\text{ - ограничена по предыдущему замечанию, т.к.} \quad \int\limits_\R|\phi^{(m)}|\dd x<\infty$$
+Следовательно, $\widehat{\phi}(\xi)=O(\dfrac{1}{\xi^m})$. Посмотрим теперь на производную: 
+$$\widehat{\phi}^{(l)}(\xi)=(-i)^l(x^l\phi)\hat{}\text{ доказательство аналогично преобразованию от производной}$$
+$$x^l\phi\in\SR \,\,\,(\ref{forth})\quad \Rightarrow \quad \widehat{\phi}^{(l)}(\xi)=O(\dfrac{1}{\xi^m})$$
+
+\end{myproof}
+\begin{mydef}
+    Обратое преобразование Фурье: 
+    $$\F^{-1}\phi=\check{\phi}(\xi)=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{i\xi x}\phi(x)\dd x$$
+\end{mydef}
+\begin{mytheorem}
+    Пусть $\phi\in\SR$, тогда: 
+    \lbpn{fifth}{$$\F^{-1}\F\phi=\F\F^{-1}\phi=\phi$$}
+\end{mytheorem}
+\begin{myproof}
+    ДОКАЗАТЬ ПОТОМ.
+\end{myproof}
+$\F: \,\, \SR\rightarrow\SR$ - линейный оператор. \\
+$\F^{-1}: \,\, \SR\rightarrow\SR$ - доказательство аналогично доказательству для $\F$, просто другой знак. Оба отображения являются биекциями из теоремы \ref{fifth}.
+\begin{myexe}
+    $$\F: \,\, \SR\rightarrow\SR\text{ - непрерывный}$$
+\end{myexe}
+Посмотрим на преобразование от сдвига ($a\in\R$): \\
+$(\phi(x+a))\hat{}=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi(x+a)\dd x \underset{x+a=y}{=}\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi(y-a)}\phi(y)\dd y=e^{i\xi a}\widehat{\phi}(\xi)$. \\
+$(e^{iax}\phi(x))\hat{}=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x+iax}\phi(x)\dd x=\widehat{\phi}(\xi-a)$
+\begin{mylemma}
+    Пусть $\phi, \psi\in\SR$, тогда: 
+    $$(\phi\ast\psi)\hat{}=\sqrt{2\pi}\widehat{\phi}\widehat{\psi}$$
+\end{mylemma}
+\begin{myproof}
+    $(\phi\ast\psi)\hat{}(\xi)=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R e^{-i\xi x}\phi(x-y)\psi(y)\dd y\dd x\underset{x=y+z}{=}\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R e^{-i\xi x-i\xi z}\phi(z)\psi(y)\dd y\dd z=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi y}\phi(y)\dd y\int\limits_\R e^{-i\xi z}\phi(z)\dd z=\sqrt{2\pi}\widehat{\phi}(\xi)\widehat{\psi}(\xi)$
+\end{myproof}
+\begin{mylemma}
+    Следствие из предыдущей леммы: 
+    $$(\phi\psi)\hat{}=\frac{1}{\sqrt{2\pi}}\widehat{\phi}\widehat{\psi}$$
+\end{mylemma}
+\begin{myproof}
+    Из предыдущей леммы: $(\phi\ast\psi)\check{}=\sqrt{2\pi}\check{\phi}\check{\psi}$. Переобозначим: $\phi\to\widehat{\phi}, \,\,\, \psi\to\widehat{\psi}$. Тогда 
+    $$(\phi\ast\psi)\check{}=\sqrt{2\pi}\check{\phi}\check{\psi}\quad \rightarrow \quad (\widehat{\phi}\ast\widehat{\psi})\check{}=\sqrt{2\pi}\phi\psi$$
+Делая прямое преобразование: 
+    $$\widehat{\phi}\ast\widehat{\psi}=\sqrt{2\pi}(\phi\psi)\hat{}$$
+\end{myproof}
+\begin{mylemma}
+    Пусть $\phi, \psi\in\SR$, тогда: 
+    $$1) \,\, \int\limits_\R \widehat{\phi}(\xi)\overline{\widehat{\psi}(\xi)}\dd \xi=\int\limits_\R \phi(x)\overline{\psi(x)}\dd x$$
+    $$2)\,\, \int\limits_\R |\widehat{\phi}(\xi)|^2\dd \xi=\int\limits_\R |\phi(x)|^2\dd x$$
+\end{mylemma}
+\begin{myproof}
+    $$\int\limits_\R\widehat{\phi}\overline{\widehat{\psi}}\dd \xi=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R\widehat{\phi}(\xi)e^{i\xi x}\overline{\psi(x)}\dd x\dd \xi=\int\limits_\R\phi(x)\overline{\psi(x)}\dd x$$
+Второе утверждение получается из первого: $\phi\overline{\phi}=|\phi|^2$
+\end{myproof}
+\begin{myremark}
+    Можно определить преобразование Фурье на $\L_2(\R)\bigg(\int\limits_\R|\phi(x)|^2\dd x<\infty\bigg)$. Видимо это следует из предыдущей леммы, так как норма сохраняется и мы приближаем функцию гладкими функциями. В этом пространстве преобразование - унитарный оператор, оно сохраняет скалярное произведение.
+\end{myremark}
 \section{Пространство Шварца \texorpdfstring{$\SSR$}{ } }
 \subsection{Преобразования медленно растущих обобщенных функций \texorpdfstring{$\SSR$}{ }}
 \subsection{Преобразование Фурье на \texorpdfstring{$\SSR$}{ }}

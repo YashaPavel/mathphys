@@ -1,4 +1,4 @@
-%!TEX program = xelatex
+%!TEX program=xelatex
 \documentclass[12pt]{report}
 
 % -------------------------------------------------
@@ -1000,7 +1000,7 @@ $$\frac{1}{\sqrt{\pi t}}\int\limits_{-a}^{a}e^{-\frac{x^2}{t}}\dd x=\frac{1}{\sq
 \end{mydef}
 Шар: $B_R=B_R(0)=\{x\in\R^n: |x|<R\}$.
 \begin{mydef}
-    $$\phi_k\xrightarrow{\dR}\phi\quad\Leftrightarrow\begin{cases} 1)\exists R: \supp \phi_k\subset B_R, \supp \phi \subset B_R \\ 2)\D^\alpha\phi_k \xrightarrow[k\to+\infty]{}\D'\phi -\text{ равеномерно, }\forall \text{ мультииндексов }\alpha \end{cases}$$
+    $$\phi_k\xrightarrow{\dR}\phi\quad\Leftrightarrow\begin{cases} 1)\exists R: \supp \phi_k\subset B_R, \supp \phi \subset B_R \\ 2)\D^\alpha\phi_k \xrightarrow[k\to+\infty]{}\D^\alpha\phi -\text{ равномерно, }\forall \text{ мультииндексов }\alpha \end{cases}$$
 \end{mydef}
 $\alpha=(\alpha_1, \alpha_2, \dots), \D^\alpha=\dfrac{\partial^{\alpha_1}\partial^{\alpha_2}\dots\partial^{\alpha_n}}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\dots\partial x_n^{\alpha_n}}$
 \begin{mydef}
@@ -1226,7 +1226,7 @@ $$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
 \end{mydef}
 $\SR$ - метризуемо. Доказательство состоит из двух упражнений: 
 \begin{myexe} 
-    1)$\rho=\displaystyle\sum\limits_{l,m=0}^{\infty}\dfrac{\underset{\R}{max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|}{2^{l+m}(1+\underset{\R}{max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|)}$. Надо доказать, что это метрика(неотрицательная, невырожденная, неравенство треугольника) \\
+    1)$\rho=\displaystyle\sum\limits_{l,m=0}^{\infty}\dfrac{\underset{\R}{\max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|}{2^{l+m}(1+\underset{\R}{max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|)}$. Надо доказать, что это метрика(неотрицательная, невырожденная, неравенство треугольника) \\
     2) $\phi_k\xrightarrow[k\to\infty]{\SR}\phi \quad \Leftrightarrow \quad \rho(\phi_k, \phi) \xrightarrow[k\to\infty]{}0$
 \end{myexe}
 Сущесвтенно, что это пространство - алгебра.
@@ -1258,14 +1258,17 @@ $$\widehat{\phi'}=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi'\dd x\unde
 Интегрирование по частям: первый член зануляется из за того, что $\phi$ быстро убывающая.
 $$\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{\phi}(\xi)$$
 \begin{myremark}
-    Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R) \quad \Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к. 
+    Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R)\Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к. 
     $$|\widehat{\phi}(\xi)|\leq\frac{1}{\sqrt{2\pi}}\int\limits_\R|\phi(x)|\dd x$$
 \end{myremark}
 \begin{myexe}
-    $$\phi\in\L_1(\R) \quad \Rightarrow \quad \begin{align}
-        1) \widehat{\phi} \text{ - непрерывна} \\
-        2) \widehat{\phi}\xrightarrow[\xi\to\infty]{}0
-    \end{align}$$
+    \[
+\phi\in\L_1(\R) \quad \Rightarrow \quad
+\begin{aligned}
+&1)\ \widehat{\phi}\ \text{--- непрерывна},\\
+&2)\ \widehat{\phi}\xrightarrow[\xi\to\infty]{}0.
+\end{aligned}
+\]
 \end{myexe}
 \section{Пространство Шварца \texorpdfstring{$\SSR$}{ } }
 \subsection{Преобразования медленно растущих обобщенных функций \texorpdfstring{$\SSR$}{ }}
@@ -1773,7 +1776,7 @@ G(t,x) =
     \dfrac{\phi_2(s)\phi_1(t)}{W(s)}, \ s>t
 \end{cases}
 \]
-Понимаем, что при $s=a=b$, наше кравевое условие не нарушается, потому что $G(a,t)=G(b,t)=0$
+Понимаем, что при $s=a=b$, наше краевое условие не нарушается, потому что $G(a,t)=G(b,t)=0$
 
 \begin{mydef}
     Функцию Грина для задачи \eqref{78}, мжно записать еще и следующим образом:
@@ -2498,24 +2501,4 @@ u(t,x) = \int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4t}}{(4\pi t)^{n/2}}\phi(y)\dd y +
     причем надо проверить, что $u_2$ -- это решение такой задачи:
     \[u_2(t,x) = \int\limits_{0}^{t}\int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4(t-\tau)}}{(4\pi(t-\tau))^{n/2}}f(\tau, y)\dd y\dd \tau\]
 \end{myproof}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \end{document}

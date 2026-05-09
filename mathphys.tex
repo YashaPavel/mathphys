@@ -1218,7 +1218,7 @@ $$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
     Домножение возможно, т.к. убывает быстрее любой степени и функция так же остаётся гладкой.
 \end{myremark}
 \begin{myexe}
-    1) $\DR\in\SR$ \\
+    1) $\DR\subset\SR$ \\
     2) $e^{-x^2}\in\SR\backslash\DR$
 \end{myexe}
 \begin{mydef}
@@ -1256,9 +1256,9 @@ $$\widehat{\phi}'(\xi)=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}(-ix\phi(x
 $$\widehat{\phi}'(\xi)=-i(x\phi)\hat{}\quad (\widehat{\phi})^{(l)}=((-ix)^l\phi)\hat{}$$
 $$\widehat{\phi'}=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi'\dd x\underset{\text{интегр. по частям}}{=}\frac{i\xi}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi(x)\dd x$$
 Интегрирование по частям: первый член зануляется из за того, что $\phi$ быстро убывающая.
-\lbpn{third}{$$\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{\phi}(\xi)$$}
+\lbpn{third}{\[\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{\phi}(\xi)\]}
 \begin{myremark}
-    Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R)\Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к. 
+    \lbpn{seventh}{Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R)\Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к.} 
     $$|\widehat{\phi}(\xi)|\leq\frac{1}{\sqrt{2\pi}}\int\limits_\R|\phi(x)|\dd x$$
 \end{myremark}
 \begin{myexe}
@@ -1316,7 +1316,7 @@ $$x^l\phi\in\SR \,\,\,(\ref{forth})\quad \Rightarrow \quad \widehat{\phi}^{(l)}(
 $\F: \,\, \SR\rightarrow\SR$ - линейный оператор. \\
 $\F^{-1}: \,\, \SR\rightarrow\SR$ - доказательство аналогично доказательству для $\F$, просто другой знак. Оба отображения являются биекциями из теоремы \ref{fifth}.
 \begin{myexe}
-    $$\F: \,\, \SR\rightarrow\SR\text{ - непрерывный}$$
+    \lbpn{sixth}{$$\F: \,\, \SR\rightarrow\SR\text{ - непрерывный}$$}
 \end{myexe}
 Посмотрим на преобразование от сдвига ($a\in\R$): \\
 $(\phi(x+a))\hat{}=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi(x+a)\dd x \underset{x+a=y}{=}\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi(y-a)}\phi(y)\dd y=e^{i\xi a}\widehat{\phi}(\xi)$. \\
@@ -1351,9 +1351,79 @@ $(e^{iax}\phi(x))\hat{}=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x+iax}\phi
     Можно определить преобразование Фурье на $\L_2(\R)\bigg(\int\limits_\R|\phi(x)|^2\dd x<\infty\bigg)$. Видимо это следует из предыдущей леммы, так как норма сохраняется и мы приближаем функцию гладкими функциями. В этом пространстве преобразование - унитарный оператор, оно сохраняет скалярное произведение.
 \end{myremark}
 \section{Пространство Шварца \texorpdfstring{$\SSR$}{ } }
-\subsection{Преобразования медленно растущих обобщенных функций \texorpdfstring{$\SSR$}{ }}
+\subsection{Пространство медленно растущих обобщенных функций \texorpdfstring{$\SSR$}{ }}
+\begin{mydef}
+    $$f\in\SSR \quad \Leftrightarrow \quad f \text{ - линейный непрерывный функционал на } \SR$$
+\end{mydef}
+Важно, что непрерывный относительно той сходимости, которую мы завели на $\SR$. Здесь так же можно определить регулярные функции, но тут локальной интегрируемости не хватит из за бесконечности. \\
+Пусть $f\in\SR: \,\,\, \exists N: \quad \int\limits_\R\dfrac{|f(x)|}{(1+|x|)^N}\dd x<\infty$. Отсюда автоматически следует, что $f\in\L_{1, loc}$. Тогда заведём обобщенную функцию: 
+$$(\tilde{f}, \phi)=\int\limits_\R f(x)\phi(x)\dd x=\int\limits_\R \underbrace{\dfrac{f(x)}{(1+|x|)^N}}_{\text{интегрируема}}\underbrace{\phi(x)(1+|x|)^N}_{ограничена}$$
+Получаем, что $\tilde{f}$ регулярную обобщённую функцию.
+\begin{myexample}
+    1)$\SSR\subset\DDR$ \\
+    2) $e^x, e^{x^2}\in\DDR\backslash\SSR$, интеграл $\int\limits_\R e^x \phi(x)\dd x$, если $\phi\in\SR$, то не факт что сойдётся. \\
+    3) Пусть $f\in\DDR, \,\,\,\, \supp f\subset(a, b).$ \\
+    Пусть $\eta\in\DR:\,\,\,\, \eta|_{[a, b]}=1$. 
+    $$(f,\phi)=(f, \eta\phi) \,\,\,\, \forall \phi\in\SR \quad \Rightarrow \quad f\in\SSR$$
+
+\end{myexample}
+\begin{mydef}
+    $$f_k\xrightarrow{\SSR}f \quad \Leftrightarrow \quad (f_k,\phi)\xrightarrow[k\to\infty]{}(f,\phi) \,\,\,\, \forall \phi\in\SR$$
+$f_k\xrightarrow{\SSR}f \quad \Rightarrow \quad f_k\xrightarrow{\DDR}f$
+\end{mydef}
+\begin{mydef}
+    $$(f' ,\phi)=-(f, \phi')$$
+\end{mydef}
+\begin{mydef}
+    Пусть $f\in\SSR, \,\,\, \beta\in\SR$, тогда: 
+    $$(\beta f,\phi)=(f,\beta\phi)$$
+\end{mydef}
+\begin{mydef}
+    Пусть $\gamma$ - полином, 
+    $$(\gamma f, \phi)=(f, \gamma\phi)$$
+\end{mydef}
 \subsection{Преобразование Фурье на \texorpdfstring{$\SSR$}{ }}
+Пусть $f, \phi\in L_1(\R)$, для обычных функций:
+$$\int\limits_\R\widehat{f}(x)\phi(x)\dd x=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R e^{-i\xi x}f(\xi)\phi(x)\dd x\dd \xi=\int\limits_\R f(\xi)\widehat{\phi}(\xi)\dd \xi$$
+\begin{mydef}
+    Пусть $f\in\SSR$, тогда преобразование Фурье для неё: 
+    $$(\widehat{f}, \phi)=(f, \widehat{\phi})$$
+\end{mydef}
+Пространства $\DR$ нам не хватило, потому что преобразование Фурье размывает носитель у этих функицй. В $\DR$ если у функции $\phi$ и $\widehat{\phi}$ компактный носитель, то это тождественный 0. \\
+Корректность: $\widehat{\phi}\in\SR$. \\
+Линейность очевидна. \\
+Непрерывность: $\phi_k\xrightarrow{\SR}\phi \quad \Rightarrow \quad \widehat{\phi_k}\xrightarrow{\SR}\phi$ (из \ref{sixth}). \\
+Тогда получаем, что $\widehat{\phi}\in\SSR$. \\
+$F: \,\, \SSR\rightarrow\SSR$ - линейный непрерывный опреатор:
+$$f_k\xrightarrow{}f \quad \Rightarrow \quad \widehat{f_k}\xrightarrow{\SSR}\widehat{f}$$
+$$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \widehat{\phi})=(\widehat{f}, \phi) \quad \forall \phi\in\SR$$
+\begin{mylemma}
+    Пусть $f\in\SSR$, тогда: 
+    $$1) \widehat{f'}=ix\widehat{f}$$
+    $$2) \widehat{f}'=(-ixf)\hat{}$$
+\end{mylemma}
+\begin{myproof}
+    1) Пусть $\phi\in\SR$. \\ 
+    $(\widehat{f'}, \phi)=(f', \widehat{\phi})=-(f, \widehat{\phi}')=(f, (ix\phi)\hat{})=(\widehat{f}, ix\phi)=(ix\widehat{f}, \phi)$\\
+    2) $(\widehat{f}', \phi)=-(\widehat{f}, \phi')=(-f, \widehat{\phi'})=-(f,ix\widehat{\phi})=(-ixf, \widehat{\phi})=((-ixf)\hat{}, \phi)$
+\end{myproof}
+Если $f\in L_1(\R)$ задаёт регулярную обобщённую функцию $\tilde{f}\in\SSR$. Мы знаем, что $\widehat{f}$ - ограниченная (\ref{seventh}), а ограчниченная функция - так же регулярная обобщённая функция, то есть $\tilde{\widehat{f}}$, нас интересует $\tilde{\widehat{f}}\overset{?}{=}\widehat{\tilde{f}}$
+\begin{mylemma}
+    $$\int\limits_\R |f(x)|\dd x<\infty \quad \Rightarrow \quad \tilde{\widehat{f}}=\widehat{\tilde{f}}$$
+\end{mylemma}
+\begin{myproof}
+    Пусть $\phi\in\SR$ \\
+    $(\tilde{\widehat{f}}, \phi)=\int\limits_\R \widehat{f}(x)\phi(x)\dd x=\int\limits_\R f(\xi)\widehat{\phi}(\xi)\dd \xi=(\tilde{f}, \widehat{\phi})=(\widehat{\tilde{f}}, \phi)$
+\end{myproof}
+\begin{myexample}
+    1) $(\widehat{\delta}, \phi)=(\delta, \widehat{\phi})=\widehat{\phi}(0)=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\phi(x)\dd x$ \\
+    Тогда $\widehat{\delta}=\dfrac{1}{\sqrt{2\pi}}$ \\
+    2) $(\widehat{1}, \phi)=(1, \widehat{\phi})=\int\limits_\R\widehat{\phi}(x)\dd x\underset{\text{обратное Фурье для } \xi=0}{=}\sqrt{2\pi}(\widehat{\phi})\check{}(0)=\sqrt{2\pi}\phi(0)$
+    Тогда $\widehat{1}=\sqrt{2\pi}\delta$. \\
+    3) \[\]
+\end{myexample} 
 \subsection{Свёртка}
+
 \subsection{Случай \texorpdfstring{$\R^n$}{Rn}}
 
 

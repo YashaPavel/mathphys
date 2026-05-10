@@ -2782,4 +2782,192 @@ g\Big|_{x = a} = g\Big|_{x = b} = 0
     g\xrightarrow[t\to0]{\D'}\delta(x-\xi)
 \end{cases}\]
 \section{Уравнение Лапласа}
+Уравнение Пуассона в $\R^n$:
+\[
+\Delta u = f(x)
+\]
+\subsection{Фундаментальное решение}
+Сейчас мы находимся в случае $\R^n, n\geq 2$, в котором выполняется следующее:
+\[\Delta g =\delta (x)\]
+Тут мы будем искать $g$, которая сферически симметрична, тогда просто переобозначим ее:
+\[g(x)=f(r), \quad |x|=r=\sqrt{x^2_1+\cdots +x^2_n}\]
+Сразу понятно, что если окружить точку 0 шаром, то $\Delta f = 0$ вне $\forall B_n(0)$, тогда:
+\[\dfrac{\p r}{\p x_j}=\dfrac{\p}{\p x_j}\sqrt{\sum\limits_{j=1}^{n}x^2_j}=\dfrac{x_j}{r}\]
+\[\dfrac{\p f}{\p x_j}=\dfrac{\p r}{\p x_j}\dfrac{\p f(r)}{\p r}\]
+\[\dfrac{\p^2 f(r)}{\p x_j^2}=\dfrac{\p}{\p x_j}\skobka{\dfrac{\p r}{\p x_j}\dfrac{\p f(r)}{\p r}}=\dfrac{\p^2 f(r)}{\p r^2}\dfrac{x^2_j}{r^2}+\dfrac{\p f(r)}{\p r}\skobka{\dfrac{1}{r}-\dfrac{x^2_j}{r^3}}\]
+\[\Delta f = f''(r)+f'(r)()\dfrac{n-1}{r}\Rightarrow -f''(r)=f'(r)\dfrac{n-1}{r}\Rightarrow f(r)=\begin{cases}
+    c\ln(r), \ \ n=2\\
+    \dfrac{\tilde{c}}{r^{n-2}}, \ \ n\geq 3
+\end{cases}\]
+
+\begin{mylemma}\textit{Формулы Грина}\\
+    Рассмотрим ограниченную область $\Omega\subset\R^n$ с кусочно-гладкой границей и функции $u,v\in C^2(\Omega)\cap C^1(\overline{\Omega})$. Тогда верны следующие формулы:
+    \begin{enumerate}
+    \item \textbf{Первая формула Грина}:
+    \[
+    \int\limits_{\Omega}u(x)\Delta v(x)\dd x = -\int\limits_{\Omega}\langle \nabla u (x),\nabla v(x)\rangle \dd x + \int\limits_{\p \Omega}u(x)\dfrac{\p v(x)}{\p\nu}\dd S(x)
+    \]
+
+    \item \textbf{Вторая формула Грина}:
+    \[
+    \int\limits_{\Omega}(u\Delta v - v\Delta u)\dd x = \int\limits_{\p\Omega}\skobka{u\dfrac{\p v}{\p \nu} - v\dfrac{\p u}{\p \nu}}\dd S(x)
+    \]
+\end{enumerate}
+где $\dfrac{\p}{\p\nu}$ -- производная по внешней нормали к границе $\p \Omega$.
+\end{mylemma}
+\begin{myproof}
+    С физики и по жизни мы знаем формулу Остроградского--Гаусса:
+    \[
+    \int\limits_{\Omega}\operatorname{div}\Vec{w} = \int\limits_{\p\Omega}\langle \vec{w},\vec{\nu}\rangle\dd S
+    \]
+    Тогда положив $\Vec{w} = u\nabla v$, получаем:
+    \[\operatorname{div}\Vec{w} =\sum\limits_{j=1}^{n}\dfrac{\p u}{\p x_j}\dfrac{\p v}{\p x_j} +u\Delta v= \langle \nabla u, \nabla v\rangle + u\Delta v\]
+Замечая, что $\langle \vec{w},\vec{\nu}\rangle = u\dfrac{\p v}{\p \nu}$, получаем первую формулу Грина.\\
+Для второй формулы Грина положим $\Vec{w} = u\nabla v - v\nabla u$, тогда:
+\[\operatorname{div}\Vec{w} = \langle \nabla u, \nabla v\rangle + u\Delta v - \langle \nabla v, \nabla u\rangle - v\Delta u = u\Delta v - v\Delta u\]
+И $\langle \vec{w},\vec{\nu}\rangle = u\dfrac{\p v}{\p \nu} - v\dfrac{\p u}{\p \nu}$, откуда сразу же следует вторая формула Грина.
+\end{myproof}
+
+
+\begin{mytheorem}
+    Рассматривая ограниченную область $\Omega\subset\R^n$ с кусочно-гладкой границей и функцию $u\in C^2(\Omega)\cap C^1(\overline{\Omega})$. Тогда для любого $x\in\Omega$ имеем:
+
+\[
+u(x) = \int\limits_{\Omega}g_0(x-y)\Delta u(y)\dd y + \int\limits_{\p \Omega}\skobka{u(y)\dfrac{\p g_0(x-y)}{\p \nu} - g_0(x-y)\dfrac{\p u(y)}{\p \nu}}\dd S(y),
+\]
+где 
+\[
+g_0(x) =
+\begin{cases}
+    \dfrac{1}{2\pi}\ln |x|, \ n=2\\
+    \dfrac{-1}{\varkappa_n(n-2)|x|^{n-2}}, \ n\geq3
+\end{cases}
+\]
+$\varkappa_n$ --- площадь единичной сферы в $\R^n$:
+\[
+\varkappa_n = \dfrac{2\pi^{n/2}}{\Gamma(n/2)}
+\]
+Константа выбрана так, что:
+\[\dfrac{\p g_0}{\p r}=\dfrac{1}{\varkappa_n r^{n-1}}, \ \ n\geq 2 \]
+\end{mytheorem}
+
+\begin{myproof}
+    Возьмем $\varepsilon > 0$ и рассмотрим область $\Omega_\epsilon := \Omega\setminus \overline{B_\epsilon(x)}= \Omega \setminus \{y: |x-y| < \epsilon\},$ чтобы убрать проблемы функции Грина $g_0(x-y)$ в точке $y=x$. Тогда положив $v(y) = g_0(x-y)$, применим вторую формулу Грина:
+\[
+\int\limits_{\Omega_\epsilon}\skobka{\underbrace{u(y)\Delta g_0(x-y)}_{=0} - g_0(x-y)\Delta u(y)}\dd y = \int\limits_{\p\Omega_\epsilon}\skobka{u(y)\dfrac{\p g_0(x-y)}{\p\nu} - g_0(x-y)\dfrac{\p u(y)}{\p\nu}}\dd S(y)
+\]
+Второй же интеграл в левой части сходится:
+\[\int\limits_{\Omega_\epsilon} g_0(x-y)\Delta u(y)\dd y \xrightarrow{\varepsilon \to 0} \int\limits_{\Omega} g_0(x-y)\Delta u(y)\dd y\]
+Правую часть разбиваем на два интеграла:
+\[\int\limits_{\p\Omega_\epsilon}=\int\limits_{\p\Omega} + \int\limits_{\p B_\epsilon}\]
+И рассписываем каждый из них:
+\[
+\left|\int\limits_{\p B_\epsilon}g_0(x-y)\dfrac{\p u(y)}{\p\nu}\dd S(y)\right|\leq 
+\begin{cases}
+    C\epsilon\ln\epsilon, \ n=2\\
+    C\dfrac{\epsilon^{n-1}}{\epsilon^{n-2}}, \ n\geq3
+\end{cases} \xrightarrow[\epsilon\to0]{}0
+\]
+\[
+\int\limits_{\p B_\epsilon}u(y)\dfrac{\p g_0(x-y)}{\p\nu}\dd S(y) = - \int\limits_{\p B_\epsilon}u(y)\dfrac{\p g_0(x-y)}{\p r}\dd S(y)=-\int\limits_{\p B_\epsilon(x)}u(y)\dfrac{1}{\kappa_n\epsilon^{n-1}}\dd S(y) \xrightarrow[\epsilon\to0]{}-u(x)
+\]
+\end{myproof}
+
+Отсюда вытекает следующие следствие: если рассмотреть функцию $u\in \D(\R^n),$ тогда:
+\[
+u(x) = \int\limits_{\R^n}g_0(x-y)\Delta u(y)\dd y,
+\] где $\Delta g_0(x) = \delta(x)$.
+
+
+\begin{myremark}
+    Если рассматривать функцию Грина для случая $n=1$, то она будет иметь вид:
+\[g_0(x) = \dfrac{1}{2}|x|
+\]
+\[g'_0(x) = \dfrac{1}{2}\operatorname{sign}(x)\]
+\[g''_0(x) = \delta(x)
+\]
+\end{myremark}
+\begin{mydef}
+    $g_0(x)$ --- это фундаментальное решение уравнения Лапласа и пусть $u\in C_0^{\infty}(\R^n),$ тогда:
+    \[
+u(x) = \int\limits_{\R^n}g_0(x-y)\Delta u(y)\dd y
+\]
+\[(\Delta g_0,u)=\int\limits_{\R^n}g_0(y)\Delta u(y)\dd y = u(0) \Rightarrow \Delta g_0(y) = \delta(x)\]
+\end{mydef}
+
+
+\subsection{Гармонические функции}
+
+\begin{mydef}
+    Функция $u\in C^2(\Omega)$ называется \textbf{гармонической} в области $\Omega\subset \R^n$ если $\Delta u = 0$ в этой области
+\end{mydef}
+
+\begin{myexample}
+    \begin{enumerate}
+        \item $x_1\cdot x_2$ -- гармоническая в $\R^n$, $x^3_1-3x_1x^2_2$ -- гармоническая в $\R^3$
+        \item $\ln|x|$ -- гармоническая в $\R^n \setminus \{0\}$
+        \item $\dfrac{1}{|x|^{n-2}}$ -- гармоническая в $\R^n \setminus \{0\}, n \geq 3$
+        \item Рассматривая $n=2$ и аналитическую в $\Omega \in \C$ функцию $f$, лаплас выглядит так:
+        \[\Delta =(\p_x+i\p_y)(\p_x-i\p_y)\]Тогда:
+        \[\Delta f = 0\Rightarrow \operatorname{Re} f, \operatorname{Im} f- \ \ \text{гармонические функции}\]
+    \end{enumerate}
+\end{myexample}
+
+
+\begin{myexe}
+    Множество однородных, степени $k$ ($\operatorname{deg}=k$) гармонических полиномов от $x_1, \ldots, x_n$ -- образуют конечномерное пространство. Найти его размерность при всех $k$ для:
+    \begin{enumerate}
+        \item $n=2$
+        \item $n=3$
+        \item $\forall n$
+    \end{enumerate}
+\end{myexe}
+
+\noindent\textbf{Свойства гармонических функций:}
+
+\begin{enumerate}
+    \item Для гармонической функции $u\in C^2(\Omega)\cap C^1(\overline{\Omega})$ имеет место быть следующая формула:
+    \[
+    u(x) = \int\limits_{\p \Omega}\skobka{u(y)\dfrac{\p g_0(x-y)}{\p \nu} - g_0(x-y)\dfrac{\p u(y)}{\p \nu}}\dd S(y),
+    \] то есть значение функции в точке восстанавливается по ее значению на границе и значению ее номральной производной.
+
+    \item Все гармонические функции имеют бесконечный класс гладкости. $\Delta u = 0 \Rightarrow u \in C^\infty$
+
+    \item Для любой гармонической функции верно следующее равенство:
+    \[ \Delta u = 0 \Rightarrow
+    \int\limits_{\p\Omega}\dfrac{\p u(y)}{\p \nu}\dd S(y) = 0
+    \]
+    Это показывается из второй формулы Грина, положив $v\equiv1$.
+\end{enumerate}
+
+\begin{mytheorem}
+    \textbf{Теорема о среднем}\\
+
+   Рассмотрим гармоническую в области $\Omega\subset\R^n$ функцию $u$, и шар $\overline{B_R(x)}\subset\Omega$. Тогда верно усреднее по сфере:
+\[
+u(x) = \dfrac{1}{\varkappa_nR^{n-1}}\int\limits_{\p B_R(x)}u(y)\dd S(y)
+\]
+\end{mytheorem}
+
+
+\begin{myproof}
+    Запишем первое свойство гармонических функций для случая $\Omega = B_R(x)$:
+\[
+u(x)=\int\limits_{\p B_R(x)}\skobka{u(y)\dfrac{\p g_0(x-y)}{\p \nu}-\underbrace{g_0(x-y)\dfrac{\p u(y)}{\p \nu}}_{=C(R)\int\limits_{\p B_R(x)}\frac{\p u(y)}{\p \nu}\dd S(y)=0}}\dd S(y)
+\]
+
+В сухом остатке:
+\[
+u(x)=\int\limits_{\p B_R(x)}u(y)\dfrac{\p g_0(x-y)}{\p \nu} \dd S(y)=\dfrac{1}{\varkappa_nR^{n-1}}\int\limits_{\p B_R(x)}u(y)\dd S(y)\]
+\end{myproof}
+
+
+Пусть выполнено условие предыдущей теоремы, тогда значение функции в точке совпадает не только со средним значением по сфере, но и со средним значением по всему шару:
+\[
+u(x) = \dfrac{1}{\omega_nR^n}\int\limits_{B_R(x)}u(y)\dd y,
+\] где $\omega_n$ -- это объем единичного шара в $\R^n$:
+\[
+\omega_n =\int\limits_0^R\int\limits_{|y|=r} \dd S(y) \dd r= \int\limits_0^R \varkappa_nr^{n-1}\dd r = \dfrac{\varkappa_n}{n}
+\]
+
 \end{document}

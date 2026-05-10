@@ -52,3 +52,5 @@
 \contentsline {subsection}{\numberline {2.7.5}Единственность}{62}{subsection.2.7.5}%
 \contentsline {subsection}{\numberline {2.7.6}Уравнение теплопроводности на отрезке}{63}{subsection.2.7.6}%
 \contentsline {section}{\numberline {2.8}Уравнение Лапласа}{65}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Фундаментальное решение}{65}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Гармонические функции}{68}{subsection.2.8.2}%

@@ -2650,5 +2650,62 @@ u(t,x) = \int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4t}}{(4\pi t)^{n/2}}\phi(y)\dd y +
     \end{cases}\]
     причем надо проверить, что $u_2$ -- это решение такой задачи:
     \[u_2(t,x) = \int\limits_{0}^{t}\int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4(t-\tau)}}{(4\pi(t-\tau))^{n/2}}f(\tau, y)\dd y\dd \tau\]
+    \[u_2(t,x) = \int\limits_{0}^{t}\int\limits_{\R^n}g(t-\tau,x-y)f(\tau, y)\dd y\dd \tau\]
+    Рассмотрим $|f(\tau, y)|$, которая ограничена, тогда $|f(\tau, y)|\leq C_1 \ \ \forall (\tau,y)\in[0,\infty)\times\R^n$. Тогда:
+\[\Bigg|\int\limits_{\R^n}g(t-\tau,x-y)f(\tau, y)\dd y\Bigg|\leq C_1 \Rightarrow |u_2(t,x)|\leq C_1t\; \quad u_2(t=0,x)=0\]
+Теперь мы просто перепишем $u_2$ в виде свертки:
+\[u_2(t,x) = \int\limits_{0}^{t}\int\limits_{\R^n}g(t-\tau,x-y)f(t-\tau, y)\dd y\dd \tau\]
+И посчитаем производные от $u_2$:
+\[\dfrac{\p u_2}{\p t} = \int\limits_{\R^n}g(t,y)f(0, x-y)\dd y + \int\limits_{0}^{t}\int\limits_{\R^n}\dfrac{\p f}{\p t}(t-\tau,x-y)\dd y\dd \tau\]
+\[\dfrac{\p u_2}{\p x_i} = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\dfrac{\p f}{\p x_i}(t-\tau, y)\dd y\dd \tau\]
+\[\dfrac{\p^2 u_2}{\p x_i \p x_j} = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\dfrac{\p^2 f}{\p x_i \p x_j}(t-\tau, y)\dd y\dd \tau\]
+В сухом остатке:
+\[\dfrac{\p u_2}{\p t} - \Delta_x u_2 = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\left(\dfrac{\p f}{\p t}(t-\tau, x-y) - \Delta_x f(t-\tau, x-y)\right)\dd y\dd \tau+\]\[+\int\limits_{\R^n}g(t,y)f(0, x-y)\dd y :=I_1+I_2\]
+    Теперь давайте рассомтрим $I_1$, взяв $\epsilon>0$ и разобьем по промежутку:
+    \[
+    I_1 = \int\limits_0^\epsilon\int\limits_{\R^n}\cdots+\int\limits_\epsilon^{t}\int\limits_{\R^n}\cdots = I_{0,\epsilon} + I_{\epsilon,t}
+    \]
+ Ограничим подынтегральное выражение следующим образом:
+    \[
+    |I_{0,\epsilon}|\leq \varepsilon \operatorname{max}|(\p_t+\Delta_y)f|\leq C\varepsilon\]
+Второй же интеграл надо расписать по производным и брать по частям:
+\[
+    I_{\epsilon,t} = \int\limits_{\epsilon}^{t}\int\limits_{\R^n}g(\tau,y)\skobka{-\dfrac{\p f}{\p \tau}(t-\tau,x-y) - \Delta_yf(t-\tau,x-y)}\dd y\dd \tau =\]
+    \[=\underbrace{\int\limits_{\epsilon}^{t}\int\limits_{\R^n}\skobka{\dfrac{\p g}{\p\tau} - \Delta_yg(\tau,y)}f(t - \tau,x-y)\dd y\dd \tau}_{=0} - \underbrace{\int\limits_{\R^n}g(t,y)f(0,x-y)\dd y}_{= I_2} +\]\[+ \int\limits_{\R^n}g(\epsilon,y)f(t-\epsilon,x-y)\dd y
+    \]
+    Все полученное выше подставляем в нашу задачу:
+     \[
+    \dfrac{\p u_2}{\p t} - \Delta_xu_2 = I_{0,\epsilon} + \int\limits_{\R^n}g(\epsilon,y)f(t-\epsilon,x-y)\dd y = I_{0,\epsilon} + \int\limits_{\R^n}g(\epsilon,y)f(t,x-y)\dd y +\]
+    \[+ \int\limits_{\R^n}g(\epsilon,y)\podst{f(t-\epsilon,x-y) - f(t,x-y)}\dd y = I_{0,\epsilon} + I_3 + I_4 
+    \]
+    Теперь понимаем, что:
+    $I_3\xrightarrow[\epsilon\to0]{}f(t,x)$ так как $g\xrightarrow{t\to 0} \delta(x)$, и:
+    \[\Bigg|f(t-\epsilon,x-y)-f(t,x-y)\Bigg|\leq \epsilon\operatorname{max}\dfrac{\p f}{\p t} \Rightarrow 
+    |I_4|\leq C_3\epsilon\]
+     Тогда при $\epsilon\to0$: $\dfrac{\p u_2}{\p t} - \Delta_x u_2 = f(t,x)$
 \end{myproof}
+
+\subsection{Единственность}
+Мы показали все, кроме единсвенности решения. Будем работать в такой области:
+\[Q = (0,\tau)\times\Omega, \quad \p'Q = \skobka{\{0\}\times\overline{\Omega}}\bigcup([0,\tau]\times\p \Omega),\]
+где $\Omega\subset\R^n$ -- ограниченная область.
+\begin{myexe}
+    \begin{enumerate}
+        \item Еслм есть функция $v\in C^{1,2}(Q)\cap C(\overline{Q})$, максимум которой случился в некоторой точке $(t_1,x_1)$:
+\[
+\max\limits_{\overline{Q}}v(t,x) = v(t_1,x_1)
+\] и если:
+$(t_1,x_1)\not\in\p'Q$, то $$\dfrac{\p v}{\p t}(t_1,x_1)\geq0, \ \Delta_xv(t_1,x_1)\leq0$$
+        \item Принцип максимума. Если у нас есть такая функция, которая решает однородное уравнение теплопроводности в $Q$, то максимум такой функции достигается на $\p'Q$:
+        \[
+\begin{cases}
+u\in C^{1,2}(Q)\cap C(\overline{Q})\\
+\dfrac{\p u}{\p t} - \Delta_x u = 0
+\end{cases}
+\Rightarrow
+\underset{\overline{Q}}{\operatorname{max}}\,u(t,x)
+ < \underset{\p'Q}{\operatorname{max}}\,u(t,x)
+\]
+    \end{enumerate}
+\end{myexe}
 \end{document}

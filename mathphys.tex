@@ -2675,8 +2675,8 @@ u(t,x) = \int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4t}}{(4\pi t)^{n/2}}\phi(y)\dd y +
     \]
     Все полученное выше подставляем в нашу задачу:
      \[
-    \dfrac{\p u_2}{\p t} - \Delta_xu_2 = I_{0,\epsilon} + \int\limits_{\R^n}g(\epsilon,y)f(t-\epsilon,x-y)\dd y = I_{0,\epsilon} + \int\limits_{\R^n}g(\epsilon,y)f(t,x-y)\dd y +\]
-    \[+ \int\limits_{\R^n}g(\epsilon,y)\podst{f(t-\epsilon,x-y) - f(t,x-y)}\dd y = I_{0,\epsilon} + I_3 + I_4 
+    \dfrac{\p u_2}{\p t} - \Delta_xu_2 = I_{0,\epsilon} + \int\limits_{\R^n}g(\epsilon,y)f(t-\epsilon,x-y)\dd y = I_{0,\epsilon} + \underbrace{\int\limits_{\R^n}g(\epsilon,y)f(t,x-y)\dd y}_{I_3} +\]
+    \[+ \underbrace{\int\limits_{\R^n}g(\epsilon,y)\podst{f(t-\epsilon,x-y) - f(t,x-y)}\dd y}_{I_4} = I_{0,\epsilon} + I_3 + I_4 
     \]
     Теперь понимаем, что:
     $I_3\xrightarrow[\epsilon\to0]{}f(t,x)$ так как $g\xrightarrow{t\to 0} \delta(x)$, и:
@@ -2706,6 +2706,80 @@ u\in C^{1,2}(Q)\cap C(\overline{Q})\\
 \underset{\overline{Q}}{\operatorname{max}}\,u(t,x)
  < \underset{\p'Q}{\operatorname{max}}\,u(t,x)
 \]
+  
+Это упраждение довольно сложное, поэтому имеем некоторые подсказки:\\
+Давайте введем обозначение $M = \underset{\overline{Q}}{\operatorname{max}}\,u$ и $M_1 = \underset{{\p' Q}}{\operatorname{max}}\,u < M$ и  тогда рассмотрим функцию:
+\[
+v(t,x) = u(t,x) + \dfrac{1}{2(\operatorname{diam}(\Omega))^2}\skobka{M-M_1}|x-x_0|^2,
+\]где $\max\limits_{\overline{Q}}u(t,x) = u(t_0,x_0);\,(t_0,x_0)\not\in\p'Q$
+Тогда нам надо исследовать и проверить две вещи:
+\vspace{0.5cm}
+\begin{itemize}
+    \item $\dfrac{\p v}{\p t} - \Delta v < 0 \ \forall(t,x)$
+    \item $\max v(t,x)$ достигается в $\overline{Q}\setminus\p'Q$
+    \end{itemize}
+        \item Принцип сравнения.\\
+        Если $u,w\in C^{1,2}(Q)\cap C(\overline{Q})$ удовлетворяют однородному уравнению теплопроводности в $Q$ и $u(t,x)\leq w(t,x) \ \forall(t,x)\in\p'Q$, то $u(t,x)\leq w(t,x) \ \forall(t,x)\in\overline{Q}$
+        \item Единственность решения.\\
+        Пусть $u\in C^{1,2}([0,\tau)\times\R^n) \cap C([0,\tau)\times\R^n) \cap \L_{\infty}([0,\tau)\times\R^n)$ и:
+        \[\begin{cases}
+        \dfrac{\p u}{\p t} - \Delta u = 0\\
+        u\Big|_{t=0} = \phi(x)
+    \end{cases}  \] то тогда $u\equiv0$ -- это единственное решение такой задачи.
+    Сюда еще дописать указание и разобарться в нем.
     \end{enumerate}
 \end{myexe}
+\subsection{Уравнение теплопроводности на отрезке}
+Для начала запишем его:
+\[\begin{cases}
+    \dfrac{\p u}{\p t} - \dfrac{\p}{\p x}\skobka{p(x)\dfrac{\p u}{\p x}} + q(x)u = f(t,x), \ \ t\geq0, \ \ x\in[a,b]\\
+    u\Big|_{t=0} = \phi(x), \ \ u\Big|_{x=a} = u\Big|_{x = b} = 0
+\end{cases}\]
+Где нам известно, что $p\in C^1([a,b]), \ p(x)>0 \ \forall x\in[a,b]$, $q\in C([a,b])$.\\
+Давайте придумаем задачу Штурма-Лиувилля, которая будет связана с нашим уравнением теплопроводности. Это будет следующая задача:
+\[
+\begin{cases}
+    \LL y=-(py')' + qy = \lambda y\\
+    y(a) = y(b) = 0
+\end{cases}
+\]
+Обозначим $\lambda_n$ -- это собственные числа, а $y_n$ -- это собственные функции. Тогда мы все можем разложить по $y_n$:
+\[
+u(t,x) = \SUMN u_n(t)y_n(x), \quad f(t,x) = \SUMN f_n(t)y_n(x), \quad \phi(x) = \SUMN \phi_n(x)y_n(x)
+\]Тогда просто подставим разложение в уравнение:
+\[
+\begin{cases}
+    \dot{u}_n(t) + \lambda_n u_n(t) = f_n(t)\\
+    u_n(0) = \phi_n
+\end{cases}
+\] А для такой залачи мы уже знаем решение:
+\[u_n(t)=e^{-\lambda_n t}\phi_n + \int\limits_{0}^{t}e^{-\lambda_n (t-\tau)}f(\tau)\dd \tau\]
+Тогда наша исходная задача перешла в следующую задачу:
+\[\begin{cases}
+    \dfrac{\p u}{\p t} +\LL u= 0\\
+    u\Big|_{t=0} = \phi(x), \ \ u\Big|_{x=a} = u\Big|_{x = b} = 0
+\end{cases}\] И наше решение будет переписывать через функцию Грина для $\LL$:
+\[
+u(t,x) = \SUMN e^{-\lambda_n t}\phi_ny_n(x) = \SUMN e^{-\lambda_n t}y_n(x)\int\limits_{a}^{b}y_n(\xi)\phi(\xi)\dd \xi = \int\limits_{a}^{b}g(t,x,\xi)\phi(\xi)\dd \xi,
+\]
+где $g(t,x,\xi) = \SUMN e^{-\lambda_n t}y_n(x)y_n(\xi)$ -- это функция Грина для $\LL$ или же ядро линейного оператора.\\
+Стоит обратить внимание на сходимость, с ней все все нормально из-за экспонент $\lambda_n\xrightarrow[n\to\infty]{}\infty\propto  n^2$.\\
+Рассмотрим $t>0$ и напишем производную от функции Грина:
+\[
+\dfrac{\p g}{\p t}  = \SUMN\skobka{-\lambda_n}e^{-\lambda_nt}y_n(x)y_n(\xi) =\SUMN\skobka{-\lambda_ny_n(x)}e^{-\lambda_nt}y_n(\xi) = -\LL g
+\]
+И граничные условия выполнены:
+\[
+g\Big|_{x = a} = g\Big|_{x = b} = 0
+\]
+Сейчас посмотрим на схожимость на произовльной области $\D'(\Omega)$. Пусть $\phi\in C^{\infty}_0(a,b)$,тогда ряд $\phi(x) = \SUMN \phi_ny_n(x)$ сходится в $C^{\infty}_0(a,b)$, тогда:
+\[\int\limits_{a}^bg(t,x,\xi)\phi(\xi)\dd \xi = \int\limits_a^b\SUMN e^{-\lambda_n t}y_n(x)y_n(\xi)\phi(\xi)\dd \xi = \SUMN e^{-\lambda_nt}\phi_ny_n(x)\xrightarrow[t\to0]{}\SUMN \phi_ny_n(x) = \phi(x)\]
+В этом случае:
+\[g\xrightarrow[t\to0]{\D'(a,b)}\delta(x-\xi)\] и мы получили задачу:
+\[\begin{cases}
+    \dfrac{\p g(x,\xi,t)}{\p t} + \LL_x g(x,\xi,t) = 0\\
+    g\Big|_{x=a} = g\Big|_{x=b} = 0\\
+    g\xrightarrow[t\to0]{\D'}\delta(x-\xi)
+\end{cases}\]
+\section{Уравнение Лапласа}
 \end{document}

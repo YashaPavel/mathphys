@@ -425,7 +425,7 @@
 
 % Оценки
 \newcommand{\smallo}[2]{\underset{#1}{\overline{o}\left(#2\right)}}
-\newcommand{\bigo}[2]{\underset{#1}{\underline{O}\left(#2\right)}}
+\newcommand{\bigo}[2]{\mathop{O}\limits_{#1}\!\left(#2\right)}
 \newcommand{\bigO}{\underline{O}}
 
 % Разное
@@ -2969,5 +2969,238 @@ u(x) = \dfrac{1}{\omega_nR^n}\int\limits_{B_R(x)}u(y)\dd y,
 \[
 \omega_n =\int\limits_0^R\int\limits_{|y|=r} \dd S(y) \dd r= \int\limits_0^R \varkappa_nr^{n-1}\dd r = \dfrac{\varkappa_n}{n}
 \]
+На самом деле для формулы из теоремы о среднем надо брать предел, если мы попали на границу шара, тогда:
+\[u(x) = \lim\limits_{r\to R_{-}}\dfrac{1}{\varkappa_nR^{n-1}}\int\limits_{|x-y|=r}u(y)\dd S(y)=u(x)\]
+Отсюда явно вытекает следствие, которое мы уже записали выше: если $u$ -- гармоническая, то:
+\[
+u(x) = \dfrac{1}{\omega_nR^n}\int\limits_{B_R(x)}u(y)\dd S(y),
+\]
 
+\begin{myproof}
+    \[\varkappa_n r^{n-1}u(x) = \int\limits_{|\p B_R(x)}u(y)\dd S(y)\] тогда проинтегрировав по $r$ от 0 до $R$, получаем:
+\[\int\limits_0^R \varkappa_n r^{n-1}u(x)\dd r = \int\limits_0^R\int\limits_{|x-y|=r}u(y)\dd S(y)\dd r \dfrac{\varkappa_n R^n}{n}u(x) = \int\limits_{B_R(x)}u(y)\dd y\]
+\end{myproof}
+
+
+\begin{mytheorem}
+    \textbf{Принцип максимума}\\
+    Рассмотрим ограниченную область $\Omega\subset\R^n$ и функцию $u\in C^2(\Omega)\cap C(\overline{\Omega})$ и если $\Delta u = 0$ в $\Omega$, то такая функция обязана достигать своих максимального и минимального значений на границе $\p\Omega$:
+\[
+\exists y_+,y_-\in\p\Omega: \ \ \ \max\limits_{x\in\overline{\Omega}}u(x) = u(y_+), \quad \min\limits_{x\in\overline{\Omega}}u(x) = u(y_-)
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Пусть максимум (или минимум) достигается не на границе, а в точке $y_0\in\Omega$, тогда:
+\[
+u(y_0)=\dfrac{n}{\varkappa_n R^n}\int\limits_{B_R(y_0)}u(x)\dd x = \operatorname{max} \Rightarrow u(x)=u(y_0) \ \ \forall x \in B_r(y_0) - \ \ \text{это верно} \Rightarrow\]\[\Rightarrow u = const \ \ \text{или } \operatorname{max } \text{на границе} 
+\]
+\end{myproof}
+
+\noindent\textbf{Следствие} \textit{(принцип сравнения)}:
+
+Пусть $u,v$ --- гармонические функции в $\Omega$, $u,v\in C(\overline{\Omega})$. Если $u(x)\geq v(x) \ \forall x\in\p\Omega$ -- тогда $u(x)\geq v(x) \ \forall x\in\overline{\Omega}$
+\begin{myproof}
+    Рассмотрим функцию $w = u-v$ (она подходит под услвоия предыдущей теоремы), она гармоническая в $\Omega$ и $w\geq 0$ на границе, тогда по принципу максимума $w\geq 0$ в $\Omega$, откуда $u\geq v$ в $\Omega$.
+\end{myproof}
+
+\begin{mytheorem}
+    \textbf{Теорема Лиувилля}\\
+     Если $u$ --- ограниченная гармоническая функция в $\R^n$, тогда $u(x)\equiv const$
+\end{mytheorem}
+
+\begin{myproof}
+    По условию теоремы функция $u$ -- ограниченная, тогда существует константа $M$, такая что:
+\[
+|u(x)|\leq M \ \ \forall x
+\]
+
+Возьмём две точки $x\neq y$ и рассмотрим $R>|x-y|$ --- тогда, пользуясь следствием из теоремы о среднем, можем записать разность значений функции в этих точках:
+\[
+|u(x) - u(y)| = \dfrac{n}{\varkappa_nR^n}\skobka{\int\limits_{B_R(x)}u(z)\dd z - \int\limits_{B_R(y)}u(z)\dd z}= \]\[= \dfrac{n}{\varkappa_nR^n}\skobka{\int\limits_{B_R(x)\setminus B_R(y)}u(z)\dd z - \int\limits_{B_R(y)\setminus B_R(x)}u(z)\dd z}
+\leq\dfrac{nM}{\varkappa_nR^n}\mu(B_R(x)\setminus B_R(y))\boxed{\leq}
+\]
+
+Давайте посмотрим на меру и запишем цепочку неравенств для множеств:
+\[
+\mu(B_R(x)\setminus B_{R-|x-y|}(x))\geq \mu(B_R(x)\setminus B_R(y))
+\]
+
+\[
+\mu(B_R(y)\setminus B_{R-|x-y|}(y))\geq \mu(B_R(y)\setminus B_R(x))
+\]
+
+
+%\[
+%z\in B_{R-|x-y|}(x) \ \Longleftrightarrow \ |z-x|<R-|x-y| \implies |z-y|<R \implies z\in B_{R}(y)
+%\]
+
+Таким образом:
+\[
+\boxed{\leq} \underbrace{\dfrac{Mn}{\varkappa_n R^n}\mu(B_R(x)\setminus B_{R-|x-y|}(x))}_{=\mu_1} + \dfrac{Mn}{\varkappa_n R^n}\mu(B_R(y)\setminus B_{R-|x-y|}(y))
+\]
+
+\[\mu_1=\dfrac{\varkappa_n}{n}(R^n-(R-|x-y|^n)) \Rightarrow\]
+
+
+\[|u(x) - u(y)|\leq 2M\dfrac{R^n - (R - |x-y|)^n}{R^n} \xrightarrow{R\to\infty} 0 \Rightarrow |u(x) - u(y)| = 0 \ \ \forall x,y \in \R^n\]    
+\end{myproof}
+
+\begin{myexe}
+    \textbf{Неравенство Харнака}\\
+Пусть $u$ -- положительная гармоническая функция в области $\Omega\subset\R^n$ и $B_{4R}(x_0)\subset\Omega (x_0\in\Omega)$, тогда:
+\[\max\limits_{B_R(x_0)}u \leq 3^n\min\limits_{B_R(x_0)}u\]
+\end{myexe}
+
+\section{Краевые задачи для уравнения Пуассона}
+
+\subsection{Задача Дирихле}
+
+\begin{mydef}
+   Пусть $\Omega\subset\R^n$ --- ограниченная область с кусочно гладкой границей. 
+   \\Внутренней задачей Дирихле называется система
+\[
+\begin{cases}
+    \Delta u(x) = f(x) \text{ в } \Omega\\
+    u\Big|_{\p\Omega} = \phi(x)
+\end{cases},
+\]
+где $f(x)\in C(\overline{\Omega})$ и $\phi\in C(\p\Omega)$ даны, а $u\in C^2(\Omega)\cap C(\overline{\Omega})$ надо найти
+\end{mydef}
+
+\begin{mylemma}
+    Решение внутренней задачи Дирихле единственно.
+\end{mylemma}
+
+\begin{myproof}
+    Пусть $u_1,u_2$ -- решения задачи Дирихле, тогда рассмотрим $u = u_1-u_2$ для которой:
+\[
+\begin{cases}
+    \Delta u(x) = 0 \ \text{ в }\Omega\\
+    u\Big|_{\p \Omega} = 0
+\end{cases}
+\]
+
+По принципу максимума $u\equiv0$, откуда $u_1\equiv u_2$ -- это и есть единственность решения задачи Дирихле.
+\\ Тут мы говорим что решение существует, этот факт мы покажем чуть позже, а сейчас мы показали единственность решения.
+\end{myproof}
+
+
+\begin{mydef}
+    Внешней задачей Дирихле называется система:
+\[
+\begin{cases}
+    \Delta u(x) = f(x) \ \text{в } \R^n\setminus\overline{\Omega}\\
+    u\Big|_{\p\Omega} = \phi(x)
+\end{cases}
+\]
+где $f(x)\in C(\overline{\Omega})$ и $\phi\in C(\p\Omega)$ даны, а $u\in C^2(\Omega)\cap C(\overline{\Omega})$ надо найти. При этом требуем ограниченности $u$ в $\R^2\setminus\Omega$ (для случая $n=2$) или $u(x)\xrightarrow[|x|\to\infty]{}0$ (для $n\geq3$)
+\end{mydef}
+
+
+\begin{mylemma}
+    Решение внешней задачи Дирихле единственно.
+\end{mylemma}
+
+\begin{myproof}
+    Рассмотрим $n\geq3$
+\[
+\begin{cases}
+    \Delta u(x) = 0 \ \text{в } \R^n\setminus\overline{\Omega}\\
+    u\Big|_{\p\Omega} = 0
+\end{cases}
+\]
+
+Рассмотрим  $x_0\not\in\overline{\Omega}$ и посмотрим на разность двух функций $u = u_1-u_2$:
+\[
+\forall\epsilon>0 \ \ \exists R: \ \ |u(x)|<\epsilon \text{ при } |x|\geq R
+\]
+
+Поссмотрим на шар $B_R(0)\supset\overline{\Omega}, \ \{x_0\}$. Воспользуемся принципом максимума в $B_R\setminus\overline{\Omega}$:
+\[
+|u(x_0)|\leq\max\limits_{\p(B_R\setminus\Omega)}|u|\leq \epsilon \implies u(x_0) = 0
+\]
+
+Теперь рассмотрим случай $n=2$. Ограниченность функции:
+\[
+|u(x)|\leq M \ \ \forall x
+\]
+
+Пусть $0\in\Omega$ и будем есть $r$, $R$, такие что: $B_r(0)\subset\Omega$, при этом $B_R(0)\supset\overline{\Omega}$. Рассматривая область $B_R(0)\setminus\overline{\Omega}$ и рассмотрим следующую функцию:
+\[
+v(x) := M\dfrac{\ln|x| - \ln r}{\ln R - \ln r}
+\]
+
+Так как $\ln|x|$ -- гармоническая функция в $\R^n\setminus\{0\}$,  тогда понимаем, что $\Delta v\equiv0$ -- гармоническая в $B_R\setminus\overline{\Omega}$. \\
+На $\p\Omega \ \ v(x)>0$, а на $\p B_R \ \ v(x) = M$, при этом на $\p\Omega \ \ u(x) = 0$, а на $\p B_R \ \ u(x)\leq M$. Тогда по принципу сравнения $u(x)\leq v(x)$ в $B_R\setminus\Omega$. Тогда $u(x_0)\leq v(x_0)$ или же:
+\[
+u(x_0) \leq v(x_0)\leq M\dfrac{\ln|x_0| - \ln r}{\ln R - \ln r}
+\]
+
+При этом понятно, что $u(x)\geq -v(x)$  в $B_R\setminus\Omega$, тогда:
+\[
+|u(x_0)| \leq M\dfrac{\ln|x_0| - \ln r}{\ln R - \ln r} \xrightarrow[R\to\infty]{}0\Rightarrow u(x_0) = 0\Rightarrow u\equiv0
+\]
+
+\end{myproof}
+\begin{myremark}
+    При $f(x) = \bigo{x\to\infty}{\dfrac{1}{|x|^{n+\epsilon}}}$ решение у внешней задачи Дирихле существует.
+\end{myremark}
+
+\subsection{Задача Неймана}
+
+
+\begin{mydef}
+    Внутренней задачей Неймана называется система:
+\[
+\begin{cases}
+    \Delta u(x) = f(x) \text{ в }\Omega\\
+    \dfrac{\p u}{\p \nu}\Big|_{\p\Omega} = \psi(x)
+\end{cases},
+\]
+где $f\in C(\overline{\Omega}), \ \psi\in C(\p\Omega)$ мы знаем, а $u\in C^2(\Omega)\cap C^1(\overline{\Omega})$ мы должны найти.
+\end{mydef}
+
+
+\begin{mylemma}
+    Решение внутренней задачи Неймана единственно с точностью до константы.
+\end{mylemma}
+
+
+\begin{myproof}
+Рассмотрим решения $u_1$ и $u_2$ и их разность $u = u_1 - u_2$:
+\[
+\begin{cases}
+    \Delta u(x) = 0 \text{ в }\Omega\\
+    \dfrac{\p u}{\p \nu}\Big|_{\p\Omega} = 0
+\end{cases}
+\]
+
+Запишем первую формулу Грина с $v=u$:
+\[
+\underbrace{\int\limits_{\Omega}u\Delta u\dd x}_{=0} = -\int\limits_{\Omega}|\nabla u|^2\dd x + \underbrace{\int\limits_{\p\Omega}u\dfrac{\p u}{\p \nu}\dd S(x)}_{=0} \implies \int\limits_{\Omega}|\nabla u|^2\dd x = 0 \Rightarrow \]
+\[\Rightarrow \nabla u = 0\ \ \forall x \Rightarrow u = const\]
+\end{myproof}
+
+\begin{mylemma}
+    \textbf{Необходимое условие разрешимости задачи Неймана}\\
+    Если решение существует, то $\int\limits_{\Omega}f(x)\dd x = \int\limits_{\p\Omega}\psi(x)\dd S(x)$
+\end{mylemma}
+\begin{myproof}
+    Просто запишем формулу Остроградского--Гаусса для функции $u$:
+    \[
+\int\limits_{\Omega}\Delta u(x)\dd x = \int\limits_{\p\Omega}\dfrac{\p u}{\p \nu}\dd S(x)
+\]
+
+\end{myproof}
+
+\begin{myremark}
+    Условие разрешимости задачи Неймана -- это не только необходимое, но и достаточное условие для существования решения задачи Неймана.
+\end{myremark}
+
+
+\begin{mydef}
+    Внешней задачей Неймана называется система:
+
+\end{mydef}
 \end{document}

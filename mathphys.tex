@@ -415,12 +415,12 @@
 \newcommand{\sumn}{\sum_{n=0}^{\infty}}
 \newcommand{\summ}{\sum_{m=0}^{\infty}}
 \newcommand{\sumk}{\sum_{k=0}^{\infty}}
-\newcommand{\SUMN}{\sum_{n=1}^{\infty}}
-\newcommand{\SUMM}{\sum_{m=1}^{\infty}}
-\newcommand{\SUMK}{\sum_{k=1}^{\infty}}
+\newcommand{\SUMN}{\sum\limits_{n=1}^{\infty}}
+\newcommand{\SUMM}{\sum\limits_{m=1}^{\infty}}
+\newcommand{\SUMK}{\sum\limits_{k=1}^{\infty}}
 \newcommand{\sumin}{\sum_{i=1}^{n}}
 \newcommand{\sumkn}{\sum_{k=1}^{n}}
-\newcommand{\SuM}{\sum_{k=1}^{m}}
+\newcommand{\SuM}{\sum\limits_{k=1}^{m}}
 \newcommand{\disp}{\displaystyle}
 
 % Оценки
@@ -2772,7 +2772,7 @@ u(t,x) = \SUMN e^{-\lambda_n t}\phi_ny_n(x) = \SUMN e^{-\lambda_n t}y_n(x)\int\l
 \[
 g\Big|_{x = a} = g\Big|_{x = b} = 0
 \]
-Сейчас посмотрим на схожимость на произовльной области $\D'(\Omega)$. Пусть $\phi\in C^{\infty}_0(a,b)$,тогда ряд $\phi(x) = \SUMN \phi_ny_n(x)$ сходится в $C^{\infty}_0(a,b)$, тогда:
+Сейчас посмотрим на схожимость на произовльной области $\D'(\Omega)$. Пусть $\phi\in C^{\infty}_0(a,b)$,тогда ряд $\phi(x) = \SUMN\ \phi_ny_n(x)$ сходится в $C^{\infty}_0(a,b)$, тогда:
 \[\int\limits_{a}^bg(t,x,\xi)\phi(\xi)\dd \xi = \int\limits_a^b\SUMN e^{-\lambda_n t}y_n(x)y_n(\xi)\phi(\xi)\dd \xi = \SUMN e^{-\lambda_nt}\phi_ny_n(x)\xrightarrow[t\to0]{}\SUMN \phi_ny_n(x) = \phi(x)\]
 В этом случае:
 \[g\xrightarrow[t\to0]{\D'(a,b)}\delta(x-\xi)\] и мы получили задачу:

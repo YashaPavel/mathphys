@@ -3200,7 +3200,14 @@ u(x_0) \leq v(x_0)\leq M\dfrac{\ln|x_0| - \ln r}{\ln R - \ln r}
 
 
 \begin{mydef}
-    Внешней задачей Неймана называется система:
+    Внешней задачей Неймана (при $n=3$) называется система:
+\[
+\begin{cases}
+    \Delta u(x) = f(x) \text{ в }\R^3\setminus\overline{\Omega}\\
+    \dfrac{\p u}{\p \nu}\Big|_{\p\Omega} = \psi(x)
+\end{cases}
+\]
+где $f\in C(\overline{\Omega}), \ \psi\in C(\p\Omega)$ мы знаем, а $u\in C^2(\Omega)\cap C^1(\overline{\Omega})$ мы ищем, при этом $u(x)\xrightarrow[|x|\to\infty]{}0$
 
 \end{mydef}
 \end{document}

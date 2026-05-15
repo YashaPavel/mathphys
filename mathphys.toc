@@ -57,3 +57,7 @@
 \contentsline {section}{\numberline {2.9}Краевые задачи для уравнения Пуассона}{73}{section.2.9}%
 \contentsline {subsection}{\numberline {2.9.1}Задача Дирихле}{73}{subsection.2.9.1}%
 \contentsline {subsection}{\numberline {2.9.2}Задача Неймана}{75}{subsection.2.9.2}%
+\contentsline {section}{\numberline {2.10}Функция Грина для задачи Дирихле}{77}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}Фундаментальное решение уравнения Лапласа}{77}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2}Метод отражений}{80}{subsection.2.10.2}%
+\contentsline {section}{\numberline {2.11}Задача Дирихле в шаре}{80}{section.2.11}%

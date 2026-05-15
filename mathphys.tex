@@ -2829,7 +2829,7 @@ g\Big|_{x = a} = g\Big|_{x = b} = 0
 \end{myproof}
 
 
-\begin{mytheorem}
+\begin{mytheorem}\label{th:green-formula}
     Рассматривая ограниченную область $\Omega\subset\R^n$ с кусочно-гладкой границей и функцию $u\in C^2(\Omega)\cap C^1(\overline{\Omega})$. Тогда для любого $x\in\Omega$ имеем:
 
 \[
@@ -2849,6 +2849,7 @@ $\varkappa_n$ --- площадь единичной сферы в $\R^n$:
 \]
 Константа выбрана так, что:
 \[\dfrac{\p g_0}{\p r}=\dfrac{1}{\varkappa_n r^{n-1}}, \ \ n\geq 2 \]
+
 \end{mytheorem}
 
 \begin{myproof}
@@ -3208,6 +3209,272 @@ u(x_0) \leq v(x_0)\leq M\dfrac{\ln|x_0| - \ln r}{\ln R - \ln r}
 \end{cases}
 \]
 где $f\in C(\overline{\Omega}), \ \psi\in C(\p\Omega)$ мы знаем, а $u\in C^2(\Omega)\cap C^1(\overline{\Omega})$ мы ищем, при этом $u(x)\xrightarrow[|x|\to\infty]{}0$
-
 \end{mydef}
+
+\begin{mylemma}
+Пусть $u$ гармонична в $\R^3\setminus\overline{\Omega}$ и
+$
+    u(x)\xrightarrow[|x|\to\infty]{}0
+$
+Тогда при $|x|\to\infty$ выполняются оценки:
+\[
+    u(x)=O\left(\dfrac{1}{|x|}\right),
+    \qquad
+    \nabla u(x)=O\left(\dfrac{1}{|x|^2}\right).
+\]
+\end{mylemma}
+
+\begin{myproof}
+Доказательство будет в 11 параграфе(ссылку оставить потом)
+\end{myproof}
+
+\begin{mylemma}
+Решение однородной внешней задачи Неймана единственно:
+\[
+\begin{cases}
+    \Delta u(x)=0, & x\in\R^3\setminus\overline{\Omega},\\[0.4em]
+    \left.\dfrac{\p u}{\p\nu}\right|_{\p\Omega}=0\\
+    u(x)\xrightarrow[|x|\to\infty]{}0
+\end{cases}
+\]
+Тогда $u\equiv0$ в $\R^3\setminus\overline{\Omega}$.
+\end{mylemma}
+
+\begin{myproof}
+Возьмем $R>0$ настолько большим, что:
+\[
+    \Omega\subset B_R(0)\subset B_{R}
+\]
+По первой формуле Грина c $v=u$ в области $B_R(0)\setminus\overline{\Omega}$ имеем:
+\[
+    \int\limits_{B_R(0)\setminus\overline{\Omega}}|\nabla u|^2\,\dd x
+    =
+    -\int\limits_{B_R(0)\setminus\overline{\Omega}}u\Delta u\,\dd x
+    +
+    \int\limits_{\p B_R(0)}u\dfrac{\p u}{\p\nu}\,\dd S(x),
+\]
+ Поскольку $\Delta u=0$, получаем:
+\[
+    \int\limits_{B_R(0)\setminus\overline{\Omega}}|\nabla u|^2\,\dd x
+    =
+    \int\limits_{\p B_R(0)}u\dfrac{\p u}{\p r}\,\dd S(x)
+    +
+    \int\limits_{\p\Omega}u\dfrac{\p u}{\p\nu_R}\,\dd S(x)
+\]
+На внутренней границе $\p\Omega$ нормаль $\nu$ противоположна внешней нормали к $\Omega$, поэтому второе слагаемое равно нулю из условия Неймана. Для первого слагаемого по предыдущей лемме имеем
+\[
+    \int\limits_{\p B_R(0)}u\dfrac{\p u}{\p r}\,\dd S(x)
+    =
+    \int\limits_{\p B_R(0)}
+    O\left(\dfrac{1}{R}\right)
+    O\left(\dfrac{1}{R^2}\right)\,\dd S(x)
+    =O\left(\dfrac{1}{R}\right)
+    \xrightarrow[R\to\infty]{}0
+\]
+Следовательно:
+\[
+    \int\limits_{B_R(0)\setminus\overline{\Omega}}|\nabla u|^2\,\dd x\leq\int\limits_{B_R\setminus\Omega}|\nabla u|^2\,\dd x \xrightarrow[R\to\infty]{}0
+\]
+Значит, $\nabla u=0$ в $B_R(0)\setminus\overline{\Omega}$, то есть $u\equiv\operatorname{const}$ в этой области. Из условия $u(x)\to0$ при $|x|\to\infty$ следует $u\equiv0$.
+\end{myproof}
+
+\begin{myremark}
+Если правая часть внешней задачи убывает достаточно быстро, например
+\[
+    f(x)=O\left(\dfrac{1}{|x|^{3+\epsilon}}\right),
+    \qquad |x|\to\infty
+\]
+то решение внешней задачи существует.
+\end{myremark}
+
+
+\begin{myremark}
+Разрешимость дл всех задач Неймана и Дирихле будет показана в главе 6.(ссылку не забыть)
+\end{myremark}
+\section{Функция Грина для задачи Дирихле}
+
+\subsection{Фундаментальное решение уравнения Лапласа}
+Пусть $\Omega\subset\R^n$ --- ограниченная область с гладкой границей. В этой области мы знаем фундаментальное решение уравнения Лапласа $g_0(x)$, которое является решением задачи
+
+\[g_0(x,y):\begin{cases}
+    \Delta_x g_0(x,y)=\delta(x-y) \ \ \text{в смысле } \D'(\Omega)\\
+    g\Big|_{x\in\p\Omega}=0
+\end{cases}\]
+Она имеет вид:
+\[
+    g_0(x)=
+    \begin{cases}
+        \dfrac{1}{2\pi}\ln|x|, \quad n=2,
+        -\dfrac{1}{\varkappa_n(n-2)|x|^{n-2}}, \quad  n\geq3
+    \end{cases}
+\]
+
+
+
+\begin{mydef}
+Функция $\widetilde{g}(x,y)$ определяется как решение следующей задачи:
+\[
+\begin{cases}
+    \Delta_x\widetilde{g}(x,y)=0, \quad x\in\Omega\\
+    \left.\widetilde{g}(x,y)\right|_{\p\Omega}
+    =\left.g_0(x-y)\right|_{x\in\p\Omega}
+\end{cases}
+\]
+Функцией Грина задачи Дирихле называется функция:
+\[
+    g(x,y)=g_0(x-y)-\widetilde{g}(x,y)
+\]
+Очевидно, что это обобщенно-регулярная функция и $\C^{\infty}$ -- гладкая при $x\neq y$.
+\end{mydef}
+
+
+
+\begin{mylemma}
+Пусть $g(x,y)$ -- функция Грина задачи Дирихле в $\Omega$:
+\[y\in\Omega,\ \ x\in\overline{\Omega}, \ \ f\in C(\overline{\Omega}), \ \ \varphi\in C(\p\Omega)\]
+
+и пусть $u\in C^2(\overline{\Omega})$ является решением задачи Дирихле:
+\[
+\begin{cases}
+    \Delta u(x)=f(x), & x\in\Omega,\\
+    \left.u\right|_{\p\Omega}=\phi(x)
+\end{cases}
+\]
+Тогда решение выглядит следующим образом:
+\[
+    u(y)=
+    \int\limits_{\Omega}g(x,y)f(x)\,\dd x
+    +
+    \int\limits_{\p\Omega}\phi(x)\dfrac{\p g(x,y)}{\p\nu_x}\,\dd S(x)
+\]
+\end{mylemma}
+
+\begin{myproof}
+Для фундаментального решения имеем формулу Грина из теоремы \eqref{th:green-formula}:
+\[
+    u(y)=
+    \int\limits_{\Omega}g_0(x-y)\Delta u(x)\,\dd x
+    +
+    \int\limits_{\p\Omega}
+    \left(
+        u(x)\dfrac{\p g_0(x-y)}{\p\nu_x}
+        -
+        g_0(x-y)\dfrac{\p u(x)}{\p\nu_x}
+    \right)\dd S(x)
+\]
+Наипшем вторую формулу Грина для функции $v=\widetilde{g}$ и функции $u$:
+\[
+    \int\limits_{\Omega}\widetilde{g}(x,y)\Delta u(x)\,\dd x
+    =
+    \int\limits_{\p\Omega}
+    \left(
+        g_0(x-y)\dfrac{\p u(x)}{\p\nu_x}
+        -
+        u(x)\dfrac{\p\widetilde{g}(x,y)}{\p\nu_x}
+    \right)\dd S(x),
+\]
+так как $\Delta_x\widetilde{g}(x,y)=0$ и $\widetilde{g}(x,y)=g_0(x-y)$ на $\p\Omega$. Вычитая это равенство из предыдущей формулы, получаем:
+\[
+    u(y)=
+    \int\limits_{\Omega}g(x,y)\Delta u(x)\,\dd x
+    +
+    \int\limits_{\p\Omega}
+    \left(
+        u(x)\dfrac{\p g(x,y)}{\p\nu_x}
+        -
+        g(x,y)\dfrac{\p u(x)}{\p\nu_x}
+    \right)\dd S(x).
+\]
+Поскольку $g(x,y)=0$ при $x\in\p\Omega$, а $u|_{\p\Omega}=\phi$, то
+\[
+    u(y)=
+    \int\limits_{\Omega}g(x,y)f(x)\,\dd x
+    +
+    \int\limits_{\p\Omega}\phi(x)\dfrac{\p g(x,y)}{\p\nu_x}\,\dd S(x).
+\]
+Мы показали в однону сторону. В другую сторону, если $u$ задается формулой представления, то он будет решением задачи Дирихле. Это проверяется непосредственной подстановкой в уравнение и граничное условие.
+\end{myproof}
+
+\begin{myremark}
+    На самом деле, во вторую формулу Грина нельзя подставлять $v(x)=g(x,y)$. Тут надо дописать почему нельзя, не понял(
+    
+\end{myremark}
+\begin{mylemma}
+Функция Грина задачи Дирихле симметрична:
+\[
+    g(\xi,\eta)=g(\eta,\xi),
+    \qquad \xi,\eta\in\Omega,
+    \quad \xi\neq\eta
+\]
+\end{mylemma}
+
+\begin{myproof}
+Применим снова вторую формулу Грина:
+\[
+    u(x)=g(x,\xi),
+    \qquad
+    v(x)=g(x,\eta)
+\]
+Так как обе функции обращаются в нуль на $\p\Omega$, то формлу Грина для этих функций принимает вид:
+\[
+    \int\limits_{\Omega}
+    \left(
+        g(x,\xi)\Delta_x g(x,\eta)
+        -
+        g(x,\eta)\Delta_x g(x,\xi)
+    \right)\dd x=0 \Rightarrow  g(\eta,\xi)=g(\xi,\eta)\]
+\end{myproof}
+
+\begin{myexe}
+Проверить обе леммы строго.
+\end{myexe}
+
+\subsection{Метод отражений}
+
+Мы будем рассмотривать полупространство:
+\[
+    \R^n_+=\{x\in\R^n:
+    x=(x_1,x_2,\ldots,x_n),\ x_n>0\}.
+\]
+Для точки $y=(y_1,y_2,\ldots,y_n)\in\R^n_+$ обозначим отраженную точку относительно границы $\p\R^n_+$ так:
+\[
+    y^*=(y_1,y_2,\ldots,-y_n).
+\]
+
+
+Функция Грина задачи Дирихле в полупространстве задается формулой:
+\[
+    g(x,y)=g_0(y-x)-g_0(y^*-x)
+\]
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.0, >=Stealth]
+    \draw[->] (-0.5,0) -- (5.5,0) node[below] {$x'$};
+    \draw[->] (0,-2.2) -- (0,2.8) node[left] {$x_n$};
+    \draw[thick] (-0.3,0) -- (5.2,0) node[right] {$\p\R^n_+$};
+    \fill (3,1.5) circle (2pt) node[right] {$y$};
+    \fill (3,-1.5) circle (2pt) node[right] {$y^*$};
+    \draw[dashed] (3,1.5) -- (3,-1.5);
+    \draw[->] (1.0,0.4) -- (2.9,1.45);
+    \node at (1.0,0.75) {$\R^n_+$};
+\end{tikzpicture}
+\end{figure}
+
+
+Если $u\in C_0^\infty(\R^n_+)$, то:
+\[
+    \int\limits_{\R^n_+} g(x,y)\Delta u(x)\,\dd x
+    =
+    \int\limits_{\R^n_+}g_0(x-y)\Delta u(x)\,\dd x
+    -
+    \int\limits_{\R^n_+}g_0(x-y^*)\Delta u(x)\,\dd x
+\]
+Первый интеграл дает $u(y)$, а второй равен нулю, так как точка $y^*$ лежит вне области. Поэтому:
+\[
+    \Delta_x g(y,x)=\delta(y-x),\quad \text{в } \D'(\R^n_+)
+\]
+Тогда $g_0(y-x)=g_0(|y-x|)\Rightarrow g(y,x)=0$ при $x\in \p \R^n_+$.
+
+\section{Задача Дирихле в шаре}
 \end{document}

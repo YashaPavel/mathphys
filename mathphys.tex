@@ -559,7 +559,8 @@ e^{\frac{1}{x^2-1}}, & |x|<1\\[0.5em]
 
 
 \begin{myexe}
-    Доказать что $\varphi(x)\in \DR$
+    Доказать что $\varphi(x)\in \DR$. \\
+$\supp\phi={x: |x|<1}$, его замыкание даёт [-1; 1], что является компактным множеством. $\dfrac{1}{x^2-1}$ - гладкая на (-1, 1), поэтмоу экспонента тоже гладкая, значит $\in\Cinf(\R)$.
 \end{myexe}
 Тогда ясно, что $\DR$ -- линейное пространство
 
@@ -801,6 +802,66 @@ $\PP$ -- сингулярная обобщенная функция.
 \end{enumerate}
 \begin{myexe}
     Показать что функция $\px{x}$ -- сингулярная обобщенная функция
+Пусть $\varphi \in \DR$ и
+\[
+\psi(x) = x \varphi(x) \in \DR.
+\]
+
+По определению распределения $\dfrac{1}{x+i0}$ имеем
+\[
+\left\langle \frac{1}{x+i0}, \psi \right\rangle
+= \operatorname{v.p.} \int\limits_{\R} \frac{\psi(x)}{x}\,dx
+= \operatorname{v.p.} \int\limits_{\R} \varphi(x)\,dx .
+\]
+
+Предположим, что $\dfrac{1}{x+i0}$ является регулярной обобщённой
+функцией. Тогда существует функция $f \in L_{1,loc}(R)$
+такая, что
+\[
+\left\langle \frac{1}{x+i0}, \psi \right\rangle
+= \int\limits_{\R} f(x)\,\psi(x)\,dx
+= \int\limits_{\R} f(x)\,x\varphi(x)\,dx
+\quad \forall\,\varphi \in \DR.
+\]
+
+С другой стороны,
+\[
+\left\langle \frac{1}{x+i0}, \psi \right\rangle
+= \operatorname{v.p.} \int\limits_{\R} \varphi(x)\,dx .
+\]
+
+Следовательно, для всех $\varphi \in \DR$ выполнено равенство
+функционалов
+\[
+\operatorname{v.p.} \int\limits_{\R} \varphi(x)\,dx
+= \int\limits_{\R} x f(x)\,\varphi(x)\,dx .
+\]
+
+Поскольку $\varphi$ произвольна, отсюда следует
+\[
+x f(x) = 1 \quad \text{п.\,в. на } \R,
+\]
+то есть
+\[
+f(x) = \frac{1}{x} \quad \text{п.\,в. на } \R \setminus \{0\}.
+\]
+
+Однако $\dfrac{1}{x} \notin L_{1, loc}(\R)$, так как
+\[
+\int\limits_{-1}^{1} \left|\frac{1}{x}\right|\,dx = +\infty .
+\]
+
+Получили противоречие с предположением $f \in L_{1,loc}(\R)$.
+Следовательно, не существует такой функции $f$, что
+\[
+\left\langle \frac{1}{x+i0}, \varphi \right\rangle
+= \int\limits_{\R} f(x)\,\varphi(x)\,dx
+\quad \forall\,\varphi \in \DR,
+\]
+и распределение $\dfrac{1}{x+i0}$ не является регулярной обобщённой
+функцией, то есть оно сингулярно.
+
+
 \end{myexe}
 
 \section{Доказательство теоремы \ref{1}}
@@ -823,6 +884,47 @@ $g$ — вещественнозначная функция. Пусть:
     \[\int\limits_{\R} g(x)\,\varphi(x)\,\dd x=
     \int\limits_{a-\delta}^{a+\delta} g(x)\,\varphi(x)\,\dd x \geq 
     \varepsilon \int\limits_{a-\delta}^{a+\delta}\varphi(x)\,\dd x\]
+Пусть $g \in \C(\R)$ и для некоторой точки $a \in \R$ и числа
+$\varepsilon>0$ выполнено
+\[
+g(x) \ge \varepsilon \quad \text{на интервале } (a-\delta,a+\delta)
+\]
+(соответственно, $g(x)\le \varepsilon$ --- в другом варианте задачи).
+Тогда, по определению носителя и свойствам пространства $\DR$,
+существует функция $\varphi \in\DR$ такая, что
+\[
+\supp\varphi = [a-\delta,a+\delta], \qquad
+\varphi(x) > 0 \quad \text{на } (a-\delta,a+\delta).
+\]
+
+Тогда, учитывая, что $\varphi(x)=0$ вне $[a-\delta,a+\delta]$, получаем
+\[
+\int\limits_{\R} g(x)\varphi(x)\,dx
+=
+\int\limits_{a-\delta}^{a+\delta} g(x)\varphi(x)\,dx.
+\]
+
+Так как $g(x)\ge\varepsilon$ на $(a-\delta,a+\delta)$ и
+$\varphi(x)\ge 0$ на всём $[a-\delta,a+\delta]$, имеем оценку
+\[
+\int\limits_{a-\delta}^{a+\delta} g(x)\varphi(x)\,dx
+\;\ge\;
+\int\limits_{a-\delta}^{a+\delta} \varepsilon\,\varphi(x)\,dx
+=
+\varepsilon \int\limits_{a-\delta}^{a+\delta} \varphi(x)\,dx.
+\]
+
+Итак, получено неравенство
+\[
+\int\limits_{\R} g(x)\varphi(x)\,dx
+\;\ge\;
+\varepsilon \int\limits_{a-\delta}^{a+\delta} \varphi(x)\,dx,
+\]
+которое противоречит исходному предположению о распределении значений
+функции $g$ (например, если предполагалось, что
+$g(x) < \varepsilon$ на $(a-\delta,a+\delta)$, то тогда мы бы
+получили противоположное строгому неравенство).
+Следовательно, сделанное предположение неверно.
 \end{myexe}
 
 \section{Операции над обобщенными функциями}
@@ -891,6 +993,146 @@ $((\beta f)', \phi)=-(\beta f, \phi')=-(f, \beta\phi')=-(f, (\beta\phi)'-\beta'\
     \textbf{3)} $f^{(m)}=0 \Rightarrow f -$ полином$, \deg f<m$ \\
     \textbf{4)} $f$ - регулярно обобщённая функция, $f\big |_{(-\infty; 0)} \in C^1(-\infty; 0], \, f\big |_{(0, \infty)}\in C^1[0; \infty)$ \\
     Тогда $f_{\text{обоб.ф.}}'=f_{\text{классич}}'+h\delta(x), \, h=f(+0)-f(-0)$
+\\
+1)Обозначим через $T$ распределение, действующее по формуле
+\[
+\langle T,\varphi\rangle = \int_{\R} \ln|x|\,\varphi(x)\,dx
+\]
+Тогда его обобщённая производная определяется как
+\[
+\langle T',\varphi\rangle = -\langle T,\varphi'\rangle
+= -\int_{\R} \ln|x|\,\varphi'(x)\,dx
+\]
+Разобьём интеграл:
+\[
+-\int_{\R} \ln|x|\,\varphi'(x)\,dx
+= -\int_{-\infty}^{0} \ln(-x)\,\varphi'(x)\,dx
+  -\int_{0}^{\infty} \ln(x)\,\varphi'(x)\,dx
+\]
+Интегрируя по частям на каждом интервале и используя компактность
+носителя $\varphi$, получаем
+\[
+-\int_{0}^{\infty} \ln(x)\,\varphi'(x)\,dx
+= \int_{0}^{\infty} \frac{1}{x}\,\varphi(x)\,dx
+\qquad
+-\int_{-\infty}^{0} \ln(-x)\,\varphi'(x)\,dx
+= \int_{-\infty}^{0} \frac{1}{x}\,\varphi(x)\,dx
+\]
+Следовательно,
+\[
+\langle T',\varphi\rangle
+= \int_{\R} \frac{1}{x}\,\varphi(x)\,dx
+= \Big\langle \PP,\varphi\Big\rangle
+\]
+Так как это верно для всех $\varphi\in D(\mathbb{R})$, имеем
+\[
+(\ln|x|)' = \PP
+\]
+
+2)
+Из равенства $f'=0$ следует
+\[
+\langle f',\varphi\rangle = 0 \quad \forall\,\varphi\in D(\mathbb{R}).
+\]
+По определению обобщённой производной
+\[
+\langle f',\varphi\rangle = -\langle f,\varphi'\rangle,
+\]
+поэтому
+\[
+\langle f,\varphi'\rangle = 0 \quad \forall\,\varphi\in D(\mathbb{R}).
+\]
+Любая функция $\psi\in \DR$ представима в виде $\psi=\varphi'$
+для некоторой $\varphi\in \DR$, следовательно
+\[
+\langle f,\psi\rangle = 0 \quad \forall\,\psi\in \DR.
+\]
+Это означает, что $f$ совпадает с распределением вида
+\[
+\varphi \mapsto c\int_{\R} \varphi(x)\,dx
+\]
+для некоторой константы $c$, то есть $f$ — константа.\\
+
+
+3)
+Из $f^{(m)}=0$ следует, что
+\[
+\bigl(f^{(m-1)}\bigr)' = f^{(m)} = 0,
+\]
+по пункту 2 получаем
+\[
+f^{(m-1)} = c_{m-1}.
+\]
+Аналогично,
+\[
+\bigl(f^{(m-2)}\bigr)' = f^{(m-1)} = c_{m-1}
+\]
+даёт
+\[
+f^{(m-2)} = c_{m-1}x + c_{m-2}.
+\]
+Продолжая процесс, после $m$ шагов приходим к представлению
+\[
+f(x) = a_0 + a_1 x + \dots + a_{m-1} x^{m-1},
+\]
+то есть $f$ — многочлен степени не выше $m-1$, а значит $\deg f < m$.\\
+
+4)
+Пусть $f$ задаёт регулярное распределение,
+а обобщённая производная $f'_{\text{обобщ.}}$ определяется как
+\[
+\langle f'_{\text{обобщ.}},\varphi\rangle
+= -\langle f,\varphi'\rangle
+= -\int_{\mathbb{R}} f(x)\varphi'(x)\,dx.
+\]
+Разобьём интеграл по точке $0$:
+\[
+-\int_{\mathbb{R}} f(x)\varphi'(x)\,dx
+= -\int_{-\infty}^{0} f(x)\varphi'(x)\,dx
+  -\int_{0}^{\infty} f(x)\varphi'(x)\,dx.
+\]
+Интегрируя по частям на каждом интервале и используя компактность
+носителя $\varphi$, получаем
+\[
+-\int_{-\infty}^{0} f(x)\varphi'(x)\,dx
+= -\bigl[f(x)\varphi(x)\bigr]_{-\infty}^{0}
+   + \int_{-\infty}^{0} f'(x)\varphi(x)\,dx
+= -f(-0)\varphi(0) + \int_{-\infty}^{0} f'(x)\varphi(x)\,dx,
+\]
+\[
+-\int_{0}^{\infty} f(x)\varphi'(x)\,dx
+= -\bigl[f(x)\varphi(x)\bigr]_{0}^{\infty}
+   + \int_{0}^{\infty} f'(x)\varphi(x)\,dx
+= f(+0)\varphi(0) + \int_{0}^{\infty} f'(x)\varphi(x)\,dx.
+\]
+Складывая, имеем
+\[
+\langle f'_{\text{обобщ.}},\varphi\rangle
+= \int_{-\infty}^{0} f'(x)\varphi(x)\,dx
+ + \int_{0}^{\infty} f'(x)\varphi(x)\,dx
+ + \bigl(f(+0)-f(-0)\bigr)\varphi(0).
+\]
+Первые два интеграла дают действие регулярного распределения,
+соответствующего классической производной:
+\[
+\int_{\R} f'_{\text{классич.}}(x)\varphi(x)\,dx.
+\]
+Последнее слагаемое записывается как $h\,\langle\delta,\varphi\rangle$,
+где
+\[
+h = f(+0) - f(-0).
+\]
+Итак,
+\[
+\langle f'_{\text{обобщ.}},\varphi\rangle
+= \bigl\langle f'_{\text{классич.}} + h\,\delta,\varphi\bigr\rangle
+\quad \forall\,\varphi\in D(\mathbb{R}),
+\]
+откуда
+\[
+f'_{\text{обобщ.}} = f'_{\text{классич.}} + h\,\delta(x).
+\]
+
 \end{myexe}
 \subsection{Сходимость}
 \begin{mydef}
@@ -905,6 +1147,39 @@ $(f_k',\phi)=-(f_k,\phi') \rightarrow -(f, \phi')=(f', \phi)$
 \end{myremark}
 \begin{myexe}
     $$f_k(x)=\cos(kx)\xrightarrow[k\to\infty]{\DDR}0$$
+По определению сходимости в пространстве обобщённых функций
+нужно показать, что для любой $\varphi\in \DR$
+\[
+\langle f_k,\varphi\rangle
+= \int_{\R}\cos(kx)\,\varphi(x)\,dx \xrightarrow[k\to\infty]{} 0.
+\]
+Так как $\varphi$ гладкая и имеет компактный носитель,
+то $\varphi\in L_1(\R)$.
+
+\textbf{Лемма Римана–Лебега.}
+Если $g\in L_1(\R)$, то
+\[
+\int_{\R} g(x)e^{ikx}\,dx \xrightarrow[k\to\infty]{} 0,
+\]
+в частности,
+\[
+\int_{\R} g(x)\cos(kx)\,dx \xrightarrow[k\to\infty]{} 0,
+\qquad
+\int_{\R} g(x)\sin(kx)\,dx \xrightarrow[k\to\infty]{} 0.
+\]
+
+Применяя лемму Римана–Лебега к функции $g(x)=\varphi(x)$, получаем
+\[
+\int_{\R}\cos(kx)\,\varphi(x)\,dx \xrightarrow[k\to\infty]{} 0.
+\]
+Следовательно, для любой тестовой функции $\varphi\in \DR$
+имеем
+\[
+\langle f_k,\varphi\rangle \to 0,
+\]
+то есть
+\[
+\cos(kx)\xrightarrow[k\to\infty]{\DDR}0.\]
 \end{myexe}
 \begin{mytheorem}
     Пусть $f_k$ - кусочно непрерывна и $\in L_1(\R)$, и \\
@@ -928,7 +1203,77 @@ $(f_k',\phi)=-(f_k,\phi') \rightarrow -(f, \phi')=(f', \phi)$
     1) $\phi$ - непрерывна и ограничена на $\R \Rightarrow \int\limits_Rf_k\phi \dd x \rightarrow \phi(0)$ 
 \end{myremark}
 \begin{myexe}
-    3 пункт в теореме не нужен.
+    3 пункт в теореме не нужен. \\ 
+    По условию 2) теоремы для любого $a>0$ имеем
+\[
+\int_{-a}^{a} f_k(x)\,dx \xrightarrow[k\to\infty]{} 1.
+\tag{1}
+\]
+
+Выберем $\varphi\in D(\mathbb R)$ такую, что
+\[
+\varphi(0)=1,\quad 0\le\varphi(x)\le1,\quad
+\varphi(x)\equiv1 \text{ на }[-a,a],
+\]
+и $\varphi$ имеет компактный носитель.
+
+Тогда для всех $k$
+\[
+\int_{-a}^{a} f_k(x)\,dx
+\;\le\;
+\int_{\R} f_k(x)\varphi(x)\,dx
+\;\le\;
+\int_{\R} f_k(x)\,dx,
+\tag{2}
+\]
+поскольку $f_k\ge0$ и $0\le\varphi\le1$, а на $[-a,a]$ имеем $\varphi\equiv1$.
+
+Из (1) и (2) получаем
+\[
+1
+= \lim_{k\to\infty} \int_{-a}^{a} f_k(x)\,dx
+\;\le\;
+\liminf_{k\to\infty} \int_{\R} f_k(x)\,dx.
+\tag{3}
+\]
+
+С другой стороны, так как $\varphi(x)\le1$, то
+\[
+\int_{\R} f_k(x)\varphi(x)\,dx
+\le
+\int_{\R} f_k(x)\,dx,
+\]
+и потому
+\[
+\limsup_{k\to\infty} \int_{\R} f_k(x)\,dx
+\;\ge\;
+\lim_{k\to\infty} \int_{\R} f_k(x)\varphi(x)\,dx.
+\tag{4}
+\]
+
+Но по теореме (сходимость $f_k \to \delta$ в $\DDR$)
+\[
+\int_{\R} f_k(x)\varphi(x)\,dx \xrightarrow[k\to\infty]{} \varphi(0)=1.
+\tag{5}
+\]
+Тогда из (4)–(5)
+\[
+\limsup_{k\to\infty} \int_{\R} f_k(x)\,dx \ge 1.
+\tag{6}
+\]
+
+Объединяя (3) и (6), получаем
+\[
+1 \le \liminf_{k\to\infty} \int_{\R} f_k(x)\,dx
+\le \limsup_{k\to\infty} \int_{\R} f_k(x)\,dx \le 1,
+\]
+значит
+\[
+\int_{\R} f_k(x)\,dx \xrightarrow[k\to\infty]{} 1.
+\]
+
+Итак, условие 3) теоремы 1.1 автоматически следует из условий 1) и 2),
+поэтому в формулировке теоремы оно не нужно.
 \end{myexe}
 \begin{myremark}
     $\{f_k\}$ - $\delta$-образная.
@@ -1420,20 +1765,80 @@ $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \wide
     Тогда $\widehat{\delta}=\dfrac{1}{\sqrt{2\pi}}$ \\
     2) $(\widehat{1}, \phi)=(1, \widehat{\phi})=\int\limits_\R\widehat{\phi}(x)\dd x\underset{\text{обратное Фурье для } \xi=0}{=}\sqrt{2\pi}(\widehat{\phi})\check{}(0)=\sqrt{2\pi}\phi(0)$
     Тогда $\widehat{1}=\sqrt{2\pi}\delta$. \\
-    3) \[\]
+    3) \(\theta(x)=\begin{cases}
+        1, \quad x> 0 \\ 
+        0, \quad x<0 
+    \end{cases}\) \\
+    $\theta_\varepsilon(x):=\theta(x)e^{-\varepsilon x}, \quad \varepsilon>0$ \\
+    $\widehat{\theta}_\varepsilon\xrightarrow[\varepsilon\to0]{\SSR}\theta, \quad\quad \int\limits_{0}^{\infty}e^{-\varepsilon x}\phi(x)\dd x\xrightarrow[\varepsilon\to\infty]{}\int\limits_{0}^{\infty}\phi(x)\dd x \quad \forall \phi\in\SR$ \\
+    $\widehat{\theta}_\varepsilon(\xi)=\dfrac{1}{\sqrt{2\pi}}\int\limits_{0}^{\infty}e^{-\varepsilon x}e^{-i\xi x}\dd x=\dfrac{1}{\sqrt{2\pi}(\varepsilon+i\xi)}=\dfrac{1}{\sqrt{2\pi}i}\cdot\dfrac{1}{\xi-i\varepsilon} \quad \Rightarrow \quad \widehat{\theta}(\xi)=\dfrac{1}{\sqrt{2\pi}i}\cdot\dfrac{1}{\xi-i\cdot0}$
 \end{myexample} 
+\begin{myexe}
+    1) $(x^m)\hat{}=?$ \\
+    2) $(e^{ix^2})\hat{}=?$
+\end{myexe}
 \subsection{Свёртка}
+Пусть $f, \phi, \xi \in \SR$ 
+Что мы хотим: \\
+$\int\limits_\R(f\ast\phi)\psi\dd x=\int\limits_\R\int\limits_\R f(y)\phi(x-y)\psi(x)\dd x\dd y=\int\limits_\R f(y)(\phi^\#\ast\psi)(y)\dd y, \quad \phi^\#(z)=\phi(-z)$
+\begin{mydef}
+    Пусть $f\in\SSR, \,\, \phi\in\SR$ 
+    $$(f\ast\phi, \psi)=(f, \phi^\#\ast\psi)$$
+    $\phi \in S \quad \Rightarrow \quad \phi^\#\in S \quad \Rightarrow \quad \phi^\#\ast\psi\in S$
+\end{mydef}
+\begin{myexe}
+    $\phi\in\SR, \quad \psi_k\xrightarrow{\SR}0 \quad \Rightarrow \quad \phi\ast\psi_k\xrightarrow{\SR}0$
+    $f\ast\psi\in\SSR$
+\end{myexe}
+\begin{myremark}
+    $$(f\ast\phi)(x)=(f, \phi(x-\cdot))$$
+\end{myremark}
+\begin{myexe}
+    $$f\ast\phi\in\Cinf(\R)$$
+\end{myexe}
+\begin{mytheorem}
+    $\forall \psi\in\SR:$
+    $$(f, \phi^\#\ast\psi)=\int\limits_\R(f\ast\phi)(x)\psi(x)\dd x$$
+\end{mytheorem}
+\begin{myproof}
+    б/д
+\end{myproof}
+\begin{myremark}
+    $f\in\DDR \quad \phi, \psi\in\DR \quad \Rightarrow$
+    $$\Rightarrow \quad (f, \phi^\#\ast\psi)=\int\limits_\R(f\ast\phi)(x)\psi(x)\dd x$$
+\end{myremark}
+\begin{myproof}
+    б/д
+\end{myproof}
 
+\begin{mytheorem}
+    Пусть $f\in\SSR, \quad \phi\in\SR \quad \Rightarrow$
+    $$\Rightarrow \quad (f\ast\phi)\hat{}=2\pi\widehat{f}\widehat{\phi}$$
+\end{mytheorem}
+\begin{myproof}
+    Пусть $\psi\in\SR$ 
+    $$((f\ast\phi)\hat{}, \psi)=(f\ast\phi, \widehat{\psi})=(f, \phi^\#\ast\widehat{\psi})$$
+    $$\phi^\#(x)=\phi(-x)=(\widehat{\phi})\check{}(-x)=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\widehat{\phi}(\xi)\dd \xi=\widehat{\widehat{\phi}}(x)$$
+    $$\phi^\#\ast\widehat{\psi}=\widehat{\widehat{\phi}}\ast\widehat{\psi}=\sqrt{2\pi}(\widehat{\phi}\psi)\hat{}$$
+    $$(f, \phi^\#\ast\widehat{\psi})=\sqrt{2\pi}(f, (\widehat{\phi}\psi)\hat{})=\sqrt{2\pi}(\widehat{f},\widehat{\phi}\psi)=\sqrt{2\pi}(\widehat{\phi}\widehat{f}, \psi)$$
+    Тогда получаем: 
+    $$(f\ast\phi)\hat{}=\sqrt{2\pi}\widehat{f}\widehat{\phi}$$
+
+\end{myproof}
 \subsection{Случай \texorpdfstring{$\R^n$}{Rn}}
-
-
-
-
-
-
-
-
-
+$$\mathcal{S}(\R^n)=\{\phi: \,\, |x_1^{\beta_1}x_2^{\beta_2}\dots x_n^{\beta_n}\D^\alpha\phi(x)|\leq C_{\alpha, \beta}\}$$
+$$\phi_k\xrightarrow{\mathcal{S}(\R^n)}\phi \quad \Leftrightarrow \quad \forall \alpha, \beta \quad x_1^{\beta_1}x_2^{\beta_2}\dots x_n^{\beta_n}\D^\alpha\phi_k(x)\to x_1^{\beta_1}x_2^{\beta_2}\dots x_n^{\beta_n}\D^\alpha\phi(x) - \text{ равномерно в }\R^n$$
+$\mathcal{S}'(\R^n)$ - линейные непрерывные функционалы $\mathcal{S}(\R^n)$. \\
+$$(\D^\alpha f, \phi)=(-1)^{\alpha_1+\alpha_2+\dots+\alpha_n}(f, \D^\alpha \phi)$$
+$$\widehat{\phi}(\xi)=\dfrac{1}{(2\pi)^{n/2}}\int\limits_\R^n e^{-i\xi x}\phi(x)\dd x, \quad\quad \xi x=\xi_1x_1+\dots+\xi_nx_n$$
+$$\D^\alpha \widehat{\phi}(\xi)=((-ix_1)^{\alpha_1}\dots(-ix_n)^{\alpha_n}\phi)\hat{}(\xi)$$
+$$i\xi_j\widehat{\phi}(\xi)=(\dfrac{\partial \phi}{\partial x_j})\hat{}(\xi)$$
+$$\check{\phi}(\xi)=\dfrac{1}{(2\pi)^{n/2}}\int\limits_\R^n e^{i\xi x}\phi(x)\dd x, \quad\quad (\widehat{\phi})\check{}=(\check{\phi})\hat{}=\phi$$
+$$\int\limits_\R^n\widehat{\phi}(\xi)\overline{\widehat{\psi}(\xi)}=\int\limits_\R\phi(x)\overline{\psi(x)}\dd x$$
+$F: \,\, \mathcal{S}'(\R^n)\to\mathcal{S}'(\R^n)$
+$$(\widehat{f}, \phi)=(f, \widehat{\phi})$$
+$$(f\ast\phi, \psi)=(f, \phi^\#\ast\psi)$$
+$$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 
 
 

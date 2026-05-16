@@ -3629,8 +3629,8 @@ $
 \]
 \end{mylemma}
 
-\begin{myproof}
-Доказательство будет в 11 параграфе(ссылку оставить потом)
+\begin{myproof} \label{lem}
+Доказательство будет в 11 параграфе \eqref{lem1}
 \end{myproof}
 
 \begin{mylemma}
@@ -3882,7 +3882,44 @@ $
 Тогда $g_0(y-x)=g_0(|y-x|)\Rightarrow g(y,x)=0$ при $x\in \p \R^n_+$.
 
 \section{Задача Дирихле в шаре}
-Сюда надо картинку и пояснение как мы строим все точки
+
+Выберем наши точки так, что:
+\[|x|\cdot|x^*|=R^2\]
+И $x$ и $x^*$ находятся на одном радиусе. Точку $x^*$ называют инверсией точки $x$ относительно шара $B_R(0).$
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.4]
+
+% Центр окружности
+\coordinate (O) at (0,0);
+\def\r{1.6}
+
+% Окружность
+\draw (O) circle (\r);
+
+% Точки: O, x, x* на одной прямой
+\coordinate (x)  at (0.7,0.15);
+\coordinate (xs) at (3.0,0.64);
+
+% Точка y на окружности
+\coordinate (y) at (0.55,1.50);
+
+% Пунктирная прямая O--x--x*
+\draw[dashed] (O) -- (xs);
+
+% Отрезки
+\draw (x) -- (y);
+\draw (y) -- (xs);
+
+% Подписи
+\node[left] at (O) {$O$};
+\node[below] at (x) {$x$};
+\node[above] at (y) {$y$};
+\node[right] at (xs) {$x^{*}$};
+
+\end{tikzpicture}
+\end{figure}
 
 \begin{mylemma}
     Для точки принадлежашей границе шара, мы можем щаписать такое равенство:
@@ -3906,9 +3943,217 @@ g(x,y) =
 \end{cases}\]
 \end{mytheorem}
 \begin{myremark}
-    
+    Записав геометрическое соотношение $x^*=\dfrac{R^2}{|x|^2}x$ и подставив в аргумент $g_0$, получим:
+    \[\dfrac{|x|}{R}\skobka{\dfrac{R^2}{|x|^2}x-y}=\skobka{R\dfrac{x}{|x|}-\dfrac{y|x|}{R}}\]
 \end{myremark}
 
+\begin{myexe}
+    Показать что $\forall x,y\in B_R(0)$ верно:
+    \[|x|\cdot |x^*-y|=|y|\cdot |y^*-x|\]
+\end{myexe}
 
 
+
+\begin{myproof}
+    Наконец, преведем доказательство теоремы.\\
+    Предполагая, что следующая функция гладкая, когда $x,y \in B_R(0)$:
+    \[
+\Tilde{g}(x,y) = -g_0\skobka{\dfrac{|x|}{R}(x-y^*)}
+\]
+
+Вычислим ее лаплас:
+\[
+\Delta_y \Tilde{g}(x,y) = -\dfrac{|x|^2}{R^2}\Delta g_0\skobka{\dfrac{|x|}{R}(x-y^*)} = 0
+\]
+
+Проверим также граничные условия:
+\[\left.\Tilde{g}(x,y)\right|_{|y|=R}=\begin{cases}
+    -g_0\skobka{\dfrac{|x|}{|R|(x^*-y)}}=-g_0(x-y)\\
+    -g_0(y), \quad x=0
+\end{cases}\]
+Отсюда становится видно, что функция Грина выглядит так:
+\[g(x,y)=g_0(x-y)+\Tilde{g}(x,y)\]
+\end{myproof}
+
+
+\begin{mydef}
+    Пусть $g(x,y)$ --- это функция Грина в $\Omega$ для задачи Дирихле. Ядром Пуассона называется следующая вещь:
+\[
+K(x,y) = \dfrac{\p g(x,y)}{\p\nu_x}, \quad x\in\p\Omega, \ \ y\in\Omega
+\]
+\end{mydef}
+
+Будем рассматривать следующую задачу Дирихле:
+\[
+\begin{cases}
+    \Delta u(x) = 0, \ \ \text{ в }\Omega\\
+    u\Big|_{\p\Omega} = \phi
+\end{cases}
+\] тогда решение вышлядит так:
+\[u(y) = \int\limits_{\p\Omega}K(x,y)\phi(x)\dd S(x)\]
+
+Давайте теперь в явно виде получим ядро Пуассона для шара. Будем рассматрвиать случай $n\geq 3$, но на самом деле для $n=2$, ответ не меняется.\\
+Запишем функция Грина и аккуратно возьмём от нее градиент:
+\[g(x,y) = \dfrac{-1}{\varkappa_n(n-2)|x-y|^{n-2}} + \dfrac{R^{n-2}}{\varkappa_n(n-2)|x|^{n-2}|x^*-y|^{n-2}}\]
+\[\nabla \skobka{\dfrac{1}{|x|^{n-2}}=-\dfrac{n-2}{|x|^{n-1}}\dfrac{x}{|x|}}=-\dfrac{(n-2)x}{|x|^n}\]
+\[\nabla_y\skobka{\dfrac{-1}{\varkappa_n(n-2)|x-y|^{n-2}}}=\dfrac{y-x}{\varkappa_n|x-y|^n}\]
+Тогда градиент от всей нашей функции выглядит так:
+\[
+\nabla_y g(x,y) = \dfrac{y-x}{\varkappa_n|x-y|^n} - \dfrac{R^{n-2}(y-x^*)}{\varkappa_n|y|^{n-2}\cdot|x^*-y|^{n}}=\dfrac{y-x}{\varkappa_n|x-y|^n}-\dfrac{|x|^2}{R^2}\dfrac{|y-x^*|}{\varkappa_n|x-y|^n}=
+\]
+\[=\dfrac{1}{\varkappa_n|x-y|^n}\skobka{y-x-\dfrac{|x|^2}{R^2}|y-x^*|}=\dfrac{y\skobka{1-\dfrac{|x|^2}{R^2}}}{\varkappa_n|x-y|^n}\]
+Вспоминая, как работает производная по направлению:
+\[\nu_y=\dfrac{y}{R}\]
+Пишем ядро Пуассона:
+\[
+K(x,y) = \skobka{\nabla_yg,\dfrac{y}{R}} = \dfrac{R^2 - |x^2|}{\varkappa_nR|x-y|^n}, \ \ \ x\in B_R, \ \ y\in\p B_R
+\]
+
+\begin{mylemma}
+    \textit{Свойства ядра Пуассона}\\
+    \begin{enumerate}
+    \item $K\in C^{\infty}\skobka{\p B_R\times B_R(0)}$
+    \item $K(x,y)>0 \ \ \forall x,y\in B_R(0)\times \p B_R(0)$
+    \item $\Delta_xK(x,y) = 0 \ \ \forall x,y\in B_R(0)\times \p B_R(0)$
+    \item Если функция $u\in C^2\skobka{\p \overline{B_R}}, \ \ \Delta u(x) = 0$ в $B_R(0)$, то
+    \[
+    u(x) = \int\limits_{\p B_R}K(x,y)u(y)\dd S(y); \ \ \forall B_R(0)
+    \]
+    \item $\int\limits_{\p B_R}K(x,y)\dd S(x) = 1$
+\end{enumerate}
+\end{mylemma}
+\begin{myproof}
+    1,2,4 -- очевидны.\\
+    3: $\Delta_xK(x,y)=\Delta_x\dfrac{\p g(x,y)}{\p \nu_y}=0$\\
+    А 5 получается из 4 свойства.
+\end{myproof}
+
+
+\begin{mytheorem}
+    Пусть $\phi \in \C(\p B_R),$ тогда решение задачи Дирихле через ядро Пуассона обладаем следующими свойствами:
+    \[ u(x) = \int\limits_{\p B_R(0)}K(x,y)\phi(y)\dd S(y)\Rightarrow\]
+    \begin{enumerate}
+        \item $u \in\C^{\infty}(B_R(0))$ в шаре
+        \item $\Delta u(x) =0 $ в $B_R(0)$
+        \item $u(x)\xrightarrow{x\to y}\phi(x), \ \ \forall y \in \p B_R(0)$
+    \end{enumerate}
+\end{mytheorem}
+
+\begin{myproof}
+    \begin{enumerate}
+        \item Взяв производные, все становится ясно:
+        \[D^{\alpha}u(x)=\int\limits_{\p B_R(0)}D^{\alpha}K(x,y)\phi(y)\dd S(y)\]
+        \item Опять же, просто подействуем лапласом: \[\Delta u(x) = \int\limits_{\p B_R(0)}\Delta_xK(x,y)\phi(y)\dd S(y)=0\]
+        \item Взяв точку $y_0\in \p B_R(0)$ напишем следующую вещь:
+        \[|u(x)-\phi(y_0)|=\int\limits_{\p B_R(0)}K(x,y)|\phi(y)-\phi(y_0)|\dd S(y)\]
+        Взяв $\varepsilon >0$ для которого $\delta > 0$, такое что:
+        \[|\phi(y)-\phi(y_0)|<\varepsilon \ \ \text{для }|y-y_0|<\delta\]
+        напишем следующую оценку:
+\[
+\int\limits_{\substack{
+    y \in \partial B_R(0) \\
+    |y-y_0|<\delta
+}}
+K(x,y)|\phi(y)-\phi(y_0)|\,\dd S(y)<\varepsilon
+\]   
+Тогда, продолжая цепочку равенств, получим:
+        \[|u(x)-\phi(y_0)|<\varepsilon+\int\limits_{\substack{
+    y \in \partial B_R(0) \\
+    |y-y_0|<\delta
+}}
+K(x,y)|\phi(y)-\phi(y_0)|\,\dd S(y)
+\]
+Предроложим, что $|x-y_0|<\dfrac{\delta}{2}$, тогда $|x-y|\leq\dfrac{\delta}{2}$, и легко можем написать оценку для ядра Пуассона:
+\[K(x,y)=\dfrac{R^2-|x|^2}{\varkappa_nR|x-y|^n}\leq \dfrac{2^n}{\delta^n}\dfrac{R^2-|x|^2}{\varkappa_nR}\]
+Интеграл тогда оценивается следующим образом:
+\[
+\int\limits_{\substack{
+    y \in \partial B_R(0) \\
+    |y-y_0|<\delta
+}}
+K(x,y)|\phi(y)-\phi(y_0)|\,\dd S(y)\leq 2\max\limits_{\partial B_R(0)}(\phi)\int\dfrac{2^n}{\delta^n}\dfrac{R^2-|x|^2}{\varkappa_nR}\dd S(y)=
+\] 
+
+\[=2\max\limits_{\partial B_R(0)}(\phi)\dfrac{2^n}{\delta^n}\skobka{R^2-|x|^2}R^{n-2}\xrightarrow{x\to y}0\Rightarrow\]
+\[\Rightarrow |u(x)-\phi(y_0)<2\varepsilon, \ \ \text{при } |x-y_0|<\Tilde{\delta}\]
+тут еще что-то дописать. у меня немного меcто в конспекте
+\end{enumerate}
+\end{myproof}
+
+
+\subsection{Внешняя задача Дирихле}
+Вспомни нашу задачу и некоторые соотношение:
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.4]
+
+% Центр окружности
+\coordinate (O) at (0,0);
+\def\r{1.6}
+
+% Окружность
+\draw (O) circle (\r);
+
+% Точки: O, x, x* на одной прямой
+\coordinate (x)  at (0.7,0.15);
+\coordinate (xs) at (3.0,0.64);
+
+% Точка y на окружности
+\coordinate (y) at (0.55,1.50);
+
+% Пунктирная прямая O--x--x*
+\draw[dashed] (O) -- (xs);
+
+% Отрезки
+\draw (x) -- (y);
+\draw (y) -- (xs);
+
+% Подписи
+\node[left] at (O) {$O$};
+\node[below] at (x) {$x$};
+\node[above] at (y) {$y$};
+\node[right] at (xs) {$x^{*}$};
+
+\end{tikzpicture}
+\end{figure}
+
+\[x^*=\dfrac{R^2}{|x|^2}x, \quad |x-y|=\dfrac{|x|}{R}|x^*-y|\]
+Функция Грина выглядит так:
+\[g(x,y)= g_0(x-y) - g_0\skobka{\dfrac{|x|}{R}(x^*-y)}, \ \ x\in \R^3\setminus \overline{B_R(0)}\]
+Поманимая, что в такой задаче внутреняя номрмаль, можем записать ядро Пуассона:
+\[
+K(x,y) = \skobka{\nabla_yg,-\dfrac{y}{R}} = -\dfrac{R^2 - |x^2|}{\varkappa_nR|x-y|^n}
+\]
+
+
+\begin{mytheorem}
+     Пусть $\phi \in \C(\p B_R(0)),$ тогда решение задачи Дирихле вне шара,  через ядро Пуассона обладаем следующими свойствами:
+    \[ u(x) = \int\limits_{\p B_R(0)}K(x,y)\phi(y)\dd S(y)\Leftrightarrow\]
+    \begin{enumerate}
+        \item $\Delta u(x) =0 $ в $\R^n\setminus B_R(0)$
+        \item $\left.u(x)\right|_{\p B_R(0)}=\phi(x)$
+        \item $u$ -- ограниченная функция при $n=2$
+        \item $u(x)\xrightarrow{x\to 0}\phi(x)$ при $n\geq 3$
+    \end{enumerate}
+\end{mytheorem}
+
+\begin{myproof} \label{lem1}
+    В 9 параграфе мы формулировали лемму \eqref{lem}, давайте докажем её, для доказательства текушей теоремы:
+    \\ Выберем $R: \overline{\Omega}\subset B_R(0)$, тогда рассмотрим нужную нам область $\R^3\setminus \overline{B_R(0)}$:
+    \[u(x) = \int\limits_{\p B_R(0)}\dfrac{|x^2|-R^2 }{4\pi R|x-y|^3}\phi(y)\dd S(y)\]
+    \[\phi(y)=\left.u(x)\right|_{y\in \p B_R(0)} \]
+    Понимаем, что $\exists M: |x|>M$, значит нашу функцию можно оценить так:
+    \[|u(x)|\leq \max\limits_{x\in \partial B_R(0)}|\phi(x)|\dfrac{C}{|x|} \]
+\end{myproof}
+
+\begin{myexe}
+    Посчитать следуюший лаплас:
+    \[\nabla_x\dfrac{|x|^2-R^2}{|x-y|^3}\]
+\end{myexe}
+
+
+
+\chapter{Специальные функции}
+\section{Полиномы Лежандра}
+\subsection{Уравнение Лежандра}
 \end{document}

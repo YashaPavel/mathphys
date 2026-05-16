@@ -61,3 +61,7 @@
 \contentsline {subsection}{\numberline {2.10.1}Фундаментальное решение уравнения Лапласа}{85}{subsection.2.10.1}%
 \contentsline {subsection}{\numberline {2.10.2}Метод отражений}{88}{subsection.2.10.2}%
 \contentsline {section}{\numberline {2.11}Задача Дирихле в шаре}{88}{section.2.11}%
+\contentsline {subsection}{\numberline {2.11.1}Внешняя задача Дирихле}{93}{subsection.2.11.1}%
+\contentsline {chapter}{\numberline {3}Специальные функции}{95}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Полиномы Лежандра}{95}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Уравнение Лежандра}{95}{subsection.3.1.1}%

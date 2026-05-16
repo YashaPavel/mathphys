@@ -1301,6 +1301,32 @@ $$\frac{1}{\sqrt{\pi t}}\int\limits_{-a}^{a}e^{-\frac{x^2}{t}}\dd x=\frac{1}{\sq
 \end{myexample}
 \begin{myexe}
     $$\frac{\sin(Nx)}{\pi x}\xrightarrow{N\to+\infty}\delta(x)$$
+Пусть $\varphi\in D(\mathbb{R})$. Тогда
+\[
+\left\langle \frac{\sin(Nx)}{\pi x},\varphi\right\rangle
+= \int_{\R} \frac{\sin(Nx)}{\pi x}\,\varphi(x)\,dx.
+\]
+Делаем замену переменной $t = Nx$:
+\[
+\int_{\R} \frac{\sin(Nx)}{\pi x}\,\varphi(x)\,dx
+= \int_{\R} \frac{\sin t}{\pi t}\,\varphi\!\left(\frac{t}{N}\right)dt.
+\]
+Так как $\varphi$ непрерывна и компактно поддержана, то
+$\varphi(t/N)\to\varphi(0)$ равномерно по $t$ на носителе интеграла при $N\to\infty$.
+Используя доминированную сходимость и известный интеграл Дирихле
+\[
+\int_{\R} \frac{\sin t}{\pi t}\,dt = 1,
+\]
+получаем
+\[
+\int_{\R} \frac{\sin(Nx)}{\pi x}\,\varphi(x)\,dx
+\xrightarrow[N\to\infty]{}
+\varphi(0)\int_{\R} \frac{\sin t}{\pi t}\,dt
+= \varphi(0).
+\]
+Следовательно,
+\[
+\frac{\sin(Nx)}{\pi x} \xrightarrow[N\to\infty]{\DDR} \delta(x) \]
 \end{myexe}
 \subsection{Носитель обобщенной функции}
 \begin{mydef}
@@ -1330,12 +1356,133 @@ $$\frac{1}{\sqrt{\pi t}}\int\limits_{-a}^{a}e^{-\frac{x^2}{t}}\dd x=\frac{1}{\sq
 \end{myproof}
 \begin{myexe}
     $\exists f\in\DDR, \, f\neq g^{(m)} \, \forall m\in \N_0, \forall g\in\C(\R)$(если не накладывать условие ограниченности носителя)
+\\
+Рассмотрим распределение $F$, являющееся «первой интегральной
+первой производной» от дельта–функции:
+\[
+F' = \delta, \quad\text{то есть}\quad
+\langle F,\varphi'\rangle = -\langle\delta,\varphi\rangle = -\varphi(0)
+\quad \forall\,\varphi\in \DR.
+\]
+По определению производной в $\DDR$ это корректно задаёт
+некоторое распределение $F\in \DDR$.
+
+Предположим, что существует непрерывная функция $g\in \C(\R)$
+и $m\in\N_0$ такие, что
+\[
+F = g^{(m)} \quad\text{в } \DDR.
+\]
+Тогда
+\[
+\delta = F' = g^{(m+1)}.
+\]
+Но $g^{(m+1)}$ как производная непрерывной функции есть регулярное
+распределение:
+\[
+\langle g^{(m+1)},\varphi\rangle
+= (-1)^{m+1}\int_{\R} g(x)\,\varphi^{(m+1)}(x)\,dx,
+\]
+а дельта–функция $\delta$ — сингулярное распределение, не задаваемое
+никакой локально интегрируемой функцией.
+Поэтому равенство $g^{(m+1)}=\delta$ невозможно, и
+наше предположение неверно.
+
+Следовательно, $F$ не может быть производной любого порядка
+от непрерывной функции $g$:
+\[
+F \neq g^{(m)} \quad \forall\,m\in\N_0,\ \forall\,g\in C(\R).
+\]
+Таким образом, требуемое распределение существует, например $f=F$.
 \end{myexe}
 \begin{mytheorem}
     $$f\in\DDR, \supp f = \{0\} \Rightarrow\exists k\in \N_0, c_0, c_1, \dots c_k \in C \quad f=\sum_{j=0}^{k}c_j\delta^{(j)}$$
 \end{mytheorem}
 \begin{myexe}
-    Доказать эту теорему используя предыдущую и упраженение из 1.3.4
+    Доказать эту теорему используя предыдущую и упраженение из 1.3.4.
+    \\
+  1) Так как $\supp f$ компактен, по теореме 1.2 существует
+$m\in\mathbb N_0$ и $g\in C(\mathbb R)$ такие, что
+\[
+f = g^{(m)} \quad\text{в смысле распределений.}
+\tag{1}
+\]
+
+2) Из $\supp f=\{0\}$ следует, что $f(\varphi)=0$ для всякой
+$\varphi\in D(\mathbb R)$ с $\supp\varphi\subset(-\infty,0)$ или
+$\supp\varphi\subset(0,\infty)$. По (1)
+\[
+0 = \langle f,\varphi\rangle = \langle g^{(m)},\varphi\rangle
+= (-1)^m\int_{\mathbb R} g(x)\varphi^{(m)}(x)\,dx.
+\]
+Так как $\varphi$ на этих интервалах произвольна, получаем
+\[
+g^{(m)}(x)=0 \quad \text{на }(-\infty,0)\ \text{и на }(0,\infty)
+\]
+в обычном (классическом) смысле.
+
+По упражнению 1.3.4, из $g^{(m)}=0$ на интервале следует, что $g$
+на этом интервале — многочлен степени $<m$. Следовательно,
+существуют многочлены $P_-,P_+$ степени $<m$ такие, что
+\[
+g(x)=
+\begin{cases}
+P_-(x), & x<0,\\[1mm]
+P_+(x), & x>0.
+\end{cases}
+\tag{2}
+\]
+Так как $g$ непрерывна на всей $\mathbb R$, получаем ещё, что
+$P_-(0)=P_+(0)$.
+
+3) Разложим $P_-,P_+$ в окрестности нуля:
+\[
+P_-(x)=\sum_{j=0}^{m-1} a_j^- x^j,\qquad
+P_+(x)=\sum_{j=0}^{m-1} a_j^+ x^j.
+\]
+
+Рассмотрим действие $f$ на произвольной $\varphi\in D(\mathbb R)$.
+По (1) и (2):
+\[
+\langle f,\varphi\rangle
+= (-1)^m\int_{-\infty}^{0} P_-(x)\varphi^{(m)}(x)\,dx
+ +(-1)^m\int_{0}^{\infty} P_+(x)\varphi^{(m)}(x)\,dx.
+\tag{3}
+\]
+
+Интегрируем по частям в каждом интеграле $m$ раз.
+Так как $P_\pm$ многочлены степени $<m$, после $m$‑кратной
+интеграции по частям подынтегральные выражения исчезают, и остаются
+только граничные члены при $x=0$ (на $\pm\infty$ всё обнуляется из-за
+компактного носителя $\varphi$). В итоге получаем
+\[
+\langle f,\varphi\rangle
+= \sum_{j=0}^{m-1} c_j\,\varphi^{(j)}(0),
+\tag{4}
+\]
+где коэффициенты $c_j$ выражаются через $a_j^\pm$ (их точный вид нам не
+нужен).
+
+4) Но по определению производной дельта-функции
+\[
+\langle \delta^{(j)},\varphi\rangle = (-1)^j \varphi^{(j)}(0),
+\]
+поэтому из (4)
+\[
+\langle f,\varphi\rangle
+= \sum_{j=0}^{m-1} c_j\,\varphi^{(j)}(0)
+= \sum_{j=0}^{m-1} c_j' \,\langle \delta^{(j)},\varphi\rangle
+= \left\langle \sum_{j=0}^{m-1} c_j'\,\delta^{(j)},\varphi\right\rangle
+\]
+для всех $\varphi\in D(\mathbb R)$.
+
+Следовательно, в $D'(\mathbb R)$
+\[
+f = \sum_{j=0}^{m-1} c_j'\,\delta^{(j)}.
+\]
+Обозначив $k=m-1$ и переименовав коэффициенты, получаем искомое
+представление
+\[
+f = \sum_{j=0}^{k} c_j\,\delta^{(j)}.\]
 \end{myexe}
 \section{Прямое произведение обобщенных функций}
 \subsection{Пространство \texorpdfstring{$\ddR$}{ } }
@@ -1523,6 +1670,50 @@ $$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
     \end{figure}
     2) Пусть $f\in\DDR, \quad \supp f \subset (a, b)$ \\
     Пусть $\eta\in\DR: \quad \eta|_[a,b]=1 \Rightarrow \eta f=f$
+\\
+1) Для любых $a<b$ существует функция $\eta \in\DR$ (гладкая с
+компактным носителем) такая, что
+\[
+\eta(x) = 1 \quad \text{при } x\in[a,b].
+\]
+
+Берём стандартную бамп-функцию $\psi\in \DR$,
+\[
+\psi(x)=
+\begin{cases}
+\exp\!\bigl(-\tfrac{1}{1-x^2}\bigr), & |x|<1,\\[1mm]
+0, & |x|\ge 1,
+\end{cases}
+\]
+и нормируем её так, чтобы получить гладкую функцию, равную $1$ на
+$[a,b]$ и равную $0$ вне немного большего отрезка. Полученная функция
+лежит в $\DR$ и удовлетворяет $\eta|_{[a,b]}=1$.
+
+\bigskip
+
+
+2) По определению произведения распределения на гладкую функцию
+\[
+\langle \eta f,\varphi\rangle = \langle f,\eta\varphi\rangle
+\quad \forall\,\varphi\in \DR.
+\]
+Так как $\supp f\subset(a,b)$, то для любой $\varphi$ имеем
+\[
+\langle f,\varphi\rangle = \langle f,\varphi\cdot 1_{(a,b)}\rangle,
+\]
+и на $(a,b)$ выполняется $\eta(x)\equiv 1$, значит
+\[
+\eta(x)\varphi(x) = \varphi(x)\quad \text{при } x\in\supp f.
+\]
+Следовательно,
+\[
+\langle \eta f,\varphi\rangle
+= \langle f,\eta\varphi\rangle
+= \langle f,\varphi\rangle
+\quad \forall\,\varphi\in D(\R),
+\]
+то есть $\eta f$ и $f$ действуют одинаково на всех тестовых функциях,
+а значит, $\eta f = f$ как элементы $\DDR$.
 \end{myexe}
 Определим свёртку обобщенных функций правильно.
 \begin{mydef}

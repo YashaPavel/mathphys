@@ -1,63 +1,63 @@
 \xpg@aux {}{russian}
-\contentsline {chapter}{\numberline {1}Обобщенные функции}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Определения}{2}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Класс основных обобщенных функций $\mathcal {D}(\mathbb {R})$}{2}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Класс обобщенных функций $\mathcal {D}'(\mathbb {R})$}{3}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Регулярные и сингулярные обобщенные функции}{5}{subsection.1.1.3}%
-\contentsline {section}{\numberline {1.2}Доказательство теоремы \ref {1}}{8}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Операции над обобщенными функциями}{10}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Умножение на гладкую функцию}{10}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Замена переменных}{10}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Дифференцирование}{11}{subsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.3.4}Сходимость}{14}{subsection.1.3.4}%
-\contentsline {subsection}{\numberline {1.3.5}Носитель обобщенной функции}{18}{subsection.1.3.5}%
-\contentsline {section}{\numberline {1.4}Прямое произведение обобщенных функций}{20}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Пространство $\mathcal {D}'(\mathbb {R}^n)$ }{20}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Прямое произведение}{20}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Свёртка}{23}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}Определение}{23}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Замечания}{24}{subsection.1.5.2}%
-\contentsline {section}{\numberline {1.6}Пространство Шварца $\mathcal {S}(\mathbb {R})$}{26}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Пространство быстро убывающих функций $\mathcal {S}(\mathbb {R})$}{26}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Преобразование Фурье}{28}{subsection.1.6.2}%
-\contentsline {section}{\numberline {1.7}Пространство Шварца $\mathcal {S}'(\mathbb {R})$ }{32}{section.1.7}%
-\contentsline {subsection}{\numberline {1.7.1}Пространство медленно растущих обобщенных функций $\mathcal {S}'(\mathbb {R})$}{32}{subsection.1.7.1}%
-\contentsline {subsection}{\numberline {1.7.2}Преобразование Фурье на $\mathcal {S}'(\mathbb {R})$}{33}{subsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.7.3}Свёртка}{35}{subsection.1.7.3}%
-\contentsline {subsection}{\numberline {1.7.4}Случай $\mathbb {R}^n$}{36}{subsection.1.7.4}%
-\contentsline {chapter}{\numberline {2}Уравнения математической физики}{38}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Введение}{38}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Типы уравнений}{38}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Краевые условия}{38}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}Одномерное волновое уравнение}{38}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Уравнение струны}{38}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Метод Даламбера}{38}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Функция Грина для бесконечной струны}{38}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Волновое уравнение в $\mathbb {R}^3$}{38}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Функция Грина}{38}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Решение волнового уравнения в $\mathbb {R}^3$ }{39}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Единственность решения волнового уравнения в $\mathbb {R}^n$}{43}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Задача Штурма-Лиувилля}{47}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Краевые задачи для обыкновенного дифференциального уравнения второго поряда}{47}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Примеры}{50}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Однородная задача Штурма-Лиувилля}{51}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}Нули собственных функций}{56}{subsection.2.5.4}%
-\contentsline {section}{\numberline {2.6}Неоднородная конечная струна}{60}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Решение начальной краевой задачи}{61}{subsection.2.6.1}%
-\contentsline {section}{\numberline {2.7}Уравнение теплопроводности}{61}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}Вывод}{61}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Уравнение теплопроводности в $\mathbb {R}^n$}{62}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Комментарии}{65}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Неоднородное уравнение теплопроводности}{66}{subsection.2.7.4}%
-\contentsline {subsection}{\numberline {2.7.5}Единственность}{69}{subsection.2.7.5}%
-\contentsline {subsection}{\numberline {2.7.6}Уравнение теплопроводности на отрезке}{70}{subsection.2.7.6}%
-\contentsline {section}{\numberline {2.8}Уравнение Лапласа}{72}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Фундаментальное решение}{72}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}Гармонические функции}{75}{subsection.2.8.2}%
-\contentsline {section}{\numberline {2.9}Краевые задачи для уравнения Пуассона}{80}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}Задача Дирихле}{80}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}Задача Неймана}{82}{subsection.2.9.2}%
-\contentsline {section}{\numberline {2.10}Функция Грина для задачи Дирихле}{84}{section.2.10}%
-\contentsline {subsection}{\numberline {2.10.1}Фундаментальное решение уравнения Лапласа}{84}{subsection.2.10.1}%
-\contentsline {subsection}{\numberline {2.10.2}Метод отражений}{87}{subsection.2.10.2}%
-\contentsline {section}{\numberline {2.11}Задача Дирихле в шаре}{87}{section.2.11}%
+\contentsline {chapter}{\numberline {1}Обобщенные функции}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Определения}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Класс основных обобщенных функций $\mathcal {D}(\mathbb {R})$}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Класс обобщенных функций $\mathcal {D}'(\mathbb {R})$}{4}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Регулярные и сингулярные обобщенные функции}{6}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Доказательство теоремы \ref {1}}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Операции над обобщенными функциями}{11}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Умножение на гладкую функцию}{11}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Замена переменных}{11}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Дифференцирование}{12}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Сходимость}{15}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}Носитель обобщенной функции}{19}{subsection.1.3.5}%
+\contentsline {section}{\numberline {1.4}Прямое произведение обобщенных функций}{21}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Пространство $\mathcal {D}'(\mathbb {R}^n)$ }{21}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Прямое произведение}{21}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Свёртка}{24}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Определение}{24}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Замечания}{25}{subsection.1.5.2}%
+\contentsline {section}{\numberline {1.6}Пространство Шварца $\mathcal {S}(\mathbb {R})$}{27}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Пространство быстро убывающих функций $\mathcal {S}(\mathbb {R})$}{27}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Преобразование Фурье}{29}{subsection.1.6.2}%
+\contentsline {section}{\numberline {1.7}Пространство Шварца $\mathcal {S}'(\mathbb {R})$ }{33}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Пространство медленно растущих обобщенных функций $\mathcal {S}'(\mathbb {R})$}{33}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Преобразование Фурье на $\mathcal {S}'(\mathbb {R})$}{34}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Свёртка}{36}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.4}Случай $\mathbb {R}^n$}{37}{subsection.1.7.4}%
+\contentsline {chapter}{\numberline {2}Уравнения математической физики}{39}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Введение}{39}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Типы уравнений}{39}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Краевые условия}{39}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Одномерное волновое уравнение}{39}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Уравнение струны}{39}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Метод Даламбера}{39}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Функция Грина для бесконечной струны}{39}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Волновое уравнение в $\mathbb {R}^3$}{39}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Функция Грина}{39}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Решение волнового уравнения в $\mathbb {R}^3$ }{40}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Единственность решения волнового уравнения в $\mathbb {R}^n$}{44}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Задача Штурма-Лиувилля}{48}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Краевые задачи для обыкновенного дифференциального уравнения второго поряда}{48}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Примеры}{51}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Однородная задача Штурма-Лиувилля}{52}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Нули собственных функций}{57}{subsection.2.5.4}%
+\contentsline {section}{\numberline {2.6}Неоднородная конечная струна}{61}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Решение начальной краевой задачи}{62}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}Уравнение теплопроводности}{62}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Вывод}{62}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Уравнение теплопроводности в $\mathbb {R}^n$}{63}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Комментарии}{66}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Неоднородное уравнение теплопроводности}{67}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Единственность}{70}{subsection.2.7.5}%
+\contentsline {subsection}{\numberline {2.7.6}Уравнение теплопроводности на отрезке}{71}{subsection.2.7.6}%
+\contentsline {section}{\numberline {2.8}Уравнение Лапласа}{73}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Фундаментальное решение}{73}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Гармонические функции}{76}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Краевые задачи для уравнения Пуассона}{81}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Задача Дирихле}{81}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Задача Неймана}{83}{subsection.2.9.2}%
+\contentsline {section}{\numberline {2.10}Функция Грина для задачи Дирихле}{85}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}Фундаментальное решение уравнения Лапласа}{85}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2}Метод отражений}{88}{subsection.2.10.2}%
+\contentsline {section}{\numberline {2.11}Задача Дирихле в шаре}{88}{section.2.11}%

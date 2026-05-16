@@ -3882,4 +3882,33 @@ $
 Тогда $g_0(y-x)=g_0(|y-x|)\Rightarrow g(y,x)=0$ при $x\in \p \R^n_+$.
 
 \section{Задача Дирихле в шаре}
+Сюда надо картинку и пояснение как мы строим все точки
+
+\begin{mylemma}
+    Для точки принадлежашей границе шара, мы можем щаписать такое равенство:
+    \[
+|x-y| = \dfrac{|x|}{R}|x* - y|
+\]
+\end{mylemma}
+
+\begin{myproof}
+    Доказывать будем через подобие двух треугольников $\Delta Oxy$ и $Oyx^*$:
+    \[\dfrac{Ox}{Oy}=\dfrac{Oy}{Ox^*}\Rightarrow\dfrac{|x|}{R}=\dfrac{R}{|x^*|}\Rightarrow \dfrac{|x-y|}{|x^*-y|}=\dfrac{x}{R} \Rightarrow |x-y| = \dfrac{|x|}{R}|x* - y|\]
+\end{myproof}
+
+\begin{mytheorem}
+    Функция Грина для задачи Дирихле в шаре $B_R(0)$ имеет вид:
+\[
+g(x,y) = 
+\begin{cases}
+    g_0(x-y) - g_0\skobka{\dfrac{|x|}{R}(x^*-y)}, \quad x\neq0\\
+    g_0(y) - g_0(R), \quad x=0
+\end{cases}\]
+\end{mytheorem}
+\begin{myremark}
+    
+\end{myremark}
+
+
+
 \end{document}

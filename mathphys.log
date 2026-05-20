@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  19 MAY 2026 02:15
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  21 MAY 2026 00:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1345,253 +1345,243 @@ File: pics/2.png Graphic file (type bmp)
 [28]
 File: pics/3.png Graphic file (type bmp)
 <pics/3.png>
-
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1733--1738
+ [28] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 1755--1757
 
  []
 
+[30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1887--1892
 
+ []
 
-[30]
+[32] [33]
+Underfull \hbox (badness 1194) in paragraph at lines 1971--1975
+[]\TU/TimesNewRoman(1)/m/n/12 1)$\OML/cmm/m/it/12 ^^Z \OT1/cmr/m/n/12 = [] []$\
+TU/TimesNewRoman(1)/m/n/12 . Надо доказать, что это метри-
+ []
 
-[31]
-Underfull \hbox (badness 1194) in paragraph at lines 1766--1768
-[]\TU/TimesNewRoman(1)/m/n/12 1)$\OML/cmm/m/it/12 ^^Z \OT1/cmr/m/n/12 = [] []$\TU/TimesNewRoman(1)/m/n/12 . Надо доказать, что это метри-
+[34] [35] [36] [37]
+Overfull \hbox (13.77841pt too wide) detected at line 2230
+\OML/cmm/m/it/12 ^^X[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) 
+= (\OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 )[](\OML/cmm/m/it/12 '
+[]\OT1/cmr/m/n/12 )[][]  [] \OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 '[]\OMS/cmsy/m/n
+/12 j []  []\OML/cmm/m/it/12 x < \OMS/cmsy/m/n/12 1
  []
 
 
-
-[32]
-
-[33]
-Overfull \hbox (13.77841pt too wide) detected at line 1836
-\OML/cmm/m/it/12 ^^X[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) = (\OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 )[](\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 )[][]  [] \OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 '[]\OMS/cmsy/m/n/12 j []  []\OML/cmm/m/it/12 x < \OMS/cmsy/m/n/12 1
- []
-
-
-
-[34]
-
-[35]
-
-[36]
-Missing character: There is no о ("43E) in font cmmi8!
-Missing character: There is no г ("433) in font cmmi8!
-Missing character: There is no р ("440) in font cmmi8!
-Missing character: There is no а ("430) in font cmmi8!
-Missing character: There is no н ("43D) in font cmmi8!
-Missing character: There is no и ("438) in font cmmi8!
-Missing character: There is no ч ("447) in font cmmi8!
-Missing character: There is no е ("435) in font cmmi8!
-Missing character: There is no н ("43D) in font cmmi8!
-Missing character: There is no а ("430) in font cmmi8!
-
-
-[37]
+LaTeX Warning: Reference `forth' on page 38 undefined on input line 2233.
 
 [38]
 
-[39]
+LaTeX Warning: Reference `fifth' on page 39 undefined on input line 2248.
 
-[40]
-Overfull \hbox (3.97223pt too wide) detected at line 2022
-\OML/cmm/m/it/12 '[] [] '  \OMS/cmsy/m/n/12 ,  8\OML/cmm/m/it/12 ^^K; ^^L x[]x[] [] x[]\OMS/cmsy/m/n/12 D[]\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 x[]x[] [] x[]\OMS/cmsy/m/n/12 D[]\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ []\U/msb/m/n/12 R[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2022--2024
-
- []
-
-
-
+[39] [40]
+Missing character: There is no о in font cmmi8!
+Missing character: There is no г in font cmmi8!
+Missing character: There is no р in font cmmi8!
+Missing character: There is no а in font cmmi8!
+Missing character: There is no н in font cmmi8!
+Missing character: There is no и in font cmmi8!
+Missing character: There is no ч in font cmmi8!
+Missing character: There is no е in font cmmi8!
+Missing character: There is no н in font cmmi8!
+Missing character: There is no а in font cmmi8!
 [41]
-Глава 2.
 
+LaTeX Warning: Reference `sixth' on page 42 undefined on input line 2326.
 
-[42
+[42]
 
-]
+LaTeX Warning: Reference `seventh' on page 43 undefined on input line 2341.
 
-[43]
-
-[44]
-Overfull \hbox (11.08632pt too wide) detected at line 2199
-[] \OT1/cmr/m/n/12 = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !\OT1/cmr/m/n/12 ) = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = [] [] ^^A\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 y
+[43] [44]
+Overfull \hbox (3.97223pt too wide) detected at line 2416
+\OML/cmm/m/it/12 '[] [] '  \OMS/cmsy/m/n/12 ,  8\OML/cmm/m/it/12 ^^K; ^^L x[]x[
+] [] x[]\OMS/cmsy/m/n/12 D[]\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/
+12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 x[]x[] [] x[]\OMS/cms
+y/m/n/12 D[]\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/1
+2 ) \OMS/cmsy/m/n/12 ^^@ []\U/msb/m/n/12 R[]
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 2416--2418
 
-[45]
+ []
 
-[46]
+[45] [46]
+Глава 2.
+[47
 
-[47]
-
-[48]
-
-[49]
+] [48] [49]
+Overfull \hbox (11.08632pt too wide) detected at line 2593
+[] \OT1/cmr/m/n/12 = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm
+/m/it/12 !\OT1/cmr/m/n/12 ) = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 
+(\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = [] [] ^^A\OML/cmm/m/it/12 v\OT1/cmr/m/n/
+12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 y
+ []
 
 [50]
 
-[51]
+LaTeX Warning: Reference `45' on page 51 undefined on input line 2612.
 
-[52]
+
+LaTeX Warning: Reference `98' on page 51 undefined on input line 2635.
+
+[51] [52]
+
+LaTeX Warning: Reference `34' on page 53 undefined on input line 2697.
 
 [53]
 
-[54]
+LaTeX Warning: Reference `45' on page 54 undefined on input line 2724.
 
-[55]
+[54] [55]
 
-[56]
-Overfull \hbox (8.42194pt too wide) detected at line 2744
-[][] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]v\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 puv[]\OT1/cmr/m/n/12 )[] = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv \OT1/cmr/m/n/12 = 0 \OMS/cmsy/m/n/12 )
- []
+LaTeX Warning: Reference `78' on page 56 undefined on input line 2834.
 
 
-Overfull \hbox (49.82523pt too wide) detected at line 2748
-\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 )[][] = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 ) = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 u[]v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 uv[] \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 cu;  []
- []
+LaTeX Warning: Reference `78' on page 56 undefined on input line 2835.
 
 
+LaTeX Warning: Reference `78' on page 56 undefined on input line 2863.
 
-[57]
+[56] [57]
+
+LaTeX Warning: Reference `78' on page 58 undefined on input line 2906.
+
+
+LaTeX Warning: Reference `78' on page 58 undefined on input line 2923.
 
 [58]
 
-[59]
-Overfull \hbox (168.44794pt too wide) detected at line 2832
-[] \OMS/cmsy/m/n/12 ) [] ) \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 ^^Q \OT1/cmr/m/n/12 0
+LaTeX Warning: Reference `78' on page 59 undefined on input line 2952.
+
+[54]
+
+LaTeX Warning: Reference `78' on page 59 undefined on input line 2957.
+
+[59] [60] [61]
+Overfull \hbox (8.42194pt too wide) detected at line 3138
+[][] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]v\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n
+/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 puv[]\OT1/cmr/m/n/12 )[] = (\OML/cmm/
+m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OML/cmm
+/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] = \OML/cmm/
+m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it
+/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/1
+2 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12
+ )\OML/cmm/m/it/12 uv \OT1/cmr/m/n/12 = 0 \OMS/cmsy/m/n/12 )
  []
 
 
-
-[60]
-Overfull \hbox (9.33113pt too wide) detected at line 2849
-\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 guv \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 huv \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 h \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv > \OT1/cmr/m/n/12 0
+Overfull \hbox (49.82523pt too wide) detected at line 3142
+\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \
+OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 )[][] = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/
+12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/1
+2 uv[]\OT1/cmr/m/n/12 ) = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 u[]v \OT1/cmr/m
+/n/12 = \OML/cmm/m/it/12 uv[] \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 v \OT1/cmr/m/
+n/12 = \OML/cmm/m/it/12 cu;  []
  []
-
-
-
-[61]
 
 [62]
 
-[63]
+LaTeX Warning: Reference `56' on page 63 undefined on input line 3160.
 
-[64]
+[63] [64]
+Overfull \hbox (168.44794pt too wide) detected at line 3226
+[] \OMS/cmsy/m/n/12 ) [] ) \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 ^^Q \OT1/cmr/m/n
+/12 0
+ []
 
 [65]
+Overfull \hbox (9.33113pt too wide) detected at line 3243
+\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = (\OM
+L/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + (\OML/c
+mm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OML/
+cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] \OMS/cms
+y/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/
+it/12 u[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m
+/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/
+n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/
+12 guv \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 huv \OT1/cmr/m/n/12 = (\OML/cmm/m/it/
+12 h \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u
+v > \OT1/cmr/m/n/12 0
+ []
+
+[66] [67] [68] [69] [70]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3046.
+(hyperref)                removing `math shift' on input line 3440.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 3046.
+(hyperref)                removing `superscript' on input line 3440.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3046.
+(hyperref)                removing `math shift' on input line 3440.
 
 
-LaTeX Warning: Command \r invalid in math mode on input line 3057.
+LaTeX Warning: Command \r invalid in math mode on input line 3451.
 
-Missing character: There is no ̊ ("30A) in font cmmi6!
+Missing character: There is no ̊ in font cmmi6!
+[71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+Overfull \hbox (17.38931pt too wide) detected at line 3767
+[] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x; ^^X\OT1/cmr/m/n/12
+ )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  
+[]\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 e[]y[]\OT1/cmr/
+m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 
+(\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/c
+mm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = []
+ \OML/cmm/m/it/12 e[]'[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
+ [] [] \OML/cmm/m/it/12 '[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/1
+2 ) = \OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
+ []
 
-
-[66]
-
-[67]
-
-[68]
-
-[69]
-
-[70]
-
-[71]
-
-[72]
-
-[73]
-
-[74]
-
-[75]
-Overfull \hbox (17.38931pt too wide) detected at line 3373
-[] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x; ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 e[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 e[]'[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) [] [] \OML/cmm/m/it/12 '[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
+[81] [82]
+Overfull \hbox (31.65785pt too wide) detected at line 3850
+[] [] []  []\OML/cmm/m/it/12 y \OT1/cmr/m/n/12 = [] [] []  []\OML/cmm/m/it/12 S
+\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
  []
 
 
-
-[76]
-
-[77]
-Overfull \hbox (31.65785pt too wide) detected at line 3456
-[] [] []  []\OML/cmm/m/it/12 y \OT1/cmr/m/n/12 = [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
+Overfull \hbox (50.43948pt too wide) detected at line 3865
+[] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] [] 
+ []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OM
+S/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/
+cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/
+cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/
+cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/
+cmm/m/it/12 y\OT1/cmr/m/n/12 ) [] \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 u\OT1/cm
+r/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
  []
 
-
-Overfull \hbox (50.43948pt too wide) detected at line 3471
-[] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) [] \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
- []
-
-
-
-[78]
-
-[79]
-Underfull \hbox (badness 10000) in paragraph at lines 3542--3543
+[83] [84]
+Underfull \hbox (badness 10000) in paragraph at lines 3936--3937
 
  []
 
+[85] [86] [87] [88] [89] [90] [91]
 
+LaTeX Warning: Reference `lem1' on page 92 undefined on input line 4219.
 
-[80]
+[92] [93]
 
-[81]
+LaTeX Warning: Reference `th:green-formula' on page 94 undefined on input line 
+4344.
 
-[82]
-
-[83]
-
-[84]
-
-[85]
-
-[86]
-
-[87]
-
-[88]
-
-[89]
-
-[90]
-
-[91]
-
-[92]
-
-[93]
-Underfull \hbox (badness 10000) in paragraph at lines 4205--4207
+[94] [95] [96] [97] [98]
+Underfull \hbox (badness 10000) in paragraph at lines 4599--4601
 
  []
 
+[99] [100] [101]
 
+LaTeX Warning: Reference `lem' on page 102 undefined on input line 4727.
 
-[94]
-
-[95]
-
-[96]
-
-[97]
+[102]
 Глава 3.
+[103
 
 
 [98
@@ -1609,12 +1599,12 @@ Package rerunfilecheck Info: File `mathphys.out' has not changed.
 (rerunfilecheck)             Checksum: 6A613C8628901766D40D946BAEDAC008;16363.
  ) 
 Here is how much of TeX's memory you used:
- 49836 strings out of 473832
- 1186660 string characters out of 5729482
- 1958871 words of memory out of 5000000
- 72076 multiletter control sequences out of 15000+600000
- 580535 words of font info for 190 fonts, out of 8000000 for 9000
+ 49789 strings out of 402986
+ 1165136 string characters out of 5455748
+ 2025358 words of memory out of 5000000
+ 77751 multiletter control sequences out of 15000+600000
+ 649403 words of font info for 192 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  102i,19n,107p,1051b,2194s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on mathphys.pdf (99 pages).
+Output written on mathphys.pdf (104 pages).

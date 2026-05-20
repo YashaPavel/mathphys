@@ -1670,24 +1670,53 @@ $$(f\ast\phi')(x)=(f,\phi'(x-\cdot))=-(f,\phi'_y(x-\cdot))=(f',\phi(x-\cdot))$$
         \label{fig:enter-label}
     \end{figure}
     2) Пусть $f\in\DDR, \quad \supp f \subset (a, b)$ \\
-    Пусть $\eta\in\DR: \quad \eta|_[a,b]=1 \Rightarrow \eta f=f$
-1) Для любых $a<b$ существует функция $\eta \in\DR$ (гладкая с
-компактным носителем) такая, что
+    Пусть $\eta\in\DR: \quad \eta|_[a,b]=1 \Rightarrow \eta f=f$\\
+1)
+Рассмотрим вспомогательную функцию
 \[
-\eta(x) = 1 \quad \text{при } x\in[a,b].
-\]
-
-Берём стандартную бамп-функцию $\psi\in \DR$,
-\[
-\psi(x)=
+\psi(t) =
 \begin{cases}
-\exp\!\bigl(-\tfrac{1}{1-x^2}\bigr), & |x|<1,\\[1mm]
-0, & |x|\ge 1,
+e^{-1/t^{2}}, & t>0,\\
+0,            & t \le 0.
 \end{cases}
 \]
-и нормируем её так, чтобы получить гладкую функцию, равную $1$ на
-$[a,b]$ и равную $0$ вне немного большего отрезка. Полученная функция
-лежит в $\DR$ и удовлетворяет $\eta|_{[a,b]}=1$.
+Нетрудно проверить, что $\psi \in \C^{\infty}(\R)$ и
+$\psi^{(k)}(0)=0$ для всех $k \in \N\cup\{0\}$, то есть
+$\psi$ ``плоская'' в нуле.
+
+Определим сглаженную ступенчатую функцию
+\[
+\theta(t) = \frac{\psi(t)}{\psi(t)+\psi(-t)}.
+\]
+Тогда $\theta \in C^{\infty}(\R)$,
+\[
+\theta(t)=
+\begin{cases}
+0, & t \ll 0,\\
+1, & t \gg 0,
+\end{cases}
+\]
+и все переходы происходят бесконечно гладко.
+
+Зафиксируем $\varepsilon>0$ так, чтобы $a-\varepsilon < a < b < b+\varepsilon$,
+и положим
+\[
+\eta(x) = \theta\bigl(x-(a-\varepsilon)\bigr)\,
+          \theta\bigl((b+\varepsilon)-x\bigr).
+\]
+Тогда $\eta \in \C^{\infty}(\R)$ как произведение гладких функций.
+Из определения $\theta$ видно, что
+\[
+\eta(x) =
+\begin{cases}
+0, & x \le a-\varepsilon \ \text{или} \ x \ge b+\varepsilon,\\
+1, & x \in [a,b],
+\end{cases}
+\]
+то есть $\eta$ имеет компактный носитель, лежащий в
+$(a-\varepsilon,\, b+\varepsilon)$, и удовлетворяет $\eta|_{[a,b]} \equiv 1$.
+Следовательно, $\eta \in \DR$ и обладает требуемыми
+свойствами.
 
 \bigskip
 
@@ -1723,10 +1752,135 @@ $[a,b]$ и равную $0$ вне немного большего отрезк�
 \end{mydef}
 На рисунке с носителем, мы таким образом вырезаем параллелограмм.
 \begin{myexe}
-    $\phi_k\xrightarrow{\DR}0 \quad \Rightarrow \quad \phi_k(x+y)\eta(x)\xrightarrow{\D(\R^2)}0$
+    $\phi_k\xrightarrow{\DR}0 \quad \Rightarrow \quad \phi_k(x+y)\eta(x)\xrightarrow{\D(\R^2)}0$ \\
+    \begin{enumerate}
+\item[(i)] существует компакт $K_\varphi\subset\mathbb R$, такой что 
+$\operatorname{supp}\varphi_k\subset K_\varphi$ для всех $k$;
+\item[(ii)] для любого целого $m\ge0$ выполнено
+\[
+\sup_{x\in\R}\bigl|\varphi_k^{(m)}(x)\bigr|\xrightarrow[k\to\infty]{}0.
+\]
+\end{enumerate}
+
+Пусть $\operatorname{supp}\eta\subset K_\eta$, где $K_\eta\subset\R$ — компакт.
+Рассмотрим $\psi_k(x,y)=\varphi_k(x+y)\eta(x)$.
+
+\smallskip
+
+\noindent\textit{1) Общий компакт для носителей.}
+Если $\psi_k(x,y)\neq0$, то одновременно $\eta(x)\neq0$ и $\varphi_k(x+y)\neq0$,
+следовательно
+\[
+x\in K_\eta,\qquad x+y\in K_\varphi.
+\]
+Отсюда $y\in K_\varphi - x\subset K_\varphi-K_\eta$, где
+\[
+K_\varphi-K_\eta := \{t-s:\ t\in K_\varphi,\ s\in K_\eta\}.
+\]
+Таким образом,
+\[
+\operatorname{supp}\psi_k
+\subset K_\eta\times (K_\varphi-K_\eta) =: K,
+\]
+и $K\subset\R^2$ — компакт, не зависящий от $k$.
+
+\smallskip
+
+\noindent\textit{2) Равномерное стремление производных к нулю.}
+Возьмём произвольный многоиндекс $\alpha=(\alpha_1,\alpha_2)$
+и вычислим $\D^\alpha_{x,y}\psi_k(x,y)$.
+Поскольку $\psi_k(x,y)=\varphi_k(x+y)\eta(x)$, по формуле Лейбница и цепному правилу имеем
+\[
+\D^\alpha_{x,y}\psi_k(x,y)
+=
+\sum_{\beta\le\alpha} C_{\alpha,\beta}\,
+\frac{d^{\beta_1+\beta_2}\varphi_k}{dt^{\beta_1+\beta_2}}(x+y)\,
+\frac{d^{\alpha_1-\beta_1}\eta}{dx^{\alpha_1-\beta_1}}(x),
+\]
+где сумма берётся по всем $\beta=(\beta_1,\beta_2)$ с $\beta\le\alpha$,
+а $C_{\alpha,\beta}$ — некоторые константы.
+
+Так как $\eta\in\mathcal \DR$, её производные
+$\eta^{(j)}$ ограничены на $\R$.
+Из (ii) вытекает, что для любого $m\ge0$
+\[
+\sup_{t\in\R}\bigl|\varphi_k^{(m)}(t)\bigr|\xrightarrow[k\to\infty]{}0.
+\]
+Следовательно для каждого $\alpha$
+\[
+\sup_{(x,y)\in\R^2}\bigl|D^\alpha\psi_k(x,y)\bigr|
+\le
+\sum_{\beta\le\alpha}|C_{\alpha,\beta}|\,
+\Bigl(\sup_t|\varphi_k^{(\beta_1+\beta_2)}(t)|\Bigr)\,
+\Bigl(\sup_s|\eta^{(\alpha_1-\beta_1)}(s)|\Bigr)
+\xrightarrow[k\to\infty]{}0.
+\]
+
+Итак, для любого многоиндекса $\alpha$ производные $\D^\alpha\psi_k$ равномерно
+стремятся к нулю, а носители $\psi_k$ лежат в одном компакте $K$.
+По определению топологии в $\D(\R^2)$ это означает
+$\psi_k\to0$ в $\D(\R^2)$.
+
 \end{myexe}
 \begin{myexe}
-    Определение не зависит от выбора $\eta$.
+    Определение не зависит от выбора $\eta$. \\
+    Пусть $f,g \in \mathcal \DDR$ имеют компактные носители
+\[
+\supp f \subset K_f,\qquad \supp g \subset K_g,
+\]
+где $K_f,K_g \subset \R$ --- компакты. Тогда
+\[
+\supp(f\otimes g) \subset K_f \times K_g.
+\]
+
+Пусть $\eta_1,\eta_2 \in \DR$ такие, что
+\[
+\eta_1(x) = \eta_2(x) = 1 \quad \text{для всех } x \in K_f.
+\]
+Определим свёртку с помощью $\eta_i$ по формуле
+\[
+(f*g,\varphi)_{\eta_i} := (f\otimes g,\ \varphi(x+y)\eta_i(x)),
+\qquad \varphi \in \DR,\ i=1,2.
+\]
+
+Рассмотрим разность:
+\[
+R(\varphi)
+:= (f*g,\varphi)_{\eta_1} - (f*g,\varphi)_{\eta_2}
+= (f\otimes g,\ \Phi(x,y)),
+\]
+где
+\[
+\Phi(x,y) := \varphi(x+y)\bigl(\eta_1(x)-\eta_2(x)\bigr).
+\]
+
+Заметим, что при $x\in K_f$ выполнено $\eta_1(x)=\eta_2(x)$, поэтому
+\[
+\eta_1(x)-\eta_2(x)=0 \quad \text{для всех } x\in K_f.
+\]
+Отсюда
+\[
+\Phi(x,y)=0 \quad \text{для всех } (x,y)\in K_f\times K_g.
+\]
+Так как
+\(
+\supp(f\otimes g)\subset K_f\times K_g,
+\)
+получаем, что $\Phi$ тождественно равна нулю в некоторой окрестности
+$\supp(f\otimes g)$.
+
+По определению распределения, если $\Psi\in\D(\R^2)$ и
+$\Psi \equiv 0$ в окрестности $\supp T$, то $(T,\Psi)=0$.
+Применяя это к $T=f\otimes g$ и $\Psi=\Phi$, имеем
+\[
+R(\varphi) = (f\otimes g,\Phi)=0.
+\]
+
+Следовательно, для любой $\varphi\in\DR$
+\[
+(f*g,\varphi)_{\eta_1} = (f*g,\varphi)_{\eta_2},
+\]
+то есть определение свёртки $f*g$ не зависит от выбора функции $\eta$.
 \end{myexe}
 \begin{myremark}
     1) Пусть $f,g\in\DDR, \quad \supp g\subset(c, d)$, то 
@@ -1756,7 +1910,58 @@ $[a,b]$ и равную $0$ вне немного большего отрезк�
 \end{myremark}
 \begin{myexe}
     1) $\DR\subset\SR$ \\
-    2) $e^{-x^2}\in\SR\backslash\DR$
+    2) $e^{-x^2}\in\SR\backslash\DR$ \\
+    Зафиксируем любые неотрицательные целые $l,m$.
+Рассмотрим функцию
+\[
+x\longmapsto (|x|)^l\,\varphi^{(m)}(x).
+\]
+На компакте $K$ производная $\varphi^{(m)}$ непрерывна, следовательно
+ограничена, а вне $K$ имеем $\varphi^{(m)}(x)=0$ (так как $\varphi$ тождественно
+равна нулю вне $K$). Поэтому
+\[
+\sup_{x\in\R}(|x|)^l\,|\varphi^{(m)}(x)|<\infty.
+\]
+Это верно для всех $l,m$, значит $\varphi\in \SR$ по определению
+пространства Шварца. Тем самым $\DR\subset \SR$.
+
+\smallskip
+
+\textbf{2)} Рассмотрим функцию $\psi(x)=e^{-x^2}$.
+
+Сначала покажем, что $\psi\in \SR$.
+Производные $\psi^{(m)}(x)$ имеют вид
+\[
+\psi^{(m)}(x)=P_m(x)\,e^{-x^2},
+\]
+где $P_m$ --- некоторый многочлен степени не выше $2m$.
+Это доказывается по индукции по $m$ (правило Лейбница и цепное правило).
+
+Возьмём произвольные $l,m\ge0$.
+Имеем
+\[
+(|x|)^l\,|\psi^{(m)}(x)|
+=
+(|x|)^l\,|P_m(x)|\,e^{-x^2}.
+\]
+Произведение многочлена на $e^{-x^2}$ ограничено на $\R$
+(экспонента $e^{-x^2}$ убывает быстрее любой степени $|x|$), поэтому
+существует константа $C_{l,m}$, такая что
+\[
+\sup_{x\in\R}(|x|)^l\,|\psi^{(m)}(x)| \le C_{l,m}<\infty.
+\]
+Следовательно $\psi\in S(\R)$.
+
+Теперь проверим, что $\psi\notin\DR$.
+Функция $e^{-x^2}$ нигде не обращается в нуль, то есть
+\[
+\supp\psi = \overline{\{x:\psi(x)\ne0\}}=\R,
+\]
+а значит носитель некомпактен. По определению
+$\DR$ состоит из гладких функций с \emph{компактным}
+носителем, поэтому $\psi\notin\DR$.
+
+Итак, $e^{-x^2}\in S(\R)\setminus\DR$.
 \end{myexe}
 \begin{mydef}
     $$\phi_k\xrightarrow{\SR}\phi \quad\Leftrightarrow\quad \forall l,m\in \N_0 \,\,\,\, x^l\phi^{(m)}_k(x)\rightarrow x^l\phi^{(m)}(x)\text{ равномерно на } \R$$
@@ -1765,6 +1970,105 @@ $\SR$ - метризуемо. Доказательство состоит из �
 \begin{myexe} 
     1)$\rho=\displaystyle\sum\limits_{l,m=0}^{\infty}\dfrac{\underset{\R}{\max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|}{2^{l+m}(1+\underset{\R}{\max}|x^l\phi^{(m)}(x)-x^l\psi^{(m)}(x)|)}$. Надо доказать, что это метрика(неотрицательная, невырожденная, неравенство треугольника) \\
     2) $\phi_k\xrightarrow[k\to\infty]{\SR}\phi \quad \Leftrightarrow \quad \rho(\phi_k, \phi) \xrightarrow[k\to\infty]{}0$
+\\
+Обозначим
+\[
+a_{l,m}(\varphi,\psi)
+:=p_{l,m}(\varphi-\psi)
+=\sup_{x\in\mathbb R}|x|^l\,|\varphi^{(m)}(x)-\psi^{(m)}(x)|.
+\]
+Положим $\theta(t)=\dfrac{t}{1+t}$ при $t\ge0$.
+Тогда
+\[
+\rho(\varphi,\psi)
+=
+\sum_{l,m}2^{-(l+m)}\,\theta\bigl(a_{l,m}(\varphi,\psi)\bigr).
+\]
+
+1)
+Очевидно, что $\rho(\varphi,\psi)\ge0$ и
+$\rho(\varphi,\psi)=\rho(\psi,\varphi)$.
+
+Если $\rho(\varphi,\psi)=0$, то все слагаемые равны нулю, т.е.
+$\theta(a_{l,m}(\varphi,\psi))=0$ для всех $l,m$. Так как $\theta(t)=0$
+только при $t=0$, получаем $a_{l,m}(\varphi,\psi)=0$, то есть
+\[
+\sup_x |x|^l\,|\varphi^{(m)}(x)-\psi^{(m)}(x)|=0
+\]
+для всех $l,m$. Отсюда $\varphi^{(m)}\equiv\psi^{(m)}$ и, следовательно,
+$\varphi=\psi$.
+
+Проверим неравенство треугольника. Для любых
+$\varphi,\psi,\chi\in \SR$ и фиксированных $l,m$ имеем
+\[
+a_{l,m}(\varphi,\chi)
+=p_{l,m}(\varphi-\chi)
+\le p_{l,m}(\varphi-\psi)+p_{l,m}(\psi-\chi)
+=a_{l,m}(\varphi,\psi)+a_{l,m}(\psi,\chi),
+\]
+так как $p_{l,m}$ --- полунорма.
+Функция $\theta(t)=\frac{t}{1+t}$ неотрицательна, возрастает и удовлетворяет
+оценке $\theta(u+v)\le\theta(u)+\theta(v)$ при $u,v\ge0$ (легко проверить).
+Отсюда
+\[
+\theta(a_{l,m}(\varphi,\chi))
+\le
+\theta(a_{l,m}(\varphi,\psi))
++
+\theta(a_{l,m}(\psi,\chi)).
+\]
+Домножая на $2^{-(l+m)}$ и суммируя по $l,m$, получаем
+\[
+\rho(\varphi,\chi)\le\rho(\varphi,\psi)+\rho(\psi,\chi).
+\]
+Значит, $\rho$ --- метрика.
+
+\medskip
+
+2) 
+\[
+\varphi_k\to\varphi \text{ в } \SR
+\iff
+\forall\,l,m\quad p_{l,m}(\varphi_k-\varphi)\xrightarrow[k\to\infty]{}0.
+\tag{*}
+\]
+
+\emph{($\Rightarrow$)} Если выполняется (*), то для любых фиксированных $l,m$
+\[
+p_{l,m}(\varphi_k-\varphi)\to0.
+\]
+Поскольку функция $\theta(t)=\dfrac{t}{1+t}$ непрерывна и $\theta(0)=0$,
+имеем
+\[
+\theta\bigl(p_{l,m}(\varphi_k-\varphi)\bigr)\to0.
+\]
+Каждое слагаемое в сумме для $\rho(\varphi_k,\varphi)$ неотрицательно и
+ограничено $2^{-(l+m)}$, поэтому при $k\to\infty$ сумма также стремится к
+нулю:
+\[
+\rho(\varphi_k,\varphi)\xrightarrow[k\to\infty]{}0.
+\]
+
+\emph{($\Leftarrow$)} Пусть наоборот $\rho(\varphi_k,\varphi)\to0$.
+Зафиксируем произвольные $l,m$. Тогда
+\[
+0\le
+2^{-(l+m)}\frac{p_{l,m}(\varphi_k-\varphi)}{1+p_{l,m}(\varphi_k-\varphi)}
+\le \rho(\varphi_k,\varphi)\xrightarrow[k\to\infty]{}0,
+\]
+откуда
+\[
+\frac{p_{l,m}(\varphi_k-\varphi)}{1+p_{l,m}(\varphi_k-\varphi)}
+\xrightarrow[k\to\infty]{}0.
+\]
+Функция $\theta(t)=\dfrac{t}{1+t}$ строго возрастает на $[0,\infty)$ и
+$\theta(t)=0$ только при $t=0$, поэтому из
+$\theta\bigl(p_{l,m}(\varphi_k-\varphi)\bigr)\to0$ следует
+\[
+p_{l,m}(\varphi_k-\varphi)\xrightarrow[k\to\infty]{}0.
+\]
+Так как $l,m$ были произвольны, выполнено (*), т.е.
+$\varphi_k\to\varphi$ в $\SR$.
 \end{myexe}
 Сущесвтенно, что это пространство - алгебра.
 \begin{mylemma}
@@ -1795,8 +2099,8 @@ $$\widehat{\phi'}=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi'\dd x\unde
 Интегрирование по частям: первый член зануляется из за того, что $\phi$ быстро убывающая.
 \lbpn{third}{\[\widehat{\phi'}=i\xi\hat{\phi}(\xi) \quad (\phi^{(l)})\hat{}=(i\xi)^l\widehat{\phi}(\xi)\]}
 \begin{myremark}
-    \lbpn{seventh}{Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R)\Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к.} 
-    $$|\widehat{\phi}(\xi)|\leq\frac{1}{\sqrt{2\pi}}\int\limits_\R|\phi(x)|\dd x$$
+    \lbpn{seventh}{Преобразование Фурье можно ввести не только на классе Шварца: $\phi\in\L_1(\R)\Rightarrow \quad \widehat{\phi}$ - ограниченная функция, т.к. 
+    $$|\widehat{\phi}(\xi)|\leq\frac{1}{\sqrt{2\pi}}\int\limits_\R|\phi(x)|\dd x$$}
 \end{myremark}
 \begin{myexe}
     \[
@@ -1806,6 +2110,96 @@ $$\widehat{\phi'}=\frac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi'\dd x\unde
 &2)\ \widehat{\phi}\xrightarrow[\xi\to\infty]{}0.
 \end{aligned}
 \]
+
+\textit{1) Непрерывность.}
+Зафиксируем $\xi_0\in\R$. Тогда
+\[
+\hat\varphi(\xi)-\hat\varphi(\xi_0)
+=\frac{1}{\sqrt{2\pi}}\int_{\R}\varphi(x)
+\bigl(e^{-i\xi x}-e^{-i\xi_0 x}\bigr)\,dx.
+\]
+Отсюда
+\[
+|\hat\varphi(\xi)-\hat\varphi(\xi_0)|
+\le
+\frac{1}{\sqrt{2\pi}}\int_{\R}|\varphi(x)|\,
+|e^{-i\xi x}-e^{-i\xi_0 x}|\,dx.
+\]
+При фиксированном $x$ имеем
+$|e^{-i\xi x}-e^{-i\xi_0 x}|\to0$ при $\xi\to\xi_0$, а также
+\(
+|e^{-i\xi x}-e^{-i\xi_0 x}|\le2.
+\)
+По теореме Лебега о мажорированной сходимости
+\[
+\lim_{\xi\to\xi_0}|\hat\varphi(\xi)-\hat\varphi(\xi_0)|
+\le
+\frac{1}{\sqrt{2\pi}}
+\int_{\R}|\varphi(x)|\cdot0\,dx=0,
+\]
+значит $\hat\varphi$ непрерывна.
+
+\medskip
+
+\textit{2) Стремление к нулю на бесконечности (лемма Римана–Лебега).}
+Сначала докажем для $\varphi\in \C(\R)$.
+Тогда $\varphi$ равномерно непрерывна и имеет компактный носитель.
+Для произвольного $h\in\R$:
+\[
+\hat\varphi(\xi)
+=\frac{1}{\sqrt{2\pi}}\int_{\R}\varphi(x+h)e^{-i\xi(x+h)}\,dx
+\]
+(замена $x\mapsto x+h$). Вычитая исходную формулу, получаем
+\[
+(1-e^{-i\xi h})\hat\varphi(\xi)
+=\frac{1}{\sqrt{2\pi}}\int_{\R}
+(\varphi(x+h)-\varphi(x))e^{-i\xi x}\,dx.
+\]
+Отсюда
+\[
+|\hat\varphi(\xi)|
+\le
+\frac{1}{|1-e^{-i\xi h}|}\cdot
+\frac{1}{\sqrt{2\pi}}
+\int_{\R}|\varphi(x+h)-\varphi(x)|\,dx.
+\]
+По равномерной непрерывности
+\(
+\int_{\R}|\varphi(x+h)-\varphi(x)|\,dx
+\)
+можно сделать сколь угодно малой, выбирая $|h|$ достаточно малым.
+Для фиксированного такого $h$ найдётся бесконечная последовательность
+$\xi_n\to\infty$ с $|1-e^{-i\xi_n h}|\ge c>0$, поэтому
+$|\hat\varphi(\xi_n)|$ сколь угодно мало. По непрерывности $\hat\varphi$
+получаем $\hat\varphi(\xi)\to0$ при $|\xi|\to\infty$.
+
+Для общего случая $\varphi\in \L_1(\R)$ используем плотность
+$\C(\R)$ в $\L_1(\R)$.
+Для любого $\varepsilon>0$ существует $\psi\in \C(\R)$ такая, что
+$\|\varphi-\psi\|_{\L_1}<\varepsilon$. Тогда
+\[
+|\hat\varphi(\xi)-\hat\psi(\xi)|
+=
+\frac{1}{\sqrt{2\pi}}
+\left|\int_{\R}(\varphi(x)-\psi(x))e^{-i\xi x}\,dx\right|
+\le
+\frac{1}{\sqrt{2\pi}}\|\varphi-\psi\|_{\L_1}<C\varepsilon,
+\]
+где $C=1/\sqrt{2\pi}$. Для $\psi$ уже известно, что
+$\hat\psi(\xi)\to0$ при $|\xi|\to\infty$, значит существует $R>0$ такое,
+что при $|\xi|>R$ выполнено $|\hat\psi(\xi)|<\varepsilon$.
+При $|\xi|>R$ имеем
+\[
+|\hat\varphi(\xi)|
+\le|\hat\varphi(\xi)-\hat\psi(\xi)|+|\hat\psi(\xi)|
+< C\varepsilon+\varepsilon.
+\]
+Так как $\varepsilon>0$ произвольно, отсюда
+$\hat\varphi(\xi)\to0$ при $|\xi|\to\infty$.
+
+Таким образом, для любой $\varphi\in \L_1(\R)$ преобразование Фурье
+$\hat\varphi$ (в нормировке с $1/\sqrt{2\pi}$) непрерывно и стремится к
+нулю на бесконечности.
 \end{myexe}
 \begin{mylemma}
     $$\phi\in\SR \quad \Rightarrow \quad \widehat{\phi}\in\SR$$

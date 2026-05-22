@@ -413,7 +413,7 @@
 \newcommand{\Pf}[1]{\mathrm{P}\dfrac{1}{#1}}
 \newcommand{\PP}{\mathrm{P}\dfrac{1}{x}}
 \newcommand{\px}[1]{\dfrac{1}{#1 \pm \mathrm{i}0}}
-
+\newcommand{\Y}{\mathscr{Y}}
 % Суммы и интегралы
 \newcommand{\INT}{\int\limits_{-\infty}^{+\infty}}
 \newcommand{\intpi}{\int\limits_{-\pi}^{+\pi}}
@@ -2250,12 +2250,114 @@ $$x^l\phi\in\SR \,\,\,(\ref{forth})\quad \Rightarrow \quad \widehat{\phi}^{(l)}(
     \lbpn{fifth}{$$\F^{-1}\F\phi=\F\F^{-1}\phi=\phi$$}
 \end{mytheorem}
 \begin{myproof}
-    ДОКАЗАТЬ ПОТОМ.
+    Видимо без доказательства.
 \end{myproof}
 $\F: \,\, \SR\rightarrow\SR$ - линейный оператор. \\
 $\F^{-1}: \,\, \SR\rightarrow\SR$ - доказательство аналогично доказательству для $\F$, просто другой знак. Оба отображения являются биекциями из теоремы \ref{fifth}.
 \begin{myexe}
     \lbpn{sixth}{$$\F: \,\, \SR\rightarrow\SR\text{ - непрерывный}$$}
+Пусть
+\[
+\widehat{\varphi}(\xi)=\int_{\R}\varphi(x)e^{-ix\xi}\,dx,
+\qquad \varphi\in S(\R).
+\]
+По определению пространства Шварца функция $\varphi$ бесконечно дифференцируема, и для любых $l,m\ge 0$
+\[
+|x^l\varphi^{(m)}(x)|\le C_{lm}.
+\]
+Эквивалентно, для любых $l,m$ имеем
+\[
+\varphi^{(m)}(x)=O(x^{-l}), \qquad x\to\infty.
+\]
+
+Покажем, что $\widehat\varphi\in S(\R)$.
+
+Сначала докажем, что $\widehat\varphi\in \C^\infty(\R)$. Для любого $m\ge 0$ можно дифференцировать под знаком интеграла:
+\[
+(\widehat\varphi)^{(m)}(\xi)=\int_{\R}(-ix)^m\varphi(x)e^{-ix\xi}\,dx,
+\]
+поскольку $x^m\varphi(x)$ абсолютно интегрируема.
+
+Теперь умножим на $\xi^l$:
+\[
+\xi^l(\widehat\varphi)^{(m)}(\xi)
+=\int_{\R}(-ix)^m\varphi(x)\,\xi^l e^{-ix\xi}\,dx.
+\]
+Так как
+\[
+\xi^l e^{-ix\xi}=i^l\partial_x^l e^{-ix\xi},
+\]
+то
+\[
+\xi^l(\widehat\varphi)^{(m)}(\xi)
+=i^l\int_{\R}(-ix)^m\varphi(x)\,\partial_x^l e^{-ix\xi}\,dx.
+\]
+Интегрируя по частям $l$ раз, получаем
+\[
+\xi^l(\widehat\varphi)^{(m)}(\xi)
+=i^l(-1)^l\int_{\R}\partial_x^l\bigl((-ix)^m\varphi(x)\bigr)e^{-ix\xi}\,dx.
+\]
+Граничные члены равны нулю, так как $\varphi$ и все её производные убывают
+быстрее любой степени.
+
+Следовательно,
+\[
+\bigl|\xi^l(\widehat\varphi)^{(m)}(\xi)\bigr|
+\le
+\int_{\R}\left|\partial_x^l\bigl(x^m\varphi(x)\bigr)\right|dx.
+\]
+Остаётся показать, что интеграл справа конечен.
+
+Положим
+\[
+g(x)=\partial_x^l\bigl(x^m\varphi(x)\bigr).
+\]
+На любом отрезке $[-R,R]$ функция $g$ непрерывна, значит ограничена, и потому
+\[
+\int_{-R}^{R}|g(x)|dx<\infty.
+\]
+Для больших $|x|$ по формуле Лейбница функция $g(x)$ является конечной суммой выражений вида
+\[
+P(x)\varphi^{(k)}(x),
+\]
+где $P(x)$ --- многочлен степени не выше $m$. Поэтому существует константа $C>0$ такая, что
+\[
+|g(x)|\le C\sum_{k=0}^{l}(1+|x|^m)|\varphi^{(k)}(x)|.
+\]
+Так как $\varphi\in S(\R)$, для каждого $k$ и любого $N$ имеем
+\[
+\varphi^{(k)}(x)=O(x^{-N}), \qquad x\to\infty.
+\]
+Выберем $N>m+2$. Тогда при достаточно больших $|x|$
+\[
+(1+|x|^m)|\varphi^{(k)}(x)|
+\le \frac{C_k}{|x|^2}.
+\]
+Значит,
+\[
+|g(x)|\le \frac{C'}{|x|^2}
+\]
+при больших $|x|$, а потому
+\[
+\int_{|x|>R}|g(x)|dx<\infty.
+\]
+Следовательно,
+\[
+\int_{\R}|g(x)|dx<\infty.
+\]
+Итак, для любых $l,m\ge 0$ существует константа $A_{lm}$ такая, что
+\[
+\bigl|\xi^l(\widehat\varphi)^{(m)}(\xi)\bigr|\le A_{lm}
+\qquad \forall \xi\in\R.
+\]
+Значит, $\widehat\varphi\in \SR$.
+
+Таким образом,
+\[
+\F:\SR\to \SR.
+\]
+Отсюда следует непрерывность преобразования Фурье в топологии
+пространства Шварца.
 \end{myexe}
 Посмотрим на преобразование от сдвига ($a\in\R$): \\
 $(\phi(x+a))\hat{}=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x}\phi(x+a)\dd x \underset{x+a=y}{=}\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi(y-a)}\phi(y)\dd y=e^{i\xi a}\widehat{\phi}(\xi)$. \\
@@ -2368,8 +2470,115 @@ $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \wide
     $\widehat{\theta}_\varepsilon(\xi)=\dfrac{1}{\sqrt{2\pi}}\int\limits_{0}^{\infty}e^{-\varepsilon x}e^{-i\xi x}\dd x=\dfrac{1}{\sqrt{2\pi}(\varepsilon+i\xi)}=\dfrac{1}{\sqrt{2\pi}i}\cdot\dfrac{1}{\xi-i\varepsilon} \quad \Rightarrow \quad \widehat{\theta}(\xi)=\dfrac{1}{\sqrt{2\pi}i}\cdot\dfrac{1}{\xi-i\cdot0}$
 \end{myexample} 
 \begin{myexe}
-    1) $(x^m)\hat{}=?$ \\
-    2) $(e^{ix^2})\hat{}=?$
+    1) $(x^m)\hat{}=?$ \\ 
+    2) $(e^{ix^2})\hat{}=?$ \\
+    Сначала докажем полезную формулу. Для любого $f\in \SR$
+\[
+\widehat{\,x^m f\,}(\xi)=i^m\,\partial_\xi^m\widehat f(\xi),\qquad m\in\mathbb N_0.
+\]
+
+
+\[
+\widehat f(\xi)=\frac1{\sqrt{2\pi}}\int_{\R} f(x)e^{-ix\xi}\,dx.
+\]
+Так как $f\in \SR$, можно дифференцировать по $\xi$ под знаком
+интеграла:
+\[
+\partial_\xi\widehat f(\xi)
+ =\frac1{\sqrt{2\pi}}\int_{\R} f(x)\,\partial_\xi(e^{-ix\xi})\,dx
+ =\frac1{\sqrt{2\pi}}\int_{\R} f(x)\,(-ix)e^{-ix\xi}\,dx
+ =-i\,\widehat{\,x f\,}(\xi).
+\]
+Отсюда
+\[
+\widehat{\,x f\,}(\xi)=i\,\partial_\xi\widehat f(\xi).
+\]
+
+Применяя это соотношение $m$ раз, получаем по индукции
+\[
+\widehat{\,x^m f\,}(\xi)
+=i^m\,\partial_\xi^m\widehat f(\xi),
+\]
+что и требовалось.
+
+
+
+Теперь берём $f\equiv 1$ (в смысле распределений).
+По стандартной формуле
+\[
+\widehat 1(\xi)
+=\frac1{\sqrt{2\pi}}\int_{\R} e^{-ix\xi}\,dx
+=\sqrt{2\pi}\,\delta(\xi),
+\]
+где $\delta$ — дельта-функция Дирака.
+
+Применяя к $f\equiv 1$, получаем
+\[
+(x^m)^{\wedge}(\xi)
+=\widehat{\,x^m\cdot 1\,}(\xi)
+=i^m\,\partial_\xi^m\widehat 1(\xi)
+=i^m\,\partial_\xi^m\bigl(\sqrt{2\pi}\,\delta(\xi)\bigr)
+=\sqrt{2\pi}\,i^m\,\delta^{(m)}(\xi).
+\]
+
+\[
+\boxed{\ (x^m)^{\wedge}(\xi)=\sqrt{2\pi}\,i^m\,\delta^{(m)}(\xi)\ }
+\]
+
+2)
+
+Рассмотрим сначала гауссовский интеграл при $\Re a>0$:
+\[
+I(a,\xi)=\frac1{\sqrt{2\pi}}\int_{\mathbb R} e^{-a x^2}e^{-ix\xi}\,dx.
+\]
+Завершая квадрат в показателе,
+\[
+-ax^2-ix\xi
+=-a\Bigl(x+\frac{i\xi}{2a}\Bigr)^2-\frac{\xi^2}{4a},
+\]
+получаем
+\[
+I(a,\xi)
+=\frac{e^{-\xi^2/(4a)}}{\sqrt{2\pi}}
+  \int_{\mathbb R} e^{-a\bigl(x+\frac{i\xi}{2a}\bigr)^2}\,dx.
+\]
+Сдвиг контура интегрирования (или аналитическое продолжение) даёт
+\[
+\int_{\mathbb R} e^{-a\bigl(x+\frac{i\xi}{2a}\bigr)^2}\,dx
+=\int_{\mathbb R} e^{-a y^2}\,dy
+=\sqrt{\frac{\pi}{a}},
+\]
+поэтому
+\begin{equation}\label{eq:gauss}
+I(a,\xi)
+=\frac1{\sqrt{2\pi}}\sqrt{\frac{\pi}{a}}\,
+ e^{-\xi^2/(4a)}.
+\end{equation}
+
+Теперь формально подставим $a=-i$. Тогда
+\[
+e^{-a x^2}=e^{-(-i)x^2}=e^{ix^2},
+\]
+а
+\[
+\sqrt{\frac{\pi}{a}}
+=\sqrt{\frac{\pi}{-i}}
+=\sqrt{\pi}\,e^{i\pi/4},
+\]
+где выбираем ветвь корня соответствующую стандартной формуле Френеля.
+Подставляя $a=-i$ в \eqref{eq:gauss}, получаем
+\[
+\bigl(e^{ix^2}\bigr)^{\wedge}(\xi)
+=\frac1{\sqrt{2\pi}}\sqrt{\frac{\pi}{-i}}\,
+ e^{-\xi^2/(4(-i))}
+=\frac{\sqrt{\pi}}{\sqrt{2\pi}}\,e^{i\pi/4}\,e^{-i\xi^2/4}.
+\]
+Так как $\sqrt{\pi}/\sqrt{2\pi}=1/\sqrt{2}$, это можно записать так:
+\[
+\boxed{\ \bigl(e^{ix^2}\bigr)^{\wedge}(\xi)
+=\frac{1}{\sqrt{2}}\,e^{i\pi/4}\,e^{-i\xi^2/4}\ }.
+\]
+
 \end{myexe}
 \subsection{Свёртка}
 Пусть $f, \phi, \xi \in \SR$ 
@@ -2381,14 +2590,226 @@ $\int\limits_\R(f\ast\phi)\psi\dd x=\int\limits_\R\int\limits_\R f(y)\phi(x-y)\p
     $\phi \in S \quad \Rightarrow \quad \phi^\#\in S \quad \Rightarrow \quad \phi^\#\ast\psi\in S$
 \end{mydef}
 \begin{myexe}
-    $\phi\in\SR, \quad \psi_k\xrightarrow{\SR}0 \quad \Rightarrow \quad \phi\ast\psi_k\xrightarrow{\SR}0$
-    $f\ast\psi\in\SSR$
+    $\phi\in\SR, \quad \psi_k\xrightarrow{\SR}0 \quad \Rightarrow \quad \phi\ast\psi_k\xrightarrow{\SR}0$\\
+    $f\ast\psi\in\SSR$\\
+По определению сходимости в $\SR$ (Определение 1.9),
+условие $\varphi * \psi_k \to 0$ в $\SR$ эквивалентно тому, что
+для любых целых $l,m \ge 0$
+\[
+x^l \partial_x^m (\varphi * \psi_k)(x)
+\longrightarrow 0
+\quad \text{равномерно по } x \in \R.
+\]
+
+\medskip
+
+Так как $\varphi,\psi_k \in \SR$, свёртка задаётся формулой
+\[
+(\varphi * \psi_k)(x)
+= \int_{\R} \varphi(x-y)\,\psi_k(y)\,dy.
+\]
+Поскольку функции Шварца и их производные быстро убывают, можно
+дифференцировать под знаком интеграла; поэтому для любого $m \ge 0$
+\[
+\partial_x^m (\varphi * \psi_k)(x)
+= \int_{\R} \varphi^{(m)}(x-y)\,\psi_k(y)\,dy
+= (\varphi^{(m)} * \psi_k)(x).
+\]
+
+Следовательно,
+\[
+x^l \partial_x^m (\varphi * \psi_k)(x)
+= x^l (\varphi^{(m)} * \psi_k)(x)
+= \int_{\R} x^l \varphi^{(m)}(x-y)\,\psi_k(y)\,dy.
+\]
+
+\medskip
+
+
+Используем элементарную оценку
+\[
+|x|^l \le C_l\bigl(|x-y|^l + |y|^l\bigr)
+\]
+с некоторой константой $C_l > 0$, зависящей только от $l$.
+Тогда
+\[
+\begin{aligned}
+\bigl|x^l (\varphi^{(m)} * \psi_k)(x)\bigr|
+&\le C_l \int_{\R}
+\Bigl(
+|x-y|^l \, |\varphi^{(m)}(x-y)| \, |\psi_k(y)|
++ |y|^l \, |\varphi^{(m)}(x-y)| \, |\psi_k(y)|
+\Bigr)\,dy \\
+&=: C_l\bigl(I_1(x) + I_2(x)\bigr).
+\end{aligned}
+\]
+
+Рассмотрим сначала $I_1(x)$.
+Делаем замену переменной $z = x-y$:
+\[
+I_1(x)
+= \int_{\R} |x-y|^l |\varphi^{(m)}(x-y)|\,|\psi_k(y)|\,dy
+= \int_{\R} |z|^l |\varphi^{(m)}(z)|\,|\psi_k(x-z)|\,dz.
+\]
+Отсюда
+\[
+I_1(x)
+\le \left(\sup_{t \in \R} |\psi_k(t)|\right)
+     \int_{\R} |z|^l |\varphi^{(m)}(z)|\,dz.
+\]
+Положим
+\[
+A_{l,m} := \int_{\R} |z|^l |\varphi^{(m)}(z)|\,dz < \infty,
+\]
+что верно, так как $\varphi^{(m)} \in \SR$.
+
+Теперь рассмотрим $I_2(x)$:
+\[
+I_2(x)
+:= \int_{\R} |y|^l |\varphi^{(m)}(x-y)|\,|\psi_k(y)|\,dy.
+\]
+Запишем
+\[
+|y|^l |\psi_k(y)| = |y^l \psi_k(y)|,
+\]
+и получим
+\[
+I_2(x)
+= \int_{\R} |\varphi^{(m)}(x-y)|\,|y^l \psi_k(y)|\,dy
+\le \left(\sup_{t \in \R} |t^l \psi_k(t)|\right)
+    \int_{\R} |\varphi^{(m)}(x-y)|\,dy.
+\]
+Опять делаем замену $u = x-y$:
+\[
+\int_{\R} |\varphi^{(m)}(x-y)|\,dy
+= \int_{\R} |\varphi^{(m)}(u)|\,du.
+\]
+Обозначим
+\[
+B_m := \int_{\R} |\varphi^{(m)}(u)|\,du < \infty.
+\]
+Тогда
+\[
+I_2(x)
+\le B_m \sup_{t \in \R} |t^l \psi_k(t)|.
+\]
+
+Итак, для всех $x \in \R$ выполнена оценка
+\[
+\bigl|x^l (\varphi^{(m)} * \psi_k)(x)\bigr|
+\le C_l\Bigl(
+A_{l,m} \sup_{t} |\psi_k(t)|
++ B_m \sup_{t} |t^l \psi_k(t)|
+\Bigr).
+\]
+Правая часть не зависит от $x$, значит
+\[
+\sup_{x \in \R}
+\bigl|x^l \partial_x^m (\varphi * \psi_k)(x)\bigr|
+= \sup_{x \in \R}
+\bigl|x^l (\varphi^{(m)} * \psi_k)(x)\bigr|
+\le C_l\Bigl(
+A_{l,m} \sup_{t} |\psi_k(t)|
++ B_m \sup_{t} |t^l \psi_k(t)|
+\Bigr).
+\]
+
+\medskip
+
+
+Поскольку $\psi_k \xrightarrow{\SR} 0$, по определению 1.9
+для каждого фиксированного $l$ выполнены равномерные сходимости
+\[
+\sup_{t \in \R} |\psi_k(t)| \longrightarrow 0,
+\qquad
+\sup_{t \in \R} |t^l \psi_k(t)| \longrightarrow 0,
+\quad k \to \infty.
+\]
+Следовательно,
+\[
+\sup_{x \in \R}
+\bigl|x^l \partial_x^m (\varphi * \psi_k)(x)\bigr|
+\longrightarrow 0
+\quad \text{для всех } l,m \in \N_0.
+\]
+
+По определению 1.9 это означает, что
+\[
+\varphi * \psi_k \xrightarrow{\SR} 0.
+\]
 \end{myexe}
 \begin{myremark}
     $$(f\ast\phi)(x)=(f, \phi(x-\cdot))$$
 \end{myremark}
 \begin{myexe}
     $$f\ast\phi\in\Cinf(\R)$$
+    По определению свёртки распределения с функцией Шварца имеем
+\[
+(f * \varphi)(x) = (f,\varphi(x-\cdot)),
+\]
+где $(f,\psi)$ обозначает действие распределения $f$ на тест‑функцию
+$\psi \in \SR$.
+
+Рассмотрим отображение
+\[
+\Phi : \mathbb R \to \SR, \qquad
+\Phi(x)(t) = \varphi(x-t).
+\]
+Так как $\varphi \in \SR$, то для каждого $x$ функция
+$t \mapsto \varphi(x-t)$ также лежит в $\SR$, и сдвиг
+аргумента действует непрерывно в $\SR$: для $x_k \to x$
+имеем $\Phi(x_k) \to \Phi(x)$ в $\SR$.
+
+Поскольку $f$ — непрерывный линейный функционал на $\SR$,
+из непрерывности $\Phi$ следует непрерывность композиции:
+\[
+(f * \varphi)(x_k)
+= (f,\Phi(x_k))
+\longrightarrow (f,\Phi(x))
+= (f * \varphi)(x).
+\]
+Следовательно, $f * \varphi \in \C^0(\R)$.
+
+\medskip
+
+Теперь вычислим производную $f * \varphi$.
+Для каждого $x$ имеем
+\[
+(f * \varphi)(x) = (f,\varphi(x-\cdot)).
+\]
+Дифференцируя по $x$, получаем
+\[
+\frac{d}{dx}(f * \varphi)(x)
+= (f,\partial_x \varphi(x-\cdot)).
+\]
+Но
+\[
+\partial_x \varphi(x-t) = \varphi'(x-t),
+\]
+поэтому
+\[
+\frac{d}{dx}(f * \varphi)(x)
+= (f,\varphi'(x-\cdot)) = (f * \varphi')(x).
+\]
+Поскольку $\varphi' \in \SR$, по уже доказанному
+$f * \varphi' \in\C^0(\R)$, то есть $f * \varphi$ дифференцируема,
+а $(f * \varphi)'$ непрерывна.
+
+Аналогично по индукции, для любого $n \in \N$:
+\[
+\frac{d^n}{dx^n}(f * \varphi)(x)
+= (f,\varphi^{(n)}(x-\cdot))
+= (f * \varphi^{(n)})(x),
+\]
+и так как $\varphi^{(n)} \in S(\R)$, функция
+$f * \varphi^{(n)}$ непрерывна. Следовательно, все производные
+$(f * \varphi)^{(n)}$ существуют и непрерывны.
+
+Таким образом,
+\[
+f * \varphi \in \C^\infty(\R),
+\]
+что и требовалось доказать.
 \end{myexe}
 \begin{mytheorem}
     $\forall \psi\in\SR:$
@@ -2446,6 +2867,62 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 
 \section{Введение}
 \subsection{Типы уравнений}
+Рассматриваем линейные скалярные уравнения в частных производных второго порядка: 
+\lbpn{eight}{\[\sum\limits_{i,j=1}^{n}a_{ij}(x)\dfrac{\partial^2U(x)}{\partial x_i \partial x_j}+\sum\limits_{i=1}^{n}b_i(x)\dfrac{\partial U(x)}{\partial x_i}+C(x)U(x)=f(x), \quad x\in\Omega\subset\R^n\]}
+Мы считаем, что всё вещесвтенно и $a_{ij}(x)=a_{ji}(x)$. \\
+Сделаем замену: $x\longmapsto y=y(x)$, тогда $U(x)=V(y)$.
+\[\dfrac{\partial U(x)}{\partial x_i}=\sum\limits_{k=1}^{n}\dfrac{\partial V(y(x))}{\partial y_k}\dfrac{\partial y_k(x)}{\partial x_i}\]
+\[\dfrac{\partial^2 U(x)}{\partial x_i\partial x_j}=\sum\limits_{k, l=1}^{n}\dfrac{\partial^2 V(y(x))}{\partial y_k\partial y_l}\dfrac{\partial y_k(x)}{\partial x_i}\dfrac{\partial y_l(x)}{\partial x_j}+\sum\limits_{k=1}^{n}\dfrac{\partial V(y(x))}{\partial y_k}\dfrac{\partial^2 y_k(x)}{\partial x_i\partial x_j}\]
+Тогда $\ref{eight}$ превращается в:
+\[\sum\limits_{k,l=1}^{n}A_{kl}(y)\dfrac{\partial^2V(y)}{\partial y_k \partial y_l}+\sum\limits_{k=1}^{n}B_k(y)\dfrac{\partial V(y)}{\partial y_k}+C(y)V(y)=F(y)\]
+, где $A_{kl}(y)=\sum\limits_{i,j=1}^{n}a_{ij}(x)\dfrac{\partial y_k(x)}{\partial x_i}\dfrac{\partial y_l(x)}{\partial x_j}; \quad \Y_{ki}=\dfrac{\partial y_k}{\partial x_i}$ \\
+Тогда $A_{kl}(y)=\Y_{ki}a_{ij}\Y^T_{jl}$, в матричном виде: $A(y)=\Y a(x)\Y^T$, $\det \Y\neq0$. \\
+Вообще говоря, в симметричной матрице при домножении слева и справа на матрицу (невырожденную), то количество отрицательных, положительных, нулевый собственных чисел сохраняется (всего $n=n_+ +n_- +n_0$ собстввенных чисел по размерности пространства)(\href{https://en.wikipedia.org/wiki/Matrix_congruence}{Конгруэнтность}).\\Тогда мы сведём уравнение, c помощью диагонализации матрицы к:
+\[\sum\limits_{k=1}^{n_+}\dfrac{\partial^2 V}{\partial y^2_k}-\sum\limits_{k=n_+ +1}^{n_+ + n_-}\dfrac{\partial^2 V}{\partial y^2_k}\] 
+\begin{mydef}
+    \[\LL U =(\ref{eight}) = f \,\,\,- \text{ эллиптическое} \Leftrightarrow 
+        a(x) - \text{ положительно определенная} \]
+Положительная определенность можно записать как: $\langle a\xi, \xi \rangle\geq\nu_0 |\xi|^2 \quad \forall \xi\in\R^n, \,\,\, \nu_0>0$ \\
+Или же в терминах собственных чисел: $n_+=n, \,\,\, n_-=n_0=0$ \\
+Так же к эллиптическим мы будем относить и отрицательно определённую матрицу, т.е. матрицу у которой собственные числа: $n_-=n, \,\,\, n_+=n_0=0$
+\end{mydef}
+\begin{mydef}
+    \[\dfrac{\partial U}{\partial t}-\LL U = f - \text{ параболическое}\]
+    , где $\LL$ - эллиптический по $x$ (положительно определённый). Теперь все константы зависят от $t\in\R$, т.е.
+    $$a(t, x); \,\, b(t,x); \,\, c(t,x); \,\, f(t,x)$$
+    Так же мы получаем, что $n_0=1 \text{ (нет вторых производных)},\,\, n_+=0 \text{ (с минусом оператор)}$. 
+\end{mydef}
+\begin{mydef}
+    \[\dfrac{\partial^2 U}{\partial t^2}-\LL U=f - \text{ гиперболическое}\]
+    , где $\LL$ - эллиптический по $x$ (положительно определённый). Собственные числа: $n_+=1, \,\, n_0=0$
+\end{mydef}
+\begin{myremark}
+    1) $n=2, \quad a(x):\,\,\,\, \lambda_1, \,\, \lambda_2$
+    \\\[
+    \begin{aligned}
+        \lambda_1, \, \lambda_2 >(<) 0 - \text{ эллиптическое}\\
+        \lambda_1>0>\lambda_2 - \text{ гиперболическое} \\
+        \lambda_1=\lambda_2=0  \quad\Rightarrow \quad a(x)\equiv0 \\
+        \lambda_1=0, \lambda_2\neq0 - \text{ параболическое} \\
+    \end{aligned}\]
+
+В последнем случае осталось убедиться что есть $\dfrac{\partial U}{\partial t}$, если его нет, то останется $a(t,x)\dfrac{\partial^2 U}{\partial x^2}+b(t,x)\dfrac{\partial U}{\partial x}+C(t, x)=f$, но мы такое не рассматриваем. \\
+
+2)\[y\dfrac{\partial^2 U}{\partial x^2}+\dfrac{\partial^2 U}{\partial y^2}=0 - \text{ меняется тип уравнения}\]
+\begin{tikzpicture}[scale=1.2]
+  
+  \draw[->] (-3,0) -- (3,0) node[below right] {$x$};
+  \draw[->] (0,-2) -- (0,2) node[left] {$y$};
+
+  \node[above] at (0,0.3) {эллиптическое};
+  \node[below] at (0,-0.3) {гиперболическое};
+\end{tikzpicture}
+\end{myremark}
+
+
+
+
+
 \subsection{Краевые условия}
 
 \section{Одномерное волновое уравнение}
@@ -2505,7 +2982,7 @@ $\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi
 
 \subsection{Решение волнового уравнения в \texorpdfstring{$\R^3$}{R3} }
 \begin{mytheorem} \label{45}
-    Пусть $\varphi \in C^3({\R}^3), \psi\in C^2(\R^2), f \in C^2([0,+\infty]\times\R^3)$
+    Пусть $\varphi \in C^3({\R}^3), \psi\in C^2(\R^3), f \in C^2([0,+\infty]\times\R^3)$
     \[
 \begin{cases}
     \dfrac{\p^2 u}{\p t^2} - c^2\Delta u = f(t,x), \ t\geq0, \ x\in\R^3\\

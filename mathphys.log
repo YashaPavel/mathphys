@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  21 MAY 2026 00:32
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  22 MAY 2026 19:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1059,26 +1059,26 @@ LaTeX Warning: Label `fig:enter-label@cref' multiply defined.
 )
 \openout1 = `mathphys.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 447.
-LaTeX Font Info:    ... okay on input line 447.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1086,56 +1086,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 447.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 447.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 447.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 447.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 447.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 447.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 447.
-LaTeX Font Info:    Redeclaring math accent \check on input line 447.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 447.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 447.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 447.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 447.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 447.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 451.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 451.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 451.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 451.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 451.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 451.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 451.
+LaTeX Font Info:    Redeclaring math accent \check on input line 451.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 451.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 451.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 451.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 451.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 447.
+(Font)              `operators' in the math version `normal' on input line 451.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 447.
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 451.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 447.
+(Font)              `operators' in the math version `bold' on input line 451.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 447.
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 451.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on input line 447.
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on input line 451.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 447.
+(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 451.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 447.
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 451.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Arial(0)/m/n on input line 447.
+(Font)                  OT1/cmss/m/n --> TU/Arial(0)/m/n on input line 451.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/Menlo(0)/m/n on input line 447.
+(Font)                  OT1/cmtt/m/n --> TU/Menlo(0)/m/n on input line 451.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on input line 447.
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on input line 451.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input line 447.
+(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input line 451.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Arial(0)/b/n on input line 447.
+(Font)                  OT1/cmss/bx/n --> TU/Arial(0)/b/n on input line 451.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/Menlo(0)/b/n on input line 447.
+(Font)                  OT1/cmtt/m/n --> TU/Menlo(0)/b/n on input line 451.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1183,15 +1183,15 @@ Package caption Info: End \AtBeginDocument code.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Info: Redefining \microtypecontext on input line 447.
-Package microtype Info: Applying patch `item' on input line 447.
-Package microtype Info: Applying patch `toc' on input line 447.
-Package microtype Info: Applying patch `eqnum' on input line 447.
+LaTeX Info: Redefining \microtypecontext on input line 451.
+Package microtype Info: Applying patch `item' on input line 451.
+Package microtype Info: Applying patch `toc' on input line 451.
+Package microtype Info: Applying patch `eqnum' on input line 451.
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 447.
+Package microtype Warning: Unable to apply patch `footnote' on input line 451.
 
-Package microtype Info: Applying patch `verbatim' on input line 447.
-LaTeX Info: Redefining \microtypesetup on input line 447.
+Package microtype Info: Applying patch `verbatim' on input line 451.
+LaTeX Info: Redefining \microtypesetup on input line 451.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1201,7 +1201,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `TimesNewRoman' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package hyperref Info: Link coloring ON on input line 447.
+Package hyperref Info: Link coloring ON on input line 451.
 (./mathphys.out) (./mathphys.out)
 \@outlinefile=\write4
 \openout4 = `mathphys.out'.
@@ -1261,28 +1261,28 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (
 [10]
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1056
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 1062--1064
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1080
+Underfull \hbox (badness 10000) in paragraph at lines 1086--1088
 
  []
 
 
-Overfull \hbox (34.68121pt too wide) detected at line 1102
+Overfull \hbox (34.68121pt too wide) detected at line 1110
 \OMS/cmsy/m/n/12 ^^@ [][] \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@[]\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )[][] + [][] \OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 0)\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (0) + [][] \OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx;
  []
 
 
-Overfull \hbox (14.7085pt too wide) detected at line 1108
+Overfull \hbox (14.7085pt too wide) detected at line 1116
 \OMS/cmsy/m/n/12 ^^@ [][] \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@[]\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )[][] + [][] \OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (+0)\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (0) + [][] \OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx:
  []
 
 
-
-[12]
 
 [13]
 
@@ -1302,40 +1302,40 @@ File: pics/1.png Graphic file (type bmp)
 [19]
 
 [20]
-Missing character: There is no ‑ (U+2011) in font Times New Roman/OT:script=cyrl;language=dflt;mapping=tex-text;!
-
 
 [21]
+Missing character: There is no ‑ (U+2011) in font Times New Roman/OT:script=cyrl;language=dflt;mapping=tex-text;!
+
 
 [22]
 
 [23]
 
 [24]
-Underfull \hbox (badness 1325) in paragraph at lines 1590--1593
+
+[25]
+Underfull \hbox (badness 1325) in paragraph at lines 1598--1601
 \TU/TimesNewRoman(1)/m/n/12 равномерно(в силу леммы 1.2(потому что производные строятся точно так же)).
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1590--1593
+Underfull \hbox (badness 10000) in paragraph at lines 1598--1601
 
  []
 
 
-Overfull \hbox (26.01083pt too wide) detected at line 1593
+Overfull \hbox (26.01083pt too wide) detected at line 1601
 \OML/cmm/m/it/12 w[] \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 x[]; y\OT1/cmr/m/n/12 ) [] 0 \OMS/cmsy/m/n/12 ) \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g; w[]\OT1/cmr/m/n/12 ) [][]\OMS/cmsy/m/n/12 ! \OT1/cmr/m/n/12 0([])
  []
 
 
 
-[25]
-Underfull \hbox (badness 6910) in paragraph at lines 1609--1615
+[26]
+Underfull \hbox (badness 6910) in paragraph at lines 1617--1623
 [][][]\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 ; '[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@[]\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; [][] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@[]\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; []g; [][][] \OT1/cmr/m/n/12 =
  []
 
 
-
-[26]
 
 [27]
 File: pics/2.png Graphic file (type bmp)
@@ -1345,248 +1345,283 @@ File: pics/2.png Graphic file (type bmp)
 [28]
 File: pics/3.png Graphic file (type bmp)
 <pics/3.png>
- [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1755--1757
+
+
+[29]
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1763--1765
 
  []
 
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1887--1892
+
+
+[31]
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 1895--1900
 
  []
 
-[32] [33]
-Underfull \hbox (badness 1194) in paragraph at lines 1971--1975
-[]\TU/TimesNewRoman(1)/m/n/12 1)$\OML/cmm/m/it/12 ^^Z \OT1/cmr/m/n/12 = [] []$\
-TU/TimesNewRoman(1)/m/n/12 . Надо доказать, что это метри-
- []
 
-[34] [35] [36] [37]
-Overfull \hbox (13.77841pt too wide) detected at line 2230
-\OML/cmm/m/it/12 ^^X[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) 
-= (\OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 )[](\OML/cmm/m/it/12 '
-[]\OT1/cmr/m/n/12 )[][]  [] \OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 '[]\OMS/cmsy/m/n
-/12 j []  []\OML/cmm/m/it/12 x < \OMS/cmsy/m/n/12 1
+
+[33]
+
+[34]
+Underfull \hbox (badness 1194) in paragraph at lines 1979--1983
+[]\TU/TimesNewRoman(1)/m/n/12 1)$\OML/cmm/m/it/12 ^^Z \OT1/cmr/m/n/12 = [] []$\TU/TimesNewRoman(1)/m/n/12 . Надо доказать, что это метри-
  []
 
 
-LaTeX Warning: Reference `forth' on page 38 undefined on input line 2233.
+
+[35]
+
+[36]
+
+[37]
 
 [38]
+Overfull \hbox (13.77841pt too wide) detected at line 2238
+\OML/cmm/m/it/12 ^^X[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) = (\OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 )[](\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 )[][]  [] \OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 '[]\OMS/cmsy/m/n/12 j []  []\OML/cmm/m/it/12 x < \OMS/cmsy/m/n/12 1
+ []
 
-LaTeX Warning: Reference `fifth' on page 39 undefined on input line 2248.
 
-[39] [40]
-Missing character: There is no о in font cmmi8!
-Missing character: There is no г in font cmmi8!
-Missing character: There is no р in font cmmi8!
-Missing character: There is no а in font cmmi8!
-Missing character: There is no н in font cmmi8!
-Missing character: There is no и in font cmmi8!
-Missing character: There is no ч in font cmmi8!
-Missing character: There is no е in font cmmi8!
-Missing character: There is no н in font cmmi8!
-Missing character: There is no а in font cmmi8!
+
+[39]
+
+[40]
+
 [41]
+Missing character: There is no о ("43E) in font cmmi8!
+Missing character: There is no г ("433) in font cmmi8!
+Missing character: There is no р ("440) in font cmmi8!
+Missing character: There is no а ("430) in font cmmi8!
+Missing character: There is no н ("43D) in font cmmi8!
+Missing character: There is no и ("438) in font cmmi8!
+Missing character: There is no ч ("447) in font cmmi8!
+Missing character: There is no е ("435) in font cmmi8!
+Missing character: There is no н ("43D) in font cmmi8!
+Missing character: There is no а ("430) in font cmmi8!
 
-LaTeX Warning: Reference `sixth' on page 42 undefined on input line 2326.
 
 [42]
 
-LaTeX Warning: Reference `seventh' on page 43 undefined on input line 2341.
+[43]
 
-[43] [44]
-Overfull \hbox (3.97223pt too wide) detected at line 2416
-\OML/cmm/m/it/12 '[] [] '  \OMS/cmsy/m/n/12 ,  8\OML/cmm/m/it/12 ^^K; ^^L x[]x[
-] [] x[]\OMS/cmsy/m/n/12 D[]\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/
-12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 x[]x[] [] x[]\OMS/cms
-y/m/n/12 D[]\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/1
-2 ) \OMS/cmsy/m/n/12 ^^@ []\U/msb/m/n/12 R[]
+[44]
+
+[45]
+Overfull \hbox (3.97223pt too wide) detected at line 2424
+\OML/cmm/m/it/12 '[] [] '  \OMS/cmsy/m/n/12 ,  8\OML/cmm/m/it/12 ^^K; ^^L x[]x[] [] x[]\OMS/cmsy/m/n/12 D[]\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 x[]x[] [] x[]\OMS/cmsy/m/n/12 D[]\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ []\U/msb/m/n/12 R[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2416--2418
+Underfull \hbox (badness 10000) in paragraph at lines 2424--2426
 
  []
 
-[45] [46]
+
+
+[46]
+
+[47]
 Глава 2.
-[47
 
-] [48] [49]
-Overfull \hbox (11.08632pt too wide) detected at line 2593
-[] \OT1/cmr/m/n/12 = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm
-/m/it/12 !\OT1/cmr/m/n/12 ) = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 
-(\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = [] [] ^^A\OML/cmm/m/it/12 v\OT1/cmr/m/n/
-12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 y
- []
+
+[48
+
+]
+
+[49]
 
 [50]
+Overfull \hbox (11.08632pt too wide) detected at line 2601
+[] \OT1/cmr/m/n/12 = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !\OT1/cmr/m/n/12 ) = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = [] [] ^^A\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 y
+ []
 
-LaTeX Warning: Reference `45' on page 51 undefined on input line 2612.
 
 
-LaTeX Warning: Reference `98' on page 51 undefined on input line 2635.
+[51]
 
-[51] [52]
-
-LaTeX Warning: Reference `34' on page 53 undefined on input line 2697.
+[52]
 
 [53]
 
-LaTeX Warning: Reference `45' on page 54 undefined on input line 2724.
+[54]
 
-[54] [55]
+[55]
 
-LaTeX Warning: Reference `78' on page 56 undefined on input line 2834.
+[56]
 
-
-LaTeX Warning: Reference `78' on page 56 undefined on input line 2835.
-
-
-LaTeX Warning: Reference `78' on page 56 undefined on input line 2863.
-
-[56] [57]
-
-LaTeX Warning: Reference `78' on page 58 undefined on input line 2906.
-
-
-LaTeX Warning: Reference `78' on page 58 undefined on input line 2923.
+[57]
 
 [58]
 
-LaTeX Warning: Reference `78' on page 59 undefined on input line 2952.
+[59]
 
-[54]
+[60]
 
-LaTeX Warning: Reference `78' on page 59 undefined on input line 2957.
-
-[59] [60] [61]
-Overfull \hbox (8.42194pt too wide) detected at line 3138
-[][] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]v\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n
-/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 puv[]\OT1/cmr/m/n/12 )[] = (\OML/cmm/
-m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OML/cmm
-/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] = \OML/cmm/
-m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it
-/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/1
-2 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12
- )\OML/cmm/m/it/12 uv \OT1/cmr/m/n/12 = 0 \OMS/cmsy/m/n/12 )
- []
-
-
-Overfull \hbox (49.82523pt too wide) detected at line 3142
-\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \
-OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 )[][] = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/
-12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/1
-2 uv[]\OT1/cmr/m/n/12 ) = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 u[]v \OT1/cmr/m
-/n/12 = \OML/cmm/m/it/12 uv[] \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 v \OT1/cmr/m/
-n/12 = \OML/cmm/m/it/12 cu;  []
- []
+[61]
 
 [62]
-
-LaTeX Warning: Reference `56' on page 63 undefined on input line 3160.
-
-[63] [64]
-Overfull \hbox (168.44794pt too wide) detected at line 3226
-[] \OMS/cmsy/m/n/12 ) [] ) \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 ^^Q \OT1/cmr/m/n
-/12 0
+Overfull \hbox (8.42194pt too wide) detected at line 3146
+[][] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]v\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 puv[]\OT1/cmr/m/n/12 )[] = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv \OT1/cmr/m/n/12 = 0 \OMS/cmsy/m/n/12 )
  []
+
+
+Overfull \hbox (49.82523pt too wide) detected at line 3150
+\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 )[][] = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 ) = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 u[]v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 uv[] \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 cu;  []
+ []
+
+
+
+[63]
+
+[64]
 
 [65]
-Overfull \hbox (9.33113pt too wide) detected at line 3243
-\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = (\OM
-L/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + (\OML/c
-mm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OML/
-cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] \OMS/cms
-y/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/
-it/12 u[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m
-/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/
-n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/
-12 guv \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 huv \OT1/cmr/m/n/12 = (\OML/cmm/m/it/
-12 h \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u
-v > \OT1/cmr/m/n/12 0
+Overfull \hbox (168.44794pt too wide) detected at line 3234
+[] \OMS/cmsy/m/n/12 ) [] ) \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 ^^Q \OT1/cmr/m/n/12 0
  []
 
-[66] [67] [68] [69] [70]
+
+
+[66]
+Overfull \hbox (9.33113pt too wide) detected at line 3251
+\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 guv \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 huv \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 h \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv > \OT1/cmr/m/n/12 0
+ []
+
+
+
+[67]
+
+[68]
+
+[69]
+
+[70]
+
+[71]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3440.
+(hyperref)                removing `math shift' on input line 3448.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 3440.
+(hyperref)                removing `superscript' on input line 3448.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3440.
+(hyperref)                removing `math shift' on input line 3448.
 
 
-LaTeX Warning: Command \r invalid in math mode on input line 3451.
+LaTeX Warning: Command \r invalid in math mode on input line 3459.
 
-Missing character: There is no ̊ in font cmmi6!
-[71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
-Overfull \hbox (17.38931pt too wide) detected at line 3767
-[] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x; ^^X\OT1/cmr/m/n/12
- )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  
-[]\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 e[]y[]\OT1/cmr/
-m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 
-(\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/c
-mm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = []
- \OML/cmm/m/it/12 e[]'[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
- [] [] \OML/cmm/m/it/12 '[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/1
-2 ) = \OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
+Missing character: There is no ̊ ("30A) in font cmmi6!
+
+
+[72]
+
+[73]
+
+[74]
+
+[75]
+
+[76]
+
+[77]
+
+[78]
+
+[79]
+
+[80]
+
+[81]
+Overfull \hbox (17.38931pt too wide) detected at line 3775
+[] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x; ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 e[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 e[]'[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) [] [] \OML/cmm/m/it/12 '[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
  []
 
-[81] [82]
-Overfull \hbox (31.65785pt too wide) detected at line 3850
-[] [] []  []\OML/cmm/m/it/12 y \OT1/cmr/m/n/12 = [] [] []  []\OML/cmm/m/it/12 S
-\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
+
+
+[82]
+
+[83]
+Overfull \hbox (31.65785pt too wide) detected at line 3858
+[] [] []  []\OML/cmm/m/it/12 y \OT1/cmr/m/n/12 = [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
  []
 
 
-Overfull \hbox (50.43948pt too wide) detected at line 3865
-[] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] [] 
- []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OM
-S/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/
-cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/
-cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/
-cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/
-cmm/m/it/12 y\OT1/cmr/m/n/12 ) [] \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 u\OT1/cm
-r/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
+Overfull \hbox (50.43948pt too wide) detected at line 3873
+[] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) [] \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
  []
 
-[83] [84]
-Underfull \hbox (badness 10000) in paragraph at lines 3936--3937
+
+
+[84]
+
+[85]
+Underfull \hbox (badness 10000) in paragraph at lines 3944--3945
 
  []
 
-[85] [86] [87] [88] [89] [90] [91]
 
-LaTeX Warning: Reference `lem1' on page 92 undefined on input line 4219.
 
-[92] [93]
+[86]
 
-LaTeX Warning: Reference `th:green-formula' on page 94 undefined on input line 
-4344.
+[87]
 
-[94] [95] [96] [97] [98]
-Underfull \hbox (badness 10000) in paragraph at lines 4599--4601
+[88]
+
+[89]
+
+[90]
+
+[91]
+
+[92]
+
+[93]
+
+[94]
+
+[95]
+
+[96]
+
+[97]
+
+[98]
+
+[99]
+Underfull \hbox (badness 10000) in paragraph at lines 4607--4609
 
  []
 
-[99] [100] [101]
 
-LaTeX Warning: Reference `lem' on page 102 undefined on input line 4727.
+
+[100]
+
+[101]
 
 [102]
+
+[103]
 Глава 3.
-[103
 
 
-[98
+[104
 
-] (./mathphys.aux)
+]
+
+[105]
+
+[106]
+
+[107]
+
+[108] (./mathphys.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1596,15 +1631,15 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `mathphys.out' has not changed.
-(rerunfilecheck)             Checksum: 6A613C8628901766D40D946BAEDAC008;16363.
+(rerunfilecheck)             Checksum: 6D1DA9FF1253DD45192F1C37B902397F;16641.
  ) 
 Here is how much of TeX's memory you used:
- 49789 strings out of 402986
- 1165136 string characters out of 5455748
- 2025358 words of memory out of 5000000
- 77751 multiletter control sequences out of 15000+600000
- 649403 words of font info for 192 fonts, out of 8000000 for 9000
+ 49846 strings out of 473832
+ 1186832 string characters out of 5729482
+ 1958877 words of memory out of 5000000
+ 72086 multiletter control sequences out of 15000+600000
+ 580535 words of font info for 190 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  102i,19n,107p,1051b,2194s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on mathphys.pdf (104 pages).
+Output written on mathphys.pdf (109 pages).

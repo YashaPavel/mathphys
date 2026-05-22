@@ -316,6 +316,10 @@
   #1
 }
 
+
+
+
+
 % -------------------------------------------------
 % ЗАМЕЧАНИЕ
 % -------------------------------------------------
@@ -735,6 +739,9 @@ $(f,\lambda\varphi+\mu\psi)=\lambda(f,\varphi)+\mu(f,\psi)$ для $\forall \lam
     Пусть $ f\in L_{1,loc}$ и пусть $ \int\limits_{\R}f(x)\varphi(x)\dd x=0 \,\text{для}\,\forall \varphi\in\DR\Rightarrow f =0$
 \end{mytheorem}
 Рассмотрим примеры сингулярных обобщенных функций.
+\begin{myexample}
+    
+
 \begin{enumerate}
 \item $\delta$ — сингулярная обобщенная функция
 \[
@@ -801,6 +808,7 @@ $\PP$ -- сингулярная обобщенная функция.
 \[\Rightarrow x\,f(x)=1 \textbf{ п.в. } \Rightarrow f(x)=\dfrac{1}{x} \textbf{ п.в.}\]
 \[\Rightarrow f(x)=\dfrac{1}{x}\notin L_{1,loc} \quad \forall x\neq0\]
 \end{enumerate}
+\end{myexample}
 \begin{myexe}
     Показать что функция $\px{x}$ -- сингулярная обобщенная функция
 Пусть $\varphi \in \DR$ и
@@ -4742,4 +4750,228 @@ K(x,y) = \skobka{\nabla_yg,-\dfrac{y}{R}} = -\dfrac{R^2 - |x^2|}{\varkappa_nR|x-
 \chapter{Специальные функции}
 \section{Полиномы Лежандра}
 \subsection{Уравнение Лежандра}
+Уравнение Лежандра на $x\in[-1;1]$ при $n\in \N \cup \{0\}$ -- это следующее уравнение:
+\[\dfrac{\dd }{\dd x}\skobka{(1-x^2)\dfrac{\dd y(x)}{\dd x}}+n(n+1)y(x)=0\]
+В итом виде уравнение выглядит так:
+\[(1-x^2)y''-2xy'+n(n+1)y=0\]
+
+\begin{mylemma}
+    Функция:
+    \(y(x)=\dfrac{\dd^n}{\dd x^n}(x^2-1)^n\) -- является решением уравнения Лежандра.
+\end{mylemma}
+
+\begin{myproof}
+Напишем утверждения, которые нам понадобятся для доказательства:
+\[\skobka{(x^2-1)^n}'=2nx(x^2-1)^{n-1}\]
+\[(x^2-1)\skobka{(x^2-1)^n}'=2nx(x^2-1)^{n}\]
+К последнему выражения применим производную:
+\[\dfrac{\dd^{n+1}}{\dd x^{n+1}}\skobka{(x^2-1)\skobka{(x^2-1)^n}'}=(x^2-1)\skobka{(x^2-1)^{n}}^{(n+2)}+(n+1)2x\skobka{(x^2-1)^n}^{(n+1)}+\]\[+\dfrac{(n+1)n}{2}\cdot2\skobka{(x^2-1)^n}^{(n)}\]
+Возьмем еще раз аналогичную производную от $2nx(x^2-1)^{n}$:
+\[\dfrac{\dd^{n+1}}{\dd x^{n+1}}\skobka{2nx(x^2-1)^{n}}=2nx\skobka{(x^2-1)^n}^{(n+1)}+2n(n+1)\skobka{(x^2-1)^n}^{(n)}\]
+Приравняв выражения выше и вспомнив, как мы вводили $y(x)$, получим:
+\[(x^2-1)y''+(n+1)2xy'+n(n+1)y=2nxy'+2n(n+1)y \Rightarrow\]
+\[\Rightarrow (x^2-1)y''+2xy'-n(n+1)y=0 \Leftrightarrow (1-x^2)y''-2xy'+n(n+1)y=0\]
+\end{myproof}
+
+После того как мы нашли решение уравнения Лежандра, логично ввести полиномы Лежандра следующим образом:
+\begin{mydef}
+    Полиномами Лежандра называются функции:
+    \[P_n(x)=\dfrac{1}{2^nn!}\dfrac{\dd^n}{\dd x^n}(x^2-1)^n\]
+\end{mydef}
+
+\begin{myexample}
+    Запишем первые несколько полиномов Лежандра:
+    \[P_0(x)=1\]
+    \[P_1(x)=x\]
+    \[P_2(x)=\dfrac{3x^2-1}{2}\]
+    \[P_3(x)=\dfrac{5x^3-3x}{2}\]
+\end{myexample}
+
+
+\subsection{Свойства полиномов Лежандра}
+\begin{enumerate}
+    \item $\deg P_n = n$
+    \item $P_n(1)=1, \ \ P_n(-1)=(-1)^n$
+    \item $P_n(-x)=(-1)^nP_n(x)$
+    \item $P_n$ -- это полином, который имеет $n$ простых корней в интервале $(-1;1)$, а других корней в $\C$ нет.
+    \item $\int\limits_{-1}^{1} P_m(x)P_n(x)\dd x = \dfrac{2\delta_{nm}}{2n+1}, \quad m\neq n$\\ Давайте покажем это.
+    Для определенности посмотрим на случай $m>n$. Воспользуемся уравнением Лежандра для $P_n$ и $P_m$:
+\[
+\int\limits_{-1}^{1}
+\skobka{\dfrac{\dd^m}{\dd x^m}\skobka{(x^2-1)^m}}
+\skobka{\dfrac{\dd^n}{\dd x^n}\skobka{(x^2-1)^n}}
+\dd x
+=\]\[
+(-1)^m
+\int\limits_{-1}^{1}
+\skobka{(x^2-1)^m}
+\skobka{
+\dfrac{\dd^{m+n}}{\dd x^{m+n}}\skobka{(x^2-1)^n}
+}
+\dd x
+=0
+\]
+Так как \((x^2-1)^n\) является многочленом степени \(2n\), а при \(m>n\)
+\[
+m+n>2n,
+\]
+то
+\[
+\dfrac{\dd^{m+n}}{\dd x^{m+n}}\skobka{(x^2-1)^n}=0
+\]
+Следовательно, весь интеграл равен нулю. Случай $m<n$ аналогично, можно просто заменить буквы в рассуждении выше.\\
+Остается рассмотретьс лучай $m=n$. В этом случае:
+Принимая во внимание, что \((x^2-1)^n\) -- это многочлен степени \(2n\), при \(n\) производных от него останется константа, которая равна \(2^nn!\). Поэтому:
+
+\[
+\begin{aligned}
+\int\limits_{-1}^{1} P_n^2(x)\dd x
+&=
+\dfrac{1}{2^{2n}(n!)^2}
+\int\limits_{-1}^{1}
+\skobka{
+\dfrac{\dd^n}{\dd x^n}\skobka{(x^2-1)^n}
+}
+\skobka{
+\dfrac{\dd^n}{\dd x^n}\skobka{(x^2-1)^n}
+}
+\dd x
+\\
+&=
+\dfrac{(-1)^n}{2^{2n}(n!)^2}
+\int\limits_{-1}^{1}
+(x^2-1)^n
+\dfrac{\dd^{2n}}{\dd x^{2n}}\skobka{(x^2-1)^n}
+\dd x.
+\end{aligned}
+\]
+
+Так как
+\[
+\dfrac{\dd^{2n}}{\dd x^{2n}}\skobka{(x^2-1)^n}=(2n)!,
+\]
+то
+\[
+\begin{aligned}
+\int\limits_{-1}^{1} P_n^2(x)\dd x
+&=
+\dfrac{(-1)^n(2n)!}{2^{2n}(n!)^2}
+\int\limits_{-1}^{1}
+(x^2-1)^n
+\dd x
+\\
+&=
+\dfrac{(2n)!}{2^{2n}(n!)^2}
+\int\limits_{-1}^{1}
+(1-x^2)^n
+\dd x.
+\end{aligned}
+\]
+
+\[
+I_n=\int\limits_{-1}^{1}(1-x^2)^n\dd x.
+\]
+
+\[
+\begin{aligned}
+I_n
+&=
+\int\limits_{-1}^{1}(1-x^2)^n\dd x
+\\
+&=
+\left. x(1-x^2)^n \right|_{-1}^{1}
+-
+\int\limits_{-1}^{1}
+x\dd\skobka{(1-x^2)^n}
+\\
+&=
+-\int\limits_{-1}^{1}
+x\skobka{-2nx(1-x^2)^{n-1}}\dd x
+\\
+&=
+2n\int\limits_{-1}^{1}
+x^2(1-x^2)^{n-1}\dd x.
+\end{aligned}
+\]
+
+Так как
+\[
+x^2=1-(1-x^2),
+\]
+то
+\[
+\begin{aligned}
+I_n
+&=
+2n\int\limits_{-1}^{1}
+\skobka{1-(1-x^2)}(1-x^2)^{n-1}\dd x
+\\
+&=
+2n\int\limits_{-1}^{1}
+(1-x^2)^{n-1}\dd x
+-
+2n\int\limits_{-1}^{1}
+(1-x^2)^n\dd x
+\\
+&=
+2nI_{n-1}-2nI_n.
+\end{aligned}
+\]
+
+\[
+(2n+1)I_n=2nI_{n-1}.
+\]
+
+\[
+I_n=\dfrac{2n}{2n+1}I_{n-1}.
+\]
+
+\[
+\begin{aligned}
+I_n
+&=
+\dfrac{2n}{2n+1}I_{n-1}
+\\
+&=
+\dfrac{2n}{2n+1}
+\dfrac{2n-2}{2n-1}
+I_{n-2}
+\\
+&=
+\dfrac{2n}{2n+1}
+\dfrac{2n-2}{2n-1}
+\dfrac{2n-4}{2n-3}
+\cdots
+\dfrac{2}{3}
+I_0
+\\
+&=
+2\dfrac{(2n)!!}{(2n+1)!!}.
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+\int\limits_{-1}^{1} P_n^2(x)\dd x
+&=
+\dfrac{(2n)!}{2^{2n}(n!)^2}I_n
+\\
+&=
+\dfrac{(2n)!}{2^{2n}(n!)^2}
+\cdot
+2\dfrac{(2n)!!}{(2n+1)!!}
+\\
+&=
+\dfrac{(2n)!}{2^{2n}(n!)^2}
+\cdot
+2
+\dfrac{2^n n!}{\dfrac{(2n+1)!}{2^n n!}}
+\\
+&=
+\dfrac{2(2n)!}{(2n+1)!}
+\\
+&=
+\dfrac{2}{2n+1}.
+\end{aligned}
+\]\end{enumerate}
 \end{document}

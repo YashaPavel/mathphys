@@ -55,7 +55,7 @@
 \onehalfspacing
 \setlength{\parindent}{1.25cm}
 \setlength{\parskip}{0pt}
-
+\usetikzlibrary{calc}
 % -------------------------------------------------
 % СПИСКИ
 % -------------------------------------------------
@@ -2917,6 +2917,7 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
   \node[above] at (0,0.3) {эллиптическое};
   \node[below] at (0,-0.3) {гиперболическое};
 \end{tikzpicture}
+Но мы такие задачи рассматривать не будем.
 \end{myremark}
 
 
@@ -2924,9 +2925,100 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 
 
 \subsection{Краевые условия}
-
+\begin{mydef}
+    Пусть \(\LL U=f\) - эллиптическое уравнение в \(\Omega\subset\R^n\).
+    \begin{aligned}
+        U\big|_{\partial \Omega}=\phi - &\text{ условия Дирихле} \\
+        \dfrac{\partial U}{\partial \nu} \bigg|_{\partial \Omega}=\phi - &\text{ условия Неймана} \\
+        \bigg(\dfrac{\partial U}{\partial \nu}+\sigma(x)U\bigg)\bigg|_{\partial \Omega}=\phi - &\text{ условия Робена}
+    \end{aligned}
+\end{mydef}
+ \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/4.png}
+        \caption{Область $\Omega$ и нормаль $\nu$}
+        \label{fig:enter-label}
+\end{figure}
+Начально краевая задача:
+\[\begin{cases}
+    \dfrac{\partial U}{\partial t} - \LL U = f \\
+    U\big|_{t=t_0}=U_0 
+    \end{cases} \quad 
+    \begin{cases}
+        \dfrac{\partial^2 U}{\partial t^2} - \LL U = f \\
+        U\big|_{t=0}=U_0, \,\,\, \dfrac{\partial U}{\partial t}\bigg|_{t=0}=U_2
+    \end{cases}\]
+И еще одно условие на на краевые условия. Мы хотим чтобы решение существовало, чтобы оно было единственным и чтобы устойчивым (непрерывно зависит от данных задачи).
+\begin{myexample}
+Пример Адамара: 
+$$\dfrac{\partial^2 U}{\partial x^2}+\dfrac{\partial^2 U}{\partial x^2}=0, \quad (x,y)\in\R^2, y>0$$
+$$U\big|_{y=0}=\phi, \,\,\,\, \dfrac{\partial U}{\partial y}\bigg|_{y=0}=0$$
+Возьмём такие $\phi_m$: $\,\,\, \phi_m(x)=e^{-\sqrt{m}}\cos mx, \quad \phi_m\xrightarrow[m\to\infty]{}0$ \\
+Возьмём следующее решение: $U_m(x,y)=e^{-\sqrt{m}}\cos mx\cosh my$. Посмотрим на точку с координатами $(0, \epsilon)$ и получим: 
+\[U_m(0, \epsilon)=e^{-\sqrt{m}}\big(\dfrac{e^{m\epsilon}+e^{-m\epsilon}}{2}\big)\xrightarrow[m\to\infty]{}\infty\]
+Здесь как бы нету непрерывности, ведь краевые условия стремятся к 0, а решение к бесконечности.
+\end{myexample}
 \section{Одномерное волновое уравнение}
 \subsection{Уравнение струны}
+\begin{tikzpicture}[>=stealth, scale=1.2]
+
+
+\draw[->] (-0.2,0) -- (7.2,0) node[right] {$x$};
+\draw[->] (0,-1.2) -- (0,2.0) node[above] {$U(t,x)$};
+
+
+\draw[thick, smooth] 
+  plot coordinates {
+    (-0.1,0.15)
+    (0.8,-0.18)
+    (1.8,-0.28)
+    (2.8,0.10)
+    (3.8,0.78)
+    (4.6,0.98)
+    (5.6,0.78)
+    (6.8,0.18)
+  };
+
+
+\draw (4.00,0.06) -- (4.00,-0.06);
+\draw (4.85,0.06) -- (4.85,-0.06);
+\node[below] at (4.00,-0.06) {$x_0$};
+\node[below] at (4.85,-0.06) {$x_0+dx$};
+
+
+\coordinate (P0) at (4.10,0.90);
+\coordinate (P1) at (4.85,0.90);
+\fill (P0) circle (1.2pt);
+\fill (P1) circle (1.2pt);
+
+
+\draw[thin] ($(P0)+(-0.65,0)$) -- ($(P0)+(0.65,0)$);
+\draw[thin] ($(P1)+(-0.65,0)$) -- ($(P1)+(0.65,0)$);
+\draw[->, thick] (P0) -- ++(-1.05,-0.28) node[above left] {$\vec{T}_0$};
+\draw[->, thick] (P1) -- ++(1.10,-0.10) node[above right] {$\vec{T}_1$};
+\draw[line width=0.9pt] (P0) ++(180:0.42) arc[start angle=180,end angle=195,radius=0.42];
+\node at ($(P0)+(-0.55,-0.18)$) {$\alpha_0$};
+
+\draw[line width=0.9pt] (P1) ++(0:0.42) arc[start angle=0,end angle=-5,radius=0.42];
+\node at ($(P1)+(0.52,-0.14)$) {$\alpha_1$};
+
+\end{tikzpicture}\\
+$\vec{T_0}+\vec{T_1}=m\vec{a}, \quad m=\rho\dd x$ \\
+Примем, что $|T_0|=|T_1|=T$. Тогда:
+$$-T\sin\alpha+0+T\sin\alpha_1=\rho \dd x \dfrac{\partial^2 U(t,x)}{\partial t^2}$$
+Прибегая к малости углов ($\sin\alpha\approx\tan\alpha$):
+\[\begin{align}\sin\alpha_0\approx\dfrac{\partial U(t, x_0)}{\partial x}\\
+\sin\alpha_1\approx\dfrac{\partial U(t, x_0+\dd x)}{\partial x}\end{align} \quad \Rightarrow \quad \sin\alpha_1-\sin\alpha_0=\dfrac{\partial^2 U(t,x_0)}{\partial x^2}\dd x\]
+Получим знакомое волновое уравение: 
+\[T\dfrac{\partial^2 U}{\partial x^2}\dd x=\rho \dd x\dfrac{\partial^2 U}{\partial t^2} \quad \Leftrightarrow \quad \dfrac{\partial^2 U}{\partial^2 t}-c^2\dfrac{\partial^2 U}{\partial x^2}=0, \,\,\, c=\sqrt{\dfrac{T}{\rho}}\]
+1) бесконечная длина: 
+\[\begin{cases}
+    \dfrac{\partial^2 U}{\partial^2 t}-c^2\dfrac{\partial^2 U}{\partial x^2}=0, \,\,\, t\geq0, x\in\R \\
+    U\big|_{t=0}=\phi(x), \,\,\, \dfrac{\partial U}{\partial t}\bigg|_{t=0}=\psi(x)
+\end{cases}\] 
+Вот такую задачу мы хотим решать.
+
+
 \subsection{Метод Даламбера}
 \subsection{Функция Грина для бесконечной струны}
 

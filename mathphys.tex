@@ -1,4 +1,4 @@
-% !TeX program = xelatex
+%!TEX program=xelatex
 \documentclass[12pt]{report}
 
 % -------------------------------------------------
@@ -810,7 +810,7 @@ $\PP$ -- сингулярная обобщенная функция.
 \end{enumerate}
 \end{myexample}
 \begin{myexe}
-    Показать что функция $\px{x}$ -- сингулярная обобщенная функция.\\
+    Показать что функция $\px{x}$ -- сингулярная обобщенная функция
 Пусть $\varphi \in \DR$ и
 \[
 \psi(x) = x \varphi(x) \in \DR.
@@ -3012,22 +3012,80 @@ $\vec{T_0}+\vec{T_1}=m\vec{a}, \quad m=\rho\dd x$ \\
 Примем, что $|T_0|=|T_1|=T$. Тогда:
 $$-T\sin\alpha+0+T\sin\alpha_1=\rho \dd x \dfrac{\partial^2 U(t,x)}{\partial t^2}$$
 Прибегая к малости углов ($\sin\alpha\approx\tan\alpha$):
-\[
-\sin\alpha_0 \approx \dfrac{\partial U(t, x_0)}{\partial x}, \qquad
-\sin\alpha_1 \approx \dfrac{\partial U(t, x_0+\dd x)}{\partial x}
-\]
-\[\sin\alpha_1-\sin\alpha_0=\dfrac{\partial^2 U(t,x_0)}{\partial x^2}\dd x\]
-Получим знакомое волновое уравение: 
+\[\begin{aligned}\sin\alpha_0\approx\dfrac{\partial U(t, x_0)}{\partial x}\\
+\sin\alpha_1\approx\dfrac{\partial U(t, x_0+\dd x)}{\partial x}\end{aligned} \quad \Rightarrow \quad \sin\alpha_1-\sin\alpha_0=\dfrac{\partial^2 U(t,x_0)}{\partial x^2}\dd x\]
+Получим знакомое волновое уравнение: 
 \[T\dfrac{\partial^2 U}{\partial x^2}\dd x=\rho \dd x\dfrac{\partial^2 U}{\partial t^2} \quad \Leftrightarrow \quad \dfrac{\partial^2 U}{\partial^2 t}-c^2\dfrac{\partial^2 U}{\partial x^2}=0, \,\,\, c=\sqrt{\dfrac{T}{\rho}}\]
 1) бесконечная длина: 
-\[\begin{cases}
+\lbpn{volna}{ \[ \begin{cases}
     \dfrac{\partial^2 U}{\partial^2 t}-c^2\dfrac{\partial^2 U}{\partial x^2}=0, \,\,\, t\geq0, x\in\R \\
     U\big|_{t=0}=\phi(x), \,\,\, \dfrac{\partial U}{\partial t}\bigg|_{t=0}=\psi(x)
-\end{cases}\] 
+ \end{cases}\]}
 Вот такую задачу мы хотим решать.
 
 
 \subsection{Метод Даламбера}
+Введём следующие переменные: \[\xi\coloneqq x+ct \qquad \eta\coloneqq x-ct \]
+Тогда: \[x=\dfrac{\xi+\eta}{2} \qquad t=\dfrac{\xi-\eta}{2c}\]
+Тогда производные по новым переменным: 
+\[\dfrac{\partial}{\partial \xi}=\dfrac{\partial x}{\partial \xi}\dfrac{\partial}{\partial x}+\dfrac{\partial t}{\partial \xi}\dfrac{\partial}{\partial t}=\dfrac{1}{2}\dfrac{\partial}{\partial x}+\dfrac{1}{2c}\dfrac{\partial}{\partial t}\]
+\[\dfrac{\partial}{\partial \eta}=\dfrac{1}{2}\dfrac{\partial}{\partial x}-\dfrac{1}{2c}\dfrac{\partial}{\partial t}\]
+\[\dfrac{\partial^2 U}{\partial \xi \partial \eta}=\bigg(\dfrac{1}{2}\dfrac{\partial}{\partial x}+\dfrac{1}{2c}\dfrac{\partial}{\partial t}\bigg)\bigg(\dfrac{1}{2}\dfrac{\partial}{\partial x}+\dfrac{1}{2c}\dfrac{\partial}{\partial t}\bigg)U(t,x)=\dfrac{1}{4}\bigg(\dfrac{\partial^2 U}{\partial x^2}-\dfrac{1}{c^2}\dfrac{\partial^2 U}{\partial t^2}\bigg)\]
+То есть $\bigg(\dfrac{\partial^2 U}{\partial x^2}-\dfrac{1}{c^2}\dfrac{\partial^2 U}{\partial t^2}\bigg)=0$ равносильно $\dfrac{\partial^2 U}{\partial \xi \partial \eta}=0$. Значит:
+\[\dfrac{\partial }{\partial \xi}\bigg(\dfrac{\partial U}{\partial \eta}\bigg)=0 \quad \Rightarrow \quad \dfrac{\partial U}{\partial \eta}=const_\xi=\alpha(\eta)\]
+Тогда \(U=\int\limits_{0}^{\eta}\alpha(\tau)\dd \tau + c(\xi)\)
+Аналогичные рассуждения и для $\xi$. Тогда получим, что 
+\[\dfrac{\partial^2 U}{\partial \xi\partial \eta}=0 \quad \Leftrightarrow \quad U=f(\xi)+g(\eta)\]
+Тогда получаем известное решение волнового уравнения: 
+\lbpn{volnasol}{\[U(t,x)=f(x+ct)+g(x-ct)\]}
+Это утверждение работает в любых классах. \\
+Разберемся теперь с начальными условиями: 
+\[t=0: \begin{cases}
+    f(x)+g(x)=\phi(x) \\
+    cf'(x)-cg'(x)=\psi(x)
+\end{cases} \quad \Rightarrow \quad \begin{cases}
+    f'(x)+g'(x)=\phi'(x) \\
+    f'(x)-g'(x)=\dfrac{1}{c}\psi(x)
+\end{cases}\]
+\(\begin{cases}
+    f'(x)=\dfrac{1}{2}\bigg(\phi'(x)+\dfrac{1}{c}\psi(x)\bigg) \\
+    g'(x)=\dfrac{1}{2}\bigg(\phi'(x)-\dfrac{1}{c}\psi(x)\bigg)
+\end{cases}\) \\
+\(\begin{cases}
+    f(x)=\dfrac{\phi(x)}{2}+\dfrac{1}{2c}\int\limits_{0}^{x}\psi(y)\dd y+A_1 \\
+    f(x)=\dfrac{\phi(x)}{2}-\dfrac{1}{2c}\int\limits_{0}^{x}\psi(y)\dd y+A_2
+\end{cases} \qquad f(x)+g(x)=\phi(x) \quad \Rightarrow \quad A_1+A_2=0\)
+Тогда получаем следующее решение из \ref{volnasol}: 
+\[U(t,x)=\dfrac{\phi(x+ct)+\phi(x-ct)}{2}+\dfrac{1}{2c}\int\limits_{x-ct}^{x+ct}\psi(y)\dd y - \text{ формула Даламбера}\]
+\begin{mytheorem}
+    Пусть \(\phi\in\C^2(\R), \,\,\psi\in\C(\R) \quad \Rightarrow \quad \exists! \,\,\, U\in\C^2([0, +\infty)\times R)\) - решения задачи \ref{volna} и формула Даламбера явялется выражением для него
+\end{mytheorem}
+Свойства решения: \\
+1) Пусть $\psi\equiv0$: 
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/5.png}
+        \caption{}
+        \label{fig:enter-label}
+\end{figure} 
+Здесь на кртинке пики как бы смещаются на $ct$ влево и вправо и еще в 2 рааз уменьшаются.\\
+$\supp \phi\subset[a, b]$
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/6.png}
+        \caption{}
+        \label{fig:enter-label}
+\end{figure}
+На рисунке показан как раз $\supp U$, если провести вертикальную линию при постоянном $x$ то мы получим как раз что-то типо профиля волны, которая убегает на бесконечность, $\tan\alpha=\dfrac{1}{c}$\\
+2) Пусть $\phi, \psi - \forall$ 
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/7.png}
+        \caption{}
+        \label{fig:enter-label}
+\end{figure}
+
+На решение $U(t,x)$ влияет только то, что находится на заштрихованной оси, а от другой части информация в эту точку не приходит.
 \subsection{Функция Грина для бесконечной струны}
 
 

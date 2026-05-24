@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  24 MAY 2026 21:07
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  25 MAY 2026 00:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1064,6 +1064,24 @@ LaTeX Warning: Label `fig:enter-label' multiply defined.
 
 LaTeX Warning: Label `fig:enter-label@cref' multiply defined.
 
+
+LaTeX Warning: Label `fig:enter-label' multiply defined.
+
+
+LaTeX Warning: Label `fig:enter-label@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:enter-label' multiply defined.
+
+
+LaTeX Warning: Label `fig:enter-label@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:enter-label' multiply defined.
+
+
+LaTeX Warning: Label `fig:enter-label@cref' multiply defined.
+
 )
 \openout1 = `mathphys.aux'.
 
@@ -1484,21 +1502,29 @@ File: pics/4.png Graphic file (type bmp)
 [57]
 
 [58]
+File: pics/5.png Graphic file (type bmp)
+<pics/5.png>
+
 
 [59]
+File: pics/6.png Graphic file (type bmp)
+<pics/6.png>
+File: pics/7.png Graphic file (type bmp)
+<pics/7.png>
+
 
 [60]
-Overfull \hbox (11.08632pt too wide) detected at line 3178
-[] \OT1/cmr/m/n/12 = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !\OT1/cmr/m/n/12 ) = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = [] [] ^^A\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 y
- []
-
-
 
 [61]
 
 [62]
 
 [63]
+Overfull \hbox (11.08632pt too wide) detected at line 3236
+[] \OT1/cmr/m/n/12 = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !\OT1/cmr/m/n/12 ) = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = [] [] ^^A\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 y
+ []
+
+
 
 [64]
 
@@ -1517,38 +1543,38 @@ Overfull \hbox (11.08632pt too wide) detected at line 3178
 [71]
 
 [72]
-Overfull \hbox (8.42194pt too wide) detected at line 3723
-[][] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]v\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 puv[]\OT1/cmr/m/n/12 )[] = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv \OT1/cmr/m/n/12 = 0 \OMS/cmsy/m/n/12 )
- []
-
-
-Overfull \hbox (49.82523pt too wide) detected at line 3727
-\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 )[][] = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 ) = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 u[]v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 uv[] \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 cu;  []
- []
-
-
 
 [73]
 
 [74]
 
 [75]
-Overfull \hbox (168.44794pt too wide) detected at line 3811
-[] \OMS/cmsy/m/n/12 ) [] ) \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 ^^Q \OT1/cmr/m/n/12 0
+Overfull \hbox (8.42194pt too wide) detected at line 3781
+[][] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]v\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 puv[]\OT1/cmr/m/n/12 )[] = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^Ur\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv \OT1/cmr/m/n/12 = 0 \OMS/cmsy/m/n/12 )
+ []
+
+
+Overfull \hbox (49.82523pt too wide) detected at line 3785
+\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 )[][] = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 ) = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 u[]v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 uv[] \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/12 v \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 cu;  []
  []
 
 
 
 [76]
-Overfull \hbox (9.33113pt too wide) detected at line 3828
-\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 guv \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 huv \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 h \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv > \OT1/cmr/m/n/12 0
+
+[77]
+Overfull \hbox (168.44794pt too wide) detected at line 3869
+[] \OMS/cmsy/m/n/12 ) [] ) \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 ^^Q \OT1/cmr/m/n/12 0
  []
 
 
 
-[77]
-
 [78]
+Overfull \hbox (9.33113pt too wide) detected at line 3886
+\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 pv[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 guv \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 huv \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 h \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 uv > \OT1/cmr/m/n/12 0
+ []
+
+
 
 [79]
 
@@ -1556,26 +1582,26 @@ Overfull \hbox (9.33113pt too wide) detected at line 3828
 
 [81]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4025.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 4025.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4025.
-
-
-LaTeX Warning: Command \r invalid in math mode on input line 4036.
-
-Missing character: There is no ̊ ("30A) in font cmmi6!
-
-
 [82]
 
 [83]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4083.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 4083.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4083.
+
+
+LaTeX Warning: Command \r invalid in math mode on input line 4094.
+
+Missing character: There is no ̊ ("30A) in font cmmi6!
+
 
 [84]
 
@@ -1592,22 +1618,12 @@ Missing character: There is no ̊ ("30A) in font cmmi6!
 [90]
 
 [91]
-Overfull \hbox (17.38931pt too wide) detected at line 4352
-[] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x; ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 e[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 e[]'[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) [] [] \OML/cmm/m/it/12 '[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
- []
-
-
 
 [92]
 
 [93]
-Overfull \hbox (31.65785pt too wide) detected at line 4435
-[] [] []  []\OML/cmm/m/it/12 y \OT1/cmr/m/n/12 = [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
- []
-
-
-Overfull \hbox (50.43948pt too wide) detected at line 4450
-[] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) [] \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
+Overfull \hbox (17.38931pt too wide) detected at line 4410
+[] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x; ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 e[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 e[]'[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) [] [] \OML/cmm/m/it/12 '[]y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
  []
 
 
@@ -1615,17 +1631,27 @@ Overfull \hbox (50.43948pt too wide) detected at line 4450
 [94]
 
 [95]
-Underfull \hbox (badness 10000) in paragraph at lines 4521--4522
 
+[96]
+Overfull \hbox (31.65785pt too wide) detected at line 4493
+[] [] []  []\OML/cmm/m/it/12 y \OT1/cmr/m/n/12 = [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
+ []
+
+
+Overfull \hbox (50.43948pt too wide) detected at line 4508
+[] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) [] \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
  []
 
 
 
-[96]
-
 [97]
 
 [98]
+Underfull \hbox (badness 10000) in paragraph at lines 4579--4580
+
+ []
+
+
 
 [99]
 
@@ -1648,33 +1674,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 4521--4522
 [108]
 
 [109]
-Underfull \hbox (badness 10000) in paragraph at lines 5184--5186
-
- []
-
-
 
 [110]
 
 [111]
 
 [112]
+Underfull \hbox (badness 10000) in paragraph at lines 5242--5244
+
+ []
+
+
 
 [113]
-Глава 3.
 
-
-[114
-
-]
+[114]
 
 [115]
 
 [116]
+Глава 3.
 
-[117]
 
-[118] (./mathphys.aux)
+[117
+
+]
+
+[118]
+
+[119]
+
+[120]
+
+[121] (./mathphys.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1687,12 +1719,12 @@ Package rerunfilecheck Info: File `mathphys.out' has not changed.
 (rerunfilecheck)             Checksum: 6D1DA9FF1253DD45192F1C37B902397F;16641.
  ) 
 Here is how much of TeX's memory you used:
- 50008 strings out of 473832
- 1190106 string characters out of 5729482
- 1960832 words of memory out of 5000000
- 72244 multiletter control sequences out of 15000+600000
+ 50047 strings out of 473832
+ 1190685 string characters out of 5729482
+ 1961955 words of memory out of 5000000
+ 72280 multiletter control sequences out of 15000+600000
  580535 words of font info for 190 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  102i,19n,107p,1051b,2194s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on mathphys.pdf (119 pages).
+Output written on mathphys.pdf (122 pages).

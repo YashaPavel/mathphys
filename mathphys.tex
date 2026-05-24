@@ -1,4 +1,4 @@
-%!TEX program=xelatex
+% !TeX program = xelatex
 \documentclass[12pt]{report}
 
 % -------------------------------------------------
@@ -2926,12 +2926,17 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 
 \subsection{Краевые условия}
 \begin{mydef}
-    Пусть \(\LL U=f\) - эллиптическое уравнение в \(\Omega\subset\R^n\).
+    Пусть \(\LL U=f\) --- эллиптическое уравнение в \(\Omega\subset\R^n\).
+    \[
     \begin{aligned}
-        U\big|_{\partial \Omega}=\phi - &\text{ условия Дирихле} \\
-        \dfrac{\partial U}{\partial \nu} \bigg|_{\partial \Omega}=\phi - &\text{ условия Неймана} \\
-        \bigg(\dfrac{\partial U}{\partial \nu}+\sigma(x)U\bigg)\bigg|_{\partial \Omega}=\phi - &\text{ условия Робена}
+        \left. U \right|_{\partial \Omega} = \phi
+        &\quad \text{--- условие Дирихле}, \\
+        \left. \frac{\partial U}{\partial \nu} \right|_{\partial \Omega} = \phi
+        &\quad \text{--- условие Неймана}, \\
+        \left. \left(\frac{\partial U}{\partial \nu}+\sigma(x)U\right) \right|_{\partial \Omega} = \phi
+        &\quad \text{--- условие Робена}.
     \end{aligned}
+    \]
 \end{mydef}
  \begin{figure}[H]
         \centering
@@ -3007,8 +3012,11 @@ $\vec{T_0}+\vec{T_1}=m\vec{a}, \quad m=\rho\dd x$ \\
 Примем, что $|T_0|=|T_1|=T$. Тогда:
 $$-T\sin\alpha+0+T\sin\alpha_1=\rho \dd x \dfrac{\partial^2 U(t,x)}{\partial t^2}$$
 Прибегая к малости углов ($\sin\alpha\approx\tan\alpha$):
-\[\begin{align}\sin\alpha_0\approx\dfrac{\partial U(t, x_0)}{\partial x}\\
-\sin\alpha_1\approx\dfrac{\partial U(t, x_0+\dd x)}{\partial x}\end{align} \quad \Rightarrow \quad \sin\alpha_1-\sin\alpha_0=\dfrac{\partial^2 U(t,x_0)}{\partial x^2}\dd x\]
+\[
+\sin\alpha_0 \approx \dfrac{\partial U(t, x_0)}{\partial x}, \qquad
+\sin\alpha_1 \approx \dfrac{\partial U(t, x_0+\dd x)}{\partial x}
+\]
+\[\sin\alpha_1-\sin\alpha_0=\dfrac{\partial^2 U(t,x_0)}{\partial x^2}\dd x\]
 Получим знакомое волновое уравение: 
 \[T\dfrac{\partial^2 U}{\partial x^2}\dd x=\rho \dd x\dfrac{\partial^2 U}{\partial t^2} \quad \Leftrightarrow \quad \dfrac{\partial^2 U}{\partial^2 t}-c^2\dfrac{\partial^2 U}{\partial x^2}=0, \,\,\, c=\sqrt{\dfrac{T}{\rho}}\]
 1) бесконечная длина: 

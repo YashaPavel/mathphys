@@ -2926,15 +2926,15 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 
 \subsection{Краевые условия}
 \begin{mydef}
-    Пусть \(\LL U=f\) --- эллиптическое уравнение в \(\Omega\subset\R^n\).
+    Пусть \(\LL U=f\) -- эллиптическое уравнение в \(\Omega\subset\R^n\).
     \[
     \begin{aligned}
         \left. U \right|_{\partial \Omega} = \phi
-        &\quad \text{--- условие Дирихле}, \\
+        &\quad \text{-- условие Дирихле}, \\
         \left. \frac{\partial U}{\partial \nu} \right|_{\partial \Omega} = \phi
-        &\quad \text{--- условие Неймана}, \\
+        &\quad \text{-- условие Неймана}, \\
         \left. \left(\frac{\partial U}{\partial \nu}+\sigma(x)U\right) \right|_{\partial \Omega} = \phi
-        &\quad \text{--- условие Робена}.
+        &\quad \text{-- условие Робена}.
     \end{aligned}
     \]
 \end{mydef}
@@ -5459,9 +5459,8 @@ m+n>2n,
 Принимая во внимание, что \((x^2-1)^n\) -- это многочлен степени \(2n\), при \(n\) производных от него останется константа, которая равна \(2^nn!\). Поэтому:
 
 \[
-\begin{aligned}
 \int\limits_{-1}^{1} P_n^2(x)\dd x
-&=
+=
 \dfrac{1}{2^{2n}(n!)^2}
 \int\limits_{-1}^{1}
 \skobka{
@@ -5470,143 +5469,84 @@ m+n>2n,
 \skobka{
 \dfrac{\dd^n}{\dd x^n}\skobka{(x^2-1)^n}
 }
-\dd x
-\\
-&=
+\dd x=\]
+\[=
 \dfrac{(-1)^n}{2^{2n}(n!)^2}
 \int\limits_{-1}^{1}
 (x^2-1)^n
 \dfrac{\dd^{2n}}{\dd x^{2n}}\skobka{(x^2-1)^n}
-\dd x.
-\end{aligned}
+\dd x
 \]
 
-Так как
+Так как:
 \[
 \dfrac{\dd^{2n}}{\dd x^{2n}}\skobka{(x^2-1)^n}=(2n)!,
 \]
-то
+то:
 \[
-\begin{aligned}
 \int\limits_{-1}^{1} P_n^2(x)\dd x
-&=
+=
 \dfrac{(-1)^n(2n)!}{2^{2n}(n!)^2}
 \int\limits_{-1}^{1}
 (x^2-1)^n
 \dd x
-\\
-&=
+=
 \dfrac{(2n)!}{2^{2n}(n!)^2}
 \int\limits_{-1}^{1}
 (1-x^2)^n
-\dd x.
-\end{aligned}
+\dd x =\boxed{=}
 \]
-
+Остается посчитать следующий интеграл, который мы обозначим за \(I_n\):
 \[
-I_n=\int\limits_{-1}^{1}(1-x^2)^n\dd x.
-\]
-
-\[
-\begin{aligned}
 I_n
-&=
-\int\limits_{-1}^{1}(1-x^2)^n\dd x
-\\
-&=
-\left. x(1-x^2)^n \right|_{-1}^{1}
--
-\int\limits_{-1}^{1}
-x\dd\skobka{(1-x^2)^n}
-\\
-&=
+=
+\int\limits_{-1}^{1}(1-x^2)^n\dd x=
+\left. x(1-x^2)^n \right|_{-1}^{1}-\int\limits_{-1}^{1}x\dd\skobka{(1-x^2)^n}
+=
 -\int\limits_{-1}^{1}
 x\skobka{-2nx(1-x^2)^{n-1}}\dd x
-\\
-&=
+=\]
+\[=2n\int\limits_{-1}^{1}
+x^2(1-x^2)^{n-1}\dd x=\begin{vmatrix}
+x^2=1-(1-x^2)
+\end{vmatrix}=
 2n\int\limits_{-1}^{1}
-x^2(1-x^2)^{n-1}\dd x.
-\end{aligned}
-\]
-
-Так как
-\[
-x^2=1-(1-x^2),
-\]
-то
-\[
-\begin{aligned}
-I_n
-&=
-2n\int\limits_{-1}^{1}
-\skobka{1-(1-x^2)}(1-x^2)^{n-1}\dd x
-\\
-&=
+\skobka{1-(1-x^2)}(1-x^2)^{n-1}\dd x=\]\[=
 2n\int\limits_{-1}^{1}
 (1-x^2)^{n-1}\dd x
 -
 2n\int\limits_{-1}^{1}
 (1-x^2)^n\dd x
-\\
-&=
-2nI_{n-1}-2nI_n.
-\end{aligned}
+=
+2nI_{n-1}-2nI_n
 \]
+Отсюда получаем рекуррентную формулу для \(I_n\):
 
 \[
-(2n+1)I_n=2nI_{n-1}.
+I_n=\dfrac{2n}{2n+1}I_{n-1} =\dfrac{2n}{2n+1}
+\dfrac{2n-2}{2n-1} I_{n-2}=\dfrac{I_0(2n)!!}{(2n+1)!!}=2\dfrac{(2n)!!}{(2n+1)!!}
 \]
 
+Здесь мы воспользовались тем, что \(I_0=2\). Подставив это в формулу для \(\int\limits_{-1}^{1} P_n^2(x)\dd x\), получаем:
 \[
-I_n=\dfrac{2n}{2n+1}I_{n-1}.
+\boxed{=}
+\dfrac{(2n)!}{2^{2n}(n!)^2}I_n=\dfrac{(2n)!}{2^{2n}(n!)^2}\cdot 2\dfrac{(2n)!!}{(2n+1)!!}=\dfrac{2}{2n+1}
 \]
+\item $\operatorname{Span}\{P_k(x)\}_{k=0}^{n} $ = \{множество полиновом степени $\leq n$\} = $\operatorname{Span}\{x^k\}_{k=0}^{n}$
+\end{enumerate}
 
-\[
-\begin{aligned}
-I_n
-&=
-\dfrac{2n}{2n+1}I_{n-1}
-\\
-&=
-\dfrac{2n}{2n+1}
-\dfrac{2n-2}{2n-1}
-I_{n-2}
-\\
-&=
-\dfrac{2n}{2n+1}
-\dfrac{2n-2}{2n-1}
-\dfrac{2n-4}{2n-3}
-\cdots
-\dfrac{2}{3}
-I_0
-\\
-&=
-2\dfrac{(2n)!!}{(2n+1)!!}.
-\end{aligned}
-\]
 
-\[
-\begin{aligned}
-\int\limits_{-1}^{1} P_n^2(x)\dd x
-&=
-\dfrac{(2n)!}{2^{2n}(n!)^2}I_n
-\\
-&=
-\dfrac{(2n)!}{2^{2n}(n!)^2}
-\cdot
-2\dfrac{(2n)!!}{(2n+1)!!}
-\\
-&=
-\dfrac{(2n)!}{2^{2n}(n!)^2}
-\cdot
-2
-\dfrac{2^n n!}{\dfrac{(2n+1)!}{2^n n!}}
-\\
-&=
-\dfrac{2(2n)!}{(2n+1)!}
-\\
-&=
-\dfrac{2}{2n+1}.
-\end{aligned}
-\]\end{enumerate}
+\begin{myexe}
+    Для $\forall n \geq 1$, показать что выполнено следующее уравнение:
+    \[(n+1)P_{n+1}(x) - (2n+1)xP_n(x) +nP_{n-1}(x)=0\]
+\end{myexe}
+
+
+\begin{myremark}
+    Рассматривая следующую задачу Штурма-Лиувилля:
+    \[-\skobka{(1-x^2)y'}'=\lambda y,\] где $p(x)=1-x^2$, $q(x)=0$, $r(x)=1$. Заметим что $p(x)>0$ при $x\in[-1,1]$. Когда не существует собвственных функций, то одно из двух решений ограничено на одном крайне, но расходится на другом, второе же -- в точности наоборот. Когда же собственные функции есть, то одно решение расходиться на обоих краях, а как разполиномы Лежандра -- это собственные функции задачи Штурма-Лиувилля, а $\lambda_n=n(n+1)$, которые ограничены на обоих краях. Поэтому полиномы Лежандра -- это единственные решения уравнения Лежандра, которые ограничены на отрезке $[-1;1]$.\\
+    В противном случае, расходимость была порядка $\propto \ln(1-x)$ при $x\to 1$ и $\propto \ln(1+x)$ при $x\to -1$. 
+\end{myremark}
+
+\subsection{Присоединенные функции Лежандра}
 \end{document}

@@ -3087,7 +3087,21 @@ $\supp \phi\subset[a, b]$
 
 На решение $U(t,x)$ влияет только то, что находится на заштрихованной оси, а от другой части информация в эту точку не приходит.
 \subsection{Функция Грина для бесконечной струны}
-
+Возьмём следующую обобщённуйю функцию, которая по одной переменной бесконечно гладкая, а по другой является обобщённой функцией:
+\[g(t, x) \quad g\in\Cinf((0,\infty), \DDR)\]
+Пусть $\phi\in\DR$: \\
+$\exists \dfrac{\dd}{\dd t}\big(g(t, \cdot), \phi\big)$ - тоже обобщённая функция. \\
+\[\dfrac{\dd}{\dd t}\big(g(t, \cdot), \phi\big)=\bigg(\dfrac{\partial g}{\partial t}(t, \cdot), \phi\bigg)\]
+$\forall \phi\in\DR \quad \forall m\in\N$
+\[\exists \dfrac{\dd^m}{\dd t^m}\big(g(t,\cdot), \phi\big)=\bigg(\dfrac{\partial^m g(t,\cdot)}{\partial t^m}, \phi\bigg) \quad \dfrac{\partial^m g}{\partial t^m}\in\DDR\]
+\begin{mydef}
+    $g$ - функция Грина для уравнения струны $\quad\Leftrightarrow$ 
+    \[\Leftrightarrow \quad g\in\Cinf((0,\infty), \DDR) \text{ и }\begin{cases}
+        \dfrac{\partial^2 g(t, x)}{\partial t^2} - c^2\dfrac{\partial^2 g(t,x)}{\partial x^2}=0 \\
+        g\xrightarrow[t\to0]{\DDR}0, \quad \dfrac{\partial g}{\partial t}\xrightarrow[t\to0]{\DDR}\delta(x)
+    \end{cases}\]
+Важно что производная по $x$ берётся как производная обобщённой функции.
+\end{mydef}
 
 
 \section{Волновое уравнение в \texorpdfstring{$\R^3$}{R3}}

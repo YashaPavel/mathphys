@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  27 MAY 2026 01:15
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  27 MAY 2026 22:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1835,7 +1835,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3145--3147
 File: pics/9.png Graphic file (type bmp)
 <pics/9.png>
 [63] [64] [65] [66]
-Overfull \hbox (11.08632pt too wide) detected at line 3326
+Overfull \hbox (11.08632pt too wide) detected at line 3336
 [] \OT1/cmr/m/n/12 = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm
 /m/it/12 !\OT1/cmr/m/n/12 ) = [] [] [] []  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 
 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = [] [] ^^A\OML/cmm/m/it/12 v\OT1/cmr/m/n/
@@ -1843,47 +1843,47 @@ Overfull \hbox (11.08632pt too wide) detected at line 3326
  []
 
 
-LaTeX Warning: Reference `45' on page 67 undefined on input line 3345.
+LaTeX Warning: Reference `45' on page 67 undefined on input line 3355.
 
 [67]
 
-LaTeX Warning: Reference `98' on page 68 undefined on input line 3368.
+LaTeX Warning: Reference `98' on page 68 undefined on input line 3378.
 
 [68]
 
-LaTeX Warning: Reference `34' on page 69 undefined on input line 3430.
+LaTeX Warning: Reference `34' on page 69 undefined on input line 3440.
 
 [69]
 
-LaTeX Warning: Reference `45' on page 70 undefined on input line 3457.
+LaTeX Warning: Reference `45' on page 70 undefined on input line 3467.
 
 [70] [71]
 
-LaTeX Warning: Reference `78' on page 72 undefined on input line 3567.
+LaTeX Warning: Reference `78' on page 72 undefined on input line 3577.
 
 
-LaTeX Warning: Reference `78' on page 72 undefined on input line 3568.
+LaTeX Warning: Reference `78' on page 72 undefined on input line 3578.
 
 [72]
 
-LaTeX Warning: Reference `78' on page 73 undefined on input line 3596.
+LaTeX Warning: Reference `78' on page 73 undefined on input line 3606.
 
 [73]
 
-LaTeX Warning: Reference `78' on page 74 undefined on input line 3639.
+LaTeX Warning: Reference `78' on page 74 undefined on input line 3649.
 
 
-LaTeX Warning: Reference `78' on page 74 undefined on input line 3656.
+LaTeX Warning: Reference `78' on page 74 undefined on input line 3666.
 
 [74]
 
-LaTeX Warning: Reference `78' on page 75 undefined on input line 3685.
+LaTeX Warning: Reference `78' on page 75 undefined on input line 3695.
 
 
-LaTeX Warning: Reference `78' on page 75 undefined on input line 3690.
+LaTeX Warning: Reference `78' on page 75 undefined on input line 3700.
 
 [75] [76] [77] [78]
-Overfull \hbox (8.42194pt too wide) detected at line 3871
+Overfull \hbox (8.42194pt too wide) detected at line 3881
 [][] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 pu[]v\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n
 /12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 puv[]\OT1/cmr/m/n/12 )[] = (\OML/cmm/
 m/it/12 pu[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^@ \OML/cmm
@@ -1895,7 +1895,7 @@ m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it
  []
 
 
-Overfull \hbox (49.82523pt too wide) detected at line 3875
+Overfull \hbox (49.82523pt too wide) detected at line 3885
 \OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \
 OML/cmm/m/it/12 uv[]\OT1/cmr/m/n/12 )[][] = 0 \OMS/cmsy/m/n/12 ) \OML/cmm/m/it/
 12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]v \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/1
@@ -1906,16 +1906,16 @@ n/12 = \OML/cmm/m/it/12 cu;  []
 
 [79]
 
-LaTeX Warning: Reference `56' on page 80 undefined on input line 3893.
+LaTeX Warning: Reference `56' on page 80 undefined on input line 3903.
 
 [80]
-Overfull \hbox (168.44794pt too wide) detected at line 3959
+Overfull \hbox (168.44794pt too wide) detected at line 3969
 [] \OMS/cmsy/m/n/12 ) [] ) \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 ^^Q \OT1/cmr/m/n
 /12 0
  []
 
 [81]
-Overfull \hbox (9.33113pt too wide) detected at line 3976
+Overfull \hbox (9.33113pt too wide) detected at line 3986
 \OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = (\OM
 L/cmm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + (\OML/c
 mm/m/it/12 pu[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OML/
@@ -1932,22 +1932,22 @@ v > \OT1/cmr/m/n/12 0
 [82] [83] [84] [85] [86]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4173.
+(hyperref)                removing `math shift' on input line 4183.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 4173.
+(hyperref)                removing `superscript' on input line 4183.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4173.
+(hyperref)                removing `math shift' on input line 4183.
 
 
-LaTeX Warning: Command \r invalid in math mode on input line 4184.
+LaTeX Warning: Command \r invalid in math mode on input line 4194.
 
 Missing character: There is no ̊ in font cmmi6!
 [87] [88] [89] [90] [91] [92] [93] [94] [95] [96]
-Overfull \hbox (17.38931pt too wide) detected at line 4500
+Overfull \hbox (17.38931pt too wide) detected at line 4510
 [] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x; ^^X\OT1/cmr/m/n/12
  )\OML/cmm/m/it/12 '\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  
 []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 e[]y[]\OT1/cmr/
@@ -1960,13 +1960,13 @@ mm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []  []\OML/cmm/m/it/12 ^^X \OT1/cmr/m/n/12 = []
  []
 
 [97] [98] [99]
-Overfull \hbox (31.65785pt too wide) detected at line 4583
+Overfull \hbox (31.65785pt too wide) detected at line 4593
 [] [] []  []\OML/cmm/m/it/12 y \OT1/cmr/m/n/12 = [] [] []  []\OML/cmm/m/it/12 S
 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
  []
 
 
-Overfull \hbox (50.43948pt too wide) detected at line 4598
+Overfull \hbox (50.43948pt too wide) detected at line 4608
 [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )[] [] 
  []\OML/cmm/m/it/12 S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 ) = \OM
 S/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 u\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/
@@ -1978,34 +1978,34 @@ r/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
  []
 
 [100] [101]
-Underfull \hbox (badness 10000) in paragraph at lines 4669--4670
+Underfull \hbox (badness 10000) in paragraph at lines 4679--4680
 
  []
 
 [102] [103] [104] [105] [106] [107] [108]
 
-LaTeX Warning: Reference `lem1' on page 109 undefined on input line 4952.
+LaTeX Warning: Reference `lem1' on page 109 undefined on input line 4962.
 
 [109] [110]
 
 LaTeX Warning: Reference `th:green-formula' on page 111 undefined on input line
- 5077.
+ 5087.
 
 [111] [112] [113] [114] [115]
-Underfull \hbox (badness 10000) in paragraph at lines 5332--5334
+Underfull \hbox (badness 10000) in paragraph at lines 5342--5344
 
  []
 
 [116] [117]
 
-LaTeX Warning: Reference `lem' on page 118 undefined on input line 5460.
+LaTeX Warning: Reference `lem' on page 118 undefined on input line 5470.
 
 [118] [119]
 Глава 3.
 [120
 
 ] [121]
-Overfull \hbox (13.35728pt too wide) detected at line 5598
+Overfull \hbox (13.35728pt too wide) detected at line 5608
 \OML/cmm/m/it/12 I[] \OT1/cmr/m/n/12 = [](1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/
 12 x[]\OT1/cmr/m/n/12 )[] []  []\OML/cmm/m/it/12 x \OT1/cmr/m/n/12 = [][] \OMS/
 cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 x []  [] [] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n
@@ -2036,7 +2036,7 @@ Package rerunfilecheck Info: Checksums for `mathphys.out':
 Here is how much of TeX's memory you used:
  50037 strings out of 402986
  1169612 string characters out of 5455748
- 2030112 words of memory out of 5000000
+ 2030113 words of memory out of 5000000
  77989 multiletter control sequences out of 15000+600000
  649403 words of font info for 192 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

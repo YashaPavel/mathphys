@@ -566,6 +566,7 @@ e^{\frac{1}{x^2-1}}, & |x|<1\\[0.5em]
 \begin{myexe}
     Доказать что $\varphi(x)\in \DR$. \\
 $\supp\phi={x: |x|<1}$, его замыкание даёт [-1; 1], что является компактным множеством. $\dfrac{1}{x^2-1}$ - гладкая на (-1, 1), поэтмоу экспонента тоже гладкая, значит $\in\Cinf(\R)$.
+
 \end{myexe}
 Тогда ясно, что $\DR$ -- линейное пространство
 
@@ -578,6 +579,12 @@ $\supp\phi={x: |x|<1}$, его замыкание даёт [-1; 1], что яв�
 
 \begin{myexe}
     Показать что $\DR$ -- не метризуемо, т.е. $\nexists \rho$ -- метрики: $\rho(\varphi_k,\varphi) \rightarrow0 \Leftrightarrow \varphi_k \xrightarrow{\DR} \varphi$
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/0.png}
+        \caption{}
+        \label{fig:enter-label}
+\end{figure}
 \end{myexe}
 
 
@@ -3096,14 +3103,83 @@ $\forall \phi\in\DR \quad \forall m\in\N$
 \[\exists \dfrac{\dd^m}{\dd t^m}\big(g(t,\cdot), \phi\big)=\bigg(\dfrac{\partial^m g(t,\cdot)}{\partial t^m}, \phi\bigg) \quad \dfrac{\partial^m g}{\partial t^m}\in\DDR\]
 \begin{mydef}
     $g$ - функция Грина для уравнения струны $\quad\Leftrightarrow$ 
-    \[\Leftrightarrow \quad g\in\Cinf((0,\infty), \DDR) \text{ и }\begin{cases}
+    \lbpn{gvolna}{\[\Leftrightarrow \quad g\in\Cinf((0,\infty), \DDR) \text{ и }\begin{cases}
         \dfrac{\partial^2 g(t, x)}{\partial t^2} - c^2\dfrac{\partial^2 g(t,x)}{\partial x^2}=0 \\
         g\xrightarrow[t\to0]{\DDR}0, \quad \dfrac{\partial g}{\partial t}\xrightarrow[t\to0]{\DDR}\delta(x)
-    \end{cases}\]
+    \end{cases}\]}
 Важно что производная по $x$ берётся как производная обобщённой функции.
 \end{mydef}
+Используем формулу Даламбера из предыдущего параграфа и подставим туда $0, \delta(x)$ вместо $\phi, \psi$:
+\[g(t,x)=\dfrac{1}{2с}\int\limits_{x-ct}^{x+ct}\delta(y)\dd y\]
+Но это определение некорректно и так писать нельзя, но 'мы с вами физики' поэтому определим просто вот так:
+\[g(t,x)=
+\left[
+\begin{array}{l}
+\dfrac{1}{2c}, \quad |x|<ct \\
+0, \quad |x|>ct
+\end{array}
+\right.
+\]
+Для фиксированного $t$ график выглядит вот так:
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/8.png}
+        \caption{}
+        \label{fig:enter-label}
+\end{figure}
+
+Заметим, что $g$ - обобщённая функция, действие которой определяется как:
+\[\big(g(t, \cdot), \phi\big)=\dfrac{1}{2c}\int\limits_{-ct}^{ct}\phi(x)\dd x\]
+Пусть $\phi\in\DR$, тогда по свойству дифференцирования переменного предела:
+\[\exists \dfrac{\dd}{\dd t}\bigg(g(t,\cdot), \phi\bigg)=\dfrac{1}{2}\phi(ct)+\dfrac{1}{2}\phi(-ct)\]
+\[\exists \dfrac{\dd^2}{\dd t^2}\bigg(g(t,\cdot), \phi\bigg)=\dfrac{c}{2}\phi'(ct)-\dfrac{c}{2}\phi'(-ct)\]
+Заметим, что \(\int\limits_{-ct}^{ct}\phi(x)\dd x\leftrightarrow(\theta(x+ct)-\theta(x-ct), \phi)\), \(\quad \phi(ct)\leftrightarrow(\delta(x-ct), \phi(x))\), \(\quad \phi'(ct)\leftrightarrow(-\delta'(x-ct),\phi)\). Тогда это все переписывается вот так:
+\[g(t,x)=\dfrac{1}{2c}\bigg(\theta(x+ct)-\theta(x-ct)\bigg)\]
+\[\dfrac{\partial g}{\partial t}(t,x)=\dfrac{1}{2}\bigg(\delta(x+ct)-\delta(x-ct)\bigg)\]
+\[\dfrac{\partial^2 g}{\partial t^2}(t,x)=\dfrac{c}{2}\bigg(\delta'(x+ct)-\delta'(x-ct)\bigg)\]
+\[\dfrac{\partial g}{\partial x}(t, x)=\dfrac{1}{2c}\bigg(\delta(x+ct)-\delta(x-ct)\bigg)\]
+\[\dfrac{\partial^2 g}{\partial x^2}(t, x)=\dfrac{1}{2c}\bigg(\delta'(x+ct)-\delta'(x-ct)\bigg)\]
+Отсюда видно, что волновое уравнение \ref{gvolna} выполняется. \\
+Теперь посмотрим на граничные условия: 
+\[\big(g(t, \cdot), \phi\big)\overset{\forall \phi\in\DR}{=}\dfrac{1}{2c}\int\limits_{-ct}^{ct}\phi(x)\dd x\xrightarrow[t\to0]{}0\]
+\[\bigg(\dfrac{\partial g}{\partial t}(t, \cdot), \phi\bigg)=\dfrac{1}{2}\big(\phi(ct)+\phi(-ct)\big)\xrightarrow[t\to0]{}\phi(0)=(\delta,\phi)\]
+Теперь возьмём 'похожую' функцию, которая уже будет обобщённой по обеим переменным: $G\in\D'(\R^2)$ \\
+
+\[G(t, x)=\left[
+\begin{array}{l}
+\dfrac{1}{2c}, \quad \begin{aligned}
+    t>0 \\
+    |x|<ct
+\end{aligned} \\
+0, \quad \text{иначе}
+\end{array}
+\right.\]
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/9.png}
+        \caption{}
+        \label{fig:enter-label}
+\end{figure}
+
+\begin{myexe}
+    \[\dfrac{\partial^2 G}{\partial t^2}-c^2\dfrac{\partial^2 G}{\partial x^2}=\delta(t, x)\]
+\end{myexe}
 
 
+
+\begin{mydef}
+    $G$ - фундаментальное решение уравнения струны $\quad \Leftrightarrow$ 
+    \[\Leftrightarrow \quad G\in\D'(\R^2) \text{ и }\begin{cases}
+        \dfrac{\partial^2 G}{\partial t^2}-c^2\dfrac{\partial^2 G}{\partial x^2}=\delta(t, x) \\
+        G\big|_{t<0}=0
+    \end{cases}\]
+\end{mydef}
+Нужно проверить, что $\forall \phi\in\D(\R^2)$:
+\[\int\limits_{\R^2}G(t,x)\bigg(\dfrac{\partial^2 \phi(t,x)}{\partial t^2}-c^2\dfrac{\partial^2 \phi(t,x)}{\partial x^2}\bigg)\dd x\dd t=\phi(0,0)\]
+Иногда пишут, что \(G(t,x)=g(t,x)\theta(t)\), но это не очень корректная запись.
+\begin{myremark}
+    В книжках слова фундаментальное решение и функция Грина это синонимы.
+\end{myremark}
 \section{Волновое уравнение в \texorpdfstring{$\R^3$}{R3}}
 В этом разделе будет рассматривать решение волнового уравнение с граничными условиями:
 \[

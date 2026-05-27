@@ -3162,7 +3162,102 @@ $\forall \phi\in\DR \quad \forall m\in\N$
 \end{figure}
 
 \begin{myexe}
-    \[\dfrac{\partial^2 G}{\partial t^2}-c^2\dfrac{\partial^2 G}{\partial x^2}=\delta(t, x)\]
+    \lbpn{lol}{\[\dfrac{\partial^2 G}{\partial t^2}-c^2\dfrac{\partial^2 G}{\partial x^2}=\delta(t, x)\]}
+Пусть
+\[
+G(t,x)=\frac{1}{2c}\,\theta(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr).
+\]
+
+
+\[
+\frac{\partial G}{\partial x}=\frac{1}{2c}\,\theta(t)\bigl(\delta(x+ct)-\delta(x-ct)\bigr),
+\]
+\[
+\frac{\partial^{2} G}{\partial x^{2}}=\frac{1}{2c}\,\theta(t)\bigl(\delta'(x+ct)-\delta'(x-ct)\bigr).
+\]
+
+
+\[
+\frac{\partial G}{\partial t}=
+\frac{1}{2c}\,\delta(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr)
++\frac{1}{2}\,\theta(t)\bigl(\delta(x+ct)+\delta(x-ct)\bigr).
+\]
+
+\[
+\frac{\partial^{2} G}{\partial t^{2}}=
+\frac{1}{2c}\,\delta'(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr)
++\delta(t)\bigl(\delta(x+ct)+\delta(x-ct)\bigr)
++\frac{c}{2}\,\theta(t)\bigl(\delta'(x+ct)-\delta'(x-ct)\bigr).
+\]
+
+
+\[
+\square G=\frac{\partial^{2}G}{\partial t^{2}}-c^{2}\frac{\partial^{2}G}{\partial x^{2}}.
+\]
+Слагаемые с $\theta(t)\delta'$ сокращаются:
+\[
+\frac{c}{2}\,\theta(t)(\delta'(x+ct)-\delta'(x-ct))-c^{2}\cdot\frac{1}{2c}\,\theta(t)(\delta'(x+ct)-\delta'(x-ct))=0.
+\]
+Остаётся
+\[
+\square G=
+\frac{1}{2c}\,\delta'(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr)
++\delta(t)\bigl(\delta(x+ct)+\delta(x-ct)\bigr).
+\]
+
+
+\[
+\langle\square G,\varphi\rangle=
+\frac{1}{2c}
+\iint\delta'(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr)\varphi(t,x)\,dt\,dx
++\iint\delta(t)\bigl(\delta(x+ct)+\delta(x-ct)\bigr)\varphi(t,x)\,dt\,dx.
+\]
+
+Первый интеграл:
+\[
+\frac{1}{2c}\iint\delta'(t)\Phi(t,x)\,dt\,dx
+=-\frac{1}{2c}\iint\delta(t)\frac{\partial\Phi}{\partial t}(t,x)\,dt\,dx,
+\]
+где $\Phi(t,x)=(\theta(x+ct)-\theta(x-ct))\varphi(t,x)$. 
+
+
+Вычисляем производную $\Phi$ по $t$:
+\[
+\frac{\partial\Phi}{\partial t}=
+\bigl(c\delta(x+ct)+c\delta(x-ct)\bigr)\varphi(t,x)
++\bigl(\theta(x+ct)-\theta(x-ct)\bigr)\frac{\partial\varphi}{\partial t}(t,x).
+\]
+При $t=0$:
+\[
+\theta(x+0)-\theta(x-0)=\theta(x)-\theta(x)=0,
+\]
+\[
+\delta(x+c\cdot0)=\delta(x),\qquad
+\delta(x-c\cdot0)=\delta(x).
+\]
+Следовательно,
+\[
+\frac{\partial\Phi}{\partial t}\big|_{t=0}=
+\bigl(c\delta(x)+c\delta(x)\bigr)\varphi(0,x)=2c\,\delta(x)\,\varphi(0,x).
+\]
+
+
+\[
+-\frac{1}{2c}\iint\delta(t)\frac{\partial\Phi}{\partial t}(t,x)\,dt\,dx
+=-\frac{1}{2c}\int_{-\infty}^{\infty}\left(2c\,\delta(x)\varphi(0,x)\right)dx
+=-\int_{-\infty}^{\infty}\delta(x)\varphi(0,x)dx=-\varphi(0,0).
+\]
+
+\[
+\iint\delta(t)\bigl(\delta(x+ct)+\delta(x-ct)\bigr)\varphi(t,x)\,dt\,dx
+=\int_{-\infty}^{\infty}\bigl(\delta(x)+\delta(x)\bigr)\varphi(0,x)dx=2\varphi(0,0).
+\]
+
+
+\[
+\langle\square G,\varphi\rangle=-\varphi(0,0)+2\varphi(0,0)=\varphi(0,0),
+\]
+что соответсвует $\delta(t, x)$
 \end{myexe}
 
 
@@ -3174,17 +3269,41 @@ $\forall \phi\in\DR \quad \forall m\in\N$
         G\big|_{t<0}=0
     \end{cases}\]
 \end{mydef}
-Нужно проверить, что $\forall \phi\in\D(\R^2)$:
+Нужно проверить, что $\forall \phi\in\D(\R^2)$(кажется это следует из \ref{lol}):
 \[\int\limits_{\R^2}G(t,x)\bigg(\dfrac{\partial^2 \phi(t,x)}{\partial t^2}-c^2\dfrac{\partial^2 \phi(t,x)}{\partial x^2}\bigg)\dd x\dd t=\phi(0,0)\]
 Иногда пишут, что \(G(t,x)=g(t,x)\theta(t)\), но это не очень корректная запись.
 \begin{myremark}
     В книжках слова фундаментальное решение и функция Грина это синонимы.
 \end{myremark}
-
-
-
-
-
+Хотим решить ($\LL$ - дифференциальный оператор):
+\[\LL U = f \]
+Для решения такой задачи сначала ищем фундаментальное решение: \(\LL G=\delta\), а затем делаем свёртку: $U=G\ast f$. \\
+Проверка: \(\LL U=\LL(G\ast f)=\LL G \ast f=\delta\ast f=f\)\\
+Тут мы использовали тот факт, что производные в свёртке можно кидать на любой множитель. \\
+\begin{mytheorem}
+    Пусть \(\phi\in\C^2(\R), \psi\in\C^1(\R), f\in\C^1([0,\infty)\times\R)\)
+    \[\exists! U\in\C^2([0,\infty)\times\R):\begin{cases}
+        \dfrac{\partial^2 U}{\partial t^2}-c^2\dfrac{\partial^2 U}{\partial x^2}=f, \quad t\leq0, x\in\R \\
+        U\big|_{t=0}=\phi(x), \quad \dfrac{\partial U}{\partial t}\bigg|_{t=0}=\psi(x)
+    \end{cases}\]
+    \[U=\dfrac{\partial g}{\partial t}\ast\phi+g\ast\psi+G\ast f=\]
+    \[=\int\limits_\R \dfrac{\partial g}{\partial t}(t, x-y)\phi(y)\dd y+\int\limits_\R g(t, x-y)\psi(y)\dd y+\int\limits_{0}^{t}\int\limits_\R g(t-\tau, x-y)f(\tau, y)\dd y\dd \tau=U_1+U_2+U_3\]
+\end{mytheorem}
+\begin{myproof}
+   Знаем: \(\dfrac{\partial g}{\partial t}=\dfrac{1}{2}\big(\delta(x+ct)+\delta(x-ct)\big)\). \\
+   1) \[U_1(t,x)=\dfrac{1}{2}\int\limits_{R}\big(\delta(x-y+ct)+\delta(x-y-ct)\big)\phi(y)\dd y=\dfrac{1}{2}\big(\phi(x+ct)-\phi(x-ct)\big) \quad \Rightarrow\]
+   \[\Rightarrow \quad \begin{cases}
+    \dfrac{\partial^2 U_1}{\partial t^2}-c^2\dfrac{\partial^2 U_1}{\partial x^2}=0 \\
+    U_1(t=0)=\phi(x), \quad \dfrac{\partial U_1}{\partial t}\bigg|_{t=0}=0
+   \end{cases}\]
+   2) \[U_2(t, x)=\int\limits_\R \dfrac{1}{2c}\underbrace{\chi_{[-ct; ct]}(x-y)}_\text{характер. функция}\psi(y)\dd y=\dfrac{1}{2c}\int\limits_{x-ct}^{x+ct}\psi(y)\dd y \quad \Rightarrow\]
+   \[\Rightarrow \quad \begin{cases}
+    \dfrac{\partial^2 U_2}{\partial t^2}-c^2\dfrac{\partial^2 U_2}{\partial x^2}=0 \\
+    U_2(t=0)=0, \quad \dfrac{\partial U_2}{\partial t}\bigg|_{t=0}=psi(x)
+   \end{cases}\]
+   \[(U_1+U_2)\text{ - формула Даламбера}\]
+   И мы получили решение для нулевой правой части волнового уравнения. Теперь остаётся только $U_3$. \\
+\end{myproof}
 
 
 
@@ -5649,4 +5768,60 @@ I_n=\dfrac{2n}{2n+1}I_{n-1} =\dfrac{2n}{2n+1}
 \end{myremark}
 
 \subsection{Присоединенные функции Лежандра}
+\begin{mylemma}
+    Следующие функции мы будем называть присоединенными функциями Лежандра:
+    \[
+P_{n}^m(x) = (1-x^2)^{m/2}\dfrac{\dd^m}{\dd x^m}P_n(x)б
+\]
+они являеются решениями следующего уравнения:
+\[
+((1-x^2)y')' = \dfrac{m^2}{1-x^2}y + n(n+1)y = 0, \ \ \ m\in\N, \ n = 0,1,2,\dots
+\]
+\end{mylemma}
+
+\begin{myproof}
+    Для доказатальна нам необходимо решить упражнение:\\
+    \begin{myexe}
+    К следующему уравнению:
+    \[-\skobka{(1-x^2)P'_n(x)}'=n(n+1)P_n(x,)\] применить $(1-x^2)\dfrac{\dd^m}{\dd x^m}$
+    \end{myexe}
+\end{myproof}
+
+
+
+
+\begin{myremark}
+    \begin{enumerate}
+    \item Если $m\geq n \Rightarrow P_n^m(x) = 0$
+    \item Если $m$ чётное, то $P_n^m$ -- это полином,
+    \item Если $m$ нечётное, то $P_n^m = \sqrt{1 - x^2}\cdot$ --полином
+    \item $P_n^m(x)\xrightarrow{x\to 1} c(1-x)^{m/2}$ при $m \leq n$, а при $m>n$ -- это нулевая функция, которая, конечно же, тоже стремится к нулю.
+    \item Давайте зафиксируем $m\in N$, рассмотрев следующую задачу Штурма-Лиувилля:
+    \[-\skobka{(1-x^2)y'}'+\dfrac{m^2}{1-x^2}y = \lambda y,\] где $p(x)=1-x^2$, $q(x)=\dfrac{m^2}{1-x^2}$, $r(x)=1$. Тогда при $n\geq m$ собственные числа -- $\lambda_n = n(n+1)$, а собственные функции -- это $P_n^m$. Поэтому $P_n^m$ -- это единственные ограниченные решения.
+    \item \begin{myexe} Надо проверить равенство:
+     \[
+    \int\limits_{-1}^{1}P_n^m(x)P_{k}^m(x)\dd x = \dfrac{2(n+m)!}{(2n+1)(n-m!)}\delta_{nk}
+    \]
+    \end{myexe} 
+    \item При каждом $m\in \N$ система $\{P_n^m\}_{n=m}^\infty$ -- полна в $\L_2(-1,1)$
+    \item Присоединённые функции Лежандра также ортогональны в $\L_2(-1,1)$, то сраза отсюда следует факт из 5 пункта, что других решений нет.
+\end{enumerate}
+\end{myremark}
+
+\section{Сферические функции}
+
+\subsection{Оператор Лапласа в сферических координатах}
+
+
+
+
+
+\subsection{Сферические функции}
+
+
+
+\subsection{Свойства сферических функций}
+
+
+
 \end{document}

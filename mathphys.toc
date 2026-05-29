@@ -35,39 +35,39 @@
 \contentsline {subsection}{\numberline {2.2.3}Функция Грина для бесконечной струны}{61}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Волновое уравнение в $\mathbb {R}^3$}{67}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Функция Грина}{68}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Решение волнового уравнения в $\mathbb {R}^3$ }{69}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Единственность решения волнового уравнения в $\mathbb {R}^n$}{73}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Задача Штурма-Лиувилля}{76}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Краевые задачи для обыкновенного дифференциального уравнения второго поряда}{76}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Примеры}{80}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Однородная задача Штурма-Лиувилля}{81}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}Нули собственных функций}{85}{subsection.2.5.4}%
-\contentsline {section}{\numberline {2.6}Неоднородная конечная струна}{90}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Решение начальной краевой задачи}{90}{subsection.2.6.1}%
-\contentsline {section}{\numberline {2.7}Уравнение теплопроводности}{91}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}Вывод}{91}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Уравнение теплопроводности в $\mathbb {R}^n$}{92}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Комментарии}{95}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Неоднородное уравнение теплопроводности}{96}{subsection.2.7.4}%
-\contentsline {subsection}{\numberline {2.7.5}Единственность}{99}{subsection.2.7.5}%
-\contentsline {subsection}{\numberline {2.7.6}Уравнение теплопроводности на отрезке}{100}{subsection.2.7.6}%
-\contentsline {section}{\numberline {2.8}Уравнение Лапласа}{102}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Фундаментальное решение}{102}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}Гармонические функции}{105}{subsection.2.8.2}%
-\contentsline {section}{\numberline {2.9}Краевые задачи для уравнения Пуассона}{109}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}Задача Дирихле}{109}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}Задача Неймана}{111}{subsection.2.9.2}%
-\contentsline {section}{\numberline {2.10}Функция Грина для задачи Дирихле}{114}{section.2.10}%
-\contentsline {subsection}{\numberline {2.10.1}Фундаментальное решение уравнения Лапласа}{114}{subsection.2.10.1}%
-\contentsline {subsection}{\numberline {2.10.2}Метод отражений}{116}{subsection.2.10.2}%
-\contentsline {section}{\numberline {2.11}Задача Дирихле в шаре}{117}{section.2.11}%
-\contentsline {subsection}{\numberline {2.11.1}Внешняя задача Дирихле}{122}{subsection.2.11.1}%
-\contentsline {chapter}{\numberline {3}Специальные функции}{124}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Полиномы Лежандра}{124}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Уравнение Лежандра}{124}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Свойства полиномов Лежандра}{125}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Присоединенные функции Лежандра}{128}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Сферические функции}{129}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Оператор Лапласа в сферических координатах}{129}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Сферические функции}{129}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Свойства сферических функций}{129}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {2.3.2}Решение волнового уравнения в $\mathbb {R}^3$ }{71}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Единственность решения волнового уравнения в $\mathbb {R}^n$}{74}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Задача Штурма-Лиувилля}{78}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Краевые задачи для обыкновенного дифференциального уравнения второго поряда}{78}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Примеры}{81}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Однородная задача Штурма-Лиувилля}{83}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Нули собственных функций}{87}{subsection.2.5.4}%
+\contentsline {section}{\numberline {2.6}Неоднородная конечная струна}{92}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Решение начальной краевой задачи}{92}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}Уравнение теплопроводности}{93}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Вывод}{93}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Уравнение теплопроводности в $\mathbb {R}^n$}{93}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Комментарии}{96}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Неоднородное уравнение теплопроводности}{97}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Единственность}{101}{subsection.2.7.5}%
+\contentsline {subsection}{\numberline {2.7.6}Уравнение теплопроводности на отрезке}{102}{subsection.2.7.6}%
+\contentsline {section}{\numberline {2.8}Уравнение Лапласа}{104}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Фундаментальное решение}{104}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Гармонические функции}{107}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Краевые задачи для уравнения Пуассона}{111}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Задача Дирихле}{111}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Задача Неймана}{113}{subsection.2.9.2}%
+\contentsline {section}{\numberline {2.10}Функция Грина для задачи Дирихле}{116}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}Фундаментальное решение уравнения Лапласа}{116}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2}Метод отражений}{118}{subsection.2.10.2}%
+\contentsline {section}{\numberline {2.11}Задача Дирихле в шаре}{119}{section.2.11}%
+\contentsline {subsection}{\numberline {2.11.1}Внешняя задача Дирихле}{124}{subsection.2.11.1}%
+\contentsline {chapter}{\numberline {3}Специальные функции}{126}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Полиномы Лежандра}{126}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Уравнение Лежандра}{126}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Свойства полиномов Лежандра}{127}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Присоединенные функции Лежандра}{130}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Сферические функции}{131}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Оператор Лапласа в сферических координатах}{131}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Сферические функции}{131}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Свойства сферических функций}{131}{subsection.3.2.3}%

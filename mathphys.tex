@@ -441,7 +441,13 @@
 \newcommand{\ubf}[1]{\noindent\textbf{\underline{#1}}}
 \newcommand{\theme}[1]{\noindent\textbf{\underline{#1}}\vskip2mm}
 \newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
-
+\newcounter{strcounter}
+% Команда для нумерованной строки с меткой
+\newcommand{\numberedline}[1]{%
+  \refstepcounter{strcounter}%
+  \makebox[0pt][r]{\thestrcounter\hspace{1em}}% номер справа с отступом
+  \label{#1}%
+}
 % Переопределения греческих букв
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
@@ -463,15 +469,24 @@
 {\Huge\bfseries Конспект по математической физике \par}
 \vspace{0.8cm}
 
-\vspace{1.2cm}
 {\Large Весенний семестр 2026\par}
 
 \vfill
 
-{\large Лектор\par}
+{\large Лекторы\par}
 \vspace{0.2cm}
 {\Large Филонов Николай Дмитриевич\par}
 {\Large Рядовкин Кирилл Сергеевич\par}
+
+\vspace{0.8cm}
+
+{\large \href{https://www.youtube.com/playlist?list=PLfpwmAe9eDRWlyIS1kNfHteBLl4A6B-Ce}
+{Плейлист лекций}}
+\vspace{0.2cm}
+{\normalsize
+
+\par}
+
 \vspace{1.0cm}
 
 {\large Над файлом работали\par}
@@ -480,7 +495,9 @@
 Яков Овсянников\par}
 {\normalsize
 Александр Лозовой\par}
+
 \vspace{1.2cm}
+
 {\large Университет ИТМО\par}
 
 \end{titlepage}
@@ -2443,7 +2460,7 @@ $$\int\limits_\R\widehat{f}(x)\phi(x)\dd x=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\
 Непрерывность: $\phi_k\xrightarrow{\SR}\phi \quad \Rightarrow \quad \widehat{\phi_k}\xrightarrow{\SR}\phi$ (из \ref{sixth}). \\
 Тогда получаем, что $\widehat{\phi}\in\SSR$. \\
 $F: \,\, \SSR\rightarrow\SSR$ - линейный непрерывный опреатор:
-$$f_k\xrightarrow{}f \quad \Rightarrow \quad \widehat{f_k}\xrightarrow{\SSR}\widehat{f}$$
+\lbpn{furie}{$$f_k\xrightarrow{}f \quad \Rightarrow \quad \widehat{f_k}\xrightarrow{\SSR}\widehat{f}$$}
 $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \widehat{\phi})=(\widehat{f}, \phi) \quad \forall \phi\in\SR$$
 \begin{mylemma}
     Пусть $f\in\SSR$, тогда: 
@@ -2465,7 +2482,7 @@ $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \wide
 \end{myproof}
 \begin{myexample}
     1) $(\widehat{\delta}, \phi)=(\delta, \widehat{\phi})=\widehat{\phi}(0)=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\phi(x)\dd x$ \\
-    Тогда $\widehat{\delta}=\dfrac{1}{\sqrt{2\pi}}$ \\
+    Тогда \(\widehat{\delta}=\dfrac{1}{\sqrt{2\pi}}\) \numberedline{line:first} \\
     2) $(\widehat{1}, \phi)=(1, \widehat{\phi})=\int\limits_\R\widehat{\phi}(x)\dd x\underset{\text{обратное Фурье для } \xi=0}{=}\sqrt{2\pi}(\widehat{\phi})\check{}(0)=\sqrt{2\pi}\phi(0)$
     Тогда $\widehat{1}=\sqrt{2\pi}\delta$. \\
     3) \(\theta(x)=\begin{cases}
@@ -3065,7 +3082,7 @@ $$-T\sin\alpha+0+T\sin\alpha_1=\rho \dd x \dfrac{\partial^2 U(t,x)}{\partial t^2
 Тогда получаем следующее решение из \ref{volnasol}: 
 \[U(t,x)=\dfrac{\phi(x+ct)+\phi(x-ct)}{2}+\dfrac{1}{2c}\int\limits_{x-ct}^{x+ct}\psi(y)\dd y - \text{ формула Даламбера}\]
 \begin{mytheorem}
-    Пусть \(\phi\in\C^2(\R), \,\,\psi\in\C(\R) \quad \Rightarrow \quad \exists! \,\,\, U\in\C^2([0, +\infty)\times R)\) - решения задачи \ref{volna} и формула Даламбера явялется выражением для него
+    \lbpn{true}{Пусть \(\phi\in\C^2(\R), \,\,\psi\in\C(\R) \quad \Rightarrow \quad \exists! \,\,\, U\in\C^2([0, +\infty)\times R)\) - решения задачи \ref{volna} и формула Даламбера явялется выражением для него}
 \end{mytheorem}
 Свойства решения: \\
 1) Пусть $\psi\equiv0$: 
@@ -3283,7 +3300,7 @@ G(t,x)=\frac{1}{2c}\,\theta(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr).
 \begin{mytheorem}
     Пусть \(\phi\in\C^2(\R), \psi\in\C^1(\R), f\in\C^1([0,\infty)\times\R)\)
     \[\exists! U\in\C^2([0,\infty)\times\R):\begin{cases}
-        \dfrac{\partial^2 U}{\partial t^2}-c^2\dfrac{\partial^2 U}{\partial x^2}=f, \quad t\leq0, x\in\R \\
+        \dfrac{\partial^2 U}{\partial t^2}-c^2\dfrac{\partial^2 U}{\partial x^2}=f, \quad t\geq0, x\in\R \\
         U\big|_{t=0}=\phi(x), \quad \dfrac{\partial U}{\partial t}\bigg|_{t=0}=\psi(x)
     \end{cases}\]
     \[U=\dfrac{\partial g}{\partial t}\ast\phi+g\ast\psi+G\ast f=\]
@@ -3299,12 +3316,34 @@ G(t,x)=\frac{1}{2c}\,\theta(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr).
    2) \[U_2(t, x)=\int\limits_\R \dfrac{1}{2c}\underbrace{\chi_{[-ct; ct]}(x-y)}_\text{характер. функция}\psi(y)\dd y=\dfrac{1}{2c}\int\limits_{x-ct}^{x+ct}\psi(y)\dd y \quad \Rightarrow\]
    \[\Rightarrow \quad \begin{cases}
     \dfrac{\partial^2 U_2}{\partial t^2}-c^2\dfrac{\partial^2 U_2}{\partial x^2}=0 \\
-    U_2(t=0)=0, \quad \dfrac{\partial U_2}{\partial t}\bigg|_{t=0}=psi(x)
+    U_2(t=0)=0, \quad \dfrac{\partial U_2}{\partial t}\bigg|_{t=0}=\psi(x)
    \end{cases}\]
    \[(U_1+U_2)\text{ - формула Даламбера}\]
    И мы получили решение для нулевой правой части волнового уравнения. Теперь остаётся только $U_3$. \\
+   3) \[U_3(t, x)=\int\limits_{0}^{t}\int\limits_\R g(t-\tau, x-y)f(\tau, y)\dd y\dd \tau=\dfrac{1}{2c}\int\limits_{0}^{t}\int\limits_{x-c(t-\tau)}^{x+c(t-\tau)}f(\tau, y)\dd y\dd \tau\]
+   Тогда: \(U_3\big|_{t=0}=0\)
+   \[\dfrac{\partial U_3}{\partial t}=\dfrac{1}{2c}\int\limits_{0}^{t}\dfrac{\partial}{\partial t}\int\limits_{x-c(t-\tau)}^{x+c(t-\tau)}f(\tau, y)\dd y\dd \tau=\dfrac{1}{2}\int\limits_{0}^{t}\big(f(\tau, x+c(t-\tau))+f(\tau, x-c(t-\tau))\big)\dd \tau\]
+   Здесь мы использовали, что производная по верхнему пределу первого интеграла даст 0 из-за того, что при подстановке $\tau=t$ во втором интеграле обнуляется скобка $(t-\tau)$, поэтмоу останется только производная от переменных пределов второго интеграла. Отсюда видно, что \(\dfrac{\partial U_3}{\partial t}\bigg|_{t=0}=0\) \\
+   \[\dfrac{\partial^2 U_3}{\partial t^2}=f(t,x)+\dfrac{c}{2}\int\limits_{0}^{t}\bigg(\dfrac{\partial f}{\partial x}(\tau, x+c(t-\tau))-\dfrac{\partial f}{\partial x}(\tau, x-c(t-\tau))\bigg)\dd \tau\]
+   \[\dfrac{\partial U_3}{\partial x}=\dfrac{1}{2c}\int\limits_{0}^{t}\big(f(\tau, x+c(t-\tau))-f(\tau, x-c(t-\tau))\big)\dd \tau\]
+   \[\dfrac{\partial^2 U_3}{\partial x^2}=\dfrac{1}{2c}\int\limits_{0}^{t}\bigg(\dfrac{\partial f}{\partial x}(\tau, x+c(t-\tau))-\dfrac{\partial f}{\partial x}(\tau, x-c(t-\tau))\bigg)\dd\tau \quad \Rightarrow\]
+   \[\Rightarrow \quad \dfrac{\partial^2 U_3}{\partial t^2}-c^2\dfrac{\partial^2 U_3}{\partial x^2}=f(t, x)\]
+   !) Пусть $U, \tilde{U}$ - решения. Пусть $V\coloneqq U-\tilde{U} \quad \Rightarrow$
+   \[\Rightarrow \quad \begin{cases}
+    \dfrac{\partial^2 V}{\partial t^2}-c^2\dfrac{\partial^2 V}{\partial x^2}=0 \\
+    V\big|_{t=0}=0, \quad \dfrac{\partial V}{\partial t}\bigg|_{t=0}=0
+   \end{cases}\]
+   Тогда получим по \ref{true}, что $V\equiv0$ (из формулы Даламбера с 0 начальными условиями) - единсвтенное решение данной задачи.
 \end{myproof}
-
+\begin{myexe}
+    1) Для теоремы выше проверить, что \(U\in\C^2([0,\infty)\times\R\) \\
+    2) Решить такую задачу: 
+    \[\begin{cases}
+        \dfrac{\partial^2 U}{\partial t^2}-c^2\dfrac{\partial^2 U}{\partial x^2}=0, \quad t\geq0, x\geq 0 \\
+        U\big|_{t=0}=\phi(x), \quad \dfrac{\partial U}{\partial t}\bigg|_{t=0}=\psi(x) \\ 
+        U\big|_{x=0}=\mu(t)
+    \end{cases}\]
+\end{myexe}
 
 
 
@@ -3335,7 +3374,7 @@ G(t,x)=\frac{1}{2c}\,\theta(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr).
     \item Возьмем предел при $\varepsilon \rightarrow 0 $
 \end{enumerate}
 
-Как и сказали выше, сделаем преобразование фурье по $x$:
+1. Как и сказали выше, сделаем преобразование фурье по $x$:
 $\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi^2_2+\xi^2_3$, 
  наше уравнение перепишется в виде:
 \[
@@ -3349,10 +3388,18 @@ $\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi
 
 Подставляя начальные условия для нахождения констант, получаем:
 \[
-\hat{g}\Big|_{t=0} = 0 \ \Rightarrow \ A = 0, \quad \dfrac{\p \hat{g}}{\p t} = Bc|\xi|\cos(c|\xi|t) \ \Rightarrow \ Bc|\xi| = \dfrac{1}{(2\pi)^{3/2}}
+\hat{g}\Big|_{t=0} = 0 \ \Rightarrow \ A = 0, \quad \dfrac{\p \hat{g}}{\p t} = Bc|\xi|\cos(c|\xi|t) \ \Rightarrow \ Bc|\xi| = \dfrac{1}{(2\pi)^{3/2}}(\ref{line:first}) \ \Rightarrow \hat{g}(t,\xi)=\dfrac{\sin(c|\xi|t)}{(2\pi)^{3/2}c|\xi|}
 \]
-
-
+Тогда понятно, что \(\hat{g}(t, \cdot)\in\Cinf(\R^3)\), на бесонечности она убывает, \(\hat{g}(t, \cdot)\in\mathcal{S}'(\R^3)\). Но она не интегрируема из-за того что степень знаменателя должнаа быть больше размерности, но у нас она единица, поэтому \(\hat{g(t,\cdot)}\notin L_1(\R^3)\). Будем это исправлять. \\
+2. Пусть \(\epsilon>0: \quad \hat{g}_\epsilon(t,\xi)=\hat{g}(t,\xi)e^{-\epsilon|\xi|}\). Тогда не трудно догадаться: 
+\[\hat{g}_\epsilon\xrightarrow{\mathcal{S}'}\hat{g} \quad \Leftrightarrow \quad \int\limits_{\R^3}\hat{g}(t,\xi)e^{-\epsilon|\xi|}\phi(\xi)\dd \xi\xrightarrow[\epsilon\to 0]{}\int\limits_{\R^3} \hat{g}(t, \xi)\phi(\xi)\dd \xi \quad \forall \phi\in\mathcal{S}(\R^3)\]
+Из \ref{furie} следует, что \(g_\epsilon\xrightarrow{\mathcal{S}'}g\)
+\[g_\epsilon(t,x)=\dfrac{1}{(2\pi)^{3/2}}\int\limits_\R^3e^{i\xi x}\dfrac{\sin(c|\xi|t)}{(2\pi)^{3/2}c|\xi|}e^{-\epsilon|\xi|}\dd \xi\underset{S=(\rho,\theta,\phi)}{=}\dfrac{1}{(2\pi)^3}\int\limits_{0}^{\infty}\int\limits_{0}^{\pi}\int\limits_{0}^{2\pi}e^{i|x|\rho\cos\theta}\dfrac{\sin(c\rho t)}{c\rho}e^{-\epsilon\rho}\rho^2\sin\theta\dd \rho\dd \theta \dd \phi=\]
+\[=\dfrac{1}{4\pi^2 c}\int\limits_{0}^{\infty}\int\limits_{0}^{\pi}\sin(c\rho t)e^{-\epsilon\rho}e^{i|x|\rho\cos\theta}\rho\sin\theta\dd \theta \dd \rho\circled{=}\]
+Рассмотрим \(\int\limits_{0}^{\pi}e^{i|x|\rho\cos\theta}\rho\sin\theta\dd \theta=\dfrac{-e^{i|x|\rho\cos\theta}}{i|x|}\bigg|_{0}^{\pi}=\dfrac{e^{i|x|\rho}-e^{-i|x|\rho}}{i|x|}=\dfrac{2\sin(|x|\rho)}{|x|}\)
+\[\circled{=}\dfrac{1}{2\pi^2c|x|}\int\limits_{0}^{\infty}e^{-\epsilon\rho}\sin(c\rho t)\sin(|x|\rho)\dd \rho=\dfrac{1}{4\pi^2 c|x|}\int\limits_{0}^{\infty}e^{-\epsilon\rho}\big(\cos((ct-|x|)\rho)-\cos((ct+|x|)\rho)\big)\dd \rho\circled{=}\]
+\(\int\limits_{0}^{\infty}e^{-\epsilon\rho}\cos(\alpha\rho)\dd \rho=\operatorname{Re}\bigg(\int\limits_{0}^{\infty}e^{-\epsilon\rho}e^{i\alpha\rho}\dd \rho\bigg)=\operatorname{Re}\dfrac{1}{\epsilon-i\alpha}=\dfrac{\varepsilon}{\varepsilon^2+\alpha^2}\)
+\[\circled{=}\dfrac{1}{4\pi^2c|x|}\bigg(\dfrac{\epsilon}{\epsilon^2+(ct-|x|)^2}-\dfrac{\epsilon}{\epsilon^2+(ct+|x|)^2}\bigg)\]
 
 
 

@@ -1995,7 +1995,7 @@ $\DR$ состоит из гладких функций с \emph{компакт�
 
 Итак, $e^{-x^2}\in S(\R)\setminus\DR$.
 \end{myexe}
-\begin{mydef}
+\begin{mydef} \label{1.9}
     $$\phi_k\xrightarrow{\SR}\phi \quad\Leftrightarrow\quad \forall l,m\in \N_0 \,\,\,\, x^l\phi^{(m)}_k(x)\rightarrow x^l\phi^{(m)}(x)\text{ равномерно на } \R$$
 \end{mydef}
 $\SR$ - метризуемо. Доказательство состоит из двух упражнений: 
@@ -2551,7 +2551,7 @@ $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \wide
 
 2)
 
-Рассмотрим сначала гауссовский интеграл при $\Re a>0$:
+Рассмотрим сначала гауссовский интеграл при $\operatorname{Re} a>0$:
 \[
 I(a,\xi)=\frac1{\sqrt{2\pi}}\int_{\mathbb R} e^{-a x^2}e^{-ix\xi}\,dx.
 \]
@@ -2616,7 +2616,7 @@ $\int\limits_\R(f\ast\phi)\psi\dd x=\int\limits_\R\int\limits_\R f(y)\phi(x-y)\p
 \begin{myexe}
     $\phi\in\SR, \quad \psi_k\xrightarrow{\SR}0 \quad \Rightarrow \quad \phi\ast\psi_k\xrightarrow{\SR}0$\\
     $f\ast\psi\in\SSR$\\
-По определению сходимости в $\SR$ (Определение 1.9),
+По определению сходимости в $\SR$ (Определение 1.9 \eqref{1.9}),
 условие $\varphi * \psi_k \to 0$ в $\SR$ эквивалентно тому, что
 для любых целых $l,m \ge 0$
 \[
@@ -2741,7 +2741,7 @@ A_{l,m} \sup_{t} |\psi_k(t)|
 \medskip
 
 
-Поскольку $\psi_k \xrightarrow{\SR} 0$, по определению 1.9
+Поскольку $\psi_k \xrightarrow{\SR} 0$, по определению 1.9\eqref{1.9}
 для каждого фиксированного $l$ выполнены равномерные сходимости
 \[
 \sup_{t \in \R} |\psi_k(t)| \longrightarrow 0,
@@ -2757,7 +2757,7 @@ A_{l,m} \sup_{t} |\psi_k(t)|
 \quad \text{для всех } l,m \in \N_0.
 \]
 
-По определению 1.9 это означает, что
+По определению 1.9 \eqref{1.9} это означает, что
 \[
 \varphi * \psi_k \xrightarrow{\SR} 0.
 \]
@@ -2771,7 +2771,7 @@ A_{l,m} \sup_{t} |\psi_k(t)|
 \[
 (f * \varphi)(x) = (f,\varphi(x-\cdot)),
 \]
-где $(f,\psi)$ обозначает действие распределения $f$ на тест‑функцию
+где $(f,\psi)$ обозначает действие распределения $f$ на пробную функцию
 $\psi \in \SR$.
 
 Рассмотрим отображение
@@ -2898,8 +2898,8 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 \[\dfrac{\partial U(x)}{\partial x_i}=\sum\limits_{k=1}^{n}\dfrac{\partial V(y(x))}{\partial y_k}\dfrac{\partial y_k(x)}{\partial x_i}\]
 \[\dfrac{\partial^2 U(x)}{\partial x_i\partial x_j}=\sum\limits_{k, l=1}^{n}\dfrac{\partial^2 V(y(x))}{\partial y_k\partial y_l}\dfrac{\partial y_k(x)}{\partial x_i}\dfrac{\partial y_l(x)}{\partial x_j}+\sum\limits_{k=1}^{n}\dfrac{\partial V(y(x))}{\partial y_k}\dfrac{\partial^2 y_k(x)}{\partial x_i\partial x_j}\]
 Тогда $\ref{eight}$ превращается в:
-\[\sum\limits_{k,l=1}^{n}A_{kl}(y)\dfrac{\partial^2V(y)}{\partial y_k \partial y_l}+\sum\limits_{k=1}^{n}B_k(y)\dfrac{\partial V(y)}{\partial y_k}+C(y)V(y)=F(y)\]
-, где $A_{kl}(y)=\sum\limits_{i,j=1}^{n}a_{ij}(x)\dfrac{\partial y_k(x)}{\partial x_i}\dfrac{\partial y_l(x)}{\partial x_j}; \quad \Y_{ki}=\dfrac{\partial y_k}{\partial x_i}$ \\
+\[\sum\limits_{k,l=1}^{n}A_{kl}(y)\dfrac{\partial^2V(y)}{\partial y_k \partial y_l}+\sum\limits_{k=1}^{n}B_k(y)\dfrac{\partial V(y)}{\partial y_k}+C(y)V(y)=F(y),\]
+ где $A_{kl}(y)=\sum\limits_{i,j=1}^{n}a_{ij}(x)\dfrac{\partial y_k(x)}{\partial x_i}\dfrac{\partial y_l(x)}{\partial x_j}; \quad \Y_{ki}=\dfrac{\partial y_k}{\partial x_i}$ \\
 Тогда $A_{kl}(y)=\Y_{ki}a_{ij}\Y^T_{jl}$, в матричном виде: $A(y)=\Y a(x)\Y^T$, $\det \Y\neq0$. \\
 Вообще говоря, в симметричной матрице при домножении слева и справа на матрицу (невырожденную), то количество отрицательных, положительных, нулевый собственных чисел сохраняется (всего $n=n_+ +n_- +n_0$ собстввенных чисел по размерности пространства)(\href{https://en.wikipedia.org/wiki/Matrix_congruence}{Конгруэнтность}).\\Тогда мы сведём уравнение, c помощью диагонализации матрицы к:
 \[\sum\limits_{k=1}^{n_+}\dfrac{\partial^2 V}{\partial y^2_k}-\sum\limits_{k=n_+ +1}^{n_+ + n_-}\dfrac{\partial^2 V}{\partial y^2_k}\] 
@@ -2911,14 +2911,14 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 Так же к эллиптическим мы будем относить и отрицательно определённую матрицу, т.е. матрицу у которой собственные числа: $n_-=n, \,\,\, n_+=n_0=0$
 \end{mydef}
 \begin{mydef}
-    \[\dfrac{\partial U}{\partial t}-\LL U = f - \text{ параболическое}\]
-    , где $\LL$ - эллиптический по $x$ (положительно определённый). Теперь все константы зависят от $t\in\R$, т.е.
-    $$a(t, x); \,\, b(t,x); \,\, c(t,x); \,\, f(t,x)$$
-    Так же мы получаем, что $n_0=1 \text{ (нет вторых производных)}, n_+=0 \text{ (с минусом оператор)}$. 
+    \[\dfrac{\partial U}{\partial t}-\LL U = f - \text{ параболическое},\]
+     где $\LL$ - эллиптический по $x$ (положительно определённый). Теперь все константы зависят от $t\in\R$, т.е.
+    $$a(t, x); b(t,x); c(t,x); f(t,x)$$
+    Так же мы получаем, что $n_{0}=1 \,\text{(нет вторых производных)},$$ n_+=0 \text{ (с минусом оператор)}$. 
 \end{mydef}
 \begin{mydef}
-    \[\dfrac{\partial^2 U}{\partial t^2}-\LL U=f - \text{ гиперболическое}\]
-    , где $\LL$ - эллиптический по $x$ (положительно определённый). Собственные числа: $n_+=1, \,\, n_0=0$
+    \[\dfrac{\partial^2 U}{\partial t^2}-\LL U=f - \text{ гиперболическое},\]
+     где $\LL$ - эллиптический по $x$ (положительно определённый). Собственные числа: $n_+=1, \,\, n_0=0$
 \end{mydef}
 \begin{myremark}
     1) $n=2, \quad a(x):\,\,\,\, \lambda_1, \,\, \lambda_2$
@@ -2935,7 +2935,7 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 2)\[y\dfrac{\partial^2 U}{\partial x^2}+\dfrac{\partial^2 U}{\partial y^2}=0 - \text{ меняется тип уравнения}\]
 \begin{tikzpicture}[scale=1.2]
   
-  \draw[->] (-3,0) -- (3,0) node[below right] {$x$};
+  \draw[->] (-2,0) -- (3,0) node[below right] {$x$};
   \draw[->] (0,-2) -- (0,2) node[left] {$y$};
 
   \node[above] at (0,0.3) {эллиптическое};
@@ -3092,7 +3092,7 @@ $$-T\sin\alpha+0+T\sin\alpha_1=\rho \dd x \dfrac{\partial^2 U(t,x)}{\partial t^2
         \caption{}
         \label{fig:enter-label}
 \end{figure} 
-Здесь на кртинке пики как бы смещаются на $ct$ влево и вправо и еще в 2 рааз уменьшаются.\\
+Здесь на картинке пики как бы смещаются на $ct$ влево и вправо и еще в 2 рааз уменьшаются.\\
 $\supp \phi\subset[a, b]$
 \begin{figure}[H]
         \centering
@@ -3706,7 +3706,47 @@ u(t,x) = \dfrac{\dd}{\dd t}\skobka{\dfrac{1}{4\pi c^2t}\int\limits_{S_{ct}(x)=|x
     \item $d_1=\operatorname{dist}(x_2,K)$
     \item $d_2=\max\limits_{y\in K}|x-y|$
  \end{enumerate}
- Ясно, что если $t<\dfrac{d_1}{c} \Rightarrow u(t,x)=0$, аналогично $t>\dfrac{d_2}{c}\Rightarrow u(t,x)=0$. СЮДА КРАСИВОЕ ФОТО РИСУНКА КАК В КОНСПЕКТЕ.
+ Ясно, что если $t<\dfrac{d_1}{c} \Rightarrow u(t,x)=0$, аналогично $t>\dfrac{d_2}{c}\Rightarrow u(t,x)=0$. 
+\begin{center}
+\begin{tikzpicture}[scale=0.65]
+
+    % светлая сетка
+
+    % область K
+    \fill[gray!15] (0,0) ellipse (3 and 1.8);
+    \draw[thick] (0,0) ellipse (3 and 1.8);
+
+    % внешние фронты
+    \draw[blue, thick] (0,0) ellipse (4.0 and 2.6);
+    \draw[blue, thick] (0,0) ellipse (5.2 and 3.4);
+
+    % метка K
+    \node at (0,0) {\Huge $K$};
+
+    % точки на границе K
+    \coordinate (A) at (-2.9,0.25);
+    \coordinate (B) at (2.65,-0.75);
+
+    % точка x
+    \coordinate (X) at (8.2,-4.2);
+
+    % линии расстояний
+    \draw[thick] (A) -- (X);
+    \draw[thick] (B) -- (X);
+
+    % точки
+    \fill (A) circle (2.5pt);
+    \fill (B) circle (2.5pt);
+    \fill (X) circle (2.5pt);
+
+    % подписи
+    \node[below right] at (X) {\Huge $x$};
+    \node[right] at (4.6,-1.5) {\Huge $d_1$};
+    \node[below] at (4,-2.6) {\Huge $d_2$};
+
+\end{tikzpicture}
+\end{center}
+
 
 \textbf{Передним фронтои волны} называется следующее множество:
 \[
@@ -3759,7 +3799,7 @@ y(a)=y(b)=0
     Краевые условия могут быть записаны в нескольких знамых нам видах:\\
     условие Дирихле: $y(a)=A, \ y(b)=B$\\
     условие Неймана: $y'(a)=A, \ y'(b)=B$\\
-В самом общем виде можно рассматривать смешанные условия(ПРОВЕРИТЬ УСЛВОИЯ В КОНСПЕКТЕ):
+В самом общем виде можно рассматривать смешанные условия:
 \[\begin{cases}
 \alpha_0y(a)+\alpha_1y'(a)=A\\
 \beta_0y(b)+\beta_1y'(b)=B 
@@ -3896,7 +3936,7 @@ G(t,x) =
 \end{myproof}
 
 \subsection{Примеры}
-
+\begin{myexample}
 \begin{enumerate}
     \item Пусть $[a,b]=[0,l]$ и рассмотрим задачу:
     \[
@@ -3961,10 +4001,20 @@ G(t,x) =
 
     В таком случае, если существует $y$, то $\int\limits_{a}^{b}f(x)\phi(x)\dd x = 0$ -- \textit{необходимое условие разрешимостию}
 \end{enumerate}
-
-
+\end{myexample}
 \begin{myremark}
-    ТУТ ЗАМЕТКА ПРО ЛИНАЛ
+    \textit{Линейная алгебра за 5 минут}\\
+    Рассматриваем матрицу $A\in Mat(n\times n)$ и уравнение:
+    \[A\vec{x}-\lambda\vec{x} = \vec{b}, \quad \vec{b},\vec{x}\in\C^n,\] тогда
+    \begin{enumerate}
+        \item Если $\lambda \not\in \operatorname{spec} A \Rightarrow \forall \vec{b} \in \C^n \ \exists! \vec{x}\in\C^n: A\vec{x}-\lambda\vec{x} = \vec{b}$ и надо просто посчитать такой определитель:
+        \[\operatorname{det}(A - \lambda I)\]
+        \item Если $\lambda \in \operatorname{spec} A \Rightarrow$ решение существует при условии разрешимости на правую часть, если существует, то их бесконечно много.
+        \\
+        Если у нас есть базис из собственных векторов, $A\vec{u_k}=\lambda \vec{u_k}$, то мы все можем разлodить по этому базису:
+        \[\vec{x} = \sum_{k=1}^n x_k \vec{u_k}\]
+        \[A\vec{x}=\sum_{k=1}^n x_k \lambda_k \vec{u_k}\]
+    \end{enumerate}
 \end{myremark}
 У нас появился линеный оператор $L := \dfrac{\dd^2 }{\dd^2 x} + p_1(x)\dfrac{\dd }{\dd x} + p_2(x),$ где $\{\lambda_k\}_{k=1}^{\infty}$ -- собственные числа и $y_k=\sin(\frac{\pi k x}{l})$ -- собственные функции. 
 
@@ -4160,7 +4210,7 @@ y'' + p_1y' + p_2y = 0,
     \[\begin{cases}
         y(x_0)=0\\
         y'(x_0)=0
-    \end{cases} \Rightarrow \text{по теореме о существование единственного \\решения (мб тут ссылку на теорему или что-то)} \Rightarrow y \equiv 0
+    \end{cases} \Rightarrow \text{по теореме о существование единственного решения} \Rightarrow y \equiv 0
     \]
 \end{myproof}
 
@@ -4307,7 +4357,7 @@ $y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных �
 
 Если рассмотреть похожую задачу, но вместо условия $y(\pi)=0$ будем иметь условие $y'(0)=1$, тогда решение 
 будет иметь вид:
-\[\psi = \dfrac{\sin(\sqrt{\lambda}y)}{\sqrt{\lambda}}\] (ТУТ НАДО НАПИСАТЬ КАК-ТО НОРМАЛЬНО ПРО ЛЯМБДЫ И ЭТОТ ПРИМЕР, КОТОРЫЙ РЯДОВКИН РИСОВАЛ)
+\[\psi = \dfrac{\sin(\sqrt{\lambda}y)}{\sqrt{\lambda}}\] %(ТУТ НАДО НАПИСАТЬ КАК-ТО НОРМАЛЬНО ПРО ЛЯМБДЫ И ЭТОТ ПРИМЕР, КОТОРЫЙ РЯДОВКИН РИСОВАЛ)
 
 \begin{myexe}
     Показать, что для задачи с $p = r\equiv1$ и $q\in C([0,\pi])$ на отрезке $[0,\pi]$:
@@ -5675,6 +5725,9 @@ K(x,y) = \skobka{\nabla_yg,-\dfrac{y}{R}} = -\dfrac{R^2 - |x^2|}{\varkappa_nR|x-
     \[\nabla_x\dfrac{|x|^2-R^2}{|x-y|^3}\]
 \end{myexe}
 
+\begin{comment}
+
+
 
 
 \chapter{Специальные функции}
@@ -5898,6 +5951,6 @@ P_{n}^m(x) = (1-x^2)^{m/2}\dfrac{\dd^m}{\dd x^m}P_n(x)б
 
 \subsection{Свойства сферических функций}
 
-
-
+%%%
+\end{comment}
 \end{document}

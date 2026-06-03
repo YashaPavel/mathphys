@@ -4393,16 +4393,226 @@ $y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных �
 \end{cases}
 \]
 
-Мы имееем бесконечный набор положительных собстенных чисел $\lambda_n \xrightarrow[n\to0] \ +\infty$ и соответсвующих им собственных функций $y_n$, набор которых полон в $\L_2([a,b])$.
+Мы имееем бесконечный набор положительных собстенных чисел $\lambda_n \xrightarrow[n\to0] \ +\infty$ и соответсвующих им собственных функций $y_n$, набор которых полон. Другими словами:$\forall f\in\L_2([a,b]),$ в разложении ряд сходиться, то есть $$\int\limits_{a}^{b}\Bigg|f(x)-\sum_{n=1}^{k}f_n(t)y_n(x)\Bigg|^2\dd x \xrightarrow{k \to \infty} 0 \quad \text{ в }\L_2([a,b])$$ или же:
+\[g\in\L_2([a,b]): g \perp y_n \ \ \forall n \Rightarrow g\equiv0\]
 Функция считается нормированной, если:
 \[||y_||_{\L_2[a,b]}=1 \Leftrightarrow \int y^2_n(x)=1\]
-Таким образом, каждую функцию мы можем разлодить в ряд фурье по собсвтенным функциям $y_n$:
+Таким образом, каждую функцию мы можем разлoжить в ряд фурье по собсвтенным функциям $y_n$:
 \[f(x,t)=\sum\limits_{n=1}^{\infty}y_n(x)f_n(t)\]
 \[\phi(x,t)=\sum\limits_{n=1}^{\infty}y_n(x)\phi_n\]
 \[\psi(x,t)=\sum\limits_{n=1}^{\infty}y_n(x)\psi_n\]
 \begin{myremark}
-    
+Чем глаже функция, тем быстрее убывают её коэффициенты Фурье. Например,
+если
+\[
+f\in C^n[a,b],
+\]
+то существует такое число $M\in\mathbb{N}$, что при всех $m>M$
+\[
+|f_m|<\dfrac{C}{m^n}
+\]
 \end{myremark}
+Ищем решение нашей задачи в виде ряда:
+\[
+u(x,t)=\sum_{n=1}^{\infty} u_n(t)y_n(x)
+\]
+
+Тогда:
+\[
+\dfrac{\partial^2 u}{\partial t^2}
+=
+\sum_{n=1}^{\infty} \ddot u_n(t)y_n(x)
+\]
+
+Также, используя задачу на собственные значения, получаем:
+\[
+-\left(
+p(x)\sum_{n=1}^{\infty}u_n(t)y_n'(x)
+\right)'
+=
+\sum_{n=1}^{\infty}u_n(t)\lambda_n y_n(x)
+\]
+
+Подставляя разложение в исходное уравнение, имеем:
+\[
+\sum_{n=1}^{\infty}\ddot u_n(t)y_n(x)
+=
+-\sum_{n=1}^{\infty}u_n(t)\lambda_n y_n(x)
++
+\sum_{n=1}^{\infty}y_n(x)f_n(t)
+\]
+
+Отсюда:
+\[
+\sum_{n=1}^{\infty}
+y_n(x)
+\left(
+\ddot u_n(t)+\lambda_n u_n(t)-f_n(t)
+\right)
+=0
+\]
+
+В силу полноты системы $\{y_n\}$, получаем для каждого $n\in\mathbb{N}$
+обыкновенное дифференциальное уравнение:
+\[
+\ddot u_n(t)+\lambda_n u_n(t)-f_n(t)=0.
+\]
+
+Начальные условия также раскладываются по собственных функций:
+\[
+\sum_{n=1}^{\infty}u_n(0)y_n(x)
+=
+\sum_{n=1}^{\infty}\varphi_n y_n(x)
+\Rightarrow
+u_n(0)=\varphi_n
+\]
+
+Аналогично:
+\[
+\sum_{n=1}^{\infty}\dot u_n(0)y_n(x)
+=
+\sum_{n=1}^{\infty}\psi_n y_n(x)
+\Rightarrow
+\dot u_n(0)=\psi_n
+\]
+
+Таким образом, для каждого $n$ нужно решить задачу Коши:
+\[
+\begin{cases}
+\ddot u_n(t)+\lambda_n u_n(t)=f_n(t)
+\\[0.5em]
+u_n(0)=\varphi_n
+\\[0.5em]
+\dot u_n(0)=\psi_n
+\end{cases}
+\]
+
+Рассмотрим вспомогательную задачу для $ \lambda>0$:
+\[
+\begin{cases}
+\ddot g(t)+\lambda g(t)=0
+\\[0.5em]
+g(0)=0
+\\[0.5em]
+\dot g(0)=1
+\end{cases}
+\]
+
+Её решение мы знаем:
+\[
+g(t)=\dfrac{1}{\sqrt{\lambda}}\sin(\sqrt{\lambda}\,t)
+\]
+
+Тогда решение задачи:
+\[
+\begin{cases}
+\ddot u(t)+\lambda u(t)=f(t)
+\\[0.5em]
+u(0)=\varphi
+\\[0.5em]
+\dot u(0)=\psi
+\end{cases}
+\]
+выглядит так:
+\[
+u(t)
+=
+\dot g(t)\varphi
++
+g(t)\psi
++
+\int_0^t g(t-\tau)f(\tau)\,\dd \tau
+\]
+
+Заметим, что:
+\[
+\dot g(t)=\cos(\sqrt{\lambda}\,t),
+\]
+тогда получаем для коэффициентов $u_n(t)$:
+\[
+u_n(t)
+=
+\cos(\sqrt{\lambda_n}\,t)\varphi_n
++
+\dfrac{\sin(\sqrt{\lambda_n}\,t)}{\sqrt{\lambda_n}}\psi_n
++
+\int_0^t
+\dfrac{\sin(\sqrt{\lambda_n}(t-\tau))}{\sqrt{\lambda_n}}
+f_n(\tau)\,\dd \tau
+\]
+
+Следовательно, решение исходной задачи имеет вид:
+\[
+u(x,t)
+=
+\sum_{n=1}^{\infty}
+u_n(t)y_n(x)
+\]
+
+
+\subsection{Пример: однородная струна}
+
+Рассмотрим частный случай однородной струны длины $\ell$ с закреплёнными
+концами. Пусть струну оттянули и отпустили, то есть начальная скорость
+равна нулю. Тогда:
+\[
+\begin{cases}
+\dfrac{\partial^2 u(x,t)}{\partial t^2}
+=
+c^2\dfrac{\partial^2 u(x,t)}{\partial x^2}
+\\[1em]
+u(0,t)=u(\ell,t)=0
+\\[0.5em]
+u(x,0)=\varphi(x)
+\\[0.5em]
+\dfrac{\partial u(x,t)}{\partial t}\bigg|_{t=0}=0
+\end{cases}
+\]
+
+Соответствующая задача на собственные значения:
+\[
+\begin{cases}
+-\left(c^2y'(x)\right)'=\lambda y(x)
+\\[0.5em]
+y(0)=y(\ell)=0
+\end{cases}
+\]
+
+Так как $c=\operatorname{const}$, получим:
+\[
+-c^2y''(x)=\lambda y(x)
+\]
+
+Собственные значения равны:
+\[
+\lambda_n=\dfrac{n^2\pi^2c^2}{\ell^2},
+\qquad n=1,2,\ldots
+\]
+
+Собственные функции имеют вид:
+\[
+y_n(x)=\sin\left(\dfrac{n\pi x}{\ell}\right)
+\]
+
+Так как начальная скорость равна нулю и внешняя сила отсутствует, получаем:
+\[
+u_n(t)
+=
+\cos\left(\dfrac{n\pi c}{\ell}t\right)\varphi_n
+\]
+
+Следовательно,
+\[
+u(x,t)
+=
+\sum_{n=1}^{\infty}
+\varphi_n
+\cos\left(\dfrac{n\pi c}{\ell}t\right)
+\sin\left(\dfrac{n\pi x}{\ell}\right)
+\]
+
+Здесь $c$~--- скорость распространения механических волн в струне, то есть
+скорость звука в данной среде.
 
 
 
@@ -5726,10 +5936,6 @@ K(x,y) = \skobka{\nabla_yg,-\dfrac{y}{R}} = -\dfrac{R^2 - |x^2|}{\varkappa_nR|x-
 \end{myexe}
 
 \begin{comment}
-
-
-
-
 \chapter{Специальные функции}
 \section{Полиномы Лежандра}
 \subsection{Уравнение Лежандра}

@@ -582,7 +582,7 @@ e^{\frac{1}{x^2-1}}, & |x|<1\\[0.5em]
 
 \begin{myexe}
     Доказать что $\varphi(x)\in \DR$. \\
-$\supp\phi={x: |x|<1}$, его замыкание даёт [-1; 1], что является компактным множеством. $\dfrac{1}{x^2-1}$ - гладкая на (-1, 1), поэтмоу экспонента тоже гладкая, значит $\in\Cinf(\R)$.
+$\supp\phi={x: |x|<1}$, его замыкание даёт [-1; 1], что является компактным множеством. $\dfrac{1}{x^2-1}$ - гладкая на (-1, 1), поэтому экспонента тоже гладкая, значит $\in\Cinf(\R)$.
 
 \end{myexe}
 Тогда ясно, что $\DR$ -- линейное пространство
@@ -596,12 +596,14 @@ $\supp\phi={x: |x|<1}$, его замыкание даёт [-1; 1], что яв�
 
 \begin{myexe}
     Показать что $\DR$ -- не метризуемо, т.е. $\nexists \rho$ -- метрики: $\rho(\varphi_k,\varphi) \rightarrow0 \Leftrightarrow \varphi_k \xrightarrow{\DR} \varphi$
+\begin{comment}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\linewidth]{pics/0.png}
         \caption{}
         \label{fig:enter-label}
 \end{figure}
+\end{comment}
 \end{myexe}
 
 
@@ -749,7 +751,7 @@ $(f,\lambda\varphi+\mu\psi)=\lambda(f,\varphi)+\mu(f,\psi)$ для $\forall \lam
 \subsection{Регулярные и сингулярные обобщенные функции}
 \lbpa{zero}{$f\in L_{1,loc}$ -- измеримая по Лебегу функция. $\int\limits_{a}^{b}\left|f(x)\right| \dd x< \infty$.} Тогда $\Tilde{f}$ -- функционал такой что:
 \[(\Tilde{f},\varphi)=\int\limits_{\R}f(x)\varphi(x)\dd x \, - \text{линейный функционал на }\DR\Rightarrow \supp{\varphi_k} \subset [-R,R]\]
-\[\varphi_k\xrightarrow{\DR}0\Rightarrow|(\Tilde{f},\varphi)|\leq \int\limits_{-R}^{R}f(x)|\varphi_k(x)|\dd x\leq \int\limits_{-R}^{R}|f(x)|\max_{x \in [-R,R]}|\varphi_k'|\rightarrow0\]
+\[\varphi_k\xrightarrow{\DR}0\Rightarrow|(\Tilde{f},\varphi)|\leq \int\limits_{-R}^{R}f(x)|\varphi_k(x)|\dd x\leq \int\limits_{-R}^{R}|f(x)|\max_{x \in [-R,R]}|\varphi_k|\dd x\rightarrow0\]
 Видно, что функция непрерывна в нуле $\Rightarrow$ непрерывна везде $\Rightarrow \Tilde{f}\in \DDR$ 
 
 \begin{mydef}
@@ -837,14 +839,14 @@ $\PP$ -- сингулярная обобщенная функция.
     Показать что функция $\px{x}$ -- сингулярная обобщенная функция
 Пусть $\varphi \in \DR$ и
 \[
-\psi(x) = x \varphi(x) \in \DR.
+\psi(x) = x \varphi(x) \in \DR
 \]
 
-По определению распределения $\dfrac{1}{x+i0}$ имеем
+По формуле Сохоцкого $\dfrac{1}{x+i0}$ имеем
 \[
 \left\langle \frac{1}{x+i0}, \psi \right\rangle
-= \operatorname{v.p.} \int\limits_{\R} \frac{\psi(x)}{x}\,dx
-= \operatorname{v.p.} \int\limits_{\R} \varphi(x)\,dx .
+= \operatorname{v.p.} \int\limits_{\R} \frac{\psi(x)}{x}\,\dd x
+= \operatorname{v.p.} \int\limits_{\R} \varphi(x)\,\dd x 
 \]
 
 Предположим, что $\dfrac{1}{x+i0}$ является регулярной обобщённой
@@ -852,22 +854,22 @@ $\PP$ -- сингулярная обобщенная функция.
 такая, что
 \[
 \left\langle \frac{1}{x+i0}, \psi \right\rangle
-= \int\limits_{\R} f(x)\,\psi(x)\,dx
-= \int\limits_{\R} f(x)\,x\varphi(x)\,dx
-\quad \forall\,\varphi \in \DR.
+= \int\limits_{\R} f(x)\,\psi(x)\,\dd x 
+= \int\limits_{\R} f(x)\,x\varphi(x)\,\dd x 
+\quad \forall\,\varphi \in \DR
 \]
 
 С другой стороны,
 \[
 \left\langle \frac{1}{x+i0}, \psi \right\rangle
-= \operatorname{v.p.} \int\limits_{\R} \varphi(x)\,dx .
+= \operatorname{v.p.} \int\limits_{\R} \varphi(x)\,\dd x 
 \]
 
 Следовательно, для всех $\varphi \in \DR$ выполнено равенство
 функционалов
 \[
-\operatorname{v.p.} \int\limits_{\R} \varphi(x)\,dx
-= \int\limits_{\R} x f(x)\,\varphi(x)\,dx .
+\operatorname{v.p.} \int\limits_{\R} \varphi(x)\,\dd x
+= \int\limits_{\R} x f(x)\,\varphi(x)\,\dd x 
 \]
 
 Поскольку $\varphi$ произвольна, отсюда следует
@@ -876,12 +878,12 @@ x f(x) = 1 \quad \text{п.\,в. на } \R,
 \]
 то есть
 \[
-f(x) = \frac{1}{x} \quad \text{п.\,в. на } \R \setminus \{0\}.
+f(x) = \frac{1}{x} \quad \text{п.\,в. на } \R \setminus \{0\}
 \]
 
 Однако $\dfrac{1}{x} \notin L_{1, loc}(\R)$, так как
 \[
-\int\limits_{-1}^{1} \left|\frac{1}{x}\right|\,dx = +\infty .
+\int\limits_{-1}^{1} \left|\frac{1}{x}\right|\,\dd x = +\infty 
 \]
 
 Получили противоречие с предположением $f \in L_{1,loc}(\R)$.
@@ -932,26 +934,26 @@ g(x) \ge \varepsilon \quad \text{на интервале } (a-\delta,a+\delta)
 
 Тогда, учитывая, что $\varphi(x)=0$ вне $[a-\delta,a+\delta]$, получаем
 \[
-\int\limits_{\R} g(x)\varphi(x)\,dx
+\int\limits_{\R} g(x)\varphi(x)\,\dd x 
 =
-\int\limits_{a-\delta}^{a+\delta} g(x)\varphi(x)\,dx.
+\int\limits_{a-\delta}^{a+\delta} g(x)\varphi(x)\,\dd x 
 \]
 
 Так как $g(x)\ge\varepsilon$ на $(a-\delta,a+\delta)$ и
 $\varphi(x)\ge 0$ на всём $[a-\delta,a+\delta]$, имеем оценку
 \[
-\int\limits_{a-\delta}^{a+\delta} g(x)\varphi(x)\,dx
+\int\limits_{a-\delta}^{a+\delta} g(x)\varphi(x)\,\dd x 
 \;\ge\;
-\int\limits_{a-\delta}^{a+\delta} \varepsilon\,\varphi(x)\,dx
+\int\limits_{a-\delta}^{a+\delta} \varepsilon\,\varphi(x)\,\dd x 
 =
-\varepsilon \int\limits_{a-\delta}^{a+\delta} \varphi(x)\,dx.
+\varepsilon \int\limits_{a-\delta}^{a+\delta} \varphi(x)\,\dd x 
 \]
 
 Итак, получено неравенство
 \[
-\int\limits_{\R} g(x)\varphi(x)\,dx
+\int\limits_{\R} g(x)\varphi(x)\,\dd x 
 \;\ge\;
-\varepsilon \int\limits_{a-\delta}^{a+\delta} \varphi(x)\,dx,
+\varepsilon \int\limits_{a-\delta}^{a+\delta} \varphi(x)\,\dd x 
 \]
 которое противоречит исходному предположению о распределении значений
 функции $g$ (например, если предполагалось, что
@@ -1045,16 +1047,16 @@ $((\beta f)', \phi)=-(\beta f, \phi')=-(f, \beta\phi')=-(f, (\beta\phi)'-\beta'\
 Интегрируя по частям на каждом интервале и используя компактность
 носителя $\varphi$, получаем
 \[
--\int_{0}^{\infty} \ln(x)\,\varphi'(x)\,dx
-= \int_{0}^{\infty} \frac{1}{x}\,\varphi(x)\,dx
+-\int_{0}^{\infty} \ln(x)\,\varphi'(x)\,\dd x 
+= \int_{0}^{\infty} \frac{1}{x}\,\varphi(x)\,\dd x 
 \qquad
--\int_{-\infty}^{0} \ln(-x)\,\varphi'(x)\,dx
-= \int_{-\infty}^{0} \frac{1}{x}\,\varphi(x)\,dx
+-\int_{-\infty}^{0} \ln(-x)\,\varphi'(x)\,\dd x 
+= \int_{-\infty}^{0} \frac{1}{x}\,\varphi(x)\,\dd x 
 \]
 Следовательно,
 \[
 \langle T',\varphi\rangle
-= \int_{\R} \frac{1}{x}\,\varphi(x)\,dx
+= \int_{\R} \frac{1}{x}\,\varphi(x)\,\dd x 
 = \Big\langle \PP,\varphi\Big\rangle
 \]
 Так как это верно для всех $\varphi\in D(\mathbb{R})$, имеем
@@ -1065,7 +1067,7 @@ $((\beta f)', \phi)=-(\beta f, \phi')=-(f, \beta\phi')=-(f, (\beta\phi)'-\beta'\
 2)
 Из равенства $f'=0$ следует
 \[
-\langle f',\varphi\rangle = 0 \quad \forall\,\varphi\in D(\mathbb{R}).
+\langle f',\varphi\rangle = 0 \quad \forall\,\varphi\in D(\mathbb{R})
 \]
 По определению обобщённой производной
 \[
@@ -1073,16 +1075,16 @@ $((\beta f)', \phi)=-(\beta f, \phi')=-(f, \beta\phi')=-(f, (\beta\phi)'-\beta'\
 \]
 поэтому
 \[
-\langle f,\varphi'\rangle = 0 \quad \forall\,\varphi\in D(\mathbb{R}).
+\langle f,\varphi'\rangle = 0 \quad \forall\,\varphi\in D(\mathbb{R})
 \]
 Любая функция $\psi\in \DR$ представима в виде $\psi=\varphi'$
 для некоторой $\varphi\in \DR$, следовательно
 \[
-\langle f,\psi\rangle = 0 \quad \forall\,\psi\in \DR.
+\langle f,\psi\rangle = 0 \quad \forall\,\psi\in \DR
 \]
 Это означает, что $f$ совпадает с распределением вида
 \[
-\varphi \mapsto c\int_{\R} \varphi(x)\,dx
+\varphi \mapsto c\int_{\R} \varphi(x)\,\dd x 
 \]
 для некоторой константы $c$, то есть $f$ — константа.\\
 
@@ -1102,7 +1104,7 @@ f^{(m-1)} = c_{m-1}.
 \]
 даёт
 \[
-f^{(m-2)} = c_{m-1}x + c_{m-2}.
+f^{(m-2)} = c_{m-1}x + c_{m-2}
 \]
 Продолжая процесс, после $m$ шагов приходим к представлению
 \[
@@ -1116,33 +1118,33 @@ f(x) = a_0 + a_1 x + \dots + a_{m-1} x^{m-1},
 \[
 \langle f'_{\text{обобщ.}},\varphi\rangle
 = -\langle f,\varphi'\rangle
-= -\int_{\mathbb{R}} f(x)\varphi'(x)\,dx.
+= -\int_{\mathbb{R}} f(x)\varphi'(x)\,\dd x 
 \]
 Разобьём интеграл по точке $0$:
 \[
--\int_{\mathbb{R}} f(x)\varphi'(x)\,dx
-= -\int_{-\infty}^{0} f(x)\varphi'(x)\,dx
-  -\int_{0}^{\infty} f(x)\varphi'(x)\,dx.
+-\int_{\mathbb{R}} f(x)\varphi'(x)\,\dd x 
+= -\int_{-\infty}^{0} f(x)\varphi'(x)\,\dd x 
+  -\int_{0}^{\infty} f(x)\varphi'(x)\,\dd x 
 \]
 Интегрируя по частям на каждом интервале и используя компактность
 носителя $\varphi$, получаем
 \[
--\int_{-\infty}^{0} f(x)\varphi'(x)\,dx
+-\int_{-\infty}^{0} f(x)\varphi'(x)\, \dd x 
 = -\bigl[f(x)\varphi(x)\bigr]_{-\infty}^{0}
-   + \int_{-\infty}^{0} f'(x)\varphi(x)\,dx
-= -f(-0)\varphi(0) + \int_{-\infty}^{0} f'(x)\varphi(x)\,dx,
+   + \int_{-\infty}^{0} f'(x)\varphi(x)\, \dd x 
+= -f(-0)\varphi(0) + \int_{-\infty}^{0} f'(x)\varphi(x)\,\dd x 
 \]
 \[
--\int_{0}^{\infty} f(x)\varphi'(x)\,dx
+-\int_{0}^{\infty} f(x)\varphi'(x)\,\dd x 
 = -\bigl[f(x)\varphi(x)\bigr]_{0}^{\infty}
-   + \int_{0}^{\infty} f'(x)\varphi(x)\,dx
-= f(+0)\varphi(0) + \int_{0}^{\infty} f'(x)\varphi(x)\,dx.
+   + \int_{0}^{\infty} f'(x)\varphi(x)\,\dd x 
+= f(+0)\varphi(0) + \int_{0}^{\infty} f'(x)\varphi(x)\,\dd x 
 \]
 Складывая, имеем
 \[
 \langle f'_{\text{обобщ.}},\varphi\rangle
-= \int_{-\infty}^{0} f'(x)\varphi(x)\,dx
- + \int_{0}^{\infty} f'(x)\varphi(x)\,dx
+= \int_{-\infty}^{0} f'(x)\varphi(x)\,\dd x 
+ + \int_{0}^{\infty} f'(x)\varphi(x)\,\dd x
  + \bigl(f(+0)-f(-0)\bigr)\varphi(0).
 \]
 Первые два интеграла дают действие регулярного распределения,
@@ -1153,7 +1155,7 @@ f(x) = a_0 + a_1 x + \dots + a_{m-1} x^{m-1},
 Последнее слагаемое записывается как $h\,\langle\delta,\varphi\rangle$,
 где
 \[
-h = f(+0) - f(-0).
+h = f(+0) - f(-0)
 \]
 Итак,
 \[
@@ -1163,7 +1165,7 @@ h = f(+0) - f(-0).
 \]
 откуда
 \[
-f'_{\text{обобщ.}} = f'_{\text{классич.}} + h\,\delta(x).
+f'_{\text{обобщ.}} = f'_{\text{классич.}} + h\,\delta(x)
 \]
 
 \end{myexe}
@@ -1217,8 +1219,8 @@ $(f_k',\phi)=-(f_k,\phi') \rightarrow -(f, \phi')=(f', \phi)$
 \begin{mytheorem}
     Пусть $f_k$ - кусочно непрерывна и $\in L_1(\R)$, и \\
     1) $f_k(x)\geqslant0$ почти всюду. \\
-    2) $\forall a>0 \, \int\limits_{a}^{-a}f_k(x)\dd x \xrightarrow[k\to\infty]{} 1$ \\
-    3) $\int\limits_Rf_k(x)\dd x=1$ \\
+    2) $\forall a>0 \, \int\limits_{-a}^{a}f_k(x)\dd x \xrightarrow[k\to\infty]{} 1$ \\
+    3) $\int\limits_{\R}f_k(x)\dd x=1$ \\
 Тогда $f_k\xrightarrow{\DDR}\delta(x)$.
 \end{mytheorem}
 \begin{myproof}
@@ -1604,7 +1606,7 @@ $$\Rightarrow \dfrac{\phi(x+h, \cdot)-\phi(x,\cdot)}{h}\rightarrow\frac{\partial
 $$\dfrac{\dfrac{\partial^k\phi}{\partial y^k}(x+h, y)-\dfrac{\partial^k\phi}{\partial y^k}(x, y)}{h}\xrightarrow[h\to0]{}\dfrac{\partial^{k+1}\phi(x,y)}{\partial x\partial^ky} \text{ равномерно}$$
 \end{myproof}
 \begin{mylemma}
-    Пусть $g\in\DDR, \, f\in\D(\R^2)$. 
+    Пусть $g\in\DDR, \, \varphi \in\D(\R^2)$. 
     $$\psi(x):=(g,\phi(x,\cdot))\Rightarrow\psi\in\DR \quad \psi^{(l)}(x)=\bigg(g, \frac{\partial^l\phi}{\partial x^l}(x, \cdot)\bigg)$$
 Примечание: $g$ действует на $\cdot$.
 \end{mylemma}
@@ -1779,7 +1781,7 @@ $(a-\varepsilon,\, b+\varepsilon)$, и удовлетворяет $\eta|_{[a,b]}
 \end{myexe}
 Определим свёртку обобщенных функций правильно.
 \begin{mydef}
-    Пусть $f, g\in\DDR \quad \supp \subset(a, b)$. 
+    Пусть $f, g\in\DDR \quad \supp f \subset(a, b)$. 
     $$(f\ast g, \phi)=(f(x)g(y),\underbrace{\phi(x+y)\eta(x)}_{\in\D(\R^2)})$$
 \end{mydef}
 На рисунке с носителем, мы таким образом вырезаем параллелограмм.
@@ -2102,12 +2104,12 @@ p_{l,m}(\varphi_k-\varphi)\xrightarrow[k\to\infty]{}0.
 Так как $l,m$ были произвольны, выполнено (*), т.е.
 $\varphi_k\to\varphi$ в $\SR$.
 \end{myexe}
-Сущесвтенно, что это пространство - алгебра.
+Существенно, что это пространство -- алгебра.
 \begin{mylemma}
     Пусть $\phi, \psi\in\SR \quad \Rightarrow \quad \phi\psi\in\SR,\,\, \phi\ast\psi\in\SR$
 \end{mylemma}
 \begin{myproof}
-    С произведением всё очевидно, перемножение так же даёт бесконечно гладкую функицю и так же производные убиывают быстрее любой степени.
+    С произведением всё очевидно, перемножение так же даёт бесконечно гладкую функицю и так же производные убывают быстрее любой степени.
     $$(\phi\ast\psi)(x)=\int\limits_\R\phi(x-y)\psi(y)\dd y$$
     Рассмотрим:
     $$x^m(\phi\ast\psi)\underset{((x-y)+y)^m}{=}\int\limits_\R\sum\limits_{k=0}^{m}C^k_m(x-y)^{m-k}\phi(x-y)y^m\psi(y)\dd y$$
@@ -2391,11 +2393,11 @@ $(e^{iax}\phi(x))\hat{}=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x+iax}\phi
     $$(\phi\ast\psi)\hat{}=\sqrt{2\pi}\widehat{\phi}\widehat{\psi}$$
 \end{mylemma}
 \begin{myproof}
-    $(\phi\ast\psi)\hat{}(\xi)=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R e^{-i\xi x}\phi(x-y)\psi(y)\dd y\dd x\underset{x=y+z}{=}\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R e^{-i\xi x-i\xi z}\phi(z)\psi(y)\dd y\dd z=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi y}\phi(y)\dd y\int\limits_\R e^{-i\xi z}\phi(z)\dd z=\sqrt{2\pi}\widehat{\phi}(\xi)\widehat{\psi}(\xi)$
+    $(\phi\ast\psi)\hat{}(\xi)=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R e^{-i\xi x}\phi(x-y)\psi(y)\dd y\dd x\underset{x=y+z}{=}\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\int\limits_\R e^{-i\xi y-i\xi z}\phi(z)\psi(y)\dd y\dd z=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi y}\phi(y)\dd y\int\limits_\R e^{-i\xi z}\phi(z)\dd z=\sqrt{2\pi}\widehat{\phi}(\xi)\widehat{\psi}(\xi)$
 \end{myproof}
 \begin{mylemma}
     Следствие из предыдущей леммы: 
-    $$(\phi\psi)\hat{}=\frac{1}{\sqrt{2\pi}}\widehat{\phi}\widehat{\psi}$$
+    $$(\phi\psi)\hat{}=\frac{1}{\sqrt{2\pi}}\widehat{\phi}\ast\widehat{\psi}$$
 \end{mylemma}
 \begin{myproof}
     Из предыдущей леммы: $(\phi\ast\psi)\check{}=\sqrt{2\pi}\check{\phi}\check{\psi}$. Переобозначим: $\phi\to\widehat{\phi}, \,\,\, \psi\to\widehat{\psi}$. Тогда 
@@ -2422,8 +2424,8 @@ $(e^{iax}\phi(x))\hat{}=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R e^{-i\xi x+iax}\phi
 \end{mydef}
 Важно, что непрерывный относительно той сходимости, которую мы завели на $\SR$. Здесь так же можно определить регулярные функции, но тут локальной интегрируемости не хватит из за бесконечности. \\
 Пусть $f\in\SR: \,\,\, \exists N: \quad \int\limits_\R\dfrac{|f(x)|}{(1+|x|)^N}\dd x<\infty$. Отсюда автоматически следует, что $f\in\L_{1, loc}$. Тогда заведём обобщенную функцию: 
-$$(\tilde{f}, \phi)=\int\limits_\R f(x)\phi(x)\dd x=\int\limits_\R \underbrace{\dfrac{f(x)}{(1+|x|)^N}}_{\text{интегрируема}}\underbrace{\phi(x)(1+|x|)^N}_{ограничена}$$
-Получаем, что $\tilde{f}$ регулярную обобщённую функцию.
+$$(\tilde{f}, \phi)=\int\limits_\R f(x)\phi(x)\dd x=\int\limits_\R \underbrace{\dfrac{f(x)}{(1+|x|)^N}}_{\text{интегрируема}}\underbrace{\phi(x)(1+|x|)^N}_{ограничена}\dd x$$
+Получаем, что $\tilde{f}$ регулярная обобщённая функция.
 \begin{myexample}
     1)$\SSR\subset\DDR$ \\
     2) $e^x, e^{x^2}\in\DDR\backslash\SSR$, интеграл $\int\limits_\R e^x \phi(x)\dd x$, если $\phi\in\SR$, то не факт что сойдётся. \\
@@ -2459,8 +2461,8 @@ $$\int\limits_\R\widehat{f}(x)\phi(x)\dd x=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\
 Линейность очевидна. \\
 Непрерывность: $\phi_k\xrightarrow{\SR}\phi \quad \Rightarrow \quad \widehat{\phi_k}\xrightarrow{\SR}\phi$ (из \ref{sixth}). \\
 Тогда получаем, что $\widehat{\phi}\in\SSR$. \\
-$F: \,\, \SSR\rightarrow\SSR$ - линейный непрерывный опреатор:
-\lbpn{furie}{$$f_k\xrightarrow{}f \quad \Rightarrow \quad \widehat{f_k}\xrightarrow{\SSR}\widehat{f}$$}
+$F: \,\, \SSR\rightarrow\SSR$ - линейный непрерывный оператор:
+\lbpn{furie}{$$f_k\xrightarrow{\SSR}f \quad \Rightarrow \quad \widehat{f_k}\xrightarrow{\SSR}\widehat{f}$$}
 $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \widehat{\phi})=(\widehat{f}, \phi) \quad \forall \phi\in\SR$$
 \begin{mylemma}
     Пусть $f\in\SSR$, тогда: 
@@ -2472,7 +2474,7 @@ $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \wide
     $(\widehat{f'}, \phi)=(f', \widehat{\phi})=-(f, \widehat{\phi}')=(f, (ix\phi)\hat{})=(\widehat{f}, ix\phi)=(ix\widehat{f}, \phi)$\\
     2) $(\widehat{f}', \phi)=-(\widehat{f}, \phi')=(-f, \widehat{\phi'})=-(f,ix\widehat{\phi})=(-ixf, \widehat{\phi})=((-ixf)\hat{}, \phi)$
 \end{myproof}
-Если $f\in L_1(\R)$ задаёт регулярную обобщённую функцию $\tilde{f}\in\SSR$. Мы знаем, что $\widehat{f}$ - ограниченная (\ref{seventh}), а ограчниченная функция - так же регулярная обобщённая функция, то есть $\tilde{\widehat{f}}$, нас интересует $\tilde{\widehat{f}}\overset{?}{=}\widehat{\tilde{f}}$
+Если $f\in L_1(\R)$ задаёт регулярную обобщённую функцию $\tilde{f}\in\SSR$. Мы знаем, что $\widehat{f}$ - ограниченная (\ref{seventh}), а ограниченная функция - так же регулярная обобщённая функция, то есть $\tilde{\widehat{f}}$, нас интересует $\tilde{\widehat{f}}\overset{?}{=}\widehat{\tilde{f}}$
 \begin{mylemma}
     $$\int\limits_\R |f(x)|\dd x<\infty \quad \Rightarrow \quad \tilde{\widehat{f}}=\widehat{\tilde{f}}$$
 \end{mylemma}
@@ -2482,7 +2484,7 @@ $$(\widehat{f_k}, \phi)=(f_k, \widehat{\phi})\xrightarrow[k\to\infty]{}(f, \wide
 \end{myproof}
 \begin{myexample}
     1) $(\widehat{\delta}, \phi)=(\delta, \widehat{\phi})=\widehat{\phi}(0)=\dfrac{1}{\sqrt{2\pi}}\int\limits_\R\phi(x)\dd x$ \\
-    Тогда \(\widehat{\delta}=\dfrac{1}{\sqrt{2\pi}}\) \numberedline{line:first} \\
+    Тогда \(\widehat{\delta}=\dfrac{1}{\sqrt{2\pi}}\) \\
     2) $(\widehat{1}, \phi)=(1, \widehat{\phi})=\int\limits_\R\widehat{\phi}(x)\dd x\underset{\text{обратное Фурье для } \xi=0}{=}\sqrt{2\pi}(\widehat{\phi})\check{}(0)=\sqrt{2\pi}\phi(0)$
     Тогда $\widehat{1}=\sqrt{2\pi}\delta$. \\
     3) \(\theta(x)=\begin{cases}
@@ -2605,7 +2607,7 @@ e^{-a x^2}=e^{-(-i)x^2}=e^{ix^2},
 
 \end{myexe}
 \subsection{Свёртка}
-Пусть $f, \phi, \xi \in \SR$ 
+Пусть $f, \phi, \psi \in \SR$ 
 Что мы хотим: \\
 $\int\limits_\R(f\ast\phi)\psi\dd x=\int\limits_\R\int\limits_\R f(y)\phi(x-y)\psi(x)\dd x\dd y=\int\limits_\R f(y)(\phi^\#\ast\psi)(y)\dd y, \quad \phi^\#(z)=\phi(-z)$
 \begin{mydef}
@@ -2852,7 +2854,7 @@ f * \varphi \in \C^\infty(\R),
 
 \begin{mytheorem}
     Пусть $f\in\SSR, \quad \phi\in\SR \quad \Rightarrow$
-    $$\Rightarrow \quad (f\ast\phi)\hat{}=2\pi\widehat{f}\widehat{\phi}$$
+    $$\Rightarrow \quad (f\ast\phi)\hat{}=\sqrt{2\pi}\widehat{f}\widehat{\phi}$$
 \end{mytheorem}
 \begin{myproof}
     Пусть $\psi\in\SR$ 
@@ -2893,7 +2895,7 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
 \subsection{Типы уравнений}
 Рассматриваем линейные скалярные уравнения в частных производных второго порядка: 
 \lbpn{eight}{\[\sum\limits_{i,j=1}^{n}a_{ij}(x)\dfrac{\partial^2U(x)}{\partial x_i \partial x_j}+\sum\limits_{i=1}^{n}b_i(x)\dfrac{\partial U(x)}{\partial x_i}+C(x)U(x)=f(x), \quad x\in\Omega\subset\R^n\]}
-Мы считаем, что всё вещесвтенно и $a_{ij}(x)=a_{ji}(x)$. \\
+Мы считаем, что всё вещественно и $a_{ij}(x)=a_{ji}(x)$. \\
 Сделаем замену: $x\longmapsto y=y(x)$, тогда $U(x)=V(y)$.
 \[\dfrac{\partial U(x)}{\partial x_i}=\sum\limits_{k=1}^{n}\dfrac{\partial V(y(x))}{\partial y_k}\dfrac{\partial y_k(x)}{\partial x_i}\]
 \[\dfrac{\partial^2 U(x)}{\partial x_i\partial x_j}=\sum\limits_{k, l=1}^{n}\dfrac{\partial^2 V(y(x))}{\partial y_k\partial y_l}\dfrac{\partial y_k(x)}{\partial x_i}\dfrac{\partial y_l(x)}{\partial x_j}+\sum\limits_{k=1}^{n}\dfrac{\partial V(y(x))}{\partial y_k}\dfrac{\partial^2 y_k(x)}{\partial x_i\partial x_j}\]
@@ -2914,7 +2916,7 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
     \[\dfrac{\partial U}{\partial t}-\LL U = f - \text{ параболическое},\]
      где $\LL$ - эллиптический по $x$ (положительно определённый). Теперь все константы зависят от $t\in\R$, т.е.
     $$a(t, x); b(t,x); c(t,x); f(t,x)$$
-    Так же мы получаем, что $n_{0}=1 \,\text{(нет вторых производных)},$$ n_+=0 \text{ (с минусом оператор)}$. 
+    Так же мы получаем, что $n_{0}=1\text{(нет вторых производных)},$ $n_+=0 \text{(с минусом оператор)}$. 
 \end{mydef}
 \begin{mydef}
     \[\dfrac{\partial^2 U}{\partial t^2}-\LL U=f - \text{ гиперболическое},\]
@@ -2977,11 +2979,11 @@ $$(f\ast\phi)\hat{}=(2\pi)^{n/2}\widehat{f}\widehat{\phi}$$
         \dfrac{\partial^2 U}{\partial t^2} - \LL U = f \\
         U\big|_{t=0}=U_0, \,\,\, \dfrac{\partial U}{\partial t}\bigg|_{t=0}=U_2
     \end{cases}\]
-И еще одно условие на на краевые условия. Мы хотим чтобы решение существовало, чтобы оно было единственным и чтобы устойчивым (непрерывно зависит от данных задачи).
+И еще одно условие на краевые условия. Мы хотим чтобы решение существовало, чтобы оно было единственным и чтобы устойчивым (непрерывно зависит от данных задачи).
 \begin{myexample}
 Пример Адамара: 
-$$\dfrac{\partial^2 U}{\partial x^2}+\dfrac{\partial^2 U}{\partial x^2}=0, \quad (x,y)\in\R^2, y>0$$
-$$U\big|_{y=0}=\phi, \,\,\,\, \dfrac{\partial U}{\partial y}\bigg|_{y=0}=0$$
+$$\dfrac{\partial^2 U}{\partial x^2}+\dfrac{\partial^2 U}{\partial y^2}=0, \quad (x,y)\in\R^2, y>0$$
+$$U\big|_{y=0}=\phi_m, \,\,\,\, \dfrac{\partial U}{\partial y}\bigg|_{y=0}=0$$
 Возьмём такие $\phi_m$: $\,\,\, \phi_m(x)=e^{-\sqrt{m}}\cos mx, \quad \phi_m\xrightarrow[m\to\infty]{}0$ \\
 Возьмём следующее решение: $U_m(x,y)=e^{-\sqrt{m}}\cos mx\cosh my$. Посмотрим на точку с координатами $(0, \epsilon)$ и получим: 
 \[U_m(0, \epsilon)=e^{-\sqrt{m}}\big(\dfrac{e^{m\epsilon}+e^{-m\epsilon}}{2}\big)\xrightarrow[m\to\infty]{}\infty\]
@@ -3054,7 +3056,7 @@ $$-T\sin\alpha+0+T\sin\alpha_1=\rho \dd x \dfrac{\partial^2 U(t,x)}{\partial t^2
 Тогда производные по новым переменным: 
 \[\dfrac{\partial}{\partial \xi}=\dfrac{\partial x}{\partial \xi}\dfrac{\partial}{\partial x}+\dfrac{\partial t}{\partial \xi}\dfrac{\partial}{\partial t}=\dfrac{1}{2}\dfrac{\partial}{\partial x}+\dfrac{1}{2c}\dfrac{\partial}{\partial t}\]
 \[\dfrac{\partial}{\partial \eta}=\dfrac{1}{2}\dfrac{\partial}{\partial x}-\dfrac{1}{2c}\dfrac{\partial}{\partial t}\]
-\[\dfrac{\partial^2 U}{\partial \xi \partial \eta}=\bigg(\dfrac{1}{2}\dfrac{\partial}{\partial x}+\dfrac{1}{2c}\dfrac{\partial}{\partial t}\bigg)\bigg(\dfrac{1}{2}\dfrac{\partial}{\partial x}+\dfrac{1}{2c}\dfrac{\partial}{\partial t}\bigg)U(t,x)=\dfrac{1}{4}\bigg(\dfrac{\partial^2 U}{\partial x^2}-\dfrac{1}{c^2}\dfrac{\partial^2 U}{\partial t^2}\bigg)\]
+\[\dfrac{\partial^2 U}{\partial \xi \partial \eta}=\bigg(\dfrac{1}{2}\dfrac{\partial}{\partial x}+\dfrac{1}{2c}\dfrac{\partial}{\partial t}\bigg)\bigg(\dfrac{1}{2}\dfrac{\partial}{\partial x}-\dfrac{1}{2c}\dfrac{\partial}{\partial t}\bigg)U(t,x)=\dfrac{1}{4}\bigg(\dfrac{\partial^2 U}{\partial x^2}-\dfrac{1}{c^2}\dfrac{\partial^2 U}{\partial t^2}\bigg)\]
 То есть $\bigg(\dfrac{\partial^2 U}{\partial x^2}-\dfrac{1}{c^2}\dfrac{\partial^2 U}{\partial t^2}\bigg)=0$ равносильно $\dfrac{\partial^2 U}{\partial \xi \partial \eta}=0$. Значит:
 \[\dfrac{\partial }{\partial \xi}\bigg(\dfrac{\partial U}{\partial \eta}\bigg)=0 \quad \Rightarrow \quad \dfrac{\partial U}{\partial \eta}=const_\xi=\alpha(\eta)\]
 Тогда \(U=\int\limits_{0}^{\eta}\alpha(\tau)\dd \tau + c(\xi)\)
@@ -3082,7 +3084,7 @@ $$-T\sin\alpha+0+T\sin\alpha_1=\rho \dd x \dfrac{\partial^2 U(t,x)}{\partial t^2
 Тогда получаем следующее решение из \ref{volnasol}: 
 \[U(t,x)=\dfrac{\phi(x+ct)+\phi(x-ct)}{2}+\dfrac{1}{2c}\int\limits_{x-ct}^{x+ct}\psi(y)\dd y - \text{ формула Даламбера}\]
 \begin{mytheorem}
-    \lbpn{true}{Пусть \(\phi\in\C^2(\R), \,\,\psi\in\C(\R) \quad \Rightarrow \quad \exists! \,\,\, U\in\C^2([0, +\infty)\times R)\) - решения задачи \ref{volna} и формула Даламбера явялется выражением для него}
+    \lbpn{true}{Пусть \(\phi\in\C^2(\R), \,\,\psi\in\C(\R) \quad \Rightarrow \quad \exists! \,\,\, U\in\C^2([0, +\infty)\times R)\) - решения задачи \ref{volna} и формула Даламбера является выражением для него}
 \end{mytheorem}
 Свойства решения: \\
 1) Пусть $\psi\equiv0$: 
@@ -3111,7 +3113,7 @@ $\supp \phi\subset[a, b]$
 
 На решение $U(t,x)$ влияет только то, что находится на заштрихованной оси, а от другой части информация в эту точку не приходит.
 \subsection{Функция Грина для бесконечной струны}
-Возьмём следующую обобщённуйю функцию, которая по одной переменной бесконечно гладкая, а по другой является обобщённой функцией:
+Возьмём следующую обобщённую функцию, которая по одной переменной бесконечно гладкая, а по другой является обобщённой функцией:
 \[g(t, x) \quad g\in\Cinf((0,\infty), \DDR)\]
 Пусть $\phi\in\DR$: \\
 $\exists \dfrac{\dd}{\dd t}\big(g(t, \cdot), \phi\big)$ - тоже обобщённая функция. \\
@@ -3127,7 +3129,7 @@ $\forall \phi\in\DR \quad \forall m\in\N$
 Важно что производная по $x$ берётся как производная обобщённой функции.
 \end{mydef}
 Используем формулу Даламбера из предыдущего параграфа и подставим туда $0, \delta(x)$ вместо $\phi, \psi$:
-\[g(t,x)=\dfrac{1}{2с}\int\limits_{x-ct}^{x+ct}\delta(y)\dd y\]
+\[g(t,x)=\dfrac{1}{2c}\int\limits_{x-ct}^{x+ct}\delta(y)\dd y\]
 Но это определение некорректно и так писать нельзя, но 'мы с вами физики' поэтому определим просто вот так:
 \[g(t,x)=
 \left[
@@ -3152,7 +3154,7 @@ $\forall \phi\in\DR \quad \forall m\in\N$
 \[\exists \dfrac{\dd^2}{\dd t^2}\bigg(g(t,\cdot), \phi\bigg)=\dfrac{c}{2}\phi'(ct)-\dfrac{c}{2}\phi'(-ct)\]
 Заметим, что \(\int\limits_{-ct}^{ct}\phi(x)\dd x\leftrightarrow(\theta(x+ct)-\theta(x-ct), \phi)\), \(\quad \phi(ct)\leftrightarrow(\delta(x-ct), \phi(x))\), \(\quad \phi'(ct)\leftrightarrow(-\delta'(x-ct),\phi)\). Тогда это все переписывается вот так:
 \[g(t,x)=\dfrac{1}{2c}\bigg(\theta(x+ct)-\theta(x-ct)\bigg)\]
-\[\dfrac{\partial g}{\partial t}(t,x)=\dfrac{1}{2}\bigg(\delta(x+ct)-\delta(x-ct)\bigg)\]
+\[\dfrac{\partial g}{\partial t}(t,x)=\dfrac{1}{2}\bigg(\delta(x+ct)+\delta(x-ct)\bigg)\]
 \[\dfrac{\partial^2 g}{\partial t^2}(t,x)=\dfrac{c}{2}\bigg(\delta'(x+ct)-\delta'(x-ct)\bigg)\]
 \[\dfrac{\partial g}{\partial x}(t, x)=\dfrac{1}{2c}\bigg(\delta(x+ct)-\delta(x-ct)\bigg)\]
 \[\dfrac{\partial^2 g}{\partial x^2}(t, x)=\dfrac{1}{2c}\bigg(\delta'(x+ct)-\delta'(x-ct)\bigg)\]
@@ -3165,7 +3167,7 @@ $\forall \phi\in\DR \quad \forall m\in\N$
 \[G(t, x)=\left[
 \begin{array}{l}
 \dfrac{1}{2c}, \quad \begin{aligned}
-    t>0 \\
+    t>0\, ; \,
     |x|<ct
 \end{aligned} \\
 0, \quad \text{иначе}
@@ -3333,7 +3335,7 @@ G(t,x)=\frac{1}{2c}\,\theta(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr).
     \dfrac{\partial^2 V}{\partial t^2}-c^2\dfrac{\partial^2 V}{\partial x^2}=0 \\
     V\big|_{t=0}=0, \quad \dfrac{\partial V}{\partial t}\bigg|_{t=0}=0
    \end{cases}\]
-   Тогда получим по \ref{true}, что $V\equiv0$ (из формулы Даламбера с 0 начальными условиями) - единсвтенное решение данной задачи.
+   Тогда получим по \ref{true}, что $V\equiv0$ (из формулы Даламбера с 0 начальными условиями) - единственное решение данной задачи.
 \end{myproof}
 \begin{myexe}
     1) Для теоремы выше проверить, что \(U\in\C^2([0,\infty)\times\R\) \\
@@ -3375,31 +3377,30 @@ G(t,x)=\frac{1}{2c}\,\theta(t)\bigl(\theta(x+ct)-\theta(x-ct)\bigr).
 \end{enumerate}
 
 1. Как и сказали выше, сделаем преобразование фурье по $x$:
-$\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi^2_2+\xi^2_3$, 
+$\hat{g}(t,\xi) \in \mathcal{S}'(\R^3)$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi^2_2+\xi^2_3$, 
  наше уравнение перепишется в виде:
 \[
  \dfrac{\p^2 \hat{g}(t,\xi)}{\p t^2} + c^2\xi^2\hat{g}(t,\xi) = 0
 \]
 В этом моменте, надо быть очень вниматлеьным, ведь наша функция Грина из $\D'(\R^3)$, а преобразование Фурье мы умеем делать 
-только в $S'(\R^3)$. Мы верим, что решение будет из $S'(\R^3)$. Решение уже последнего уравнения имеет знакомый нам вид:
+только в $\mathcal{S}'(\R^3)$. Мы верим, что решение будет из $S'(\R^3)$. Решение уже последнего уравнения имеет знакомый нам вид:
 \[
 \hat{g}(t,\xi) = A\cos(c|\xi|t) + B\sin(c|\xi|t)
 \]
 
 Подставляя начальные условия для нахождения констант, получаем:
 \[
-\hat{g}\Big|_{t=0} = 0 \ \Rightarrow \ A = 0, \quad \dfrac{\p \hat{g}}{\p t} = Bc|\xi|\cos(c|\xi|t) \ \Rightarrow \ Bc|\xi| = \dfrac{1}{(2\pi)^{3/2}}(\ref{line:first}) \ \Rightarrow \hat{g}(t,\xi)=\dfrac{\sin(c|\xi|t)}{(2\pi)^{3/2}c|\xi|}
+\hat{g}\Big|_{t=0} = 0 \ \Rightarrow \ A = 0, \quad \dfrac{\p \hat{g}}{\p t} = Bc|\xi|\cos(c|\xi|t) \ \Rightarrow \ Bc|\xi| = \dfrac{1}{(2\pi)^{3/2}} \ \Rightarrow \hat{g}(t,\xi)=\dfrac{\sin(c|\xi|t)}{(2\pi)^{3/2}c|\xi|}
 \]
-Тогда понятно, что \(\hat{g}(t, \cdot)\in\Cinf(\R^3)\), на бесонечности она убывает, \(\hat{g}(t, \cdot)\in\mathcal{S}'(\R^3)\). Но она не интегрируема из-за того что степень знаменателя должнаа быть больше размерности, но у нас она единица, поэтому \(\hat{g(t,\cdot)}\notin L_1(\R^3)\). Будем это исправлять. \\
+Тогда понятно, что \(\hat{g}(t, \cdot)\in\Cinf(\R^3)\), на бесконечности она убывает, \(\hat{g}(t, \cdot)\in\mathcal{S}'(\R^3)\). Но она не интегрируема из-за того что степень знаменателя должна быть больше размерности, но у нас она единица, поэтому \(\hat{g(t,\cdot)}\notin L_1(\R^3)\). Будем это исправлять. \\
 2. Пусть \(\epsilon>0: \quad \hat{g}_\epsilon(t,\xi)=\hat{g}(t,\xi)e^{-\epsilon|\xi|}\). Тогда не трудно догадаться: 
 \[\hat{g}_\epsilon\xrightarrow{\mathcal{S}'}\hat{g} \quad \Leftrightarrow \quad \int\limits_{\R^3}\hat{g}(t,\xi)e^{-\epsilon|\xi|}\phi(\xi)\dd \xi\xrightarrow[\epsilon\to 0]{}\int\limits_{\R^3} \hat{g}(t, \xi)\phi(\xi)\dd \xi \quad \forall \phi\in\mathcal{S}(\R^3)\]
 Из \ref{furie} следует, что \(g_\epsilon\xrightarrow{\mathcal{S}'}g\)
-\[g_\epsilon(t,x)=\dfrac{1}{(2\pi)^{3/2}}\int\limits_\R^3e^{i\xi x}\dfrac{\sin(c|\xi|t)}{(2\pi)^{3/2}c|\xi|}e^{-\epsilon|\xi|}\dd \xi\underset{S=(\rho,\theta,\phi)}{=}\dfrac{1}{(2\pi)^3}\int\limits_{0}^{\infty}\int\limits_{0}^{\pi}\int\limits_{0}^{2\pi}e^{i|x|\rho\cos\theta}\dfrac{\sin(c\rho t)}{c\rho}e^{-\epsilon\rho}\rho^2\sin\theta\dd \rho\dd \theta \dd \phi=\]
+\[g_\epsilon(t,x)=\dfrac{1}{(2\pi)^{3/2}}\int\limits_{\R^3}e^{i\xi x}\dfrac{\sin(c|\xi|t)}{(2\pi)^{3/2}c|\xi|}e^{-\epsilon|\xi|}\dd \xi\underset{\xi=(\rho,\theta,\phi)}{=}\dfrac{1}{(2\pi)^3}\int\limits_{0}^{\infty}\int\limits_{0}^{\pi}\int\limits_{0}^{2\pi}e^{i|x|\rho\cos\theta}\dfrac{\sin(c\rho t)}{c\rho}e^{-\epsilon\rho}\rho^2\sin\theta\dd \rho\dd \theta \dd \phi=\]
 \[=\dfrac{1}{4\pi^2 c}\int\limits_{0}^{\infty}\int\limits_{0}^{\pi}\sin(c\rho t)e^{-\epsilon\rho}e^{i|x|\rho\cos\theta}\rho\sin\theta\dd \theta \dd \rho\circled{=}\]
 Рассмотрим \(\int\limits_{0}^{\pi}e^{i|x|\rho\cos\theta}\rho\sin\theta\dd \theta=\dfrac{-e^{i|x|\rho\cos\theta}}{i|x|}\bigg|_{0}^{\pi}=\dfrac{e^{i|x|\rho}-e^{-i|x|\rho}}{i|x|}=\dfrac{2\sin(|x|\rho)}{|x|}\)
 \[\circled{=}\dfrac{1}{2\pi^2c|x|}\int\limits_{0}^{\infty}e^{-\epsilon\rho}\sin(c\rho t)\sin(|x|\rho)\dd \rho=\dfrac{1}{4\pi^2 c|x|}\int\limits_{0}^{\infty}e^{-\epsilon\rho}\big(\cos((ct-|x|)\rho)-\cos((ct+|x|)\rho)\big)\dd \rho\circled{=}\]
-\(\int\limits_{0}^{\infty}e^{-\epsilon\rho}\cos(\alpha\rho)\dd \rho=\operatorname{Re}\bigg(\int\limits_{0}^{\infty}e^{-\epsilon\rho}e^{i\alpha\rho}\dd \rho\bigg)=\operatorname{Re}\dfrac{1}{\epsilon-i\alpha}=\dfrac{\varepsilon}{\varepsilon^2+\alpha^2}\)
-\[\circled{=}\dfrac{1}{4\pi^2c|x|}\bigg(\dfrac{\epsilon}{\epsilon^2+(ct-|x|)^2}-\dfrac{\epsilon}{\epsilon^2+(ct+|x|)^2}\bigg)\]
+\(\int\limits_{0}^{\infty}e^{-\epsilon\rho}\cos(\alpha\rho)\dd \rho=\operatorname{Re}\bigg(\int\limits_{0}^{\infty}e^{-\epsilon\rho}e^{i\alpha\rho}\dd \rho\bigg)=\operatorname{Re}\bigg(\int\limits_{0}^{\infty}e^{-(\epsilon-i\alpha)\rho}\dd \rho\bigg)=\operatorname{Re}\bigg(\dfrac{1}{\epsilon-i\alpha}\bigg)=\dfrac{\epsilon}{\epsilon^2+\alpha^2}\)\\
 3. Пусть \(\phi\in\mathcal{S}(\R^3)\)
 \[\bigg|\dfrac{1}{4\pi^2c}\int\limits_{\R^3}\dfrac{\epsilon\phi(x)\dd x}{|x|\underbrace{(\epsilon^2+(ct+|x|)^2)}_{\geq c^2t^2}}\bigg|\leq\dfrac{\epsilon}{4\pi^2c}\dfrac{1}{c^2t^2}\int\limits_{\R^3}\dfrac{|\phi(x)|}{|x|}\dd x\xrightarrow[\epsilon\to0]{}0\]
 Чтобы интеграл \(\int\limits_{B_r(0)}\dfrac{\dd x}{|x|^p}\) сходился в 0, нужно чтобы $p$ было меньше размерности пространства. \\
@@ -3422,7 +3423,7 @@ $\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi
 \[(G, \phi)=\int\limits_{0}^{\infty}\dfrac{\dd t}{4\pi c^2t}\underbrace{\int\limits_{|x|=ct}\phi(t, x)\dd S(x)}_{=O(t^2), \quad t\to0}\]
 Осталось проверить, что интегралы берутся, при больших $t$ мы интегрируем функцию по большой сфере, мы знаем, что функция из класса Шварца убывает быстрее любой степени, поэтому на бесконечности получается что убывает тоже быстрее любой степени, в 0 тоже нет проблемы из за того, что площадь порядка $t^2$, а $\phi$ ограниченная, поэтому особенности в 0 нету.
 \\
-Хочется сказать что рабоатет:
+Хочется сказать что работает:
 \[\dfrac{\partial^2 G}{\partial t^2}-c^2\Delta G=\delta(t,x)\]
 \begin{myproof}
     Это не совсем строгое обоснование, больше идейное: \(G(t,x)=g(t, x)\theta(t)\).
@@ -3452,7 +3453,7 @@ $\hat{g}(t,\xi) \in \SSR$, тогда с учетом $\xi^2=|\xi|^2=\xi^2_1+\xi
 
 
 \begin{myremark}
-    Именно условие $G\Big|_{t<0}=0$ выделяет единтсвенное решение задачи:
+    Именно условие $G\Big|_{t<0}=0$ выделяет единственность решение задачи:
     \[\dfrac{\p^2 G}{\p t^2} - c^2\Delta G = \delta(t,x)\]
 \end{myremark}
 \begin{myproof}
@@ -3473,19 +3474,19 @@ u_3(t,x) = \int\limits_{0}^{t}\dfrac{\dd\tau}{4\pi c^2(t-\tau)}\int\limits_{|x-y
 \end{vmatrix}=\]\[=\int\limits_{0}^{t}\dfrac{\dd s}{4\pi c^2s}\int\limits_{|x-y| = cs}f(t-s,y)\dd S(y)
 \]
 
-Перейдём в сферические координаты следуюзим образом $y = x+(cs,\omega,\psi)$ и раскроем $\dd S$:
+Перейдём в сферические координаты следующим образом $y = x+(cs,\omega,\psi)$ и раскроем $\dd S$:
 \[
 u_3(t,x) = \int\limits_{0}^{t}\dfrac{\dd s}{4\pi c^2s}c^2s^2\int\limits_{0}^{\pi}\int\limits_{0}^{2\pi}f(t-s,x+(cs,\omega,\psi))\sin\omega\dd \omega\dd \psi =  \int\limits_{|x-y|<ct}\dfrac{f(t-s,y)\dd y}{4\pi c^3s} 
 \]
 
-Записав, что $\dd S=c^2s^2\sin\omega\dd \omega\dd \psi \dd (cs)$, получим:
+Записав, что $\dd y=c^2s^2\sin\omega\dd \omega\dd \psi \dd (cs)$, получим:
 \[
 u_3(t,x) = \int\limits_{|x-y|<ct}\dfrac{f\skobka{t-\frac{|x-y|}{c},y}\dd y}{4\pi c^2|x-y|}
 \]
 \end{myproof}
 
 \begin{myremark}
-    Формула:\[u_3(t,x) = \int\limits_{|x-y|<ct}\dfrac{f\skobka{t-\frac{|x-y|}{c},y}\dd y}{4\pi c^2|x-y|}\] называется \textbf{запаздывающим потенциалом}
+    Формула:\[u_3(t,x) = \int\limits_{|x-y|<ct}\dfrac{f\skobka{t-\frac{|x-y|}{c},y}\dd y}{4\pi c^2|x-y|}\] называется \textbf{запаздывающим потенциалом}.
 \end{myremark}
 
 Рассмотрим и вспомним некоторые равенства.
@@ -3748,7 +3749,7 @@ u(t,x) = \dfrac{\dd}{\dd t}\skobka{\dfrac{1}{4\pi c^2t}\int\limits_{S_{ct}(x)=|x
 \end{center}
 
 
-\textbf{Передним фронтои волны} называется следующее множество:
+\textbf{Передним фронтом волны} называется следующее множество:
 \[
 \left\{x :\, \operatorname{dist}(x,K) = ct\right\}
 \]
@@ -3809,7 +3810,7 @@ y(a)=y(b)=0
 
 
 \begin{mytheorem}
-    Предположим, что однородная задача \eqref{78} ($f\equiv0$), существует только тривиальное решение ($y\equiv0$), тогда:
+    Предположим, что у однородной задачи \eqref{78} ($f\equiv0$), существует только тривиальное решение ($y\equiv0$), тогда:
     \[\forall f \in C[a,b] \  \exists! y\in C^2[a,b],\] которое является решением задачи \eqref{78}. 
 \end{mytheorem}
 
@@ -3842,7 +3843,7 @@ $\{\phi_1,\phi_2\}$ также образуют фундаментальную �
 
 Теперь перейдём к решению неоднородного уравнения.
 \[\begin{cases}
-    y''+p_1y'+p_2y=0\\
+    y''+p_1y'+p_2y=f\\
     y(a)=y(b)=0
 \end{cases}\] 
 Искать решешение мы будем знакомым способом -- \textit{методом вариации произвольной постоянной}:
@@ -3898,7 +3899,7 @@ G(t,x) =
 Понимаем, что при $s=a=b$, наше краевое условие не нарушается, потому что $G(a,t)=G(b,t)=0$
 
 \begin{mydef}
-    Функцию Грина для задачи \eqref{78}, мжно записать еще и следующим образом:
+    Функцию Грина для задачи \eqref{78}, можно записать еще и следующим образом:
     \[
 \begin{cases}
     G''_{ss}(s,t) + p_1(s)G'_s(s,t) + p_2(s)G(s,t) = \delta(s-t)\\
@@ -3916,7 +3917,7 @@ G(t,x) =
 \]
 Так как мы считаем производную уже в обобщенном смысле, там надо проверить, нет ли скачка обычной производной:
 \[\dfrac{\p G(s,t)}{\p s}\Big|_{s=t+0}=\dfrac{\phi_1(s)\phi_2'(s)}{W(s)}\]
-\[\dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=\dfrac{\phi_1(s)\phi_2'(s)}{W(s)}\] Откуда видно, что $\dfrac{\p G(s,t)}{\p s}\Big|_{s=t+0} - \dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=1$, скачка нет.
+\[\dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=\dfrac{\phi_1'(s)\phi_2(s)}{W(s)}\] Откуда видно, что $\dfrac{\p G(s,t)}{\p s}\Big|_{s=t+0} - \dfrac{\p G(s,t)}{\p s}\Big|_{s=t-0}=1$, скачка нет.
 
 
 
@@ -3927,7 +3928,7 @@ G(t,x) =
 
 
 \begin{mytheorem}
-    Предположим, что у однородной задачи \eqref{78}, существует нетривиальное решение $y_0,$ тогда у неоднородного задачи либо нет рещений, либо их бесконечно много
+    Предположим, что у однородной задачи \eqref{78}, существует нетривиальное решение $y_0,$ тогда у неоднородного задачи либо нет решений, либо их бесконечно много
 \end{mytheorem}
 
 
@@ -4064,7 +4065,7 @@ G(t,x) =
 \[
 \LL y = \dfrac{-(py')'+qy}{r}
 \]
-Очевидно, что $\LL$ -- это линейный оператор. Но он задан на бесконечномерном пространстве, поэтому его область опрделения:
+Очевидно, что $\LL$ -- это линейный оператор. Но он задан на бесконечномерном пространстве, поэтому его область определения:
 \[
 \dom\LL = \left\{f\in C^2([a,b]): \ f(a) = f(b) = 0\right\}
 \]
@@ -4125,7 +4126,7 @@ G(t,x) =
     \[\skobka{p(u'v-uv')}'=(pu'v)'-(puv')'=(pu')'v - u(pv')'  = u(q-\lambda r)v - (q-\lambda r)uv = 0 
     \Rightarrow\]\[\Rightarrow p(u'v-uv') = const\ \text{на } [a,b]\]
     
-    Чтобы понять, какая, именно это константа, рассомтрим значение выше введеного соотношения в точке $a$. Так как $u(a)=v(a)=0$, то:
+    Чтобы понять, какая, именно это константа, рассомотрим значение выше введеного соотношения в точке $a$. Так как $u(a)=v(a)=0$, то:
     \[p(u'v-uv')\Big|_{x=a}=0\Rightarrow p(u'v-uv')=0 \Rightarrow u'v=uv' \Rightarrow v=cu, \ \text{где $c$ -- константа}
     \] 
         \item Теперь посмотрим на второе утверждение. Пусть $\lambda$ и $\mu$ -- это два различных собственных числа, которым соответствуют $u$ и $v$, тогда:
@@ -4138,7 +4139,7 @@ G(t,x) =
     \lambda(u,v)_r = \skobka{\LL u,v}_r = \skobka{u,\LL v}_r = \mu(u,v)_r
     \]
 
-    Тогда для $\lambda\neq\mu$ это равенство выполняется только в том случае, когда $(u,v)=0$, то есть собственные функции ортогональны.
+    Тогда для $\lambda\neq\mu$ это равенство выполняется только в том случае, когда $(u,v)_r=0$, то есть собственные функции ортогональны.
 
     \end{enumerate}
     \label{56}
@@ -4189,7 +4190,7 @@ y(a) = A, y(b) = B
 \subsection{Нули собственных функций}
 Мы рассматриваем однородную задачу Штурма-Лиувилля:
 \[
-        (py')' + \lambda r- q y = 0
+        (py')' + \lambda ry- q y = 0
 \]
 Пусть $p(x)>0$, тогда мы можем поделить уравнение на $p(x)$ и получить:
 \[
@@ -4205,7 +4206,7 @@ y'' + p_1y' + p_2y = 0,
 
 \begin{myproof}
     Будем доказывать от противного. Пусть существует $y(x_k) = 0, \ k = 1,2,\dots$. По теореме Вейерштрасса (тут можно наверное ссылку) существует подпоследовательность $\{x_{n_{\alpha}}\}$ которая сходится к $x_0 \in [a,b]$. 
-    Так как $y \in C^2$, то $y \ in C \Rightarrow y(x_0)=0$. Распишем по определению $y'(x_0)$:
+    Так как $y \in C^2$, то $y \in C \Rightarrow y(x_0)=0$. Распишем по определению $y'(x_0)$:
     \[y'(x_0)=\lim \dfrac{y(x_{n_{\alpha}})-y(x_0)}{x_{n_{\alpha}}-x_0}=0, \] тогда в точке $x_0$ имеем:
     \[\begin{cases}
         y(x_0)=0\\
@@ -4227,12 +4228,12 @@ y'' + p_1y' + p_2y = 0,
     Пусть у нас имеется $x_1,x_2$ -- два соседних нуля функции $u$. НУО будем считать, что $u(x)>0 \ \forall x\in(x_1,x_2)$. Откуда сразу ясно, что $u'(x_1)>0$ и $u'(x_2)<0$. Мы хотим показать, что в нашем интервале, функция $v$ обнуляется хотя бы один раз.
     Будем смотреть от противного. Пусть $v(x)\neq0 \ \forall x\in(x_1,x_2)$ --- тогда НУО  $v(x)>0 \ \forall x\in(x_1,x_2), \ v(x_1)\geq0, \ v(x_2)\geq 0$. Рассмотрим вспомогательную непрерывную функцию $F(x) = p(x)u'(x)v(x) - p(x)u(x)v'(x)$ и вычислим ее производную:
     \[
-F'(x) = (pu')v+(pu')v'-u(pv')' -(pv')u'=(pu')'v-(pv')u' = -guv+huv=(h-g)uv
+F'(x) = (pu')'v+(pu')v'-u(pv')' -(pv')u'=(pu')'v-(pv')u' = -guv+huv=(h-g)uv
 >0 \] \[ \text{для} \ \forall x\in(x_1,x_2) \Rightarrow\]$F$ монотонно (строго) возрастает на $(x_1,x_2)$. Обратим внимание на значение вспомогательной функции:
 \[F(x_1) = \underbrace{p(x_1)}_{>0}\underbrace{u'(x_1)}_{>0}\underbrace{v(x_1)}_{\geq0}\geq0\]
 \[F(x_2) = \underbrace{p(x_1)}_{>0}\underbrace{u'(x_1)}_{<0}\underbrace{v(x_1)}_{\geq0}\leq0
 \]
-Видим, что получили противоречние так как $F$ -- строго возрастает! Наше начальное предаоление о том, что $v(x)\neq0$, неверно и $v(x)=0$ на $(x_1,x_2)$.
+Видим, что получили противоречие, так как $F$ -- строго возрастает! Наше начальное предположение о том, что $v(x)\neq0$, неверно и $v(x)=0$ на $(x_1,x_2)$.
 \end{myproof}
 
 Рассмотрим теперь задачу Коши:
@@ -4279,7 +4280,7 @@ F'(x) = (pu')v+(pu')v'-u(pv')' -(pv')u'=(pu')'v-(pv')u' = -guv+huv=(h-g)uv
 
 
 \begin{myremark}
-    Пусть у функции $\psi$ есть нули на на $[a,b]$, обозначим их за $z_j(\lambda)$ и расположим в порядке возрастания, тогда:
+    Пусть у функции $\psi$ есть нули на $[a,b]$, обозначим их за $z_j(\lambda)$ и расположим в порядке возрастания, тогда:
 \[a<z_1(\lambda)<\dots<z_j(\lambda)<b<z_{k+1}(\lambda)<\dots\]
 Такие, что $\psi(z_j(\lambda),\lambda) = 0 \Rightarrow \psi'_x(z,\lambda)\neq0 \Rightarrow z_j(\lambda)$ -- непрерывная по $\lambda$ функция. 
 \end{myremark}
@@ -4289,7 +4290,7 @@ F'(x) = (pu')v+(pu')v'-u(pv')' -(pv')u'=(pu')'v-(pv')u' = -guv+huv=(h-g)uv
 \end{mylemma}
 
 \begin{myproof}
-    Обозначим $z_0(\lambda)\equiv a$. Будем доказывать по индукции, которая рабоатет по j.
+    Обозначим $z_0(\lambda)\equiv a$. Будем доказывать по индукции, которая работает по j.
     \begin{enumerate}
     \item База: $j = 0$ 
     \item Предположение: $z_j(\lambda_1)\leq z_j(\lambda_0)$
@@ -4385,7 +4386,7 @@ $y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных �
 \] Мы сформулируем основной рецепт решения такой задачи, думая что наши функции "супер хорошие".
 \subsection{Решение начальной краевой задачи}
 
-Мы возьмем $r\equiv1, \ q\equiv0$, и $p(x)>0 \ \forall x$. Посмотрим на одно из слагаемых из нашей задачи, как за задачу Штурма-Лиувилля:
+Мы возьмем $r\equiv1, \ q\equiv0$, и $p(x)>0 \ \forall x$. Посмотрим на одно из слагаемых из нашей задачи, как на задачу Штурма-Лиувилля:
 \[
 \begin{cases}
     -(py')' = \lambda y\\
@@ -4393,7 +4394,7 @@ $y=C_1\sin(\sqrt{\lambda}x)+C_2\cos(\sqrt{\lambda}x)$. Из шраничных �
 \end{cases}
 \]
 
-Мы имееем бесконечный набор положительных собстенных чисел $\lambda_n \xrightarrow[n\to0] \ +\infty$ и соответсвующих им собственных функций $y_n$, набор которых полон. Другими словами:$\forall f\in\L_2([a,b]),$ в разложении ряд сходиться, то есть $$\int\limits_{a}^{b}\Bigg|f(x)-\sum_{n=1}^{k}f_n(t)y_n(x)\Bigg|^2\dd x \xrightarrow{k \to \infty} 0 \quad \text{ в }\L_2([a,b])$$ или же:
+Мы имееем бесконечный набор положительных собстенных чисел $\lambda_n \xrightarrow[n\to \infty] \ +\infty$ и соответсвующих им собственных функций $y_n$, набор которых полон. Другими словами:$\forall f\in\L_2([a,b]),$ в разложении ряд сходиться, то есть $$\int\limits_{a}^{b}\Bigg|f(x)-\sum_{n=1}^{k}f_n(t)y_n(x)\Bigg|^2\dd x \xrightarrow{k \to \infty} 0 \quad \text{ в }\L_2([a,b])$$ или же:
 \[g\in\L_2([a,b]): g \perp y_n \ \ \forall n \Rightarrow g\equiv0\]
 Функция считается нормированной, если:
 \[||y_||_{\L_2[a,b]}=1 \Leftrightarrow \int y^2_n(x)=1\]
@@ -4621,17 +4622,17 @@ u(x,t)
 
 \section{Уравнение теплопроводности}
 \subsection{Вывод}
-Будем рассматриватт тепловой поток $\vec{W}(t,x)=-k\nabla u,$ где $u(t,x)$-- температура. Из школы мы поним, что имеем набор некоторых констант: $$c,\rho, k = const,$$где $c$ -- удельная теплоемкость вещества, $\rho$ -- плотность вещества. 
+Будем рассматривать тепловой поток $\vec{W}(t,x)=-k\nabla u,$ где $u(t,x)$-- температура. Из школы мы поним, что имеем набор некоторых констант: $$c,\rho, k = const,$$где $c$ -- удельная теплоемкость вещества, $\rho$ -- плотность вещества. 
 
 Сейчас рассмотрим область $\Omega \in \R^n$ и запишем изменение тепловой
-энергии в промежутке времени от $t_1$ до $t_2$. Энергия представялет в виде $\int c\rho u(t,x)\dd x$, тогда ее изменение приминает вид:
+энергии в промежутке времени от $t_1$ до $t_2$. Энергия представляет в виде $\int c\rho u(t,x)\dd x$, тогда ее изменение приминает вид:
 \[\int c\rho(u_2(t_2,x)-u_1(t_1,x))\dd x=-\int\limits_{t_1}^{t_2}\dd t\int_{\p\Omega}(\vec{W}(t,x),\nu(x))\dd S(x)=
 \int\limits_{t_1}^{t_2}\dd t\int_{\Omega}\operatorname{div}\vec{W}(t,x)\dd x \Rightarrow\]
 \[c\rho \dfrac{\p u}{\p t}=-\operatorname{div}\vec{W}(t,x)=k\Delta u(k,x)\Rightarrow\]
-\[\dfrac{\p u}{\p t}+a \Delta u = 0(=F(t,x)),\] где $a\dfrac{k}{c\rho}$, $F(t,x)$ --  возмоджный источник тепла.
+\[\dfrac{\p u}{\p t}+a \Delta u = 0(=F(t,x)),\] где $a\dfrac{k}{c\rho}$, $F(t,x)$ --  возможный источник тепла.
 \begin{mydef}
-    Уравнением тпелопроводности будем называть следующуй вещь:
-    \[\dfrac{\p u}{\p t}+a\Delta u = 0(=F(t,x))\]
+    Уравнением теплопроводности будем называть следующую вещь:
+    \[\dfrac{\p u}{\p t}-a\Delta u = 0(=F(t,x))\]
 \end{mydef}
 
 
@@ -4646,7 +4647,7 @@ u(x,t)
 \end{cases}
 \]
 Сделаем преобразование Фурье по x:
-\[V(t,\xi)=\dfrac{1}{(2\pi)^{n/2}}\int_{\r^n}e^{-i\xi x }u(t,x)\dd x=F(u)\] 
+\[V(t,\xi)=\dfrac{1}{(2\pi)^{n/2}}\int_{\R^n}e^{-i\xi x }u(t,x)\dd x=F(u)\] 
 Тогда задача принимает следующий вид:
 
 \[\displaystyle
@@ -4654,7 +4655,7 @@ u(x,t)
     \dfrac{\p V(t,\xi)}{\p t}+\xi^2V=0\\
     \vspace{0.5pt}
     V(\xi,0)= \hat{\phi}(\xi), \ \text{где} \ \hat{\phi} = \left(\dfrac{1}{\sqrt{2 \pi}}\right)^{n}
- \int_{\R^n}\phi(x)e^{-ix\xi}\dd x
+ \int\limits_{\R^n}\phi(x)e^{-ix\xi}\dd x
 \end{cases}
 \]
 Тогда решение такой задачи:
@@ -4665,14 +4666,14 @@ u(x,t)
 
 
 \begin{mylemma}
-    Пусть $t>0$, тогда $\mathcal{F}^{1}[e^{-\xi^2t}](x) = \mathcal{F}^{-1}[e^{-tx^2}]=(2\pi)^{-n/2}e^{-\xi^2/(4t)}$
+    Пусть $t>0$, тогда $\mathcal{F}[e^{-\xi^2t}](x) = \mathcal{F}^{-1}[e^{-tx^2}]=(2\pi)^{-n/2}e^{-\xi^2/(4t)}$
 \end{mylemma}
 \begin{myproof}
     Давайте напишем левую часть:
     \[\int\limits_{\R^n} e^{-tx^2}e^{-i\xi x}\dd x=\int\limits_{\R^n} \exp\left({\sum\limits_{j=1}^n -t x_j^2 - i \xi_j x_j }\right)\dd x_j \]
     Правая часть тоже разложиться на компоненты, тогда нам надо показать, что для каждого $j$ выполняется следующее:
     \[\int\limits_{-\infty}^{+\infty} e^{-tx_j^2 - i \xi_j x_j}\dd x_j = \sqrt{\dfrac{\pi}{t}}e^{-\xi_j^2/(4t)}\]
-    Нам достаточно рассмотреть одномерный случай $n=1$, тогда рассмотреваем следующую функцию $f(x)=e^{-tx^2}$, получим:
+    Нам достаточно рассмотреть одномерный случай $n=1$, тогда рассмотрим следующую функцию $f(x)=e^{-tx^2}$, получим:
     \[\mathcal{F}(f)(\xi)=\dfrac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} f(x)(x)e^{-ix\xi}\dd x\]
     \[\mathcal{F}(e^{-tx^2})(0)\dd x=\dfrac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} e^{-tx^2}\dd x=\dfrac{1}{\sqrt{2t}}\]
     Заметим, что для нашей функции $f$ выполняется следующее:
@@ -4716,7 +4717,7 @@ u(t,x) = \dfrac{1}{(4\pi t)^{n/2}}\int\limits_{\R^n}e^{-|x-y|^2/4t}\phi(y)\dd y
 \[\int_{\R^n}f_m(x)\eta(x)\dd x \xrightarrow[m\to\infty]{}\eta(0), \ \forall \eta\, \text{непрерывная и ограниченная}\] 
 Пусть $f_m \xrightarrow{m\to\infty}{}0$, тогда рассмотрев:
 \[f_m(y)=\dfrac{1}{(4\pi t_m)^{n/2}}e^{-|y|^2/4t_m}\]
-И отсюда прекрасно видно, что для леммы все выполненно, тоогда теорема верна.
+И отсюда прекрасно видно, что для леммы все выполненно, тогда теорема верна.
 \[\int_{\R^n}f_m(x-y)\varphi(y)\dd x =|z=x-y|=\int_{\R^n} f_m(z)\varphi(x-z)\dd z \xrightarrow[m\to\infty]{}\varphi(x)
 \]
 Теперь покажем следующие факты:
@@ -4738,7 +4739,7 @@ u(t,x) = \dfrac{1}{(4\pi t)^{n/2}}\int\limits_{\R^n}e^{-|x-y|^2/4t}\phi(y)\dd y
 \begin{enumerate}
     \item В общем случае (при $a\neq 1$) решение имеет вид:
     \[
-    u(t,x) = \dfrac{1}{(4\pi at)^{n/2}}\int\limits_{\R^n}e^{|x-y|^2/4at}\phi(y)\dd y
+    u(t,x) = \dfrac{1}{(4\pi at)^{n/2}}\int\limits_{\R^n}e^{-|x-y|^2/4at}\phi(y)\dd y
     \]
 
 
@@ -4752,7 +4753,7 @@ u(t,x) = \dfrac{1}{(4\pi t)^{n/2}}\int\limits_{\R^n}e^{-|x-y|^2/4t}\phi(y)\dd y
     Пусть $T_1 = \sup\limits_{x\in\R^n}\phi(x)$, тогда:
     \[u(t,x)\leq (4\pi t)^{-n/2}T_1\int\limits_{\R^n}e^{-|x-y|^2/4t}\dd y = T_1\]
     Аналогично, если $T_2 = \inf\limits_{x\in\R^n}\phi(x)$, то $u(t,x)\geq T_2$. Тогда $T_2\leq u(t,x)\leq T_1$ -- это и есть принцип максимума для уравнения теплопроводности.
-    С минимум доказательство аналогично, только везлде надо будет поменять знак неравенств.
+    С минимум доказательство аналогично, только везде надо будет поменять знак неравенств.
 
     \item Закон сохранения энергии:
     
@@ -4790,10 +4791,10 @@ u(t,x) = \dfrac{1}{(4\pi t)^{n/2}}\int\limits_{\R^n}e^{-|x-y|^2/4t}\phi(y)\dd y
 \[
 g(t,x) = \dfrac{1}{(4\pi t)^{n/2}}e^{-|x-y|^2/4t},
 \]
-которая решаеет такое уравнение:
+которая решает такое уравнение:
 \[
 \begin{cases}
-    \dfrac{\p g}{\p t} - \Delta g = 0, \ \ t>0 \forall x \in \R^n\\
+    \dfrac{\p g}{\p t} - \Delta g = 0, \ \ t>0, \,  \forall x \in \R^n\\
     g\xrightarrow[t\to0]{}\delta(x)
 \end{cases}
 \]
@@ -4805,7 +4806,7 @@ g(t,x) = \dfrac{1}{(4\pi t)^{n/2}}e^{-|x-y|^2/4t},
     g(t,x), \ t>0\\
     0, \ t\leq0
     \end{cases},\] решает следующее уравнение:
-\[\dfrac{\p G}{\p t} - \Delta G = \delta(t,x); \, \text{в}\, \mathcal{D}'(\R^{n+1})\]
+\[\dfrac{\p G}{\p t} - \Delta G = \delta(t,x), \, \text{в}\, \mathcal{D}'(\R^{n+1})\]
 \end{myexe}
 
 \begin{mytheorem}
@@ -4843,24 +4844,24 @@ u(t,x) = \int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4t}}{(4\pi t)^{n/2}}\phi(y)\dd y +
     Рассмотрим $|f(\tau, y)|$, которая ограничена, тогда $|f(\tau, y)|\leq C_1 \ \ \forall (\tau,y)\in[0,\infty)\times\R^n$. Тогда:
 \[\Bigg|\int\limits_{\R^n}g(t-\tau,x-y)f(\tau, y)\dd y\Bigg|\leq C_1 \Rightarrow |u_2(t,x)|\leq C_1t\; \quad u_2(t=0,x)=0\]
 Теперь мы просто перепишем $u_2$ в виде свертки:
-\[u_2(t,x) = \int\limits_{0}^{t}\int\limits_{\R^n}g(t-\tau,x-y)f(t-\tau, y)\dd y\dd \tau\]
+\[u_2(t,x) = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)f(t-\tau, x-y)\dd y\dd \tau\]
 И посчитаем производные от $u_2$:
-\[\dfrac{\p u_2}{\p t} = \int\limits_{\R^n}g(t,y)f(0, x-y)\dd y + \int\limits_{0}^{t}\int\limits_{\R^n}\dfrac{\p f}{\p t}(t-\tau,x-y)\dd y\dd \tau\]
-\[\dfrac{\p u_2}{\p x_i} = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\dfrac{\p f}{\p x_i}(t-\tau, y)\dd y\dd \tau\]
-\[\dfrac{\p^2 u_2}{\p x_i \p x_j} = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\dfrac{\p^2 f}{\p x_i \p x_j}(t-\tau, y)\dd y\dd \tau\]
+\[\dfrac{\p u_2}{\p t} = \int\limits_{\R^n}g(t,y)f(0, x-y)\dd y + \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\dfrac{\p f}{\p t}(t-\tau,x-y)\dd y\dd \tau\]
+\[\dfrac{\p u_2}{\p x_i} = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\dfrac{\p f}{\p x_i}(t-\tau, x-y)\dd y\dd \tau\]
+\[\dfrac{\p^2 u_2}{\p x_i \p x_j} = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\dfrac{\p^2 f}{\p x_i \p x_j}(t-\tau, x-y)\dd y\dd \tau\]
 В сухом остатке:
 \[\dfrac{\p u_2}{\p t} - \Delta_x u_2 = \int\limits_{0}^{t}\int\limits_{\R^n}g(\tau,y)\left(\dfrac{\p f}{\p t}(t-\tau, x-y) - \Delta_x f(t-\tau, x-y)\right)\dd y\dd \tau+\]\[+\int\limits_{\R^n}g(t,y)f(0, x-y)\dd y :=I_1+I_2\]
-    Теперь давайте рассомтрим $I_1$, взяв $\epsilon>0$ и разобьем по промежутку:
+    Теперь давайте рассмотрим $I_1$, взяв $\epsilon>0$ и разобьем по промежутку:
     \[
     I_1 = \int\limits_0^\epsilon\int\limits_{\R^n}\cdots+\int\limits_\epsilon^{t}\int\limits_{\R^n}\cdots = I_{0,\epsilon} + I_{\epsilon,t}
     \]
- Ограничим подынтегральное выражение следующим образом:
+ Ограничим подыинтегральное выражение следующим образом:
     \[
     |I_{0,\epsilon}|\leq \varepsilon \operatorname{max}|(\p_t+\Delta_y)f|\leq C\varepsilon\]
 Второй же интеграл надо расписать по производным и брать по частям:
 \[
-    I_{\epsilon,t} = \int\limits_{\epsilon}^{t}\int\limits_{\R^n}g(\tau,y)\skobka{-\dfrac{\p f}{\p \tau}(t-\tau,x-y) - \Delta_yf(t-\tau,x-y)}\dd y\dd \tau =\]
-    \[=\underbrace{\int\limits_{\epsilon}^{t}\int\limits_{\R^n}\skobka{\dfrac{\p g}{\p\tau} - \Delta_yg(\tau,y)}f(t - \tau,x-y)\dd y\dd \tau}_{=0} - \underbrace{\int\limits_{\R^n}g(t,y)f(0,x-y)\dd y}_{= I_2} +\]\[+ \int\limits_{\R^n}g(\epsilon,y)f(t-\epsilon,x-y)\dd y
+    I_{\epsilon,t} = \int\limits_{\epsilon}^{t}\int\limits_{\R^n}g(\tau,y)\skobka{-\dfrac{\p f}{\p \tau}(t-\tau,x-y) + \Delta_yf(t-\tau,x-y)}\dd y\dd \tau =\]
+    \[=\underbrace{\int\limits_{\epsilon}^{t}\int\limits_{\R^n}\skobka{-\dfrac{\p g}{\p\tau} + \Delta_yg(\tau,y)}f(t - \tau,x-y)\dd y\dd \tau}_{=0} - \underbrace{\int\limits_{\R^n}g(t,y)f(0,x-y)\dd y}_{= I_2} +\]\[+ \int\limits_{\R^n}g(\epsilon,y)f(t-\epsilon,x-y)\dd y
     \]
     Все полученное выше подставляем в нашу задачу:
      \[
@@ -4880,7 +4881,7 @@ u(t,x) = \int\limits_{\R^n}\dfrac{e^{-|x-y|^2/4t}}{(4\pi t)^{n/2}}\phi(y)\dd y +
 где $\Omega\subset\R^n$ -- ограниченная область.
 \begin{myexe}
     \begin{enumerate}
-        \item Еслм есть функция $v\in C^{1,2}(Q)\cap C(\overline{Q})$, максимум которой случился в некоторой точке $(t_1,x_1)$:
+        \item Если есть функция $v\in C^{1,2}(Q)\cap C(\overline{Q})$, максимум которой случился в некоторой точке $(t_1,x_1)$:
 \[
 \max\limits_{\overline{Q}}v(t,x) = v(t_1,x_1)
 \] и если:
@@ -4941,7 +4942,7 @@ u(t,x) = \SUMN u_n(t)y_n(x), \quad f(t,x) = \SUMN f_n(t)y_n(x), \quad \phi(x) = 
     \dot{u}_n(t) + \lambda_n u_n(t) = f_n(t)\\
     u_n(0) = \phi_n
 \end{cases}
-\] А для такой залачи мы уже знаем решение:
+\] А для такой за   дачи мы уже знаем решение:
 \[u_n(t)=e^{-\lambda_n t}\phi_n + \int\limits_{0}^{t}e^{-\lambda_n (t-\tau)}f(\tau)\dd \tau\]
 Тогда наша исходная задача перешла в следующую задачу:
 \[\begin{cases}
@@ -4961,7 +4962,7 @@ u(t,x) = \SUMN e^{-\lambda_n t}\phi_ny_n(x) = \SUMN e^{-\lambda_n t}y_n(x)\int\l
 \[
 g\Big|_{x = a} = g\Big|_{x = b} = 0
 \]
-Сейчас посмотрим на схожимость на произовльной области $\D'(\Omega)$. Пусть $\phi\in C^{\infty}_0(a,b)$,тогда ряд $\phi(x) = \SUMN\ \phi_ny_n(x)$ сходится в $C^{\infty}_0(a,b)$, тогда:
+Сейчас посмотрим на сходимость на произовольной области $\D'(\Omega)$. Пусть $\phi\in C^{\infty}_0(a,b)$,тогда ряд $\phi(x) = \SUMN\ \phi_ny_n(x)$ сходится в $C^{\infty}_0(a,b)$, тогда:
 \[\int\limits_{a}^bg(t,x,\xi)\phi(\xi)\dd \xi = \int\limits_a^b\SUMN e^{-\lambda_n t}y_n(x)y_n(\xi)\phi(\xi)\dd \xi = \SUMN e^{-\lambda_nt}\phi_ny_n(x)\xrightarrow[t\to0]{}\SUMN \phi_ny_n(x) = \phi(x)\]
 В этом случае:
 \[g\xrightarrow[t\to0]{\D'(a,b)}\delta(x-\xi)\] и мы получили задачу:
@@ -4984,7 +4985,7 @@ g\Big|_{x = a} = g\Big|_{x = b} = 0
 \[\dfrac{\p r}{\p x_j}=\dfrac{\p}{\p x_j}\sqrt{\sum\limits_{j=1}^{n}x^2_j}=\dfrac{x_j}{r}\]
 \[\dfrac{\p f}{\p x_j}=\dfrac{\p r}{\p x_j}\dfrac{\p f(r)}{\p r}\]
 \[\dfrac{\p^2 f(r)}{\p x_j^2}=\dfrac{\p}{\p x_j}\skobka{\dfrac{\p r}{\p x_j}\dfrac{\p f(r)}{\p r}}=\dfrac{\p^2 f(r)}{\p r^2}\dfrac{x^2_j}{r^2}+\dfrac{\p f(r)}{\p r}\skobka{\dfrac{1}{r}-\dfrac{x^2_j}{r^3}}\]
-\[\Delta f = f''(r)+f'(r)()\dfrac{n-1}{r}\Rightarrow -f''(r)=f'(r)\dfrac{n-1}{r}\Rightarrow f(r)=\begin{cases}
+\[\Delta f = f''(r)+f'(r)\left(\dfrac{n-1}{r}\right)\Rightarrow -f''(r)=f'(r)\dfrac{n-1}{r}\Rightarrow f(r)=\begin{cases}
     c\ln(r), \ \ n=2\\
     \dfrac{\tilde{c}}{r^{n-2}}, \ \ n\geq 3
 \end{cases}\]
@@ -5007,7 +5008,7 @@ g\Big|_{x = a} = g\Big|_{x = b} = 0
 \begin{myproof}
     С физики и по жизни мы знаем формулу Остроградского--Гаусса:
     \[
-    \int\limits_{\Omega}\operatorname{div}\Vec{w} = \int\limits_{\p\Omega}\langle \vec{w},\vec{\nu}\rangle\dd S
+    \int\limits_{\Omega}\operatorname{div}\Vec{w} \dd x= \int\limits_{\p\Omega}\langle \vec{w},\vec{\nu}\rangle\dd S
     \]
     Тогда положив $\Vec{w} = u\nabla v$, получаем:
     \[\operatorname{div}\Vec{w} =\sum\limits_{j=1}^{n}\dfrac{\p u}{\p x_j}\dfrac{\p v}{\p x_j} +u\Delta v= \langle \nabla u, \nabla v\rangle + u\Delta v\]
@@ -5095,7 +5096,7 @@ u(x) = \int\limits_{\R^n}g_0(x-y)\Delta u(y)\dd y
 \begin{myexample}
     \begin{enumerate}
         \item $x_1\cdot x_2$ -- гармоническая в $\R^n$, $x^3_1-3x_1x^2_2$ -- гармоническая в $\R^3$
-        \item $\ln|x|$ -- гармоническая в $\R^n \setminus \{0\}$
+        \item $\ln|x|$ -- гармоническая в $\R^3 \setminus \{0\}$
         \item $\dfrac{1}{|x|^{n-2}}$ -- гармоническая в $\R^n \setminus \{0\}, n \geq 3$
         \item Рассматривая $n=2$ и аналитическую в $\Omega \in \C$ функцию $f$, лаплас выглядит так:
         \[\Delta =(\p_x+i\p_y)(\p_x-i\p_y)\]Тогда:
@@ -5119,7 +5120,7 @@ u(x) = \int\limits_{\R^n}g_0(x-y)\Delta u(y)\dd y
     \item Для гармонической функции $u\in C^2(\Omega)\cap C^1(\overline{\Omega})$ имеет место быть следующая формула:
     \[
     u(x) = \int\limits_{\p \Omega}\skobka{u(y)\dfrac{\p g_0(x-y)}{\p \nu} - g_0(x-y)\dfrac{\p u(y)}{\p \nu}}\dd S(y),
-    \] то есть значение функции в точке восстанавливается по ее значению на границе и значению ее номральной производной.
+    \] то есть значение функции в точке восстанавливается по ее значению на границе и значению ее нормальной производной.
 
     \item Все гармонические функции имеют бесконечный класс гладкости. $\Delta u = 0 \Rightarrow u \in C^\infty$
 
@@ -5132,7 +5133,6 @@ u(x) = \int\limits_{\R^n}g_0(x-y)\Delta u(y)\dd y
 
 \begin{mytheorem}
     \textbf{Теорема о среднем}\\
-
    Рассмотрим гармоническую в области $\Omega\subset\R^n$ функцию $u$, и шар $\overline{B_R(x)}\subset\Omega$. Тогда верно усреднее по сфере:
 \[
 u(x) = \dfrac{1}{\varkappa_nR^{n-1}}\int\limits_{\p B_R(x)}u(y)\dd S(y)
@@ -5154,7 +5154,7 @@ u(x)=\int\limits_{\p B_R(x)}u(y)\dfrac{\p g_0(x-y)}{\p \nu} \dd S(y)=\dfrac{1}{\
 
 Пусть выполнено условие предыдущей теоремы, тогда значение функции в точке совпадает не только со средним значением по сфере, но и со средним значением по всему шару:
 \[
-u(x) = \dfrac{1}{\omega_nR^n}\int\limits_{B_R(x)}u(y)\dd y,
+u(x) = \dfrac{1}{\omega_nR^n}\int\limits_{B_R(x)}u(y)\dd S(y),
 \] где $\omega_n$ -- это объем единичного шара в $\R^n$:
 \[
 \omega_n =\int\limits_0^R\int\limits_{|y|=r} \dd S(y) \dd r= \int\limits_0^R \varkappa_nr^{n-1}\dd r = \dfrac{\varkappa_n}{n}
@@ -5167,8 +5167,8 @@ u(x) = \dfrac{1}{\omega_nR^n}\int\limits_{B_R(x)}u(y)\dd S(y),
 \]
 
 \begin{myproof}
-    \[\varkappa_n r^{n-1}u(x) = \int\limits_{|\p B_R(x)}u(y)\dd S(y)\] тогда проинтегрировав по $r$ от 0 до $R$, получаем:
-\[\int\limits_0^R \varkappa_n r^{n-1}u(x)\dd r = \int\limits_0^R\int\limits_{|x-y|=r}u(y)\dd S(y)\dd r \dfrac{\varkappa_n R^n}{n}u(x) = \int\limits_{B_R(x)}u(y)\dd y\]
+    \[\varkappa_n r^{n-1}u(x) = \int\limits_{\p B_R(x)}u(y)\dd S(y)\] тогда проинтегрировав по $r$ от 0 до $R$, получаем:
+\[\int\limits_0^R \varkappa_n r^{n-1}u(x)\dd r = \int\limits_0^R\int\limits_{|x-y|=r}u(y)\dd S(y)\dd r\Rightarrow \dfrac{\varkappa_n R^n}{n}u(x) = \int\limits_{B_R(x)}u(y)\dd S(y)\]
 \end{myproof}
 
 
@@ -5191,7 +5191,7 @@ u(y_0)=\dfrac{n}{\varkappa_n R^n}\int\limits_{B_R(y_0)}u(x)\dd x = \operatorname
 
 Пусть $u,v$ --- гармонические функции в $\Omega$, $u,v\in C(\overline{\Omega})$. Если $u(x)\geq v(x) \ \forall x\in\p\Omega$ -- тогда $u(x)\geq v(x) \ \forall x\in\overline{\Omega}$
 \begin{myproof}
-    Рассмотрим функцию $w = u-v$ (она подходит под услвоия предыдущей теоремы), она гармоническая в $\Omega$ и $w\geq 0$ на границе, тогда по принципу максимума $w\geq 0$ в $\Omega$, откуда $u\geq v$ в $\Omega$.
+    Рассмотрим функцию $w = u-v$ (она подходит под условия предыдущей теоремы), она гармоническая в $\Omega$ и $w\geq 0$ на границе, тогда по принципу максимума $w\geq 0$ в $\Omega$, откуда $u\geq v$ в $\Omega$.
 \end{myproof}
 
 \begin{mytheorem}
@@ -5493,7 +5493,7 @@ $
 \[
     g_0(x)=
     \begin{cases}
-        \dfrac{1}{2\pi}\ln|x|, \quad n=2,
+        \dfrac{1}{2\pi}\ln|x|, \quad n=2,\\
         -\dfrac{1}{\varkappa_n(n-2)|x|^{n-2}}, \quad  n\geq3
     \end{cases}
 \]
@@ -5708,13 +5708,13 @@ $
 \begin{mylemma}
     Для точки принадлежашей границе шара, мы можем щаписать такое равенство:
     \[
-|x-y| = \dfrac{|x|}{R}|x* - y|
+|x-y| = \dfrac{|x|}{R}|x^* - y|
 \]
 \end{mylemma}
 
 \begin{myproof}
     Доказывать будем через подобие двух треугольников $\Delta Oxy$ и $Oyx^*$:
-    \[\dfrac{Ox}{Oy}=\dfrac{Oy}{Ox^*}\Rightarrow\dfrac{|x|}{R}=\dfrac{R}{|x^*|}\Rightarrow \dfrac{|x-y|}{|x^*-y|}=\dfrac{x}{R} \Rightarrow |x-y| = \dfrac{|x|}{R}|x* - y|\]
+    \[\dfrac{Ox}{Oy}=\dfrac{Oy}{Ox^*}\Rightarrow\dfrac{|x|}{R}=\dfrac{R}{|x^*|}\Rightarrow \dfrac{|x-y|}{|x^*-y|}=\dfrac{x}{R} \Rightarrow |x-y| = \dfrac{|x|}{R}|x^* - y|\]
 \end{myproof}
 
 \begin{mytheorem}
@@ -5904,7 +5904,7 @@ K(x,y)|\phi(y)-\phi(y_0)|\,\dd S(y)\leq 2\max\limits_{\partial B_R(0)}(\phi)\int
 \[x^*=\dfrac{R^2}{|x|^2}x, \quad |x-y|=\dfrac{|x|}{R}|x^*-y|\]
 Функция Грина выглядит так:
 \[g(x,y)= g_0(x-y) - g_0\skobka{\dfrac{|x|}{R}(x^*-y)}, \ \ x\in \R^3\setminus \overline{B_R(0)}\]
-Поманимая, что в такой задаче внутреняя номрмаль, можем записать ядро Пуассона:
+Понимая, что в такой задаче внутреняя нормаль, можем записать ядро Пуассона:
 \[
 K(x,y) = \skobka{\nabla_yg,-\dfrac{y}{R}} = -\dfrac{R^2 - |x^2|}{\varkappa_nR|x-y|^n}
 \]
@@ -5935,7 +5935,7 @@ K(x,y) = \skobka{\nabla_yg,-\dfrac{y}{R}} = -\dfrac{R^2 - |x^2|}{\varkappa_nR|x-
     \[\nabla_x\dfrac{|x|^2-R^2}{|x-y|^3}\]
 \end{myexe}
 
-\begin{comment}
+
 \chapter{Специальные функции}
 \section{Полиномы Лежандра}
 \subsection{Уравнение Лежандра}
@@ -6157,6 +6157,5 @@ P_{n}^m(x) = (1-x^2)^{m/2}\dfrac{\dd^m}{\dd x^m}P_n(x)б
 
 \subsection{Свойства сферических функций}
 
-%%%
-\end{comment}
+
 \end{document}

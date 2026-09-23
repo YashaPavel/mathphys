@@ -1,0 +1,3457 @@
+%!TEX program=xelatex
+\documentclass[11pt,a4paper]{report}
+
+% =================================================
+% ЯЗЫК И ШРИФТЫ
+% =================================================
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Liberation Serif}}
+\IfFontExistsTF{Arial}{\setsansfont{Arial}}{\setsansfont{Liberation Sans}}
+\IfFontExistsTF{Menlo}{\setmonofont{Menlo}}{\setmonofont{DejaVu Sans Mono}}
+
+% =================================================
+% ГЕОМЕТРИЯ СТРАНИЦЫ
+% =================================================
+\usepackage[
+    a4paper,
+    left=1.7cm,
+    right=1.7cm,
+    top=1.8cm,
+    bottom=1.8cm,
+    headsep=0.7cm,
+    footskip=1cm
+]{geometry}
+
+% =================================================
+% МАТЕМАТИКА
+% =================================================
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{gensymb}
+
+% =================================================
+% ГРАФИКА И ТАБЛИЦЫ
+% =================================================
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{comment}
+
+% =================================================
+% TIKZ / PGFPLOTS
+% =================================================
+\usepackage{tikz}
+\usetikzlibrary{patterns,arrows.meta,calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% =================================================
+% ТИПОГРАФИКА
+% =================================================
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\setstretch{1.08}
+\setlength{\parindent}{0.7cm}
+\setlength{\parskip}{0pt}
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+\setlength{\abovedisplayshortskip}{5pt}
+\setlength{\belowdisplayshortskip}{5pt}
+
+% =================================================
+% СПИСКИ
+% =================================================
+\usepackage{enumitem}
+\setlist[itemize]{topsep=4pt,itemsep=1pt,parsep=0pt,leftmargin=1.8em}
+\setlist[enumerate]{topsep=4pt,itemsep=1pt,parsep=0pt,leftmargin=2em}
+
+% =================================================
+% ГИПЕРССЫЛКИ
+% =================================================
+\usepackage[
+    unicode=true,
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    linktocpage=true
+]{hyperref}
+\hypersetup{
+    pdftitle={Конспект по математической физике},
+    pdfauthor={Яков Овсянников, Александр Лозовой}
+}
+\usepackage{aliascnt}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% =================================================
+% СТРАНИЦЫ
+% =================================================
+% Номера страниц снизу; титульная страница отдельно получает \thispagestyle{empty}.
+\pagestyle{plain}
+
+% =================================================
+% ОФОРМЛЕНИЕ ГЛАВ И РАЗДЕЛОВ
+% =================================================
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+    {\normalfont\LARGE\bfseries}
+    {Глава \thechapter.}
+    {0.6em}
+    {}
+\titlespacing*{\chapter}{0pt}{-20pt}{18pt}
+
+\titleformat{\section}
+    {\normalfont\Large\bfseries}
+    {\thesection.}
+    {0.5em}
+    {}
+\titlespacing*{\section}{0pt}{2.0ex}{1.0ex}
+
+\titleformat{\subsection}
+    {\normalfont\large\bfseries}
+    {\thesubsection.}
+    {0.5em}
+    {}
+\titlespacing*{\subsection}{0pt}{1.7ex}{0.7ex}
+
+\titleformat{\subsubsection}
+    {\normalfont\normalsize\bfseries}
+    {\thesubsubsection.}
+    {0.5em}
+    {}
+
+% =================================================
+% ОГЛАВЛЕНИЕ
+% =================================================
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\setlength{\cftbeforechapskip}{0.35em}
+
+% =================================================
+% НУМЕРАЦИЯ СТРУКТУРЫ
+% =================================================
+% Глава: 1; раздел: 1.1; подраздел: 1.1.1.
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+% Формулы нумеруются внутри разделов: (1.2.1), (1.2.2), ...
+\numberwithin{equation}{section}
+% Рисунки и таблицы — внутри главы: 1.1, 1.2, ...
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% =================================================
+% ПОДПИСИ К РИСУНКАМ И ТАБЛИЦАМ
+% =================================================
+\captionsetup{labelfont=bf,font=small,labelsep=period}
+
+% =================================================
+% ЕДИНАЯ НУМЕРАЦИЯ МАТЕМАТИЧЕСКИХ БЛОКОВ
+% =================================================
+% Все определения, теоремы, леммы, утверждения, примеры,
+% упражнения и замечания идут одной последовательностью внутри section.
+\newcounter{statementctr}[section]
+\renewcommand{\thestatementctr}{\thesection.\arabic{statementctr}}
+
+\newaliascnt{theoremctr}{statementctr}
+\newaliascnt{lemmactr}{statementctr}
+\newaliascnt{propctr}{statementctr}
+\newaliascnt{defctr}{statementctr}
+\newaliascnt{remarkctr}{statementctr}
+\newaliascnt{examplectr}{statementctr}
+\newaliascnt{exectr}{statementctr}
+
+\aliascntresetthe{theoremctr}
+\aliascntresetthe{lemmactr}
+\aliascntresetthe{propctr}
+\aliascntresetthe{defctr}
+\aliascntresetthe{remarkctr}
+\aliascntresetthe{examplectr}
+\aliascntresetthe{exectr}
+
+\crefname{theoremctr}{теорема}{теоремы}
+\Crefname{theoremctr}{Теорема}{Теоремы}
+\crefname{lemmactr}{лемма}{леммы}
+\Crefname{lemmactr}{Лемма}{Леммы}
+\crefname{propctr}{утверждение}{утверждения}
+\Crefname{propctr}{Утверждение}{Утверждения}
+\crefname{remarkctr}{замечание}{замечания}
+\Crefname{remarkctr}{Замечание}{Замечания}
+\crefname{defctr}{определение}{определения}
+\Crefname{defctr}{Определение}{Определения}
+\crefname{exectr}{упражнение}{упражнения}
+\Crefname{exectr}{Упражнение}{Упражнения}
+\crefname{examplectr}{пример}{примеры}
+\Crefname{examplectr}{Пример}{Примеры}
+
+% Флаг нужен только для совместимости со старыми \lbpa/\lbpn.
+\newif\ifinmathphysstatement
+\inmathphysstatementfalse
+
+% Старые \lbpa оставлены, чтобы старый текст продолжал компилироваться.
+% Теперь они используют общий счётчик математических утверждений.
+\newcommand{\lbpa}[2]{%
+    \refstepcounter{statementctr}%
+    \label{#1}%
+    \noindent #2 \hfill(\thestatementctr)%
+    \par\medskip
+}
+\newcommand{\lbpn}[2]{%
+    \ifinmathphysstatement
+        \label{#1}%
+        \noindent #2%
+    \else
+        \refstepcounter{equation}%
+        \label{#1}%
+        \noindent #2 \hfill(\theequation)%
+    \fi
+    \par\medskip
+}
+
+% =================================================
+% ЦВЕТНЫЕ БЛОКИ
+% =================================================
+\usepackage[most]{tcolorbox}
+
+% Спокойная палитра, близкая по логике к main.tex.
+\definecolor{defcolor}{RGB}{46,125,95}
+\definecolor{theoremcolor}{RGB}{55,95,160}
+\definecolor{lemmacolor}{RGB}{105,82,150}
+\definecolor{propcolor}{RGB}{55,120,135}
+\definecolor{examplecolor}{RGB}{180,90,75}
+\definecolor{exercisecolor}{RGB}{40,125,155}
+\definecolor{remarkcolor}{RGB}{175,125,45}
+\definecolor{proofcolor}{RGB}{105,105,105}
+
+\tcbset{
+    mathphysblock/.style={
+        enhanced,
+        breakable,
+        boxrule=0.65pt,
+        arc=1.5mm,
+        left=7pt,
+        right=7pt,
+        top=6pt,
+        bottom=6pt,
+        before skip=9pt,
+        after skip=9pt
+    }
+}
+
+\newenvironment{mydef}[1][]{%
+    \refstepcounter{defctr}%
+    \inmathphysstatementtrue
+    \begin{tcolorbox}[mathphysblock,colframe=defcolor,colback=defcolor!3,#1]
+    \textbf{\color{defcolor}Определение \thedefctr.}\par\smallskip
+}{%
+    \end{tcolorbox}
+    \inmathphysstatementfalse
+}
+
+\newenvironment{mytheorem}[1][]{%
+    \refstepcounter{theoremctr}%
+    \inmathphysstatementtrue
+    \begin{tcolorbox}[mathphysblock,colframe=theoremcolor,colback=theoremcolor!3,boxrule=0.8pt,#1]
+    \textbf{\color{theoremcolor}Теорема \thetheoremctr.}\par\smallskip
+}{%
+    \end{tcolorbox}
+    \inmathphysstatementfalse
+}
+
+\newenvironment{mylemma}[1][]{%
+    \refstepcounter{lemmactr}%
+    \inmathphysstatementtrue
+    \begin{tcolorbox}[mathphysblock,colframe=lemmacolor,colback=lemmacolor!3,#1]
+    \textbf{\color{lemmacolor}Лемма \thelemmactr.}\par\smallskip
+}{%
+    \end{tcolorbox}
+    \inmathphysstatementfalse
+}
+
+\newenvironment{myprop}[1][]{%
+    \refstepcounter{propctr}%
+    \inmathphysstatementtrue
+    \begin{tcolorbox}[mathphysblock,colframe=propcolor,colback=propcolor!3,#1]
+    \textbf{\color{propcolor}Утверждение \thepropctr.}\par\smallskip
+}{%
+    \end{tcolorbox}
+    \inmathphysstatementfalse
+}
+
+\newenvironment{myexample}[1][]{%
+    \refstepcounter{examplectr}%
+    \inmathphysstatementtrue
+    \begin{tcolorbox}[mathphysblock,colframe=examplecolor,colback=examplecolor!3,#1]
+    \textbf{\color{examplecolor}Пример \theexamplectr.}\par\smallskip
+}{%
+    \end{tcolorbox}
+    \inmathphysstatementfalse
+}
+
+\newenvironment{myexe}[1][]{%
+    \refstepcounter{exectr}%
+    \inmathphysstatementtrue
+    \begin{tcolorbox}[mathphysblock,colframe=exercisecolor,colback=exercisecolor!3,#1]
+    \textbf{\color{exercisecolor}Упражнение \theexectr.}\par\smallskip
+}{%
+    \end{tcolorbox}
+    \inmathphysstatementfalse
+}
+
+\newenvironment{myremark}[1][]{%
+    \refstepcounter{remarkctr}%
+    \inmathphysstatementtrue
+    \begin{tcolorbox}[mathphysblock,colframe=remarkcolor,colback=remarkcolor!4,#1]
+    \textbf{\color{remarkcolor}Замечание \theremarkctr.}\par\smallskip
+}{%
+    \end{tcolorbox}
+    \inmathphysstatementfalse
+}
+
+\newenvironment{myproof}{%
+    \begin{tcolorbox}[mathphysblock,colframe=proofcolor!65,colback=proofcolor!2,boxrule=0.5pt]
+    \textit{\textbf{Доказательство.}}\par\smallskip
+}{%
+    \hfill$\square$
+    \end{tcolorbox}
+}
+
+% -------------------------------------------------
+% ПОЛЕЗНЫЕ КОМАНДЫ
+% -------------------------------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\LL}{\mathscr{L}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)] \node[draw,circle,inner sep=1pt,minimum size=1.4em] (char) {#1};}
+
+\newcommand{\sign}{\operatorname{sign}}
+\renewcommand{\span}{\operatorname{span}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\dom}{\operatorname{Dom}}
+\newcommand{\Alt}{\operatorname{Alt}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\arcsh}{\operatorname{arcsh}}
+\newcommand{\arcch}{\operatorname{arcch}}
+\newcommand{\arctanh}{\operatorname{arctanh}}
+\newcommand{\arccth}{\operatorname{arccth}}
+
+\newcommand{\DR}{\mathcal{D}(\R)}
+\newcommand{\SR}{\mathcal{S}(\R)}
+\newcommand{\SSR}{\mathcal{S}'(\R)}
+\newcommand{\dR}{\mathcal{D}(\R^n)}
+\newcommand{\ddR}{\mathcal{D}'(\R^n)}
+\newcommand{\DDR}{\mathcal{D}'(\R)}
+\newcommand{\Cinf}{\text{C}^{\infty}}
+
+\newcommand{\p}{\partial}
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\grad}{\Vec{\nabla}}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
+\newcommand{\podst}[1]{\left[ #1 \right]}
+\newcommand{\skobka}[1]{\left( #1 \right)}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brackets}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+\newcommand{\Pf}[1]{\mathrm{P}\dfrac{1}{#1}}
+\newcommand{\PP}{\mathrm{P}\dfrac{1}{x}}
+\newcommand{\px}[1]{\dfrac{1}{#1 \pm \mathrm{i}0}}
+\newcommand{\Y}{\mathscr{Y}}
+
+\newcommand{\INT}{\int\limits_{-\infty}^{+\infty}}
+\newcommand{\intpi}{\int\limits_{-\pi}^{+\pi}}
+\newcommand{\sumn}{\sum_{n=0}^{\infty}}
+\newcommand{\summ}{\sum_{m=0}^{\infty}}
+\newcommand{\sumk}{\sum_{k=0}^{\infty}}
+\newcommand{\SUMN}{\sum\limits_{n=1}^{\infty}}
+\newcommand{\SUMM}{\sum\limits_{m=1}^{\infty}}
+\newcommand{\SUMK}{\sum\limits_{k=1}^{\infty}}
+\newcommand{\sumin}{\sum_{i=1}^{n}}
+\newcommand{\sumkn}{\sum_{k=1}^{n}}
+\newcommand{\SuM}{\sum\limits_{k=1}^{m}}
+\newcommand{\disp}{\displaystyle}
+
+\newcommand{\smallo}[2]{\underset{#1}{\overline{o}\left(#2\right)}}
+\newcommand{\bigo}[2]{\mathop{O}\limits_{#1}\!\left(#2\right)}
+\newcommand{\bigO}{\underline{O}}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\Let}{\sqsupset}
+\newcommand{\ocup}{\overset{\circ}{\cup}}
+\newcommand{\dopis}{\begin{center}\textbf{Дописать}\end{center}}
+\newcommand{\ubf}[1]{\noindent\textbf{\underline{#1}}}
+\newcommand{\theme}[1]{\noindent\textbf{\underline{#1}}\vskip2mm}
+\newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
+\newcounter{strcounter}
+\newcommand{\numberedline}[1]{%
+    \refstepcounter{strcounter}%
+    \makebox[0pt][r]{\thestrcounter\hspace{1em}}%
+    \label{#1}%
+}
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\kappa}{\varkappa}
+
+\begin{document}
+
+
+% =================================================
+% ОБЛОЖКА
+% =================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+
+\vspace*{0.8cm}
+
+{\Huge\bfseries Конспект по математической физике \par}
+\vspace{0.4cm}
+
+{\Large Осенний семестр 2026\par}
+
+\vspace{0.6cm}
+
+%\includegraphics[width=0.6\textwidth]{pics/11.png}
+
+\vspace{0.4cm}
+
+\vfill
+
+{\large Лекторы\par}
+\vspace{0.2cm}
+{\Large Филонов Николай Дмитриевич\par}
+
+
+
+{\large \href{https://www.youtube.com/playlist?list=PLY00npmGiNp8}
+{Плейлист лекций}}
+\vspace{0.2cm}
+{\normalsize
+
+\par}
+
+\vspace{0.7cm}
+
+{\large Над файлом работали\par}
+\vspace{0.2cm}
+{\normalsize
+Яков Овсянников(ТГ:@Yasha2707)\par }
+{\normalsize
+Александр Лозовой(ТГ:@sdlhr)\par}
+
+\vspace{1.2cm}
+
+{\large Университет ИТМО\par}
+
+\end{titlepage}
+% =================================================
+% РЕКОМЕНДУЕМАЯ ЛИТЕРАТУРА
+% =================================================
+
+\clearpage
+\section*{Рекомендуемая литература}
+
+\begin{enumerate}
+    \item Владимиров В.\,С. 
+    \textit{Уравнения математической физики}.
+
+    \item Гельфанд И.\,М., Шилов Г.\,Е. 
+    \textit{Пространства основных и обобщённых функций}.
+
+    \item Смирнов В.\,И. 
+    \textit{Курс высшей математики}. Том 3.
+
+    \item Тихонов А.\,Н., Самарский А.\,А. 
+    \textit{Уравнения математической физики}.
+
+    \item Шубин М.\,А. 
+    \textit{Лекции об уравнениях математической физики}.
+\end{enumerate}
+
+\clearpage
+
+% =================================================
+% ОГЛАВЛЕНИЕ
+% =================================================
+\tableofcontents
+\clearpage
+
+
+
+\section*{\S 0. Разбиение единицы}
+\addcontentsline{toc}{section}{\S 0. Разбиение единицы}
+
+Рассмотрим функцию
+\[
+\omega(x)=
+\begin{cases}
+C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
+0, & |x|\ge 1,
+\end{cases}
+\]
+где постоянная $C$ выбрана так, что
+\[
+\omega(x)>0,
+\qquad
+\int_{\mathbb R^n}\omega(x)\,\dd x=1.
+\]
+Тогда
+\[
+\omega\in C_0^\infty(\mathbb R^n),
+\qquad
+\operatorname{supp}\omega=\overline{B_1(0)}.
+\]
+
+Для любого $\rho>0$ положим
+\[
+\omega_\rho(x)=\frac{1}{\rho^n}\omega\!\left(\frac{x}{\rho}\right).
+\]
+Тогда
+\[
+\omega_\rho\in C_0^\infty(\mathbb R^n),
+\qquad
+\omega_\rho>0,
+\qquad
+\operatorname{supp}\omega_\rho=\overline{B_\rho(0)},
+\qquad
+\int_{\mathbb R^n}\omega_\rho(x)\,\dd x=1.
+\]
+
+\begin{mylemma}
+Пусть $\Omega$ и $U$ --- открытые множества и
+\[
+\overline\Omega\subset U.
+\]
+Тогда существует функция
+\[
+\eta\in C_0^\infty(\mathbb R^n),
+\qquad
+0\le \eta(x)\le 1\quad \forall x,
+\]
+такая, что
+\[
+\eta\big|_{\overline\Omega}=1,
+\qquad
+\operatorname{supp}\eta\subset U.
+\]
+\end{mylemma}
+
+\begin{myproof}
+Положим
+\[
+\rho:=\frac14\operatorname{dist}(\overline\Omega,\partial U)>0.
+\]
+Введём множество
+\[
+A:=\left\{x\in\mathbb R^n:\operatorname{dist}(x,\overline\Omega)<2\rho\right\}.
+\]
+Тогда $A$ открыто и
+\[
+\overline\Omega\subset A,
+\qquad
+\overline A\subset U.
+\]
+
+Положим
+\[
+\eta(x):=\int_A\omega_\rho(x-y)\,\dd y
+=(\omega_\rho*\chi_A)(x).
+\]
+Имеем
+\[
+\eta\in C^\infty,
+\qquad
+0\le \eta(x)\le 1.
+\]
+
+Если $x\in\overline\Omega$, то
+\[
+B_\rho(x)\subset A,
+\]
+поэтому
+\[
+\eta(x)
+=
+\int_{B_\rho(x)}\omega_\rho(x-y)\,\dd y
+=1.
+\]
+
+Если $x\notin U$, то
+\[
+B_\rho(x)\cap A=\varnothing,
+\]
+откуда
+\[
+\eta(x)=0.
+\]
+\end{myproof}
+
+\begin{mylemma}
+Пусть $\Omega$ --- открытая ограниченная область,
+\[
+\overline\Omega\subset\bigcup_{j=1}^{N}O_j,
+\qquad O_j\text{ --- открытые}.
+\]
+Тогда существуют открытые множества
+\[
+\Omega_j,\qquad j=0,1,\ldots,N,
+\]
+такие, что
+\[
+\overline\Omega\subset\bigcup_{j=0}^{N}\Omega_j,
+\qquad
+\overline{\Omega_j}\subset O_j,
+\quad j=1,\ldots,N,
+\]
+и
+\[
+\overline{\Omega_0}\cap\overline\Omega=\varnothing.
+\]
+\end{mylemma}
+
+\begin{myproof}
+Выберем куб $Q$ так, чтобы рассматриваемое покрытие содержалось внутри некоторого большего открытого куба $\widetilde Q$.
+Последовательно строим открытые множества $\Omega_j$ так, чтобы
+\[
+\overline{\Omega_j}\subset O_j,
+\qquad j=1,\ldots,N.
+\]
+После выбора $\Omega_1,\ldots,\Omega_N$ положим
+\[
+K_0:=\overline Q\setminus\bigcup_{j=1}^{N}\Omega_j.
+\]
+Множество $K_0$ замкнуто и
+\[
+K_0\subset\widetilde Q\setminus\overline\Omega.
+\]
+Поэтому существует открытое $\Omega_0$ такое, что
+\[
+K_0\subset\Omega_0,
+\qquad
+\overline{\Omega_0}\subset\widetilde Q\setminus\overline\Omega.
+\]
+Следовательно,
+\[
+\overline Q\subset\bigcup_{j=0}^{N}\Omega_j,
+\qquad
+\overline{\Omega_0}\cap\overline\Omega=\varnothing.
+\]
+\end{myproof}
+
+\begin{mytheorem}
+Пусть $\Omega$ --- открытая ограниченная область,
+\[
+\overline\Omega\subset\bigcup_{j=1}^{N}O_j,
+\qquad O_j\text{ --- открытые}.
+\]
+Тогда существуют функции
+\[
+\{\xi_j\}_{j=1}^{N},
+\qquad
+\xi_j\in C_0^\infty(\mathbb R^n),
+\]
+такие, что
+\[
+\operatorname{supp}\xi_j\subset O_j,
+\qquad
+0\le\xi_j(x)\le1,
+\]
+и
+\[
+\sum_{j=1}^{N}\xi_j(x)=1,
+\qquad x\in\overline\Omega.
+\]
+\end{mytheorem}
+
+\begin{myproof}
+По предыдущей лемме выберем $\Omega_j$, $j=0,\ldots,N$.
+Для $j=1,\ldots,N$ по первой лемме существуют функции
+\[
+\eta_j\in C_0^\infty(\mathbb R^n),
+\qquad
+\eta_j(x)\ge0,
+\]
+такие, что
+\[
+\eta_j\big|_{\overline{\Omega_j}}=1,
+\qquad
+\operatorname{supp}\eta_j\subset O_j.
+\]
+Для $j=0$ аналогично выбираем
+\[
+\eta_0\in C_0^\infty(\mathbb R^n),
+\qquad
+\eta_0(x)\ge0,
+\qquad
+\eta_0\big|_{\overline{\Omega_0}}=1,
+\qquad
+\operatorname{supp}\eta_0\subset\widetilde Q\setminus\overline\Omega.
+\]
+
+Определим, $j=1,\ldots,N$,
+\[
+\xi_j(x)=
+\begin{cases}
+\displaystyle
+\frac{\eta_j(x)}{\sum\limits_{i=0}^{N}\eta_i(x)}, & x\in Q,\\[4mm]
+0, & x\notin Q.
+\end{cases}
+\]
+На $\overline Q$
+\[
+\sum_{i=0}^{N}\eta_i(x)\ge1.
+\]
+Поэтому
+\[
+\xi_j\in C_0^\infty(\mathbb R^n),
+\qquad
+\operatorname{supp}\xi_j\subset O_j.
+\]
+Так как при $x\in\overline\Omega$ имеем $\eta_0(x)=0$, то
+\[
+\sum_{j=1}^{N}\xi_j(x)=1,
+\qquad x\in\overline\Omega.
+\]
+\end{myproof}
+
+% ============================================================
+% ГЛАВА IV
+% ============================================================
+
+\chapter{Вариационное исчисление}
+
+Рассмотрим функционал
+\[
+J(y)=\int_a^b L\bigl(x,y(x),y'(x)\bigr)\,\dd x,
+\]
+где
+\[
+L\in C(\mathbb R^3),
+\]
+и задачу поиска минимума или максимума $J$ на множестве
+\[
+\left\{y\in C^1[a,b]:\ y(a)=A,\ y(b)=B\right\}.
+\]
+
+\section{Интегральные функционалы}
+
+\subsection{Функционалы в нормированных пространствах}
+
+Пусть $X$ --- линейное нормированное пространство и
+\[
+J:X\to\mathbb R.
+\]
+
+\begin{mydef}
+Вариацией функционала $J$ в точке $f$ в направлении $h$ называется
+\[
+\delta J(f,h)
+=
+\left.\frac{\dd}{\dd\alpha}J(f+\alpha h)\right|_{\alpha=0}.
+\]
+\end{mydef}
+
+\begin{myremark}
+\begin{enumerate}
+\item Производная по Гато:
+\[
+\delta J(f,h)=J'_G[f]h.
+\]
+\item Вариация однородна по $h$:
+\[
+\delta J(f,\lambda h)
+=
+\lambda\,\delta J(f,h).
+\]
+\end{enumerate}
+\end{myremark}
+
+\begin{myexe}
+Линейности по $h$ в общем случае нет.
+\end{myexe}
+
+Пусть
+\[
+\varphi:X\to\mathbb R
+\]
+--- линейный функционал.
+
+\begin{mydef}
+Функционал $\varphi$ называется ограниченным, если существует $C>0$ такое, что
+\[
+|\varphi(x)|\le C\|x\|_X,
+\qquad \forall x\in X.
+\]
+\end{mydef}
+
+\begin{myexample}
+Пусть
+\[
+X=C[-1,1],
+\qquad
+\|f\|_1=\int_{-1}^{1}|f(x)|\,\dd x,
+\]
+и
+\[
+\varphi(f)=f(0).
+\]
+Рассмотрим функции
+\[
+f_n(x)=
+\begin{cases}
+1-n|x|, & |x|\le \dfrac1n,\\[2mm]
+0, & |x|>\dfrac1n.
+\end{cases}
+\]
+Тогда
+\[
+\varphi(f_n)=1,
+\qquad
+\|f_n\|_1=\frac1n.
+\]
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1]
+\draw[->] (-2.2,0)--(2.2,0);
+\draw[->] (0,-0.25)--(0,1.5);
+\draw[thick] (-1.2,0)--(0,1)--(1.2,0);
+\node[below] at (-1.2,0) {$-\frac1n$};
+\node[below] at (1.2,0) {$\frac1n$};
+\node[left] at (0,1) {$1$};
+\end{tikzpicture}
+\end{center}
+\end{myexample}
+
+\begin{myexe}
+Если $\dim X<\infty$, то всякий линейный функционал на $X$ ограничен.
+\end{myexe}
+
+\begin{mydef}
+Сопряжённым пространством к $X$ называется
+\[
+X'=X^*=
+\{\text{линейные ограниченные функционалы на }X\}.
+\]
+Норма задаётся формулой
+\[
+\|\varphi\|_{X'}
+=
+\sup_{f\ne0}\frac{|\varphi(f)|}{\|f\|_X}.
+\]
+\end{mydef}
+
+\begin{myexe}
+\begin{enumerate}
+\item Это действительно норма.
+\item $X'$ --- банахово пространство.
+\end{enumerate}
+\end{myexe}
+
+Пусть $J:X\to\mathbb R$ --- функционал и $f\in X$.
+
+\begin{mydef}
+Говорят, что $J$ дифференцируем по Фреше в точке $f$, если существует $\varphi\in X'$ такое, что
+\[
+J[f+h]
+=
+J[f]+\varphi(h)+o(\|h\|_X),
+\qquad h\to0.
+\]
+При этом
+\[
+J'_F[f]h=\varphi(h).
+\]
+\end{mydef}
+
+\begin{myexe}
+\begin{enumerate}
+\item Если $\varphi$ существует, то оно единственно.
+\item Если существует $J'_F[f]$, то
+\[
+J'_G[f]h=J'_F[f]h
+\qquad \forall h.
+\]
+\item Существование $J'_G[f]h$ для всех $h$ не влечёт существования $J'_F[f]$.
+\end{enumerate}
+\end{myexe}
+
+\begin{mydef}
+Говорят, что
+\[
+J\in C^1(X),
+\]
+если для каждого $f\in X$ существует $J'_F[f]\in X'$ и отображение
+\[
+f\longmapsto J'_F[f]
+\]
+непрерывно как отображение $X\to X'$.
+\end{mydef}
+
+% ------------------------------------------------------------
+% 03.09.26
+% ------------------------------------------------------------
+
+Пусть $X$ --- нормированное пространство и
+\[
+J:X\to\mathbb R.
+\]
+
+\begin{mydef}
+Точка $f$ называется точкой локального минимума $J$, если
+\[
+\exists\delta>0:\qquad
+J[f]\le J[g]
+\quad\forall g\in X:\ \|g-f\|_X<\delta.
+\]
+Точка $f$ называется точкой строгого локального минимума, если
+\[
+\exists\delta>0:\qquad
+J[f]<J[g]
+\quad\forall g\ne f:\ \|g-f\|_X<\delta.
+\]
+Точка $f$ называется точкой глобального (абсолютного) минимума, если
+\[
+J[f]\le J[g]
+\qquad\forall g\in X.
+\]
+\end{mydef}
+
+\begin{mylemma}
+Пусть $f$ --- локальный экстремум $J$ и вариация $\delta J(f,h)$ существует.
+Тогда
+\[
+\delta J(f,h)=0
+\qquad\forall h\in X.
+\]
+\end{mylemma}
+
+\begin{myproof}
+Положим
+\[
+\psi(\alpha)=J(f+\alpha h).
+\]
+Точка $\alpha=0$ является локальным экстремумом $\psi$. Если $\psi'(0)$ существует, то
+\[
+\psi'(0)=0.
+\]
+Следовательно,
+\[
+\delta J(f,h)=0.
+\]
+\end{myproof}
+
+\begin{mydef}
+Точка $f$ называется стационарной точкой функционала $J$, если
+\[
+\delta J(f,h)=0
+\qquad\forall h.
+\]
+\end{mydef}
+
+\subsection{Пример пространства $C^1$ и непрерывность интегрального функционала}
+
+Пусть
+\[
+X=C^1([a,b],\mathbb R^n),
+\qquad
+\|f\|_X=
+\max_{[a,b]}|f'(x)|+
+\max_{[a,b]}|f(x)|.
+\]
+
+\begin{myexe}
+\begin{enumerate}
+\item $\|\cdot\|_X$ является нормой.
+\item $X$ --- банахово пространство.
+\end{enumerate}
+\end{myexe}
+
+\begin{mytheorem}
+Пусть
+\[
+L\in C([a,b]\times\mathbb R^n\times\mathbb R^n),
+\]
+и
+\[
+J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
+\]
+Тогда $J:X\to\mathbb R$ непрерывен.
+\end{mytheorem}
+
+\begin{myproof}
+Зафиксируем $y_0\in X$ и числа $R_0,R_1$ такие, что
+\[
+|y_0(x)|\le R_0,
+\qquad
+|y_0'(x)|\le R_1,
+\qquad x\in[a,b].
+\]
+Функция $L$ непрерывна на компакте
+\[
+[a,b]\times\overline B_{R_0+1}\times\overline B_{R_1+1},
+\]
+поэтому равномерно непрерывна на нём.
+
+Для каждого $\varepsilon>0$ существует $\delta\in(0,1)$ такое, что из
+\[
+|x-x_0|<\delta,
+\qquad
+|y-y_0|<\delta,
+\qquad
+|v-v_0|<\delta
+\]
+следует
+\[
+|L(x,y,v)-L(x_0,y_0,v_0)|<\frac{\varepsilon}{b-a}.
+\]
+
+Если
+\[
+\|y-y_0\|_X<\delta,
+\]
+то
+\[
+|y(x)-y_0(x)|<\delta,
+\qquad
+|y'(x)-y_0'(x)|<\delta,
+\]
+и потому
+\[
+\left|L(x,y(x),y'(x))-L(x,y_0(x),y_0'(x))\right|
+<\frac{\varepsilon}{b-a}.
+\]
+Следовательно,
+\[
+|J[y]-J[y_0]|
+\le
+\int_a^b
+\left|L(x,y,y')-L(x,y_0,y_0')\right|\,\dd x
+<\varepsilon.
+\]
+\end{myproof}
+
+\begin{mytheorem}
+Пусть
+\[
+L\in C^1([a,b]\times\mathbb R^n\times\mathbb R^n),
+\]
+и
+\[
+J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
+\]
+Тогда
+\[
+J\in C^1(X),
+\]
+а вариация имеет вид
+\[
+\boxed{
+\delta J(y;h)
+=
+\int_a^b
+\left(
+\left\langle\nabla_yL(x,y,y'),h(x)\right\rangle
++
+\left\langle\nabla_vL(x,y,y'),h'(x)\right\rangle
+\right)\dd x.}
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Используем разложение
+\[
+L(x,y+h,v+w)
+=
+L(x,y,v)
++
+\langle\nabla_yL(x,y,v),h\rangle
++
+\langle\nabla_vL(x,y,v),w\rangle
++
+o(|h|+|w|),
+\]
+при $h,w\to0$ в $\mathbb R^n$.
+Подставляя
+\[
+y=y(x),\qquad h=h(x),\qquad v=y'(x),\qquad w=h'(x)
+\]
+и интегрируя по $[a,b]$, получаем
+\[
+J[y+h]
+=
+J[y]
++
+\int_a^b
+\left(
+\langle\nabla_yL(x,y,y'),h\rangle
++
+\langle\nabla_vL(x,y,y'),h'\rangle
+\right)\dd x
++
+o(\|h\|_X).
+\]
+\end{myproof}
+
+\begin{myremark}
+Отображение
+\[
+y\longmapsto J'_F[y],
+\qquad X\to X',
+\]
+непрерывно.
+\end{myremark}
+
+\begin{myremark}
+При $n=1$
+\[
+\delta J(y;h)
+=
+\int_a^b
+\left(
+\frac{\partial L(x,y,y')}{\partial y}\,h(x)
++
+\frac{\partial L(x,y,y')}{\partial v}\,h'(x)
+\right)\dd x.
+\]
+\end{myremark}
+
+\subsection{Леммы}
+
+\begin{mylemma}
+Пусть $\Omega\subset\mathbb R^n$ --- открытое множество и
+\[
+f\in C(\Omega).
+\]
+Если
+\[
+\int_\Omega f(x)h(x)\,\dd x=0
+\qquad
+\forall h\in C_0^\infty(\Omega),
+\]
+то
+\[
+f\equiv0.
+\]
+\end{mylemma}
+
+\begin{myproof}
+Предположим противное. Тогда существует $a\in\Omega$ такое, что, например,
+\[
+f(a)>0.
+\]
+Тогда существует $\delta>0$ такое, что
+\[
+B_\delta(a)\subset\Omega,
+\qquad
+f(x)>0\quad\forall x\in B_\delta(a).
+\]
+Выберем
+\[
+h(x)=
+\begin{cases}
+\displaystyle
+\exp\!\left(-\frac{1}{\delta^2-|x-a|^2}\right), & |x-a|<\delta,\\[2mm]
+0, & |x-a|\ge\delta.
+\end{cases}
+\]
+Тогда $h\in C_0^\infty(\Omega)$ и
+\[
+\int_\Omega f h\,\dd x
+=
+\int_{B_\delta(a)}fh\,\dd x>0,
+\]
+противоречие.
+\end{myproof}
+
+\begin{mylemma}
+Пусть
+\[
+g\in C([a,b],\mathbb R^n).
+\]
+Тогда
+\[
+\int_a^b\langle g(x),h'(x)\rangle\,\dd x=0
+\]
+для всех
+\[
+h\in C^1([a,b],\mathbb R^n),
+\qquad
+h(a)=h(b)=0,
+\]
+тогда и только тогда, когда
+\[
+g(x)=\mathrm{const}.
+\]
+\end{mylemma}
+
+\begin{myproof}
+Обратное утверждение очевидно.
+Для прямого положим
+\[
+c:=\frac1{b-a}\int_a^b g(x)\,\dd x
+\]
+и
+\[
+h(x)=\int_a^x(g(t)-c)\,\dd t.
+\]
+Тогда
+\[
+h'(x)=g(x)-c,
+\qquad
+h(a)=h(b)=0.
+\]
+Следовательно,
+\[
+0
+=
+\int_a^b\langle g(x),h'(x)\rangle\,\dd x
+-
+\int_a^b\langle c,h'(x)\rangle\,\dd x
+=
+\int_a^b|g(x)-c|^2\,\dd x.
+\]
+Отсюда
+\[
+g(x)=c.
+\]
+\end{myproof}
+
+\begin{mylemma}
+Пусть
+\[
+g\in C[a,b].
+\]
+Если
+\[
+\int_a^b g(x)h''(x)\,\dd x=0
+\]
+для всех $h\in C^2[a,b]$, удовлетворяющих
+\[
+h(a)=h(b)=h'(a)=h'(b)=0,
+\]
+то
+\[
+\boxed{g(x)=Ax+B.}
+\]
+\end{mylemma}
+
+\begin{myproof}
+Положим
+\[
+h(x)
+=
+\int_a^x\int_a^t
+\bigl(g(\tau)-\alpha(\tau-a)-\beta\bigr)
+\,\dd\tau\,\dd t,
+\qquad
+\alpha,\beta\in\mathbb R.
+\]
+Тогда
+\[
+h(a)=0,
+\qquad
+h'(x)=\int_a^x\bigl(g(\tau)-\alpha(\tau-a)-\beta\bigr)\,\dd\tau,
+\qquad
+h'(a)=0,
+\]
+и
+\[
+h''(x)=g(x)-\alpha(x-a)-\beta.
+\]
+Условия $h'(b)=0$ и $h(b)=0$ дают систему относительно $\alpha,\beta$:
+\[
+\int_a^b g(\tau)\,\dd\tau
+-
+\alpha\frac{(b-a)^2}{2}
+-
+\beta(b-a)=0,
+\]
+\[
+\int_a^b\int_a^t g(\tau)\,\dd\tau\,\dd t
+-
+\alpha\frac{(b-a)^3}{6}
+-
+\beta\frac{(b-a)^2}{2}=0.
+\]
+Её определитель равен
+\[
+\begin{vmatrix}
+\dfrac{(b-a)^2}{2} & b-a\\[2mm]
+\dfrac{(b-a)^3}{6} & \dfrac{(b-a)^2}{2}
+\end{vmatrix}
+=
+\frac{(b-a)^4}{12}>0,
+\]
+поэтому $\alpha,\beta$ существуют.
+
+Тогда
+\[
+0
+=
+\int_a^b g(x)h''(x)\,\dd x
+-
+\int_a^b\bigl(\alpha(x-a)+\beta\bigr)h''(x)\,\dd x
+\]
+и, поскольку граничные значения $h,h'$ равны нулю,
+\[
+\int_a^b
+\bigl(g(x)-\alpha(x-a)-\beta\bigr)h''(x)\,\dd x=0.
+\]
+Но
+\[
+h''(x)=g(x)-\alpha(x-a)-\beta,
+\]
+следовательно,
+\[
+g(x)=\alpha(x-a)+\beta=Ax+B.
+\]
+\end{myproof}
+
+\begin{myexe}
+Пусть $g\in C[a,b]$, $k\in\mathbb N$ и
+\[
+\int_a^b g(x)h^{(k)}(x)\,\dd x=0
+\]
+для всех $h\in C^k[a,b]$, удовлетворяющих
+\[
+h(a)=h'(a)=\cdots=h^{(k-1)}(a)=0,
+\]
+\[
+h(b)=h'(b)=\cdots=h^{(k-1)}(b)=0.
+\]
+Тогда $g$ --- многочлен степени не выше $k-1$.
+\end{myexe}
+
+\subsection{Задача с фиксированными граничными точками}
+
+\begin{mytheorem}
+Пусть
+\[
+L\in C^1([a,b]\times\mathbb R^n\times\mathbb R^n),
+\]
+\[
+J[y]=\int_a^bL(x,y,y')\,\dd x,
+\]
+и $y_0$ --- локальный экстремум $J$ на множестве
+\[
+\left\{y\in C^1([a,b],\mathbb R^n):\ y(a)=A,\ y(b)=B\right\}.
+\]
+Тогда
+\[
+\boxed{
+\frac{\dd}{\dd x}
+\nabla_vL\bigl(x,y_0(x),y_0'(x)\bigr)
+=
+\nabla_yL\bigl(x,y_0(x),y_0'(x)\bigr).}
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Пусть
+\[
+h\in C^1([a,b],\mathbb R^n),
+\qquad h(a)=h(b)=0.
+\]
+Тогда $\alpha=0$ --- локальный экстремум функции $J(y_0+\alpha h)$, поэтому
+\[
+\delta J(y_0;h)=0.
+\]
+Следовательно,
+\[
+\int_a^b
+\left(
+\langle\nabla_yL(x,y_0,y_0'),h\rangle
++
+\langle\nabla_vL(x,y_0,y_0'),h'\rangle
+\right)\dd x=0.
+\]
+Положим
+\[
+G(x):=\int_a^x\nabla_yL\bigl(t,y_0(t),y_0'(t)\bigr)\,\dd t.
+\]
+Тогда
+\[
+G\in C^1([a,b],\mathbb R^n)
+\]
+и
+\[
+\int_a^b\langle\nabla_yL,h\rangle\,\dd x
+=
+\langle G(x),h(x)\rangle\Big|_a^b
+-
+\int_a^b\langle G(x),h'(x)\rangle\,\dd x.
+\]
+Граничный член равен нулю, поэтому
+\[
+\int_a^b
+\left\langle
+\nabla_vL(x,y_0,y_0')-G(x),h'(x)
+\right\rangle\dd x=0.
+\]
+По лемме Дюбуа--Реймона
+\[
+\nabla_vL(x,y_0,y_0')=G(x)+\mathrm{const}.
+\]
+Следовательно,
+\[
+\frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
+=
+G'(x)
+=
+\nabla_yL(x,y_0,y_0').
+\]
+\end{myproof}
+
+\begin{myremark}
+Из доказательства следует, что $y_0$ обладает дополнительной гладкостью в тех случаях, когда уравнение Эйлера--Лагранжа позволяет выразить $y_0'$.
+\end{myremark}
+
+\begin{myexample}
+Пусть $n=1$, $[a,b]=[-1,1]$ и
+\[
+J[y]=\int_{-1}^{1}y(x)^2\bigl(y'(x)-2x\bigr)^2\,\dd x,
+\]
+\[
+y(-1)=0,
+\qquad
+y(1)=1.
+\]
+Очевидно,
+\[
+J[y]\ge0.
+\]
+Функция
+\[
+y_0(x)=
+\begin{cases}
+0, & x\le0,\\
+x^2, & x>0
+\end{cases}
+\]
+даёт
+\[
+J[y_0]=0.
+\]
+При этом
+\[
+y_0'(x)=
+\begin{cases}
+0, & x\le0,\\
+2x, & x>0,
+\end{cases}
+\qquad
+\Rightarrow\qquad y_0\notin C^2.
+\]
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1]
+\draw[->] (-2,0)--(2.2,0);
+\draw[->] (0,-0.3)--(0,1.8);
+\draw[thick] (-1.5,0)--(0,0);
+\draw[thick,domain=0:1.25,smooth,variable=\x] plot ({\x},{\x*\x});
+\node[below] at (-1.5,0) {$-1$};
+\node[below] at (1,0) {$1$};
+\end{tikzpicture}
+\end{center}
+\end{myexample}
+
+\begin{mytheorem}
+Пусть выполнены условия предыдущей теоремы,
+\[
+L\in C^2([a,b]\times\mathbb R^n\times\mathbb R^n),
+\]
+и
+\[
+\det\left(
+\frac{\partial^2L(x,y,v)}{\partial v_j\partial v_k}
+\right)_{j,k=1}^{n}
+\ne0
+\qquad \forall x,y,v.
+\]
+Тогда
+\[
+y_0\in C^2([a,b],\mathbb R^n).
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Рассмотрим отображение
+\[
+\Phi:(x,y,v)\longmapsto
+\bigl(x,y,\nabla_vL(x,y,v)\bigr).
+\]
+Имеем
+\[
+\Phi:[a,b]\times\mathbb R^{2n}	o[a,b]\times\mathbb R^{2n},
+\qquad
+\Phi\in C^1.
+\]
+Матрица $D\Phi(x,y,v)$ имеет блочно-треугольный вид, поэтому
+\[
+\det D\Phi
+=
+\det\left(
+\frac{\partial^2L}{\partial v_j\partial v_k}
+\right)
+e0.
+\]
+
+Для любого $x_0\in(a,b)$ по теореме об обратной функции существует локальное обратное отображение
+\[
+\Psi\in C^1,
+\]
+такое, что
+\[
+\Psi\bigl(x,y,\nabla_vL(x,y,v)\bigr)=(x,y,v).
+\]
+Следовательно, в окрестности $x_0$
+\[
+y_0'(x)
+=
+\Psi_{n+1:\,2n}
+\left(
+ x,y_0(x),
+ \nabla_vL(x,y_0(x),y_0'(x))
+\right).
+\]
+Правая часть принадлежит $C^1$, поэтому
+\[
+y_0'\in C^1,
+\qquad
+y_0\in C^2.
+\]
+\end{myproof}
+
+\begin{myexe}
+Разобраться с концами $x_0=a,b$.
+\end{myexe}
+
+\subsection{Задача со свободными концами}
+
+\begin{mytheorem}
+Пусть
+\[
+L\in C^1([a,b]\times\mathbb R^n\times\mathbb R^n),
+\]
+и $y_0$ --- локальный экстремум функционала
+\[
+J[y]=\int_a^bL(x,y,y')\,\dd x
+\]
+на всём пространстве $X=C^1([a,b],\mathbb R^n)$.
+Тогда
+\[
+\boxed{
+\frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
+=
+\nabla_yL(x,y_0,y_0')}
+\]
+и
+\[
+\boxed{
+\nabla_vL(a,y_0(a),y_0'(a))
+=
+\nabla_vL(b,y_0(b),y_0'(b))
+=0.}
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Для любого $h\in X$
+\[
+\delta J(y_0,h)=0,
+\]
+то есть
+\[
+\int_a^b
+\left(
+\langle\nabla_yL,h\rangle
++
+\langle\nabla_vL,h'\rangle
+\right)\dd x=0.
+\]
+Если сначала взять $h(a)=h(b)=0$, то получаем уравнение Эйлера--Лагранжа.
+После интегрирования по частям с учётом этого уравнения остаётся
+\[
+\left.\langle\nabla_vL(x,y_0,y_0'),h(x)\rangle\right|_a^b=0.
+\]
+Выбирая $h$ с произвольными значениями на концах, получаем естественные граничные условия
+\[
+\nabla_vL(a,y_0(a),y_0'(a))=0,
+\qquad
+\nabla_vL(b,y_0(b),y_0'(b))=0.
+\]
+\end{myproof}
+
+\begin{myremark}
+Уравнение Эйлера--Лагранжа вместе с естественными граничными условиями эквивалентно стационарности $y_0$.
+\end{myremark}
+
+\begin{mytheorem}
+Если дополнительно
+\[
+L\in C^2([a,b]\times\mathbb R^{2n}),
+\qquad
+\det\left(
+\frac{\partial^2L}{\partial v_j\partial v_k}
+\right)\ne0,
+\]
+то
+\[
+y_0\in C^2([a,b],\mathbb R^n).
+\]
+\end{mytheorem}
+
+\begin{myremark}
+Уравнение
+\[
+\frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
+=
+\nabla_yL(x,y_0,y_0')
+\]
+называется уравнением Эйлера--Лагранжа, а
+\[
+\nabla_vL(x,y_0,y_0')\big|_{x=a,b}=0
+\]
+--- естественными граничными условиями.
+Для $n$ неизвестных функций система второго порядка содержит $2n$ граничных условий.
+\end{myremark}
+
+\subsection{Частные случаи уравнения Эйлера--Лагранжа}
+
+\begin{enumerate}
+\item Если
+\[
+L=L(x,y),
+\]
+то
+\[
+\nabla_yL(x,y_0(x))=0.
+\]
+Это не дифференциальное уравнение.
+
+\item Если $L$ не зависит от $y_j$, то
+\[
+\frac{\dd}{\dd x}
+\frac{\partial L}{\partial v_j}(x,y_0,y_0')=0,
+\]
+то есть
+\[
+\frac{\partial L}{\partial v_j}(x,y_0,y_0')=\mathrm{const}.
+\]
+В соответствующем случае
+\[
+\nabla_vL(x,y_0,y_0')=\vec c,
+\]
+откуда
+\[
+y_0'(x)=f(x,\vec c),
+\qquad
+ y_0(x)=\int_a^x f(t,\vec c)\,\dd t+\vec c_2.
+\]
+
+\item Если
+\[
+L=L(y,v),
+\]
+то
+\[
+\boxed{
+\frac{\dd}{\dd x}
+\left(
+L(y_0,y_0')-
+\langle y_0',\nabla_vL(y_0,y_0')\rangle
+\right)=0.}
+\]
+\end{enumerate}
+
+\begin{myexample}
+При $n=1$ рассмотрим
+\[
+\int \frac{\sqrt{1+y'^2}}{y}\,\dd x,
+\qquad
+L(y,v)=\frac{\sqrt{1+v^2}}{y},
+\qquad y>0.
+\]
+Имеем
+\[
+\frac{\partial L}{\partial v}
+=
+\frac{v}{y\sqrt{1+v^2}}.
+\]
+Следовательно,
+\[
+L-y'\frac{\partial L}{\partial v}
+=
+\frac{\sqrt{1+y'^2}}{y}
+-
+\frac{y'^2}{y\sqrt{1+y'^2}}
+=
+\frac1{y\sqrt{1+y'^2}}.
+\]
+Пусть
+\[
+\frac1{y\sqrt{1+y'^2}}=\frac1R,
+\qquad R>0.
+\]
+Тогда
+\[
+y^2(1+y'^2)=R^2,
+\]
+\[
+y'^2=\frac{R^2}{y^2}-1,
+\]
+\[
+y'=\pm\frac{\sqrt{R^2-y^2}}{y}.
+\]
+Отсюда
+\[
+\int\frac{y\,\dd y}{\sqrt{R^2-y^2}}
+=
+\pm\int\dd x,
+\]
+и
+\[
+\sqrt{R^2-y^2}=\pm(x-a).
+\]
+Следовательно,
+\[
+\boxed{(x-a)^2+y^2=R^2.}
+\]
+\end{myexample}
+
+% ============================================================
+% 10.09.26
+% ============================================================
+
+\section{Условный экстремум}
+
+\subsection{Касательные к гиперповерхности}
+
+Пусть $X$ --- линейное нормированное пространство,
+\[
+G\in C^1(X),
+\qquad
+M=\{f\in X:\ G[f]=0\}.
+\]
+Пусть
+\[
+G'_F[f]\ne0
+\qquad \forall f\in M.
+\]
+Тогда $M$ --- гиперповерхность.
+
+Касательное пространство к $M$ в точке $u\in M$ имеет вид
+\[
+\{u+h:\ G'_F[u]h=0\}
+=
+ u+\ker G'_F[u].
+\]
+
+В случае $X=\mathbb R^n$
+\[
+G[u+h]
+=
+G[u]+\langle\nabla G(u),h\rangle+o(|h|),
+\qquad h\to0.
+\]
+
+\begin{mytheorem}
+Пусть
+\[
+G\in C^1(X),
+\qquad
+M=\{f:\ G[f]=0\},
+\]
+и $u\in M$ не является стационарной точкой $G$.
+Тогда условие
+\[
+\delta G(u;h)=0
+\]
+эквивалентно существованию $\varepsilon>0$ и кривой
+\[
+w:(-\varepsilon,\varepsilon)\to X,
+\qquad w\in C^1,
+\]
+такой, что
+\[
+w(t)\in M,
+\qquad
+w(0)=u,
+\qquad
+w'(0)=h.
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Так как $u$ не является стационарной точкой $G$, существует $v\in X$ такое, что
+\[
+\delta G(u;v)\ne0.
+\]
+Положим
+\[
+\psi(s,t)=G[u+sv+th].
+\]
+Тогда
+\[
+\psi(0,0)=G[u]=0.
+\]
+При $t=0$
+\[
+\psi(s,0)=G[u+sv]
+=
+G[u]+s\,\delta G(u;v)+o(s),
+\]
+поэтому
+\[
+\frac{\partial\psi(0,0)}{\partial s}
+=
+\delta G(u;v)\ne0.
+\]
+А
+\[
+\psi(0,t)=G[u+th]
+=
+G[u]+t\,\delta G(u;h)+o(t),
+\]
+поэтому
+\[
+\frac{\partial\psi(0,0)}{\partial t}
+=
+\delta G(u;h)=0.
+\]
+
+По теореме о неявной функции существует функция $s=s(t)$,
+\[
+\psi(s(t),t)=0,
+\qquad
+s(0)=0,
+\]
+и
+\[
+s'(0)
+=
+-\frac{\partial_t\psi}{\partial_s\psi}(0,0)
+=0.
+\]
+Следовательно,
+\[
+s(t)=o(t),
+\qquad t\to0.
+\]
+Положим
+\[
+w(t)=u+s(t)v+th.
+\]
+Тогда
+\[
+G[w(t)]=0,
+\qquad
+w(t)\in M,
+\qquad
+w(0)=u,
+\]
+и
+\[
+w'(0)
+=
+\lim_{t\to0}\frac{w(t)-w(0)}{t}
+=
+\lim_{t\to0}\left(\frac{s(t)}t v+h\right)
+=h.
+\]
+Обратное утверждение получается дифференцированием $G[w(t)]=0$ при $t=0$.
+\end{myproof}
+
+\begin{mylemma}
+Пусть $J,G\in C^1(X)$,
+\[
+M=\{f\in X:\ G[f]=0\}.
+\]
+Пусть $u$ --- локальный экстремум $J$ на $M$, причём $u$ не является стационарной точкой $G$.
+Если
+\[
+\delta G(u;h)=0,
+\]
+то
+\[
+\delta J(u;h)=0.
+\]
+\end{mylemma}
+
+\begin{myproof}
+По предыдущей теореме существует кривая
+\[
+w(t)=u+s(t)v+th,
+\qquad
+w(t)\in M,
+\qquad
+w(0)=u,
+\qquad
+w'(0)=h.
+\]
+Поскольку $u$ --- локальный экстремум $J$ на $M$, точка $t=0$ является локальным экстремумом функции $J[w(t)]$, поэтому
+\[
+\left.\frac{\dd}{\dd t}J[w(t)]\right|_{t=0}=0.
+\]
+Разложение
+\[
+J[w(t)]
+=
+J[u]
++s(t)\delta J(u;v)
++t\delta J(u;h)
++o(\|s(t)v+th\|_X)
+\]
+и $s(t)=o(t)$ дают
+\[
+\delta J(u;h)=0.
+\]
+\end{myproof}
+
+\begin{mytheorem}
+Пусть $J,G\in C^1(X)$,
+\[
+M=\{f:\ G[f]=0\},
+\]
+и $u$ --- локальный экстремум $J$ на $M$, причём $u$ не является стационарной точкой $G$.
+Тогда существует $\lambda\in\mathbb R$ такое, что $u$ является стационарной точкой функционала
+\[
+J+\lambda G.
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Выберем $v\in X$ так, что
+\[
+\delta G(u;v)\ne0,
+\]
+и положим
+\[
+\lambda:=-\frac{\delta J(u;v)}{\delta G(u;v)}.
+\]
+Для произвольного $y\in X$ положим
+\[
+h:=y-\frac{\delta G(u;y)}{\delta G(u;v)}v.
+\]
+Тогда
+\[
+\delta G(u;h)=0.
+\]
+По предыдущей лемме
+\[
+\delta J(u;h)=0.
+\]
+Следовательно,
+\[
+\delta J(u;y)
+-
+\frac{\delta G(u;y)}{\delta G(u;v)}\delta J(u;v)=0,
+\]
+то есть
+\[
+\delta(J+\lambda G)(u;y)=0
+\qquad\forall y\in X.
+\]
+\end{myproof}
+
+\begin{mytheorem}
+Пусть
+\[
+J,G_1,G_2,\ldots,G_m\in C^1(X),
+\]
+\[
+M=\{f\in X:\ G_1[f]=\cdots=G_m[f]=0\},
+\]
+и $u$ --- локальный экстремум $J$ на $M$.
+Рассмотрим линейный оператор
+\[
+\vec G'_F[u]:X\to\mathbb R^m,
+\qquad
+h\longmapsto
+\begin{pmatrix}
+\delta G_1(u;h)\\
+\vdots\\
+\delta G_m(u;h)
+\end{pmatrix}.
+\]
+Если
+\[
+\operatorname{Im}\vec G'_F[u]=\mathbb R^m,
+\]
+то существуют
+\[
+\lambda_1,\ldots,\lambda_m\in\mathbb R
+\]
+такие, что $u$ является стационарной точкой функционала
+\[
+J+\lambda_1G_1+\cdots+\lambda_mG_m.
+\]
+\end{mytheorem}
+
+\begin{myremark}
+Числа $\lambda_1,\ldots,\lambda_m$ называются множителями Лагранжа.
+\end{myremark}
+
+\begin{myexe}
+\begin{enumerate}
+\item При условиях предыдущей теоремы для всякого касательного вектора $h$, то есть
+\[
+\delta G_j(u;h)=0,
+\qquad j=1,\ldots,m,
+\]
+существует кривая $w\in C^1(( -\varepsilon,\varepsilon);X)$ такая, что
+\[
+w(t)\in M,
+\qquad
+w(0)=u,
+\qquad
+w'(0)=h.
+\]
+\item Если $h$ --- касательный вектор, то
+\[
+\delta J(u;h)=0.
+\]
+\item Доказать предыдущую теорему.
+\end{enumerate}
+\end{myexe}
+
+\begin{myexample}
+Пусть $\Omega$ --- область с границей
+\[
+\partial\Omega=\Gamma,
+\]
+на которой распределён заряд с плотностью $\rho(x)$,
+\[
+\rho\in C(\Gamma),
+\qquad
+\int_\Gamma\rho(x)\,\dd S(x)=q.
+\]
+Потенциальная энергия имеет вид
+\[
+J[\rho]
+=
+\iint_{\Gamma\times\Gamma}
+\frac{\rho(x)\rho(y)}{|x-y|}
+\,\dd S(x)\dd S(y),
+\]
+и требуется найти её минимум при условии
+\[
+G[\rho]
+=
+\int_\Gamma\rho(x)\,\dd S(x)-q=0.
+\]
+По теореме о множителе Лагранжа существует $\lambda\in\mathbb R$ такое, что
+\[
+\delta(J+\lambda G)(\rho;h)=0
+\qquad\forall h.
+\]
+Имеем
+\[
+\left.
+\frac{\dd}{\dd\alpha}
+\left[
+\iint_{\Gamma\times\Gamma}
+\frac{(\rho(x)+\alpha h(x))(\rho(y)+\alpha h(y))}{|x-y|}
+\,\dd S(x)\dd S(y)
++
+\lambda\left(\int_\Gamma(\rho+\alpha h)\,\dd S-q\right)
+\right]
+\right|_{\alpha=0}
+=0.
+\]
+Отсюда
+\[
+\iint_{\Gamma\times\Gamma}
+\frac{\rho(x)h(y)+\rho(y)h(x)}{|x-y|}
+\,\dd S(x)\dd S(y)
++
+\lambda\int_\Gamma h(x)\,\dd S(x)=0,
+\]
+то есть
+\[
+\int_\Gamma
+\left(
+2\int_\Gamma\frac{\rho(y)}{|x-y|}\,\dd S(y)+\lambda
+\right)
+ h(x)\,\dd S(x)=0.
+\]
+Следовательно,
+\[
+\boxed{
+\int_\Gamma\frac{\rho(y)}{|x-y|}\,\dd S(y)
+=-\frac{\lambda}{2},
+\qquad x\in\Gamma.}
+\]
+Это задача Робена.
+Если
+\[
+\varphi(x)=\int_\Gamma\frac{\rho(y)}{|x-y|}\,\dd S(y),
+\]
+то
+\[
+\Delta\varphi(x)=0\quad\text{в }\Omega,
+\qquad
+\varphi\big|_\Gamma=-\frac\lambda2,
+\]
+откуда
+\[
+\varphi(x)=-\frac\lambda2
+\qquad\text{в }\Omega.
+\]
+\end{myexample}
+
+% ------------------------------------------------------------
+% 15.09.26
+% ------------------------------------------------------------
+
+\subsection{Изопериметрическая задача}
+
+Пусть
+\[
+X=C^1([a,b],\mathbb R^n).
+\]
+
+\begin{mytheorem}
+Пусть
+\[
+L,g_1,\ldots,g_m
+\in
+C^1([a,b]\times\mathbb R^n\times\mathbb R^n),
+\]
+\[
+G_j[y]
+=
+\int_a^b g_j(x,y(x),y'(x))\,\dd x,
+\qquad
+J[y]
+=
+\int_a^bL(x,y,y')\,\dd x,
+\]
+\[
+M=\{y\in X:\ G_j[y]=0,\ j=1,\ldots,m\}.
+\]
+Пусть $y_0$ --- локальный экстремум $J$ на $M$ и
+\[
+\operatorname{Im}\vec G'_F[y_0]=\mathbb R^m.
+\]
+Тогда существуют
+\[
+\lambda_1,\ldots,\lambda_m\in\mathbb R
+\]
+такие, что для
+\[
+F(x,y,v)
+=
+L(x,y,v)+\sum_{j=1}^{m}\lambda_jg_j(x,y,v)
+\]
+выполняются условия
+\[
+\boxed{
+\frac{\dd}{\dd x}\nabla_vF(x,y_0,y_0')
+=
+\nabla_yF(x,y_0,y_0')}
+\]
+и, в случае свободных концов,
+\[
+\boxed{
+\nabla_vF(x,y_0(x),y_0'(x))\big|_{x=a,b}=0.}
+\]
+\end{mytheorem}
+
+\begin{myremark}
+Если $y_0$ --- локальный экстремум $J$ на множестве
+\[
+M=
+\left\{
+ y\in X:
+ G_j[y]=0,\ j=1,\ldots,m;
+ y(a)=A,\ y(b)=B
+\right\},
+\]
+то
+\[
+\frac{\dd}{\dd x}\nabla_vF=\nabla_yF.
+\]
+\end{myremark}
+
+\begin{myremark}
+Получается $n$ уравнений второго порядка, то есть $2n+m$ неизвестных постоянных. На них имеются $2n$ граничных условий и $m$ интегральных условий
+\[
+\int_a^b g_j(x,y_0,y_0')\,\dd x=0.
+\]
+\end{myremark}
+
+\subsection{Задача Лагранжа}
+
+Рассмотрим
+\[
+J[y]=\int_a^bL(x,y,y')\,\dd x
+\]
+при связях
+\[
+H_i(x,y(x),y'(x))=0,
+\qquad i=1,\ldots,m.
+\]
+
+\begin{mytheorem}
+Пусть
+\[
+L,H_1,\ldots,H_m
+\in
+C^2([a,b]\times\mathbb R^n\times\mathbb R^n),
+\]
+и $y_0$ --- локальный экстремум $J$ на множестве
+\[
+\left\{
+ y\in X:
+ H_i(x,y(x),y'(x))=0,
+\ i=1,\ldots,m,
+\ x\in[a,b];
+\ y(a)=A,\ y(b)=B
+\right\}.
+\]
+Пусть $n>m$. Предположим, что выполнено одно из условий:
+
+\begin{enumerate}
+\item $H=H(x,y,v)$ и
+\[
+\operatorname{rank}
+\left(
+\frac{\partial H_i}{\partial v_j}(x,y,v)
+\right)=m
+\qquad\forall x,y,v;
+\]
+\item $H=H(x,y)$ и
+\[
+\operatorname{rank}
+\left(
+\frac{\partial H_i}{\partial y_j}(x,y)
+\right)=m
+\qquad\forall x,y.
+\]
+\end{enumerate}
+
+Тогда существуют функции
+\[
+\lambda_1,\ldots,\lambda_m\in C[a,b]
+\]
+такие, что при
+\[
+F(x,y,v)
+=
+L(x,y,v)+\sum_{i=1}^{m}\lambda_i(x)H_i(x,y,v)
+\]
+выполняется
+\[
+\boxed{
+\frac{\dd}{\dd x}\nabla_vF(x,y_0,y_0')
+=
+\nabla_yF(x,y_0,y_0').}
+\]
+\end{mytheorem}
+
+% ============================================================
+% §3. Задача Штурма--Лиувилля
+% ============================================================
+
+\section{Задача Штурма--Лиувилля}
+
+\subsection{Минимизирующая последовательность}
+
+Рассмотрим функционал
+\[
+J[y]
+=
+\int_a^b
+\left(
+ p(x)y'(x)^2+q(x)y(x)^2
+\right)\dd x,
+\]
+где
+\[
+p\in C^1[a,b],
+\qquad
+p(x)>0\quad\forall x,
+\qquad
+q\in C[a,b].
+\]
+Пусть
+\[
+M_1=
+\left\{
+ y\in C^1[a,b]:
+ y(a)=y(b)=0,
+ \int_a^b y(x)^2\,\dd x=1
+\right\}.
+\]
+
+\begin{myremark}
+Если $y_0$ --- локальный экстремум, то по теореме о множителе Лагранжа существует $\lambda\in\mathbb R$ такое, что $y_0$ --- стационарная точка функционала
+\[
+\int_a^bF\,\dd x,
+\qquad
+F(x,y,v)=p(x)v^2+q(x)y^2-\lambda y^2.
+\]
+Поэтому
+\[
+\frac{\dd}{\dd x}\bigl(2p(x)y_0'(x)\bigr)
+=
+2(q(x)-\lambda)y_0(x),
+\]
+то есть
+\[
+\boxed{
+(p y_0')'+(\lambda-q)y_0=0,}
+\qquad
+\boxed{y_0(a)=y_0(b)=0.}
+\]
+\end{myremark}
+
+Положим
+\[
+\lambda_1:=\inf_{M_1}J[y].
+\]
+
+\begin{mylemma}
+Если
+\[
+q_0:=\min_{[a,b]}q(x),
+\]
+то
+\[
+\lambda_1\ge q_0.
+\]
+\end{mylemma}
+
+\begin{myproof}
+Для $y\in M_1$
+\[
+J[y]
+\ge
+\int_a^bq(x)y(x)^2\,\dd x
+\ge
+q_0\int_a^b y(x)^2\,\dd x
+=q_0.
+\]
+\end{myproof}
+
+\begin{mylemma}
+Если
+\[
+f\in C^1[a,b],
+\qquad
+f(a)=f(b)=0,
+\]
+то
+\[
+\boxed{
+J[f]\ge\lambda_1\int_a^b f(x)^2\,\dd x.}
+\]
+\end{mylemma}
+
+\begin{myproof}
+Положим
+\[
+y(x)=
+\frac{f(x)}{
+\sqrt{\displaystyle\int_a^b f(x)^2\,\dd x}}.
+\]
+Тогда $y\in M_1$, следовательно
+\[
+J[y]\ge\lambda_1.
+\]
+После умножения на $\int_a^b f^2\,\dd x$ получаем требуемое.
+\end{myproof}
+
+Существует минимизирующая последовательность
+\[
+\{f_m\}\subset M_1,
+\qquad
+J[f_m]\to\lambda_1.
+\]
+
+\begin{mytheorem}
+\textbf{Теорема Арцела--Асколи.}\par
+Пусть
+\[
+\{h_k\}_{k=1}^{\infty}\subset C[a,b]
+\]
+--- равномерно ограниченное и равностепенно непрерывное семейство. Тогда существует подпоследовательность
+\[
+\{h_{k_j}\}_{j=1}^{\infty}
+\]
+и функция $h_*\in C[a,b]$ такие, что
+\[
+h_{k_j}\to h_*
+\]
+равномерно на $[a,b]$.
+\end{mytheorem}
+
+\begin{mylemma}
+Пусть
+\[
+f_m\in C^1[a,b],
+\qquad
+f_m(a)=0,
+\]
+и существует $K>0$ такое, что
+\[
+\int_a^b f_m'(x)^2\,\dd x\le K.
+\]
+Тогда существует подпоследовательность $\{f_{m_j}\}$, сходящаяся равномерно на $[a,b]$ к некоторой функции $y\in C[a,b]$.
+\end{mylemma}
+
+\begin{myproof}
+Пусть $x_1<x_2$. Тогда
+\[
+|f_m(x_2)-f_m(x_1)|
+=
+\left|\int_{x_1}^{x_2}f_m'(t)\,\dd t\right|
+\le
+\sqrt{x_2-x_1}
+\sqrt{\int_{x_1}^{x_2}|f_m'(t)|^2\,\dd t}
+\le
+\sqrt{x_2-x_1}\,\sqrt K.
+\]
+Следовательно, семейство $\{f_m\}$ равностепенно непрерывно.
+Кроме того, при $x_1=a$, $x_2=x$ получаем
+\[
+|f_m(x)|\le\sqrt{(b-a)K},
+\]
+то есть семейство равномерно ограничено. По теореме Арцела--Асколи существует равномерно сходящаяся подпоследовательность.
+\end{myproof}
+
+\begin{mylemma}
+Пусть
+\[
+p_0:=\min_{[a,b]}p(x)>0.
+\]
+Тогда для $f\in M_1$
+\[
+\boxed{
+\int_a^b f'(x)^2\,\dd x
+\le
+\frac{J[f]-q_0}{p_0}.}
+\]
+\end{mylemma}
+
+\begin{myproof}
+Имеем
+\[
+J[f]
+\ge
+p_0\int_a^b f'(x)^2\,\dd x
++
+q_0\int_a^b f(x)^2\,\dd x.
+\]
+Так как $f\in M_1$, последний интеграл равен $1$.
+\end{myproof}
+
+% ------------------------------------------------------------
+% 17.09.26
+% ------------------------------------------------------------
+
+Пусть
+\[
+J[y]=\int_a^b(py'^2+qy^2)\,\dd x,
+\qquad
+p\in C^1,
+\quad p>0,
+\quad q\in C,
+\]
+и
+\[
+M_1=
+\left\{
+ y\in C^1[a,b]:
+ y(a)=y(b)=0,
+ \int_a^b y(x)^2\,\dd x=1
+\right\}.
+\]
+Пусть
+\[
+\lambda_1:=\inf_{y\in M_1}J[y],
+\qquad
+J[f_m]\to\lambda_1.
+\]
+По предыдущим леммам существует сходящаяся подпоследовательность.
+
+\begin{mytheorem}
+Существует подпоследовательность минимизирующей последовательности $\{f_m\}\subset M_1$ и функция $y_1\in C[a,b]$ такие, что
+\[
+f_m(x)\to y_1(x)
+\]
+равномерно на $[a,b]$.
+\end{mytheorem}
+
+\subsection{Свойства предельной функции}
+
+Имеем
+\[
+y_1(a)=y_1(b)=0,
+\qquad
+\int_a^b y_1(x)^2\,\dd x=1.
+\]
+
+Введём оператор
+\[
+\mathcal L
+=
+-\frac{\dd}{\dd x}
+\left(p(x)\frac{\dd}{\dd x}\right)
++q(x),
+\]
+\[
+\operatorname{Dom}\mathcal L
+=
+\{f\in C^2[a,b]:\ f(a)=f(b)=0\}.
+\]
+
+\begin{mylemma}
+Для любого $h\in\operatorname{Dom}\mathcal L$
+\[
+\boxed{
+\int_a^b y_1\,\mathcal L h\,\dd x
+=
+\lambda_1\int_a^b y_1h\,\dd x.}
+\]
+\end{mylemma}
+
+\begin{myproof}
+Пусть $h\in\operatorname{Dom}\mathcal L$ и $\tau\in\mathbb R$. По предыдущей лемме
+\[
+J[f_m+\tau h]
+\ge
+\lambda_1
+\int_a^b(f_m+\tau h)^2\,\dd x.
+\]
+Раскрывая обе части,
+\[
+J[f_m]
++2\tau\int_a^b(pf_m'h'+qf_mh)\,\dd x
++\tau^2J[h]
+\]
+\[
+\ge
+\lambda_1
+\int_a^b f_m^2\,\dd x
++2\tau\lambda_1\int_a^b f_mh\,\dd x
++\tau^2\lambda_1\int_a^b h^2\,\dd x.
+\]
+Переходя к пределу по подпоследовательности и используя
+\[
+\int_a^b(pf_m'h'+qf_mh)\,\dd x
+=
+\int_a^b f_m\,\mathcal Lh\,\dd x,
+\]
+получаем
+\[
+\lambda_1
++2\tau\int_a^b y_1\mathcal Lh\,\dd x
++\tau^2J[h]
+\ge
+\lambda_1
++2\tau\lambda_1\int_a^b y_1h\,\dd x
++\tau^2\lambda_1\int_a^b h^2\,\dd x.
+\]
+Это неравенство имеет вид
+\[
+A\tau^2+B\tau\ge0
+\qquad\forall\tau\in\mathbb R,
+\]
+откуда
+\[
+B=0.
+\]
+Следовательно,
+\[
+\int_a^b y_1\mathcal Lh\,\dd x
+=
+\lambda_1\int_a^b y_1h\,\dd x.
+\]
+\end{myproof}
+
+\begin{mytheorem}
+Пусть $y\in C[a,b]$. Тогда
+\[
+y\in\operatorname{Dom}\mathcal L,
+\qquad
+\mathcal Ly=\lambda y
+\]
+тогда и только тогда, когда
+\[
+\int_a^b y\mathcal Lh\,\dd x
+=
+\lambda\int_a^b yh\,\dd x
+\qquad\forall h\in\operatorname{Dom}\mathcal L.
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Если $y\in\operatorname{Dom}\mathcal L$ и $\mathcal Ly=\lambda y$, то по симметрии
+\[
+(y,\mathcal Lh)
+=
+(\mathcal Ly,h)
+=
+\lambda(y,h).
+\]
+
+Обратно, положим
+\[
+\widetilde q(x)=q(x)-\lambda.
+\]
+Тогда
+\[
+\int_a^b y\left[-(ph')'+\widetilde qh\right]\dd x=0
+\qquad\forall h\in\operatorname{Dom}\mathcal L.
+\]
+Выберем функции $g_1,g_2$ так, что
+\[
+g_1'=yp',
+\qquad
+ g_1\in C^1,
+\]
+\[
+g_2''=y\widetilde q,
+\qquad
+ g_2\in C^2.
+\]
+Тогда после преобразования
+\[
+\int_a^b(-py+g_1+g_2)h''(x)\,\dd x=0
+\]
+для всех $h\in C^2[a,b]$ с
+\[
+h(a)=h'(a)=h(b)=h'(b)=0.
+\]
+По обобщённой лемме Дюбуа--Реймона
+\[
+-py+g_1+g_2=Ax+B.
+\]
+Следовательно,
+\[
+py=g_1+g_2-Ax-B\in C^1[a,b],
+\]
+откуда
+\[
+y\in C^1[a,b].
+\]
+Дифференцируя,
+\[
+p'y+py'=g_1'+g_2'-A.
+\]
+Так как $g_1'=yp'$, получаем
+\[
+py'=g_2'-A\in C^1[a,b],
+\]
+и потому
+\[
+y\in C^2[a,b].
+\]
+Далее
+\[
+(py')'=g_2''=\widetilde qy,
+\]
+то есть
+\[
+\mathcal Ly=\lambda y.
+\]
+Наконец, интегрирование по частям в исходном слабом равенстве даёт
+\[
+-py h'\Big|_a^b=0
+\]
+для всех допустимых $h$, следовательно
+\[
+py\Big|_a^b=0.
+\]
+Так как $p>0$,
+\[
+y(a)=y(b)=0.
+\]
+\end{myproof}
+
+\begin{myexe}
+Пусть $y\in C[a,b]$, $f\in C[a,b]$ и
+\[
+\int_a^b y\mathcal Lh\,\dd x
+=
+\int_a^b fh\,\dd x
+\qquad\forall h\in\operatorname{Dom}\mathcal L.
+\]
+Тогда
+\[
+y\in\operatorname{Dom}\mathcal L,
+\qquad
+\mathcal Ly=f.
+\]
+\end{myexe}
+
+\begin{mytheorem}
+Пусть
+\[
+p\in C^1[a,b],\quad p>0,
+\qquad q\in C[a,b].
+\]
+Тогда
+\[
+\inf_{M_1}J
+\]
+достигается: существует
+\[
+y_1\in M_1\cap\operatorname{Dom}\mathcal L
+\]
+такое, что
+\[
+J[y_1]=\lambda_1=\min_{M_1}J,
+\qquad
+\mathcal Ly_1=\lambda_1y_1.
+\]
+\end{mytheorem}
+
+\begin{myproof}
+По слабому равенству
+\[
+\mathcal Ly_1=\lambda_1y_1.
+\]
+Тогда
+\[
+J[y_1]
+=
+\int_a^b(py_1'^2+qy_1^2)\,\dd x
+=
+\int_a^b\bigl(-(py_1')'+qy_1\bigr)y_1\,\dd x
+=
+\lambda_1\int_a^b y_1(x)^2\,\dd x
+=
+\lambda_1.
+\]
+\end{myproof}
+
+\subsection{Остальные собственные числа}
+
+Положим
+\[
+M_2=
+\left\{
+ y\in M_1:
+ \int_a^b yy_1\,\dd x=0
+\right\},
+\qquad
+\lambda_2:=\inf_{M_2}J.
+\]
+
+Пусть уже построены $y_1,\ldots,y_{n-1}$. Определим
+\[
+M_n=
+\left\{
+ y\in C^1[a,b]:
+ y(a)=y(b)=0,
+ \int_a^b y(x)^2\,\dd x=1,
+ \int_a^b y(x)y_k(x)\,\dd x=0,
+\ k=1,\ldots,n-1
+\right\}
+\]
+и
+\[
+\lambda_n:=\inf_{M_n}J[y].
+\]
+Существует минимизирующая последовательность
+\[
+\{f_m\}\subset M_n,
+\qquad
+J[f_m]\to\lambda_n.
+\]
+Из оценки производных снова следует существование сходящейся подпоследовательности
+\[
+f_{m_k}\to y_n
+\]
+равномерно, причём
+\[
+y_n\in C[a,b],
+\qquad
+y_n(a)=y_n(b)=0,
+\]
+\[
+\int_a^b y_n(x)^2\,\dd x=1,
+\qquad
+\int_a^b y_ny_k\,\dd x=0,
+\quad k=1,\ldots,n-1.
+\]
+
+\begin{mylemma}
+Для любого $h\in\operatorname{Dom}\mathcal L$ существует разложение
+\[
+h=h_0+h_1,
+\qquad
+h_0,h_1\in\operatorname{Dom}\mathcal L,
+\]
+где
+\[
+h_0(x)=\sum_{k=1}^{n-1}c_ky_k(x),
+\]
+и
+\[
+\int_a^b h_1(x)y_k(x)\,\dd x=0,
+\qquad k=1,\ldots,n-1.
+\]
+\end{mylemma}
+
+\begin{myproof}
+Для $h\in\operatorname{Dom}\mathcal L$ положим
+\[
+c_k:=\int_a^b h(x)y_k(x)\,\dd x,
+\qquad k=1,\ldots,n-1.
+\]
+Затем
+\[
+h_0:=\sum_{k=1}^{n-1}c_ky_k,
+\qquad
+h_1:=h-h_0.
+\]
+Тогда
+\[
+\int_a^b h_1y_k\,\dd x
+=
+\int_a^b hy_k\,\dd x
+-
+\int_a^b h_0y_k\,\dd x
+=c_k-c_k=0.
+\]
+\end{myproof}
+
+\begin{mylemma}
+Для любого $h\in\operatorname{Dom}\mathcal L$
+\[
+\boxed{
+\int_a^b y_n\mathcal Lh\,\dd x
+=
+\lambda_n\int_a^b y_nh\,\dd x.}
+\]
+\end{mylemma}
+
+\begin{myproof}
+Пусть сначала $h_1\in\operatorname{Dom}\mathcal L$ удовлетворяет
+\[
+\int_a^b h_1y_k\,\dd x=0,
+\qquad k=1,\ldots,n-1.
+\]
+Тогда, варьируя минимизирующую последовательность в направлении $h_1$, получаем
+\[
+\int_a^b y_n\mathcal Lh_1\,\dd x
+=
+\lambda_n\int_a^b y_nh_1\,\dd x.
+\]
+
+Для
+\[
+h_0=\sum_{k=1}^{n-1}c_ky_k
+\]
+имеем
+\[
+\int_a^b y_nh_0\,\dd x=0,
+\]
+а также
+\[
+\int_a^b y_n\mathcal Lh_0\,\dd x
+=
+\int_a^b y_n
+\sum_{k=1}^{n-1}c_k\lambda_ky_k\,\dd x
+=0.
+\]
+Складывая два равенства, получаем утверждение для произвольного $h$.
+\end{myproof}
+
+\begin{mytheorem}
+Имеем
+\[
+y_n\in\operatorname{Dom}\mathcal L,
+\qquad
+\mathcal Ly_n=\lambda_ny_n,
+\qquad
+J[y_n]=\lambda_n,
+\qquad
+ y_n\in M_n.
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Предыдущая лемма и теорема о слабом решении дают
+\[
+y_n\in\operatorname{Dom}\mathcal L,
+\qquad
+\mathcal Ly_n=\lambda_ny_n.
+\]
+Далее
+\[
+J[y_n]
+=(\mathcal Ly_n,y_n)
+=\lambda_n.
+\]
+\end{myproof}
+
+% ------------------------------------------------------------
+% 22.09.26
+% ------------------------------------------------------------
+
+\begin{mylemma}
+Собственные числа удовлетворяют
+\[
+\boxed{
+\lambda_{n+1}>\lambda_n,
+\qquad
+\lambda_n\to+\infty.}
+\]
+\end{mylemma}
+
+\begin{myproof}
+Из определения $M_{n+1}\subset M_n$ следует
+\[
+\lambda_{n+1}\ge\lambda_n.
+\]
+Если бы
+\[
+\lambda_{n+1}=\lambda_n,
+\]
+то $y_n$ и $y_{n+1}$ отвечали бы одному собственному значению, что противоречит их ортогональности.
+
+Предположим теперь, что существует $\Lambda$ такое, что
+\[
+\lambda_n\le\Lambda
+\qquad\forall n.
+\]
+Тогда
+\[
+J[y_n]=\lambda_n\le\Lambda,
+\]
+поэтому последовательность $\{y_n\}$ имеет равномерно сходящуюся подпоследовательность
+\[
+y_{n_k}\to z
+\]
+на $[a,b]$.
+Следовательно,
+\[
+\int_a^b|y_{n_k}-y_{n_j}|^2\,\dd x\to0
+\qquad k,j\to\infty.
+\]
+Но при $k\ne j$ из ортонормированности
+\[
+\int_a^b|y_{n_k}-y_{n_j}|^2\,\dd x=2,
+\]
+противоречие.
+\end{myproof}
+
+\begin{myremark}
+При $n\to\infty$
+\[
+\lambda_n=Cn^2+O(1),
+\]
+где
+\[
+\boxed{
+C=
+\left(
+\frac{\pi}{\displaystyle\int_a^b\frac{\dd x}{\sqrt{p(x)}}}
+\right)^2.}
+\]
+\end{myremark}
+
+\subsection{Полнота системы собственных функций}
+
+\begin{mytheorem}
+Пусть
+\[
+f\in\operatorname{Dom}\mathcal L,
+\qquad
+c_k:=\int_a^b f(x)y_k(x)\,\dd x.
+\]
+Тогда
+\[
+\sum_{k=1}^{\infty}c_ky_k(x)
+\]
+сходится к $f$ в $L_2(a,b)$, то есть
+\[
+\int_a^b
+\left|
+ f(x)-\sum_{k=1}^{N}c_ky_k(x)
+\right|^2\dd x
+\longrightarrow0.
+\]
+\end{mytheorem}
+
+\begin{myproof}
+Положим
+\[
+f_N(x)
+=
+f(x)-\sum_{k=1}^{N-1}c_ky_k(x).
+\]
+Тогда
+\[
+f_N\in\operatorname{Dom}\mathcal L
+\]
+и
+\[
+\int_a^b f_N(x)y_k(x)\,\dd x=0,
+\qquad k=1,\ldots,N-1.
+\]
+Следовательно,
+\[
+J[f_N]
+\ge
+\lambda_N\int_a^b f_N(x)^2\,\dd x.
+\]
+С другой стороны,
+\[
+J[f_N]
+=
+\int_a^b(\mathcal Lf_N)f_N\,\dd x
+\le
+\left(\int_a^b(\mathcal Lf_N)^2\,\dd x\right)^{1/2}
+\left(\int_a^b f_N^2\,\dd x\right)^{1/2}.
+\]
+Поэтому
+\[
+\lambda_N\|f_N\|_{L_2}^2
+\le
+\|\mathcal Lf_N\|_{L_2}\|f_N\|_{L_2},
+\]
+то есть
+\[
+\|f_N\|_{L_2}
+\le
+\frac{\|\mathcal Lf_N\|_{L_2}}{\lambda_N}.
+\]
+
+Имеем
+\[
+\mathcal Lf_N
+=
+\mathcal Lf-
+\sum_{k=1}^{N-1}c_k\lambda_ky_k.
+\]
+Для $k=1,\ldots,N-1$
+\[
+(\mathcal Lf_N,y_k)
+=(f_N,\mathcal Ly_k)
+=(f_N,\lambda_ky_k)
+=0.
+\]
+Поэтому
+\[
+\|\mathcal Lf\|_{L_2}^2
+=
+\|\mathcal Lf_N\|_{L_2}^2
++
+\left\|
+\sum_{k=1}^{N-1}c_k\lambda_ky_k
+\right\|_{L_2}^2,
+\]
+и
+\[
+\|\mathcal Lf_N\|_{L_2}
+\le
+\|\mathcal Lf\|_{L_2}.
+\]
+Следовательно,
+\[
+\boxed{
+\|f_N\|_{L_2(a,b)}
+\le
+\frac{\|\mathcal Lf\|_{L_2(a,b)}}{\lambda_N}
+\longrightarrow0.}
+\]
+\end{myproof}
+
+\begin{myprop}
+Для $f\in\operatorname{Dom}\mathcal L$
+\[
+\boxed{
+\int_a^b f(x)^2\,\dd x
+=
+\sum_{k=1}^{\infty}c_k^2.}
+\]
+\end{myprop}
+
+\begin{myproof}
+Так как
+\[
+\int_a^b
+\left(
+ f(x)-\sum_{k=1}^{N}c_ky_k(x)
+\right)^2\dd x
+\to0,
+\]
+то
+\[
+\int_a^b f(x)^2\,\dd x
+-2\sum_{k=1}^{N}c_k\int_a^b f(x)y_k(x)\,\dd x
++
+\int_a^b\left(\sum_{k=1}^{N}c_ky_k(x)\right)^2\dd x
+\to0.
+\]
+Следовательно,
+\[
+\int_a^b f(x)^2\,\dd x
+-\sum_{k=1}^{N}c_k^2
+\to0.
+\]
+\end{myproof}
+
+\begin{myremark}
+\begin{enumerate}
+\item Для любого $f\in L_2(a,b)$
+\[
+\int_a^b f(x)^2\,\dd x
+=
+\sum_{k=1}^{\infty}c_k^2,
+\]
+так как $\operatorname{Dom}\mathcal L$ плотна в $L_2(a,b)$.
+\item Если $f\in\operatorname{Dom}\mathcal L$, то
+\[
+\sum_{k=1}^{\infty}c_ky_k(x)
+\]
+сходится равномерно к $f(x)$,
+\[
+y_k(x)=O(1),
+\qquad
+c_k=O\!\left(\frac1{k^2}\right),
+\qquad k\to\infty.
+\]
+\end{enumerate}
+\end{myremark}
+
+\begin{mylemma}
+Других собственных чисел у задачи Штурма--Лиувилля нет.
+\end{mylemma}
+
+\begin{myproof}
+Пусть $y$ --- собственная функция,
+\[
+\mathcal Ly=\lambda y,
+\qquad
+\lambda\ne\lambda_k
+\quad\forall k.
+\]
+Так как $\mathcal L$ симметричен,
+\[
+y\perp y_k
+\qquad\forall k,
+\]
+следовательно,
+\[
+c_k=0
+\qquad\forall k.
+\]
+По равенству Парсеваля
+\[
+\int_a^b y(x)^2\,\dd x
+=
+\sum_{k=1}^{\infty}c_k^2=0,
+\]
+откуда
+\[
+y\equiv0,
+\]
+что невозможно для собственной функции.
+\end{myproof}
+
+\begin{myremark}
+Итоговая форма для весовой задачи.
+Пусть
+\[
+p\in C^1[a,b],
+\qquad
+q,r\in C[a,b],
+\qquad
+p(x)>0,
+\quad r(x)>0.
+\]
+Рассмотрим
+\[
+J[y]=\int_a^b(py'^2+qy^2)\,\dd x
+\]
+и множества
+\[
+M_n=
+\left\{
+ y\in C^1[a,b]:
+ y(a)=y(b)=0,
+ \int_a^b y(x)^2r(x)\,\dd x=1,
+\right.
+\]
+\[
+\left.
+\hspace{35mm}
+\int_a^b y(x)y_k(x)r(x)\,\dd x=0,
+\quad k=1,\ldots,n-1
+\right\}.
+\]
+Тогда
+\[
+\lambda_n:=\inf_{M_n}J
+\]
+достигается на некоторой функции $y_n$, причём
+\[
+\boxed{
+(p y_n')'+(\lambda_nr-q)y_n=0,}
+\qquad
+\boxed{y_n(a)=y_n(b)=0.}
+\]
+Других собственных значений и собственных функций нет,
+\[
+\lambda_n\to+\infty.
+\]
+Если
+\[
+c_k:=\int_a^b f(x)y_k(x)r(x)\,\dd x,
+\]
+то
+\[
+\sum_{k=1}^{\infty}c_ky_k(x)=f(x)
+\]
+в соответствующем смысле, и
+\[
+\boxed{
+\int_a^b f(x)^2r(x)\,\dd x
+=
+\sum_{k=1}^{\infty}c_k^2.}
+\]
+\end{myremark}
+
+% ============================================================
+% §4. Многомерные вариационные задачи
+% ============================================================
+
+\section{Многомерные вариационные задачи}
+
+\subsection{Уравнение Эйлера--Остроградского}
+
+Пусть
+\[
+\Omega\subset\mathbb R^k
+\]
+--- ограниченная область и
+\[
+u:\overline\Omega\to\mathbb R^n.
+\]
+Положим
+\[
+X=C^1(\overline\Omega,\mathbb R^n),
+\]
+\[
+\|u\|_X
+=
+\sum_{j=1}^{n}
+\left(
+\max_{\overline\Omega}|u_j(x)|
++
+\max_{\overline\Omega}|\nabla u_j(x)|
+\right).
+\]
+Рассмотрим функционал
+\[
+J[u]
+=
+\int_\Omega L(x,u(x),u'(x))\,\dd x,
+\]
+где
+\[
+L:\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}\to\mathbb R,
+\qquad
+(x,u,w)\longmapsto L(x,u,w),
+\]
+а
+\[
+u'(x)
+=
+\left(
+\frac{\partial u_j(x)}{\partial x_i}
+\right)_{\substack{i=1,\ldots,k\\j=1,\ldots,n}},
+\qquad
+w_{ij}=\frac{\partial u_j}{\partial x_i}.
+\]
+Если
+\[
+L\in C(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}),
+\]
+то $J$ непрерывен на $X$.
+Если
+\[
+L\in C^1(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}),
+\]
+то
+\[
+J\in C^1(X)
+\]
+и
+\[
+\boxed{
+\delta J(u;h)
+=
+\int_\Omega
+\left(
+\sum_{j=1}^{n}
+\frac{\partial L}{\partial u_j}(x,u,u')h_j(x)
++
+\sum_{i=1}^{k}\sum_{j=1}^{n}
+\frac{\partial L}{\partial w_{ij}}(x,u,u')
+\frac{\partial h_j(x)}{\partial x_i}
+\right)\dd x.}
+\]
+
+\begin{mytheorem}
+Пусть
+\[
+L\in C^1(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}),
+\]
+граница $\partial\Omega$ достаточно гладкая и задана функция
+\[
+\varphi\in C(\partial\Omega).
+\]
+Пусть $u_0$ --- локальный экстремум функционала
+\[
+J[u]=\int_\Omega L(x,u,u')\,\dd x
+\]
+на множестве
+\[
+\left\{
+ u\in C^1(\overline\Omega,\mathbb R^n):
+ u\big|_{\partial\Omega}=\varphi
+\right\},
+\]
+причём
+\[
+u_0\in C^2(\overline\Omega,\mathbb R^n).
+\]
+Тогда
+\[
+\boxed{
+\sum_{i=1}^{k}
+\frac{\partial}{\partial x_i}
+\left(
+\frac{\partial L(x,u_0(x),u_0'(x))}{\partial w_{ij}}
+\right)
+=
+\frac{\partial L(x,u_0(x),u_0'(x))}{\partial u_j},
+\quad j=1,\ldots,n.}
+\]
+\end{mytheorem}
+
+\begin{myremark}
+\begin{enumerate}
+\item Производная $\dfrac{\partial}{\partial x_i}$ в уравнении берётся как полная производная, но только по переменной $x_i$.
+\item Система
+\[
+\begin{cases}
+\displaystyle
+\sum_{i=1}^{k}
+\frac{\partial}{\partial x_i}
+\left(
+\frac{\partial L}{\partial w_{ij}}
+\right)
+=
+\dfrac{\partial L}{\partial u_j},
+& j=1,\ldots,n,\\[3mm]
+u_0\big|_{\partial\Omega}=\varphi
+\end{cases}
+\]
+называется системой уравнений Эйлера--Остроградского.
+\end{enumerate}
+\end{myremark}
+
+\begin{myproof}
+Так как $u_0$ --- локальный экстремум, то
+\[
+\delta J(u_0;h)=0
+\]
+для всех $h\in X$ таких, что
+\[
+h\big|_{\partial\Omega}=0.
+\]
+Следовательно,
+\[
+\int_\Omega
+\left(
+\sum_{j=1}^{n}
+\frac{\partial L(x,u_0,u_0')}{\partial u_j}h_j(x)
++
+\sum_{i=1}^{k}\sum_{j=1}^{n}
+\frac{\partial L(x,u_0,u_0')}{\partial w_{ij}}
+\frac{\partial h_j(x)}{\partial x_i}
+\right)\dd x
+=0.
+\]
+Интегрируя вторую сумму по частям и используя $h|_{\partial\Omega}=0$, получаем
+\[
+\int_\Omega
+\sum_{j=1}^{n}
+\left(
+\frac{\partial L(x,u_0,u_0')}{\partial u_j}
+-
+\sum_{i=1}^{k}
+\frac{\partial}{\partial x_i}
+\left(
+\frac{\partial L(x,u_0,u_0')}{\partial w_{ij}}
+\right)
+\right)h_j(x)\,\dd x
+=0.
+\]
+Фиксируем $j$ и берём
+\[
+h_1=\cdots=h_{j-1}=h_{j+1}=\cdots=h_n=0.
+\]
+По основной лемме вариационного исчисления
+\[
+\frac{\partial L(x,u_0,u_0')}{\partial u_j}
+=
+\sum_{i=1}^{k}
+\frac{\partial}{\partial x_i}
+\left(
+\frac{\partial L(x,u_0,u_0')}{\partial w_{ij}}
+\right),
+\qquad
+j=1,\ldots,n.
+\]
+\end{myproof}
+
+
+
+
+
+
+\end{document}

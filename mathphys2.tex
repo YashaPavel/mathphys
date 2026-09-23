@@ -486,20 +486,17 @@
 \section*{Рекомендуемая литература}
 
 \begin{enumerate}
-    \item Владимиров В.\,С. 
-    \textit{Уравнения математической физики}.
+    \item Буслаев В.\,С.
+    \textit{Вариационное исчисление}.
 
-    \item Гельфанд И.\,М., Шилов Г.\,Е. 
-    \textit{Пространства основных и обобщённых функций}.
+    \item Гельфанд И.\,М., Фомин С.\,В.
+    \textit{Вариационное исчисление}.
 
-    \item Смирнов В.\,И. 
-    \textit{Курс высшей математики}. Том 3.
+    \item Эльсгольц Л.\,Э.
+    \textit{Вариационное исчисление}.
 
-    \item Тихонов А.\,Н., Самарский А.\,А. 
-    \textit{Уравнения математической физики}.
-
-    \item Шубин М.\,А. 
-    \textit{Лекции об уравнениях математической физики}.
+    \item Смирнов В.\,И.
+    \textit{Курс высшей математики}. Том 4.
 \end{enumerate}
 
 \clearpage
@@ -514,7 +511,7 @@
 
 \section*{\S 0. Разбиение единицы}
 \addcontentsline{toc}{section}{\S 0. Разбиение единицы}
-
+С прошлого семетсра у нас остался долг по обсуждению сюжета про разбиение единицы. В этом разделе мы разберемся с этим вопросом.\\
 Рассмотрим функцию
 \[
 \omega(x)=
@@ -523,7 +520,7 @@ C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
 0, & |x|\ge 1,
 \end{cases}
 \]
-где постоянная $C$ выбрана так, что
+где нормировочная константа $C$ выбрана так, что
 \[
 \omega(x)>0,
 \qquad
@@ -553,10 +550,10 @@ C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
 
 \begin{mylemma}
 Пусть $\Omega$ и $U$ --- открытые множества и
-\[
+$
 \overline\Omega\subset U.
-\]
-Тогда существует функция
+$
+Тогда существует функция $\eta$, 
 \[
 \eta\in C_0^\infty(\mathbb R^n),
 \qquad
@@ -580,11 +577,11 @@ C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
 A:=\left\{x\in\mathbb R^n:\operatorname{dist}(x,\overline\Omega)<2\rho\right\}.
 \]
 Тогда $A$ открыто и
-\[
+$
 \overline\Omega\subset A,
 \qquad
 \overline A\subset U.
-\]
+$
 
 Положим
 \[
@@ -598,12 +595,10 @@ A:=\left\{x\in\mathbb R^n:\operatorname{dist}(x,\overline\Omega)<2\rho\right\}.
 0\le \eta(x)\le 1.
 \]
 
+
 Если $x\in\overline\Omega$, то
 \[
-B_\rho(x)\subset A,
-\]
-поэтому
-\[
+B_\rho(x)\subset A \Rightarrow
 \eta(x)
 =
 \int_{B_\rho(x)}\omega_\rho(x-y)\,\dd y
@@ -612,10 +607,7 @@ B_\rho(x)\subset A,
 
 Если $x\notin U$, то
 \[
-B_\rho(x)\cap A=\varnothing,
-\]
-откуда
-\[
+B_\rho(x)\cap A=\varnothing \Rightarrow
 \eta(x)=0.
 \]
 \end{myproof}
@@ -753,7 +745,7 @@ K_0\subset\Omega_0,
 % ============================================================
 
 \chapter{Вариационное исчисление}
-
+В этой главе мы рассмотрим задачи вариационного исчисления, в частности, задачи поиска экстремумов функционалов.
 Рассмотрим функционал
 \[
 J(y)=\int_a^b L\bigl(x,y(x),y'(x)\bigr)\,\dd x,
@@ -781,7 +773,7 @@ J:X\to\mathbb R.
 \[
 \delta J(f,h)
 =
-\left.\frac{\dd}{\dd\alpha}J(f+\alpha h)\right|_{\alpha=0}.
+\left.\frac{\dd}{\dd\alpha}J(f+\alpha h)\right|_{\alpha=0}
 \]
 \end{mydef}
 
@@ -791,7 +783,39 @@ J:X\to\mathbb R.
 \[
 \delta J(f,h)=J'_G[f]h.
 \]
-\item Вариация однородна по $h$:
+\item Вариация однородна по $h$.
+
+\[
+\delta J(f,\lambda h)
+=
+\lim_{\alpha\to 0}
+\frac{
+J(f+\alpha\lambda h)-J(f)
+}{
+\alpha
+}=\begin{vmatrix}
+    \beta=\alpha\lambda
+\end{vmatrix}
+=
+\lim_{\beta\to 0}
+\frac{
+J(f+\beta h)-J(f)
+}{
+\beta/\lambda
+}
+=\]\[=
+\lambda
+\lim_{\beta\to 0}
+\frac{
+J(f+\beta h)-J(f)
+}{
+\beta
+}
+=
+\lambda \delta J(f,h).
+\]
+
+Таким образом,
 \[
 \delta J(f,\lambda h)
 =
@@ -804,11 +828,10 @@ J:X\to\mathbb R.
 Линейности по $h$ в общем случае нет.
 \end{myexe}
 
-Пусть
+Пусть задан линейный функционал
 \[
 \varphi:X\to\mathbb R
 \]
---- линейный функционал.
 
 \begin{mydef}
 Функционал $\varphi$ называется ограниченным, если существует $C>0$ такое, что
@@ -881,9 +904,10 @@ X'=X^*=
 \end{enumerate}
 \end{myexe}
 
-Пусть $J:X\to\mathbb R$ --- функционал и $f\in X$.
+
 
 \begin{mydef}
+    Пусть $J:X\to\mathbb R$ --- функционал и $f\in X$.
 Говорят, что $J$ дифференцируем по Фреше в точке $f$, если существует $\varphi\in X'$ такое, что
 \[
 J[f+h]

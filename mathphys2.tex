@@ -10,9 +10,7 @@
 \setotherlanguage{english}
 \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Liberation Serif}}
 \IfFontExistsTF{Arial}{\setsansfont{Arial}}{\setsansfont{Liberation Sans}}
-\IfFontExistsTF{Menlo}{\setmonofont{Menlo}}{\setmonofont{DejaVu Sans Mono}}
-
-% =================================================
+\IfFontExistsTF{Consolas}{\setmonofont{Consolas}}{\setmonofont{Courier New}}
 % ГЕОМЕТРИЯ СТРАНИЦЫ
 % =================================================
 \usepackage[
@@ -533,7 +531,7 @@ C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
 \operatorname{supp}\omega=\overline{B_1(0)}.
 \]
 
-Для любого $\rho>0$ положим
+Для любого $\rho>0$ заведём такую функцию:
 \[
 \omega_\rho(x)=\frac{1}{\rho^n}\omega\!\left(\frac{x}{\rho}\right).
 \]
@@ -547,7 +545,7 @@ C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
 \qquad
 \int_{\mathbb R^n}\omega_\rho(x)\,\dd x=1.
 \]
-
+Делим на $\rho$ мы для того, чтобы интеграл оставался равным единице (залезет в дифференциал).
 \begin{mylemma}
 Пусть $\Omega$ и $U$ --- открытые множества и
 $
@@ -588,24 +586,29 @@ $
 \eta(x):=\int_A\omega_\rho(x-y)\,\dd y
 =(\omega_\rho*\chi_A)(x).
 \]
+$\chi_A$ - характеристическая функция на множестве A.
 Имеем
 \[
-\eta\in C^\infty,
+\eta\in C^\infty(\text{можно дифф. по х}),
 \qquad
-0\le \eta(x)\le 1.
+0\le \eta(x)\le 1(\text{1 равно на всем мн-ве}).
 \]
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{pics/10.png}
+        \caption{}
+\end{figure}
 
-
-Если $x\in\overline\Omega$, то
+Если $x\in\overline\Omega$, то из определения $A$
 \[
 B_\rho(x)\subset A \Rightarrow
 \eta(x)
 =
 \int_{B_\rho(x)}\omega_\rho(x-y)\,\dd y
-=1.
+=1 (\text{тк снаружи шара равна 0, а весь шар внутри A})
 \]
 
-Если $x\notin U$, то
+Если $x\notin U$, то (учитывая то, что $\operatorname{dist}(\overline{A}, \partial U)\leq2\rho$)
 \[
 B_\rho(x)\cap A=\varnothing \Rightarrow
 \eta(x)=0.
@@ -618,13 +621,15 @@ B_\rho(x)\cap A=\varnothing \Rightarrow
 \overline\Omega\subset\bigcup_{j=1}^{N}O_j,
 \qquad O_j\text{ --- открытые}.
 \]
-Тогда существуют открытые множества
+Пусть $Q$ - куб такой, что $\overline{\bigcup_{j=1}^{N}O_j}\subset Q$. Тогда существуют открытые множества
 \[
 \Omega_j,\qquad j=0,1,\ldots,N,
 \]
 такие, что
 \[
-\overline\Omega\subset\bigcup_{j=0}^{N}\Omega_j,
+\overline\Omega\subset\bigcup_{j=1}^{N}\Omega_j,
+\qquad
+\overline{Q}\subset\bigcup_{j=0}^{N}\Omega_j
 \qquad
 \overline{\Omega_j}\subset O_j,
 \quad j=1,\ldots,N,
@@ -636,32 +641,29 @@ B_\rho(x)\cap A=\varnothing \Rightarrow
 \end{mylemma}
 
 \begin{myproof}
-Выберем куб $Q$ так, чтобы рассматриваемое покрытие содержалось внутри некоторого большего открытого куба $\widetilde Q$.
-Последовательно строим открытые множества $\Omega_j$ так, чтобы
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{pics/11.png}
+        \caption{}
+\end{figure}
+
+    Заведём $K_1$
 \[
-\overline{\Omega_j}\subset O_j,
-\qquad j=1,\ldots,N.
+K_1:=\overline \Omega\setminus\bigcup_{j=2}^{N}O_j
 \]
-После выбора $\Omega_1,\ldots,\Omega_N$ положим
-\[
-K_0:=\overline Q\setminus\bigcup_{j=1}^{N}\Omega_j.
-\]
-Множество $K_0$ замкнуто и
-\[
-K_0\subset\widetilde Q\setminus\overline\Omega.
-\]
-Поэтому существует открытое $\Omega_0$ такое, что
-\[
-K_0\subset\Omega_0,
-\qquad
-\overline{\Omega_0}\subset\widetilde Q\setminus\overline\Omega.
-\]
-Следовательно,
-\[
-\overline Q\subset\bigcup_{j=0}^{N}\Omega_j,
-\qquad
-\overline{\Omega_0}\cap\overline\Omega=\varnothing.
-\]
+Множество $K_1$ замкнуто и $K_1\subset O_1$. Тогда существует $\Omega_1: \quad K_1\subset\Omega_1,\,\, \overline{\Omega_1}\subset O_1$. \\
+Это множество можно вписать туда через расстояние как в предыдущей лемме.
+При этом сохраняется то, что $\overline{\Omega}\subset\Omega_1\cup\bigcup_{j=2}^{N}O_j$. \\
+Теперь заводим $K_2:=\overline \Omega\setminus\Omega_1\setminus\bigcup_{j=3}^{N}O_j$. \\
+\[K_2 \subset O_2, \qquad K_2 - \text{замкнутое}\].
+Теперь существует такое $\Omega_2$ - открытое, что 
+\[K_2\subset \Omega_2, \qquad \overline{\Omega_2}\subset O_2; \qquad \overline{\Omega}\subset\Omega_1\cup\Omega_2\cup\bigcup_{j=3}^{N}O_j\]
+И так далее. Таким образом мы получим набор $\Omega_j$ такой, что:
+\[\overline{\Omega}\subset\bigcup_{j=1}^{N}\Omega_j\] 
+Пусть $\overline{Q}\subset\widetilde{Q}$ - открытое. И у нас есть $K_0:=\overline{Q}\setminus\bigcup_{j=1}^{N}\Omega_j$ - замкнуто и $K_0\subset\widetilde{Q}\setminus\overline{\Omega}$. Следовательно, существует $\Omega_0$ - открытое, такое, что $K_0\subset\Omega_0, \,\, \overline{\Omega_0} \subset \widetilde{Q}\setminus\overline{\Omega} \,\,(\Rightarrow \overline{\Omega_0}\cap\overline{\Omega}=\varnothing)$.
+Условию с вложением $\overline{Q}$ мы удовлетворили, точка, которая лежит в кубе лежит либо в объединении $\Omega_j$ начиная с единицы, либо она лежит в $K_0\subset\Omega_0$. 
+
+
 \end{myproof}
 
 \begin{mytheorem}
@@ -685,12 +687,13 @@ K_0\subset\Omega_0,
 и
 \[
 \sum_{j=1}^{N}\xi_j(x)=1,
-\qquad x\in\overline\Omega.
+\qquad \forall x\in\overline\Omega.
 \]
 \end{mytheorem}
 
 \begin{myproof}
-По предыдущей лемме выберем $\Omega_j$, $j=0,\ldots,N$.
+Пусть $\overline{\bigcup_{j=1}^{N}O_j}\subset Q$.
+По предыдущей лемме выберем $\Omega_j$, $j=0,\ldots,N$, при чём $\overline{\Omega_j}\subset O_j$.
 Для $j=1,\ldots,N$ по первой лемме существуют функции
 \[
 \eta_j\in C_0^\infty(\mathbb R^n),
@@ -703,7 +706,7 @@ K_0\subset\Omega_0,
 \qquad
 \operatorname{supp}\eta_j\subset O_j.
 \]
-Для $j=0$ аналогично выбираем
+Для $j=0$ аналогично выбираем $\overline{\Omega_0}\subset\widetilde{Q}\setminus\overline{\Omega}$
 \[
 \eta_0\in C_0^\infty(\mathbb R^n),
 \qquad
@@ -723,17 +726,18 @@ K_0\subset\Omega_0,
 0, & x\notin Q.
 \end{cases}
 \]
-На $\overline Q$
+На $\overline Q$ (хотя бы одна из функций равна 1)
 \[
 \sum_{i=0}^{N}\eta_i(x)\ge1.
 \]
+А на $x\notin Q$ нужно продолжить функцию нулём.
 Поэтому
 \[
 \xi_j\in C_0^\infty(\mathbb R^n),
 \qquad
 \operatorname{supp}\xi_j\subset O_j.
 \]
-Так как при $x\in\overline\Omega$ имеем $\eta_0(x)=0$, то
+Так как при $x\in\overline\Omega$ имеем $\eta_0(x)=0$ (носитель не пересекается с $\overline{\Omega}$), то
 \[
 \sum_{j=1}^{N}\xi_j(x)=1,
 \qquad x\in\overline\Omega.
@@ -763,7 +767,7 @@ L\in C(\mathbb R^3),
 
 \subsection{Функционалы в нормированных пространствах}
 
-Пусть $X$ --- линейное нормированное пространство и
+Пусть $X$ --- линейное нормированное пространство и функционал
 \[
 J:X\to\mathbb R.
 \]
@@ -775,6 +779,7 @@ J:X\to\mathbb R.
 =
 \left.\frac{\dd}{\dd\alpha}J(f+\alpha h)\right|_{\alpha=0}
 \]
+Определение корректно в случае существования производной (что вообще говоря не обязательно)
 \end{mydef}
 
 \begin{myremark}
@@ -842,9 +847,9 @@ J(f+\beta h)-J(f)
 \end{mydef}
 
 \begin{myexample}
-Пусть
+Функционал не обязан быть ограниченным. Пусть
 \[
-X=C[-1,1],
+X=C[-1,1] - \text{непр. ф-ии},
 \qquad
 \|f\|_1=\int_{-1}^{1}|f(x)|\,\dd x,
 \]
@@ -864,7 +869,7 @@ f_n(x)=
 \[
 \varphi(f_n)=1,
 \qquad
-\|f_n\|_1=\frac1n.
+\|f_n\|_1=\frac1n - \text{площадь треугольника}.
 \]
 
 \begin{center}
@@ -884,7 +889,7 @@ f_n(x)=
 \end{myexe}
 
 \begin{mydef}
-Сопряжённым пространством к $X$ называется
+Сопряжённым пространством к $X$ - линейному называется
 \[
 X'=X^*=
 \{\text{линейные ограниченные функционалы на }X\}.
@@ -900,7 +905,7 @@ X'=X^*=
 \begin{myexe}
 \begin{enumerate}
 \item Это действительно норма.
-\item $X'$ --- банахово пространство.
+\item $X'$ --- банахово(полное) пространство.
 \end{enumerate}
 \end{myexe}
 
@@ -923,8 +928,8 @@ J'_F[f]h=\varphi(h).
 
 \begin{myexe}
 \begin{enumerate}
-\item Если $\varphi$ существует, то оно единственно.
-\item Если существует $J'_F[f]$, то
+\item Если $\varphi$ существует, то он единственный.
+\item Если существует $J'_F[f]$, то существует производная по Гато
 \[
 J'_G[f]h=J'_F[f]h
 \qquad \forall h.

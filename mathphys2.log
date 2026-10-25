@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  20 OCT 2026 01:51
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  25 OCT 2026 18:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1502,12 +1502,12 @@ Package rerunfilecheck Info: File `mathphys2.out' has not changed.
 (rerunfilecheck)             Checksum: 676F2A52169BB15B2AA6D0D1CCA008F5;5808.
  ) 
 Here is how much of TeX's memory you used:
- 48418 strings out of 402986
- 1139487 string characters out of 5455748
- 2001107 words of memory out of 5000000
- 76393 multiletter control sequences out of 15000+600000
+ 48424 strings out of 402986
+ 1139559 string characters out of 5455748
+ 2000108 words of memory out of 5000000
+ 76399 multiletter control sequences out of 15000+600000
  639143 words of font info for 146 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,14n,104p,1031b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,104p,1031b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on mathphys2.pdf (40 pages).

@@ -993,7 +993,7 @@ J[f]\le J[g]
 \[
 \psi(\alpha)=J(f+\alpha h).
 \]
-Точка $\alpha=0$ является локальным экстремумом $\psi$. Если $\psi'(0)$ существует, то
+Из условия $f$ - локальный экстремум $J$: точка $\alpha=0$ является локальным экстремумом $\psi$. Если $\psi'(0)$ существует, то
 \[
 \psi'(0)=0.
 \]
@@ -1042,20 +1042,18 @@ J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 \end{mytheorem}
 
 \begin{myproof}
-Зафиксируем $y_0\in X$ и числа $R_0,R_1$ такие, что
+Зафиксируем $y_0\in X$, т.к. она непрерывна на $[a,b]$, то она ограничена и её производная аналогично:
 \[
 |y_0(x)|\le R_0,
 \qquad
 |y_0'(x)|\le R_1,
 \qquad x\in[a,b].
 \]
-Функция $L$ непрерывна на компакте
+Сузим функцию $L$ так, чтобы она была непрерывна на компакте (+1 нужен чтобы функции $y, y'$ попали в шар)
 \[
 [a,b]\times\overline B_{R_0+1}\times\overline B_{R_1+1},
 \]
-поэтому равномерно непрерывна на нём.
-
-Для каждого $\varepsilon>0$ существует $\delta\in(0,1)$ такое, что из
+поэтому равномерно непрерывна на нём, что означает, что для каждого $\varepsilon>0$ существует $\delta\in(0,1)$ такое, что из
 \[
 |x-x_0|<\delta,
 \qquad
@@ -1064,11 +1062,12 @@ J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 |v-v_0|<\delta
 \]
 следует
+\lbpa{zero}{
 \[
 |L(x,y,v)-L(x_0,y_0,v_0)|<\frac{\varepsilon}{b-a}.
-\]
+\]}
 
-Если
+Пусть есть такая функция $y$, что
 \[
 \|y-y_0\|_X<\delta,
 \]
@@ -1078,7 +1077,7 @@ J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 \qquad
 |y'(x)-y_0'(x)|<\delta,
 \]
-и потому
+и потому из \ref{zero} следует
 \[
 \left|L(x,y(x),y'(x))-L(x,y_0(x),y_0'(x))\right|
 <\frac{\varepsilon}{b-a}.
@@ -1102,10 +1101,11 @@ L\in C^1([a,b]\times\mathbb R^n\times\mathbb R^n),
 \[
 J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 \]
-Тогда
+Тогда (в любой точке есть производная по Фреше)
 \[
 J\in C^1(X),
 \]
+\[J(y+h)=J(y)+\delta J(y; h)+o(\|h\|_X)\]
 а вариация имеет вид
 \[
 \boxed{
@@ -1121,7 +1121,7 @@ J\in C^1(X),
 \end{mytheorem}
 
 \begin{myproof}
-Используем разложение
+Используем разложение Тейлора, поскольку она из $C^1$
 \[
 L(x,y+h,v+w)
 =
@@ -1143,26 +1143,27 @@ y=y(x),\qquad h=h(x),\qquad v=y'(x),\qquad w=h'(x)
 J[y+h]
 =
 J[y]
-+
++\underbrace{
 \int_a^b
 \left(
 \langle\nabla_yL(x,y,y'),h\rangle
 +
 \langle\nabla_vL(x,y,y'),h'\rangle
-\right)\dd x
+\right)\dd x}_{\text{линейный ограниченный функционал по h}}
 +
 o(\|h\|_X).
 \]
+Про интегрирование о-малого остаётся упражнение:)
 \end{myproof}
 
-\begin{myremark}
+\begin{myexe}
 Отображение
 \[
 y\longmapsto J'_F[y],
 \qquad X\to X',
 \]
 непрерывно.
-\end{myremark}
+\end{myexe}
 
 \begin{myremark}
 При $n=1$
@@ -1180,7 +1181,8 @@ y\longmapsto J'_F[y],
 
 \subsection{Леммы}
 
-\begin{mylemma}
+\begin{mylemma} Лемма Лагранжа
+
 Пусть $\Omega\subset\mathbb R^n$ --- открытое множество и
 \[
 f\in C(\Omega).
@@ -1189,7 +1191,7 @@ f\in C(\Omega).
 \[
 \int_\Omega f(x)h(x)\,\dd x=0
 \qquad
-\forall h\in C_0^\infty(\Omega),
+\forall h\in C_0^\infty(\Omega) (\supp h \subset \Omega - \text{компакт}),
 \]
 то
 \[
@@ -1203,8 +1205,7 @@ f\equiv0.
 f(a)>0.
 \]
 Тогда существует $\delta>0$ такое, что
-\[
-B_\delta(a)\subset\Omega,
+\[\overline{B_\delta(a)}\subset\Omega,
 \qquad
 f(x)>0\quad\forall x\in B_\delta(a).
 \]
@@ -1226,7 +1227,8 @@ h(x)=
 противоречие.
 \end{myproof}
 
-\begin{mylemma}
+\begin{mylemma} Лемма Дюбуа-Реймона
+
 Пусть
 \[
 g\in C([a,b],\mathbb R^n).
@@ -1267,9 +1269,9 @@ h(a)=h(b)=0.
 \[
 0
 =
-\int_a^b\langle g(x),h'(x)\rangle\,\dd x
+\underbrace{\int_a^b\langle g(x),\underbrace{h'(x)}_{=g(x)-c}\rangle\,\dd x}_{=0}
 -
-\int_a^b\langle c,h'(x)\rangle\,\dd x
+\underbrace{\int_a^b\langle c,\underbrace{h'(x)}_{=g(x)-c}\rangle\,\dd x}_{=0}
 =
 \int_a^b|g(x)-c|^2\,\dd x.
 \]
@@ -1279,12 +1281,13 @@ g(x)=c.
 \]
 \end{myproof}
 
-\begin{mylemma}
+\begin{mylemma} Обобщённая лемма Дюбуа-Реймона
+
 Пусть
 \[
 g\in C[a,b].
 \]
-Если
+Тогда
 \[
 \int_a^b g(x)h''(x)\,\dd x=0
 \]
@@ -1292,7 +1295,7 @@ g\in C[a,b].
 \[
 h(a)=h(b)=h'(a)=h'(b)=0,
 \]
-то
+тогда и только тогда, когда
 \[
 \boxed{g(x)=Ax+B.}
 \]
@@ -1336,7 +1339,7 @@ h''(x)=g(x)-\alpha(x-a)-\beta.
 -
 \beta\frac{(b-a)^2}{2}=0.
 \]
-Её определитель равен
+Хотим понять существуют ли такие $\alpha, \beta$, поэтому берём их за переменные и если определитель системы не равен 0, то для любой правой части будет единсвтенное решение. Её определитель равен
 \[
 \begin{vmatrix}
 \dfrac{(b-a)^2}{2} & b-a\\[2mm]
@@ -1353,9 +1356,8 @@ h''(x)=g(x)-\alpha(x-a)-\beta.
 =
 \int_a^b g(x)h''(x)\,\dd x
 -
-\int_a^b\bigl(\alpha(x-a)+\beta\bigr)h''(x)\,\dd x
+\underbrace{\int_a^b\bigl(\alpha(x-a)+\beta\bigr)h''(x)\,\dd x}_{\text{можем вписать любую линейную функцию}}
 \]
-и, поскольку граничные значения $h,h'$ равны нулю,
 \[
 \int_a^b
 \bigl(g(x)-\alpha(x-a)-\beta\bigr)h''(x)\,\dd x=0.
@@ -1382,7 +1384,7 @@ h(a)=h'(a)=\cdots=h^{(k-1)}(a)=0,
 \[
 h(b)=h'(b)=\cdots=h^{(k-1)}(b)=0.
 \]
-Тогда $g$ --- многочлен степени не выше $k-1$.
+Тогда и только тогда $g$ --- многочлен степени не выше $k-1$.
 \end{myexe}
 
 \subsection{Задача с фиксированными граничными точками}
@@ -1399,7 +1401,7 @@ J[y]=\int_a^bL(x,y,y')\,\dd x,
 \[
 \left\{y\in C^1([a,b],\mathbb R^n):\ y(a)=A,\ y(b)=B\right\}.
 \]
-Тогда
+Тогда существует
 \[
 \boxed{
 \frac{\dd}{\dd x}

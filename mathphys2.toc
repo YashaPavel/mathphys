@@ -7,13 +7,13 @@
 \contentsline {subsection}{\numberline {1.1.3}Леммы}{13}{subsection.1.1.3}%
 \contentsline {subsection}{\numberline {1.1.4}Задача с фиксированными граничными точками}{16}{subsection.1.1.4}%
 \contentsline {subsection}{\numberline {1.1.5}Задача со свободными концами}{18}{subsection.1.1.5}%
-\contentsline {subsection}{\numberline {1.1.6}Частные случаи уравнения Эйлера--Лагранжа}{19}{subsection.1.1.6}%
-\contentsline {section}{\numberline {1.2}Условный экстремум}{20}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Касательные к гиперповерхности}{20}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.1.6}Частные случаи уравнения Эйлера--Лагранжа}{20}{subsection.1.1.6}%
+\contentsline {section}{\numberline {1.2}Условный экстремум}{21}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Касательные к гиперповерхности}{21}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Изопериметрическая задача}{25}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Задача Лагранжа}{25}{subsection.1.2.3}%
-\contentsline {section}{\numberline {1.3}Задача Штурма--Лиувилля}{26}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Минимизирующая последовательность}{26}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.2.3}Задача Лагранжа}{26}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Задача Штурма--Лиувилля}{27}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Минимизирующая последовательность}{27}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Свойства предельной функции}{29}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}Остальные собственные числа}{32}{subsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.3.4}Полнота системы собственных функций}{35}{subsection.1.3.4}%

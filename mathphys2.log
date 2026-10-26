@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  25 OCT 2026 18:34
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.14)  26 OCT 2026 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1491,9 +1491,20 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1014.
 
-[11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
-[26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39]
-(mathphys2.aux)
+[11] [12] [13] [14] [15] [16]
+Overfull \hbox (15.12746pt too wide) detected at line 1589
+\OML/cmm/m/it/10.95 D\OT1/cmr/m/n/10.95 ^^H = [] []
+ []
+
+[17] [18]
+Underfull \hbox (badness 4156) in paragraph at lines 1672--1676
+[]\TU/TimesNewRoman(1)/m/n/10.95 В частности выполняется для $\OML/cmm/m/it/10.
+95 h$ \TU/TimesNewRoman(1)/m/n/10.95 с 0 на концах. Т.е. из предыдущего парагра
+фа существует
+ []
+
+[19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33]
+[34] [35] [36] [37] [38] [39] [40] (mathphys2.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1502,12 +1513,12 @@ Package rerunfilecheck Info: File `mathphys2.out' has not changed.
 (rerunfilecheck)             Checksum: 676F2A52169BB15B2AA6D0D1CCA008F5;5808.
  ) 
 Here is how much of TeX's memory you used:
- 48424 strings out of 402986
- 1139559 string characters out of 5455748
- 2000108 words of memory out of 5000000
- 76399 multiletter control sequences out of 15000+600000
- 639143 words of font info for 146 fonts, out of 8000000 for 9000
+ 48459 strings out of 402986
+ 1140139 string characters out of 5455748
+ 2006108 words of memory out of 5000000
+ 76428 multiletter control sequences out of 15000+600000
+ 640876 words of font info for 154 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,16n,104p,1031b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,104p,1031b,1048s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on mathphys2.pdf (40 pages).
+Output written on mathphys2.pdf (41 pages).

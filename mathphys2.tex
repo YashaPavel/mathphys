@@ -1430,6 +1430,7 @@ h\in C^1([a,b],\mathbb R^n),
 \langle\nabla_vL(x,y_0,y_0'),h'\rangle
 \right)\dd x=0.
 \]
+Мы могли бы проинтегрировать по частям 2-е слагаемое, но мы не знаем дифференцируем ли градиент, поэтому лучше начнём с 1-ого слагаемого.
 Положим
 \[
 G(x):=\int_a^x\nabla_yL\bigl(t,y_0(t),y_0'(t)\bigr)\,\dd t.
@@ -1440,7 +1441,7 @@ G\in C^1([a,b],\mathbb R^n)
 \]
 и
 \[
-\int_a^b\langle\nabla_yL,h\rangle\,\dd x
+\int_a^b\langle\underbrace{\nabla_yL}_{\text{=G'(x)}},h\rangle\,\dd x
 =
 \langle G(x),h(x)\rangle\Big|_a^b
 -
@@ -1457,7 +1458,7 @@ G\in C^1([a,b],\mathbb R^n)
 \[
 \nabla_vL(x,y_0,y_0')=G(x)+\mathrm{const}.
 \]
-Следовательно,
+В правой части функция из $C^1$ (т.е. существует производная), следовательно,
 \[
 \frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
 =
@@ -1468,7 +1469,7 @@ G'(x)
 \end{myproof}
 
 \begin{myremark}
-Из доказательства следует, что $y_0$ обладает дополнительной гладкостью в тех случаях, когда уравнение Эйлера--Лагранжа позволяет выразить $y_0'$.
+Из доказательства не следует, что $y_0\in C^2$
 \end{myremark}
 
 \begin{myexample}
@@ -1547,39 +1548,73 @@ y_0\in C^2([a,b],\mathbb R^n).
 \]
 Имеем
 \[
-\Phi:[a,b]\times\mathbb R^{2n}	o[a,b]\times\mathbb R^{2n},
+\Phi:[a,b]\times\mathbb R^{2n}	\longrightarrow [a,b]\times\mathbb R^{2n},
 \qquad
 \Phi\in C^1.
 \]
-Матрица $D\Phi(x,y,v)$ имеет блочно-треугольный вид, поэтому
+Матрица $D\Phi(x,y,v)$ имеет блочно-треугольный вид:
+\[D\Phi=
+\left(
+\begin{array}{cccc|ccc@{}l}
+1 & 0 & \cdots & 0 & 0 & \cdots & 0
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$x$ по всем переменным}} \\
+0 & 1 & \cdots & 0 & 0 & \cdots & 0
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$y_1$ по всем переменным}} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & & \vdots
+  & \rlap{\hspace{2.3em}$\vdots$} \\
+0 & 0 & \cdots & 1 & 0 & \cdots & 0
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$y_n$ по всем переменным}} \\
+\hline
+\dfrac{\partial^2 L}{\partial x\,\partial v_1} &
+\dfrac{\partial^2 L}{\partial y_1\,\partial v_1} &
+\cdots &
+\dfrac{\partial^2 L}{\partial y_n\,\partial v_1} &
+\dfrac{\partial^2 L}{\partial v_1^2} &
+\cdots &
+\dfrac{\partial^2 L}{\partial v_1\,\partial v_n}
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$\dfrac{\partial L}{\partial v_1}$ по всем переменным}} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots
+  & \rlap{\hspace{2.3em}$\vdots$} \\
+\dfrac{\partial^2 L}{\partial x\,\partial v_n} &
+\dfrac{\partial^2 L}{\partial y_1\,\partial v_n} &
+\cdots &
+\dfrac{\partial^2 L}{\partial y_n\,\partial v_n} &
+\dfrac{\partial^2 L}{\partial v_n\,\partial v_1} &
+\cdots &
+\dfrac{\partial^2 L}{\partial v_n^2}
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$\dfrac{\partial L}{\partial v_n}$ по всем переменным}}
+\end{array}
+\right)
+\hphantom{\hspace{2em}\leftarrow\ \text{$\dfrac{\partial L}{\partial v_n}$ по всем переменным}}
+\]
 \[
 \det D\Phi
 =
 \det\left(
 \frac{\partial^2L}{\partial v_j\partial v_k}
 \right)
-e0.
+\neq0.
 \]
 
-Для любого $x_0\in(a,b)$ по теореме об обратной функции существует локальное обратное отображение
-\[
-\Psi\in C^1,
-\]
-такое, что
+Пусть $x_0\in(a,b)$, рассмотрим точку $(x_0, y_0(x_0),y_0'(x_0))$,  по теореме об обратной функции в окрестности существует обратное отображение $\psi\in C^1$ такое, что
 \[
 \Psi\bigl(x,y,\nabla_vL(x,y,v)\bigr)=(x,y,v).
 \]
-Следовательно, в окрестности $x_0$
+При $x$ в малой окрестности $x_0$:
 \[
-y_0'(x)
+\Psi\bigl(x,y_0(x),\nabla_vL(x,y_0(x),y_0'(x))\bigr)=(x,y_0(x),y_0'(x)).
+\]
+
+\[
+y_{0k}'(x)
 =
-\Psi_{n+1:\,2n}
+\Psi_{n+1+k}
 \left(
  x,y_0(x),
  \nabla_vL(x,y_0(x),y_0'(x))
 \right).
 \]
-Правая часть принадлежит $C^1$, поэтому
+Правая часть принадлежит $C^1$ как композиция непрерывных функций (аргументы тоже из $C^1$), поэтому
 \[
 y_0'\in C^1,
 \qquad
@@ -1604,20 +1639,20 @@ J[y]=\int_a^bL(x,y,y')\,\dd x
 \]
 на всём пространстве $X=C^1([a,b],\mathbb R^n)$.
 Тогда
-\[
+\lbpa{2}{\[
 \boxed{
 \frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
 =
 \nabla_yL(x,y_0,y_0')}
-\]
+\]}
 и
-\[
+\lbpa{3}{\[
 \boxed{
 \nabla_vL(a,y_0(a),y_0'(a))
 =
 \nabla_vL(b,y_0(b),y_0'(b))
 =0.}
-\]
+\]}
 \end{mytheorem}
 
 \begin{myproof}
@@ -1626,29 +1661,33 @@ J[y]=\int_a^bL(x,y,y')\,\dd x
 \delta J(y_0,h)=0,
 \]
 то есть
-\[
+\lbpa{1}{\[
 \int_a^b
 \left(
-\langle\nabla_yL,h\rangle
+\langle\nabla_yL(x, y_0, y_0'),h(x)\rangle
 +
-\langle\nabla_vL,h'\rangle
-\right)\dd x=0.
+\langle\nabla_vL(x, y_0, y_0'),h'(x)\rangle
+\right)\dd x=0 \qquad \forall h
+\]}
+В частности выполняется для $h$ с 0 на концах. Т.е. из предыдущего параграфа существует $\frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
+=
+\nabla_yL(x,y_0,y_0')$.
+Теперь можем проинтегрировать \ref{1}, получим 
+\[\int_a^b
+\langle\nabla_yL(x, y_0, y_0')-\frac{\dd}{\dd x}(\nabla_vL(x,y_0,y_0')),h(x)\rangle dx
++\langle\nabla_vL(x,y_0,y_0'), h_x\rangle\Big|_a^b=0 \qquad \forall h\in X
 \]
-Если сначала взять $h(a)=h(b)=0$, то получаем уравнение Эйлера--Лагранжа.
-После интегрирования по частям с учётом этого уравнения остаётся
+Первое слагаемое равно 0, тогда т.к. для любых $h$, то понятно, что на концах равным 0 может быть только градиент в обоих точках(можем взять такую $h: \quad h(b)=0 \, h(a)=e_j$):
 \[
-\left.\langle\nabla_vL(x,y_0,y_0'),h(x)\rangle\right|_a^b=0.
-\]
-Выбирая $h$ с произвольными значениями на концах, получаем естественные граничные условия
-\[
-\nabla_vL(a,y_0(a),y_0'(a))=0,
-\qquad
-\nabla_vL(b,y_0(b),y_0'(b))=0.
+\nabla_vL(a,y_0(a),y_0'(a))
+=
+\nabla_vL(b,y_0(b),y_0'(b))
+=0.
 \]
 \end{myproof}
 
 \begin{myremark}
-Уравнение Эйлера--Лагранжа вместе с естественными граничными условиями эквивалентно стационарности $y_0$.
+\ref{2} и \ref{3} $\quad \Rightarrow \quad y_0$ - стационарная точка функционала $J$
 \end{myremark}
 
 \begin{mytheorem}
@@ -1703,7 +1742,7 @@ L=L(x,y),
 \[
 \frac{\partial L}{\partial v_j}(x,y_0,y_0')=\mathrm{const}.
 \]
-В соответствующем случае
+В соответствующем случае, если зависит только от $(x,v)$:
 \[
 \nabla_vL(x,y_0,y_0')=\vec c,
 \]
@@ -1719,14 +1758,14 @@ y_0'(x)=f(x,\vec c),
 L=L(y,v),
 \]
 то
-\[
-\boxed{
-\frac{\dd}{\dd x}
+\[\frac{\dd}{\dd x}
 \left(
 L(y_0,y_0')-
 \langle y_0',\nabla_vL(y_0,y_0')\rangle
-\right)=0.}
+\right)=\]
+\[=\langle y_0',\nabla_yL(y_0, y_0')\rangle+\langle y_0'',\nabla_vL(y_0, y_0')\rangle-\langle y_0'',\nabla_vL(y_0, y_0')\rangle-\langle y_0',\frac{\dd}{\dd x}\nabla_yL(y_0, y_0')\rangle\underset{\text{Э.Л.}}{=}0
 \]
+Это закон сохранения энергии.
 \end{enumerate}
 
 \begin{myexample}
@@ -1782,6 +1821,7 @@ y'=\pm\frac{\sqrt{R^2-y^2}}{y}.
 \[
 \boxed{(x-a)^2+y^2=R^2.}
 \]
+Реализация геометрии Лобачевского. Длина кривой в такой плоскости это как раз интеграл $\int \frac{\sqrt{1+y'^2}}{y}\,\dd x$. Эти расстояния это как раз дуги.
 \end{myexample}
 
 % ============================================================

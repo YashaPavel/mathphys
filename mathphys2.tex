@@ -1868,18 +1868,18 @@ G\in C^1(X),
 M=\{f:\ G[f]=0\},
 \]
 и $u\in M$ не является стационарной точкой $G$.
-Тогда условие
+И пусть есть такой $h$:
 \[
 \delta G(u;h)=0
 \]
-эквивалентно существованию $\varepsilon>0$ и кривой
+тогда существовует $\varepsilon>0$ и путь
 \[
 w:(-\varepsilon,\varepsilon)\to X,
 \qquad w\in C^1,
 \]
 такой, что
 \[
-w(t)\in M,
+w(t)\in M, \,\, \forall t
 \qquad
 w(0)=u,
 \qquad
@@ -1888,23 +1888,69 @@ w'(0)=h.
 \end{mytheorem}
 
 \begin{myproof}
+\begin{tikzpicture}[>=Stealth, line cap=round, line join=round]
+ 
+  % --- ключевые точки и векторы (u -- начало координат) ---
+  \coordinate (u) at (0,0);
+  \coordinate (h) at (1.7,0.6);   % вектор в касательной плоскости
+  \coordinate (v) at (0.5,2.5);   % вектор вне касательной плоскости
+  \coordinate (a) at (2.4,0.2);   % направляющие касательной плоскости
+  \coordinate (b) at (0.9,1.0);
+ 
+  % --- множество M ---
+  \draw[thick, fill=gray!12]
+    plot[smooth cycle, tension=0.8] coordinates {
+      (-3.9,-0.3) (-3.0,1.3) (-0.8,1.8) (1.8,1.5)
+      (3.7,0.3) (3.2,-1.6) (0.8,-2.7) (-1.9,-2.3)};
+  \node[gray!60!black] at (-3.1,0.0) {$M$};
+ 
+  % --- кривая в M, проходящая через u ---
+  \draw[thick, blue!60!black]
+    plot[smooth, tension=0.8] coordinates {
+      (-1.5,-1.9) (-0.7,-0.8) (0,0) (0.6,0.9) (1.2,1.2)};
+  \node[blue!60!black, right] at (-1.45,-1.95) {$\gamma\subset M$};
+ 
+  % --- касательная плоскость T_u M ---
+  \filldraw[fill=green!25, fill opacity=0.45, draw=green!40!black, thick]
+    ($ -1*(a) -1*(b) $) -- ($ 1*(a) -1*(b) $) --
+    ($ 1*(a) +1*(b) $) -- ($ -1*(a) +1*(b) $) -- cycle;
+  \node[green!35!black, below right] at ($ 1*(a) -1*(b) $) {$T_uM$};
+ 
+  % --- плоскость, натянутая на h и v ---
+  \filldraw[fill=red!30, fill opacity=0.35, draw=red!60!black, thick]
+    ($ -0.8*(h) -0.4*(v) $) -- ($ 1.3*(h) -0.4*(v) $) --
+    ($ 1.3*(h) +0.9*(v) $) -- ($ -0.8*(h) +0.9*(v) $) -- cycle;
+  \node[red!60!black, above left] at ($ -0.8*(h) +0.9*(v) $) {$\Pi$};
+ 
+  % --- пересечение плоскостей: прямая вдоль h ---
+  \draw[dashed, black!70] ($ -0.8*(h) $) -- ($ 1.3*(h) $);
+ 
+  % --- векторы ---
+  \draw[->, very thick] (u) -- (h) node[below right] {$h$};
+  \draw[->, very thick] (u) -- (v) node[above right] {$v$};
+ 
+  % --- точка u ---
+  \fill (u) circle (2pt) node[above left] {$u$};
+ 
+\end{tikzpicture}
+
 Так как $u$ не является стационарной точкой $G$, существует $v\in X$ такое, что
 \[
 \delta G(u;v)\ne0.
 \]
 Положим
 \[
-\psi(s,t)=G[u+sv+th].
+\psi(s,t)=G[u+sv+th] \qquad \psi\in C^1(\R^2)
 \]
 Тогда
 \[
-\psi(0,0)=G[u]=0.
+\psi(0,0)=G[u]=0\,(u\in M)
 \]
 При $t=0$
 \[
 \psi(s,0)=G[u+sv]
 =
-G[u]+s\,\delta G(u;v)+o(s),
+G[u]+s\,\delta G(u;v)+o(s), \,\, s\to0
 \]
 поэтому
 \[
@@ -1916,7 +1962,7 @@ G[u]+s\,\delta G(u;v)+o(s),
 \[
 \psi(0,t)=G[u+th]
 =
-G[u]+t\,\delta G(u;h)+o(t),
+G[u]+t\,\delta G(u;h)+o(t), \,\, t\to0
 \]
 поэтому
 \[
@@ -1925,17 +1971,17 @@ G[u]+t\,\delta G(u;h)+o(t),
 \delta G(u;h)=0.
 \]
 
-По теореме о неявной функции существует функция $s=s(t)$,
+По теореме о неявной функции существует функция $s=s(t)$, такая что
 \[
-\psi(s(t),t)=0,
-\qquad
-s(0)=0,
+\psi(s,t)=0 \,\, \Leftrightarrow \,\,
+s=s(t), \quad s\in C^1 \,\, s(0)=0 \,(\text{единственное решения ур-я } \psi(s, 0)=0)
 \]
-и
+\[\psi(s(t), t=0) \,\,\xrightarrow[]{\frac{\dd}{\dd t}}\,\,\frac{\partial \psi}{\partial s}\frac{\dd s}{\dd t}+\frac{\partial \psi}{\partial t}=0\]
+Тогда:
 \[
-s'(0)
+\frac{\dd s}{\dd t}(0)
 =
--\frac{\partial_t\psi}{\partial_s\psi}(0,0)
+-\frac{\partial_t\psi}{\partial_s\psi}(0,0)=-\frac{\partial_t\psi(0,0)}{\partial_s\psi(0,0)}
 =0.
 \]
 Следовательно,
@@ -1945,12 +1991,12 @@ s(t)=o(t),
 \]
 Положим
 \[
-w(t)=u+s(t)v+th.
+w(t)=u+s(t)v+th, \quad w\in C^1((-\varepsilon, \varepsilon); X)
 \]
 Тогда
 \[
-G[w(t)]=0,
-\qquad
+G[w(t)]=\psi(s(t),t)=0 \,
+\Rightarrow \,
 w(t)\in M,
 \qquad
 w(0)=u,
@@ -1961,8 +2007,8 @@ w'(0)
 =
 \lim_{t\to0}\frac{w(t)-w(0)}{t}
 =
-\lim_{t\to0}\left(\frac{s(t)}t v+h\right)
-=h.
+\lim_{t\to0}\left(\frac{s(t)}t v+h\right)\underset{s(t)=o(t), t\to0}{=}
+h.
 \]
 Обратное утверждение получается дифференцированием $G[w(t)]=0$ при $t=0$.
 \end{myproof}

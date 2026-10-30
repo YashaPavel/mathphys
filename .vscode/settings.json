@@ -1,0 +1,18 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.jj": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys2.aux": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys2.log": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys2.gz": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys2.out": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys.aux": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys.log": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys.gz": true,
+        "**/c:\\tex-projects\\mathphys\\mathphys.out": true
+    }
+}

@@ -10,9 +10,7 @@
 \setotherlanguage{english}
 \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Liberation Serif}}
 \IfFontExistsTF{Arial}{\setsansfont{Arial}}{\setsansfont{Liberation Sans}}
-\IfFontExistsTF{Menlo}{\setmonofont{Menlo}}{\setmonofont{DejaVu Sans Mono}}
-
-% =================================================
+\IfFontExistsTF{Consolas}{\setmonofont{Consolas}}{\setmonofont{Courier New}}
 % ГЕОМЕТРИЯ СТРАНИЦЫ
 % =================================================
 \usepackage[
@@ -533,7 +531,7 @@ C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
 \operatorname{supp}\omega=\overline{B_1(0)}.
 \]
 
-Для любого $\rho>0$ положим
+Для любого $\rho>0$ заведём такую функцию:
 \[
 \omega_\rho(x)=\frac{1}{\rho^n}\omega\!\left(\frac{x}{\rho}\right).
 \]
@@ -547,7 +545,7 @@ C\exp\!\left(-\dfrac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
 \qquad
 \int_{\mathbb R^n}\omega_\rho(x)\,\dd x=1.
 \]
-
+Делим на $\rho$ мы для того, чтобы интеграл оставался равным единице (залезет в дифференциал).
 \begin{mylemma}
 Пусть $\Omega$ и $U$ --- открытые множества и
 $
@@ -588,24 +586,29 @@ $
 \eta(x):=\int_A\omega_\rho(x-y)\,\dd y
 =(\omega_\rho*\chi_A)(x).
 \]
+$\chi_A$ - характеристическая функция на множестве A.
 Имеем
 \[
-\eta\in C^\infty,
+\eta\in C^\infty(\text{можно дифф. по х}),
 \qquad
-0\le \eta(x)\le 1.
+0\le \eta(x)\le 1(\text{1 равно на всем мн-ве}).
 \]
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{pics/10.png}
+        \caption{}
+\end{figure}
 
-
-Если $x\in\overline\Omega$, то
+Если $x\in\overline\Omega$, то из определения $A$
 \[
 B_\rho(x)\subset A \Rightarrow
 \eta(x)
 =
 \int_{B_\rho(x)}\omega_\rho(x-y)\,\dd y
-=1.
+=1 (\text{тк снаружи шара равна 0, а весь шар внутри A})
 \]
 
-Если $x\notin U$, то
+Если $x\notin U$, то (учитывая то, что $\operatorname{dist}(\overline{A}, \partial U)\leq2\rho$)
 \[
 B_\rho(x)\cap A=\varnothing \Rightarrow
 \eta(x)=0.
@@ -618,13 +621,15 @@ B_\rho(x)\cap A=\varnothing \Rightarrow
 \overline\Omega\subset\bigcup_{j=1}^{N}O_j,
 \qquad O_j\text{ --- открытые}.
 \]
-Тогда существуют открытые множества
+Пусть $Q$ - куб такой, что $\overline{\bigcup_{j=1}^{N}O_j}\subset Q$. Тогда существуют открытые множества
 \[
 \Omega_j,\qquad j=0,1,\ldots,N,
 \]
 такие, что
 \[
-\overline\Omega\subset\bigcup_{j=0}^{N}\Omega_j,
+\overline\Omega\subset\bigcup_{j=1}^{N}\Omega_j,
+\qquad
+\overline{Q}\subset\bigcup_{j=0}^{N}\Omega_j
 \qquad
 \overline{\Omega_j}\subset O_j,
 \quad j=1,\ldots,N,
@@ -636,32 +641,29 @@ B_\rho(x)\cap A=\varnothing \Rightarrow
 \end{mylemma}
 
 \begin{myproof}
-Выберем куб $Q$ так, чтобы рассматриваемое покрытие содержалось внутри некоторого большего открытого куба $\widetilde Q$.
-Последовательно строим открытые множества $\Omega_j$ так, чтобы
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{pics/11.png}
+        \caption{}
+\end{figure}
+
+    Заведём $K_1$
 \[
-\overline{\Omega_j}\subset O_j,
-\qquad j=1,\ldots,N.
+K_1:=\overline \Omega\setminus\bigcup_{j=2}^{N}O_j
 \]
-После выбора $\Omega_1,\ldots,\Omega_N$ положим
-\[
-K_0:=\overline Q\setminus\bigcup_{j=1}^{N}\Omega_j.
-\]
-Множество $K_0$ замкнуто и
-\[
-K_0\subset\widetilde Q\setminus\overline\Omega.
-\]
-Поэтому существует открытое $\Omega_0$ такое, что
-\[
-K_0\subset\Omega_0,
-\qquad
-\overline{\Omega_0}\subset\widetilde Q\setminus\overline\Omega.
-\]
-Следовательно,
-\[
-\overline Q\subset\bigcup_{j=0}^{N}\Omega_j,
-\qquad
-\overline{\Omega_0}\cap\overline\Omega=\varnothing.
-\]
+Множество $K_1$ замкнуто и $K_1\subset O_1$. Тогда существует $\Omega_1: \quad K_1\subset\Omega_1,\,\, \overline{\Omega_1}\subset O_1$. \\
+Это множество можно вписать туда через расстояние как в предыдущей лемме.
+При этом сохраняется то, что $\overline{\Omega}\subset\Omega_1\cup\bigcup_{j=2}^{N}O_j$. \\
+Теперь заводим $K_2:=\overline \Omega\setminus\Omega_1\setminus\bigcup_{j=3}^{N}O_j$. \\
+\[K_2 \subset O_2, \qquad K_2 - \text{замкнутое}\].
+Теперь существует такое $\Omega_2$ - открытое, что 
+\[K_2\subset \Omega_2, \qquad \overline{\Omega_2}\subset O_2; \qquad \overline{\Omega}\subset\Omega_1\cup\Omega_2\cup\bigcup_{j=3}^{N}O_j\]
+И так далее. Таким образом мы получим набор $\Omega_j$ такой, что:
+\[\overline{\Omega}\subset\bigcup_{j=1}^{N}\Omega_j\] 
+Пусть $\overline{Q}\subset\widetilde{Q}$ - открытое. И у нас есть $K_0:=\overline{Q}\setminus\bigcup_{j=1}^{N}\Omega_j$ - замкнуто и $K_0\subset\widetilde{Q}\setminus\overline{\Omega}$. Следовательно, существует $\Omega_0$ - открытое, такое, что $K_0\subset\Omega_0, \,\, \overline{\Omega_0} \subset \widetilde{Q}\setminus\overline{\Omega} \,\,(\Rightarrow \overline{\Omega_0}\cap\overline{\Omega}=\varnothing)$.
+Условию с вложением $\overline{Q}$ мы удовлетворили, точка, которая лежит в кубе лежит либо в объединении $\Omega_j$ начиная с единицы, либо она лежит в $K_0\subset\Omega_0$. 
+
+
 \end{myproof}
 
 \begin{mytheorem}
@@ -685,12 +687,13 @@ K_0\subset\Omega_0,
 и
 \[
 \sum_{j=1}^{N}\xi_j(x)=1,
-\qquad x\in\overline\Omega.
+\qquad \forall x\in\overline\Omega.
 \]
 \end{mytheorem}
 
 \begin{myproof}
-По предыдущей лемме выберем $\Omega_j$, $j=0,\ldots,N$.
+Пусть $\overline{\bigcup_{j=1}^{N}O_j}\subset Q$.
+По предыдущей лемме выберем $\Omega_j$, $j=0,\ldots,N$, при чём $\overline{\Omega_j}\subset O_j$.
 Для $j=1,\ldots,N$ по первой лемме существуют функции
 \[
 \eta_j\in C_0^\infty(\mathbb R^n),
@@ -703,7 +706,7 @@ K_0\subset\Omega_0,
 \qquad
 \operatorname{supp}\eta_j\subset O_j.
 \]
-Для $j=0$ аналогично выбираем
+Для $j=0$ аналогично выбираем $\overline{\Omega_0}\subset\widetilde{Q}\setminus\overline{\Omega}$
 \[
 \eta_0\in C_0^\infty(\mathbb R^n),
 \qquad
@@ -723,17 +726,18 @@ K_0\subset\Omega_0,
 0, & x\notin Q.
 \end{cases}
 \]
-На $\overline Q$
+На $\overline Q$ (хотя бы одна из функций равна 1)
 \[
 \sum_{i=0}^{N}\eta_i(x)\ge1.
 \]
+А на $x\notin Q$ нужно продолжить функцию нулём.
 Поэтому
 \[
 \xi_j\in C_0^\infty(\mathbb R^n),
 \qquad
 \operatorname{supp}\xi_j\subset O_j.
 \]
-Так как при $x\in\overline\Omega$ имеем $\eta_0(x)=0$, то
+Так как при $x\in\overline\Omega$ имеем $\eta_0(x)=0$ (носитель не пересекается с $\overline{\Omega}$), то
 \[
 \sum_{j=1}^{N}\xi_j(x)=1,
 \qquad x\in\overline\Omega.
@@ -763,7 +767,7 @@ L\in C(\mathbb R^3),
 
 \subsection{Функционалы в нормированных пространствах}
 
-Пусть $X$ --- линейное нормированное пространство и
+Пусть $X$ --- линейное нормированное пространство и функционал
 \[
 J:X\to\mathbb R.
 \]
@@ -775,6 +779,7 @@ J:X\to\mathbb R.
 =
 \left.\frac{\dd}{\dd\alpha}J(f+\alpha h)\right|_{\alpha=0}
 \]
+Определение корректно в случае существования производной (что вообще говоря не обязательно)
 \end{mydef}
 
 \begin{myremark}
@@ -842,9 +847,9 @@ J(f+\beta h)-J(f)
 \end{mydef}
 
 \begin{myexample}
-Пусть
+Функционал не обязан быть ограниченным. Пусть
 \[
-X=C[-1,1],
+X=C[-1,1] - \text{непр. ф-ии},
 \qquad
 \|f\|_1=\int_{-1}^{1}|f(x)|\,\dd x,
 \]
@@ -864,7 +869,7 @@ f_n(x)=
 \[
 \varphi(f_n)=1,
 \qquad
-\|f_n\|_1=\frac1n.
+\|f_n\|_1=\frac1n - \text{площадь треугольника}.
 \]
 
 \begin{center}
@@ -884,7 +889,7 @@ f_n(x)=
 \end{myexe}
 
 \begin{mydef}
-Сопряжённым пространством к $X$ называется
+Сопряжённым пространством к $X$ - линейному называется
 \[
 X'=X^*=
 \{\text{линейные ограниченные функционалы на }X\}.
@@ -900,7 +905,7 @@ X'=X^*=
 \begin{myexe}
 \begin{enumerate}
 \item Это действительно норма.
-\item $X'$ --- банахово пространство.
+\item $X'$ --- банахово(полное) пространство.
 \end{enumerate}
 \end{myexe}
 
@@ -923,8 +928,8 @@ J'_F[f]h=\varphi(h).
 
 \begin{myexe}
 \begin{enumerate}
-\item Если $\varphi$ существует, то оно единственно.
-\item Если существует $J'_F[f]$, то
+\item Если $\varphi$ существует, то он единственный.
+\item Если существует $J'_F[f]$, то существует производная по Гато
 \[
 J'_G[f]h=J'_F[f]h
 \qquad \forall h.
@@ -988,7 +993,7 @@ J[f]\le J[g]
 \[
 \psi(\alpha)=J(f+\alpha h).
 \]
-Точка $\alpha=0$ является локальным экстремумом $\psi$. Если $\psi'(0)$ существует, то
+Из условия $f$ - локальный экстремум $J$: точка $\alpha=0$ является локальным экстремумом $\psi$. Если $\psi'(0)$ существует, то
 \[
 \psi'(0)=0.
 \]
@@ -1037,20 +1042,18 @@ J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 \end{mytheorem}
 
 \begin{myproof}
-Зафиксируем $y_0\in X$ и числа $R_0,R_1$ такие, что
+Зафиксируем $y_0\in X$, т.к. она непрерывна на $[a,b]$, то она ограничена и её производная аналогично:
 \[
 |y_0(x)|\le R_0,
 \qquad
 |y_0'(x)|\le R_1,
 \qquad x\in[a,b].
 \]
-Функция $L$ непрерывна на компакте
+Сузим функцию $L$ так, чтобы она была непрерывна на компакте (+1 нужен чтобы функции $y, y'$ попали в шар)
 \[
 [a,b]\times\overline B_{R_0+1}\times\overline B_{R_1+1},
 \]
-поэтому равномерно непрерывна на нём.
-
-Для каждого $\varepsilon>0$ существует $\delta\in(0,1)$ такое, что из
+поэтому равномерно непрерывна на нём, что означает, что для каждого $\varepsilon>0$ существует $\delta\in(0,1)$ такое, что из
 \[
 |x-x_0|<\delta,
 \qquad
@@ -1059,11 +1062,12 @@ J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 |v-v_0|<\delta
 \]
 следует
+\lbpa{zero}{
 \[
 |L(x,y,v)-L(x_0,y_0,v_0)|<\frac{\varepsilon}{b-a}.
-\]
+\]}
 
-Если
+Пусть есть такая функция $y$, что
 \[
 \|y-y_0\|_X<\delta,
 \]
@@ -1073,7 +1077,7 @@ J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 \qquad
 |y'(x)-y_0'(x)|<\delta,
 \]
-и потому
+и потому из \ref{zero} следует
 \[
 \left|L(x,y(x),y'(x))-L(x,y_0(x),y_0'(x))\right|
 <\frac{\varepsilon}{b-a}.
@@ -1097,10 +1101,11 @@ L\in C^1([a,b]\times\mathbb R^n\times\mathbb R^n),
 \[
 J[y]=\int_a^bL\bigl(x,y(x),y'(x)\bigr)\,\dd x.
 \]
-Тогда
+Тогда (в любой точке есть производная по Фреше)
 \[
 J\in C^1(X),
 \]
+\[J(y+h)=J(y)+\delta J(y; h)+o(\|h\|_X)\]
 а вариация имеет вид
 \[
 \boxed{
@@ -1116,7 +1121,7 @@ J\in C^1(X),
 \end{mytheorem}
 
 \begin{myproof}
-Используем разложение
+Используем разложение Тейлора, поскольку она из $C^1$
 \[
 L(x,y+h,v+w)
 =
@@ -1138,26 +1143,27 @@ y=y(x),\qquad h=h(x),\qquad v=y'(x),\qquad w=h'(x)
 J[y+h]
 =
 J[y]
-+
++\underbrace{
 \int_a^b
 \left(
 \langle\nabla_yL(x,y,y'),h\rangle
 +
 \langle\nabla_vL(x,y,y'),h'\rangle
-\right)\dd x
+\right)\dd x}_{\text{линейный ограниченный функционал по h}}
 +
 o(\|h\|_X).
 \]
+Про интегрирование о-малого остаётся упражнение:)
 \end{myproof}
 
-\begin{myremark}
+\begin{myexe}
 Отображение
 \[
 y\longmapsto J'_F[y],
 \qquad X\to X',
 \]
 непрерывно.
-\end{myremark}
+\end{myexe}
 
 \begin{myremark}
 При $n=1$
@@ -1175,7 +1181,8 @@ y\longmapsto J'_F[y],
 
 \subsection{Леммы}
 
-\begin{mylemma}
+\begin{mylemma} Лемма Лагранжа
+
 Пусть $\Omega\subset\mathbb R^n$ --- открытое множество и
 \[
 f\in C(\Omega).
@@ -1184,7 +1191,7 @@ f\in C(\Omega).
 \[
 \int_\Omega f(x)h(x)\,\dd x=0
 \qquad
-\forall h\in C_0^\infty(\Omega),
+\forall h\in C_0^\infty(\Omega) (\supp h \subset \Omega - \text{компакт}),
 \]
 то
 \[
@@ -1198,8 +1205,7 @@ f\equiv0.
 f(a)>0.
 \]
 Тогда существует $\delta>0$ такое, что
-\[
-B_\delta(a)\subset\Omega,
+\[\overline{B_\delta(a)}\subset\Omega,
 \qquad
 f(x)>0\quad\forall x\in B_\delta(a).
 \]
@@ -1221,7 +1227,8 @@ h(x)=
 противоречие.
 \end{myproof}
 
-\begin{mylemma}
+\begin{mylemma} Лемма Дюбуа-Реймона
+
 Пусть
 \[
 g\in C([a,b],\mathbb R^n).
@@ -1262,9 +1269,9 @@ h(a)=h(b)=0.
 \[
 0
 =
-\int_a^b\langle g(x),h'(x)\rangle\,\dd x
+\underbrace{\int_a^b\langle g(x),\underbrace{h'(x)}_{=g(x)-c}\rangle\,\dd x}_{=0}
 -
-\int_a^b\langle c,h'(x)\rangle\,\dd x
+\underbrace{\int_a^b\langle c,\underbrace{h'(x)}_{=g(x)-c}\rangle\,\dd x}_{=0}
 =
 \int_a^b|g(x)-c|^2\,\dd x.
 \]
@@ -1274,12 +1281,13 @@ g(x)=c.
 \]
 \end{myproof}
 
-\begin{mylemma}
+\begin{mylemma} Обобщённая лемма Дюбуа-Реймона
+
 Пусть
 \[
 g\in C[a,b].
 \]
-Если
+Тогда
 \[
 \int_a^b g(x)h''(x)\,\dd x=0
 \]
@@ -1287,7 +1295,7 @@ g\in C[a,b].
 \[
 h(a)=h(b)=h'(a)=h'(b)=0,
 \]
-то
+тогда и только тогда, когда
 \[
 \boxed{g(x)=Ax+B.}
 \]
@@ -1331,7 +1339,7 @@ h''(x)=g(x)-\alpha(x-a)-\beta.
 -
 \beta\frac{(b-a)^2}{2}=0.
 \]
-Её определитель равен
+Хотим понять существуют ли такие $\alpha, \beta$, поэтому берём их за переменные и если определитель системы не равен 0, то для любой правой части будет единсвтенное решение. Её определитель равен
 \[
 \begin{vmatrix}
 \dfrac{(b-a)^2}{2} & b-a\\[2mm]
@@ -1348,9 +1356,8 @@ h''(x)=g(x)-\alpha(x-a)-\beta.
 =
 \int_a^b g(x)h''(x)\,\dd x
 -
-\int_a^b\bigl(\alpha(x-a)+\beta\bigr)h''(x)\,\dd x
+\underbrace{\int_a^b\bigl(\alpha(x-a)+\beta\bigr)h''(x)\,\dd x}_{\text{можем вписать любую линейную функцию}}
 \]
-и, поскольку граничные значения $h,h'$ равны нулю,
 \[
 \int_a^b
 \bigl(g(x)-\alpha(x-a)-\beta\bigr)h''(x)\,\dd x=0.
@@ -1377,7 +1384,7 @@ h(a)=h'(a)=\cdots=h^{(k-1)}(a)=0,
 \[
 h(b)=h'(b)=\cdots=h^{(k-1)}(b)=0.
 \]
-Тогда $g$ --- многочлен степени не выше $k-1$.
+Тогда и только тогда $g$ --- многочлен степени не выше $k-1$.
 \end{myexe}
 
 \subsection{Задача с фиксированными граничными точками}
@@ -1394,7 +1401,7 @@ J[y]=\int_a^bL(x,y,y')\,\dd x,
 \[
 \left\{y\in C^1([a,b],\mathbb R^n):\ y(a)=A,\ y(b)=B\right\}.
 \]
-Тогда
+Тогда существует
 \[
 \boxed{
 \frac{\dd}{\dd x}
@@ -1423,6 +1430,7 @@ h\in C^1([a,b],\mathbb R^n),
 \langle\nabla_vL(x,y_0,y_0'),h'\rangle
 \right)\dd x=0.
 \]
+Мы могли бы проинтегрировать по частям 2-е слагаемое, но мы не знаем дифференцируем ли градиент, поэтому лучше начнём с 1-ого слагаемого.
 Положим
 \[
 G(x):=\int_a^x\nabla_yL\bigl(t,y_0(t),y_0'(t)\bigr)\,\dd t.
@@ -1433,7 +1441,7 @@ G\in C^1([a,b],\mathbb R^n)
 \]
 и
 \[
-\int_a^b\langle\nabla_yL,h\rangle\,\dd x
+\int_a^b\langle\underbrace{\nabla_yL}_{\text{=G'(x)}},h\rangle\,\dd x
 =
 \langle G(x),h(x)\rangle\Big|_a^b
 -
@@ -1450,7 +1458,7 @@ G\in C^1([a,b],\mathbb R^n)
 \[
 \nabla_vL(x,y_0,y_0')=G(x)+\mathrm{const}.
 \]
-Следовательно,
+В правой части функция из $C^1$ (т.е. существует производная), следовательно,
 \[
 \frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
 =
@@ -1461,7 +1469,7 @@ G'(x)
 \end{myproof}
 
 \begin{myremark}
-Из доказательства следует, что $y_0$ обладает дополнительной гладкостью в тех случаях, когда уравнение Эйлера--Лагранжа позволяет выразить $y_0'$.
+Из доказательства не следует, что $y_0\in C^2$
 \end{myremark}
 
 \begin{myexample}
@@ -1540,39 +1548,73 @@ y_0\in C^2([a,b],\mathbb R^n).
 \]
 Имеем
 \[
-\Phi:[a,b]\times\mathbb R^{2n}	o[a,b]\times\mathbb R^{2n},
+\Phi:[a,b]\times\mathbb R^{2n}	\longrightarrow [a,b]\times\mathbb R^{2n},
 \qquad
 \Phi\in C^1.
 \]
-Матрица $D\Phi(x,y,v)$ имеет блочно-треугольный вид, поэтому
+Матрица $D\Phi(x,y,v)$ имеет блочно-треугольный вид:
+\[D\Phi=
+\left(
+\begin{array}{cccc|ccc@{}l}
+1 & 0 & \cdots & 0 & 0 & \cdots & 0
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$x$ по всем переменным}} \\
+0 & 1 & \cdots & 0 & 0 & \cdots & 0
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$y_1$ по всем переменным}} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & & \vdots
+  & \rlap{\hspace{2.3em}$\vdots$} \\
+0 & 0 & \cdots & 1 & 0 & \cdots & 0
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$y_n$ по всем переменным}} \\
+\hline
+\dfrac{\partial^2 L}{\partial x\,\partial v_1} &
+\dfrac{\partial^2 L}{\partial y_1\,\partial v_1} &
+\cdots &
+\dfrac{\partial^2 L}{\partial y_n\,\partial v_1} &
+\dfrac{\partial^2 L}{\partial v_1^2} &
+\cdots &
+\dfrac{\partial^2 L}{\partial v_1\,\partial v_n}
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$\dfrac{\partial L}{\partial v_1}$ по всем переменным}} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots
+  & \rlap{\hspace{2.3em}$\vdots$} \\
+\dfrac{\partial^2 L}{\partial x\,\partial v_n} &
+\dfrac{\partial^2 L}{\partial y_1\,\partial v_n} &
+\cdots &
+\dfrac{\partial^2 L}{\partial y_n\,\partial v_n} &
+\dfrac{\partial^2 L}{\partial v_n\,\partial v_1} &
+\cdots &
+\dfrac{\partial^2 L}{\partial v_n^2}
+  & \rlap{\hspace{2em}$\leftarrow$ \text{$\dfrac{\partial L}{\partial v_n}$ по всем переменным}}
+\end{array}
+\right)
+\hphantom{\hspace{2em}\leftarrow\ \text{$\dfrac{\partial L}{\partial v_n}$ по всем переменным}}
+\]
 \[
 \det D\Phi
 =
 \det\left(
 \frac{\partial^2L}{\partial v_j\partial v_k}
 \right)
-e0.
+\neq0.
 \]
 
-Для любого $x_0\in(a,b)$ по теореме об обратной функции существует локальное обратное отображение
-\[
-\Psi\in C^1,
-\]
-такое, что
+Пусть $x_0\in(a,b)$, рассмотрим точку $(x_0, y_0(x_0),y_0'(x_0))$,  по теореме об обратной функции в окрестности существует обратное отображение $\psi\in C^1$ такое, что
 \[
 \Psi\bigl(x,y,\nabla_vL(x,y,v)\bigr)=(x,y,v).
 \]
-Следовательно, в окрестности $x_0$
+При $x$ в малой окрестности $x_0$:
 \[
-y_0'(x)
+\Psi\bigl(x,y_0(x),\nabla_vL(x,y_0(x),y_0'(x))\bigr)=(x,y_0(x),y_0'(x)).
+\]
+
+\[
+y_{0k}'(x)
 =
-\Psi_{n+1:\,2n}
+\Psi_{n+1+k}
 \left(
  x,y_0(x),
  \nabla_vL(x,y_0(x),y_0'(x))
 \right).
 \]
-Правая часть принадлежит $C^1$, поэтому
+Правая часть принадлежит $C^1$ как композиция непрерывных функций (аргументы тоже из $C^1$), поэтому
 \[
 y_0'\in C^1,
 \qquad
@@ -1597,20 +1639,20 @@ J[y]=\int_a^bL(x,y,y')\,\dd x
 \]
 на всём пространстве $X=C^1([a,b],\mathbb R^n)$.
 Тогда
-\[
+\lbpa{2}{\[
 \boxed{
 \frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
 =
 \nabla_yL(x,y_0,y_0')}
-\]
+\]}
 и
-\[
+\lbpa{3}{\[
 \boxed{
 \nabla_vL(a,y_0(a),y_0'(a))
 =
 \nabla_vL(b,y_0(b),y_0'(b))
 =0.}
-\]
+\]}
 \end{mytheorem}
 
 \begin{myproof}
@@ -1619,29 +1661,33 @@ J[y]=\int_a^bL(x,y,y')\,\dd x
 \delta J(y_0,h)=0,
 \]
 то есть
-\[
+\lbpa{1}{\[
 \int_a^b
 \left(
-\langle\nabla_yL,h\rangle
+\langle\nabla_yL(x, y_0, y_0'),h(x)\rangle
 +
-\langle\nabla_vL,h'\rangle
-\right)\dd x=0.
+\langle\nabla_vL(x, y_0, y_0'),h'(x)\rangle
+\right)\dd x=0 \qquad \forall h
+\]}
+В частности выполняется для $h$ с 0 на концах. Т.е. из предыдущего параграфа существует $\frac{\dd}{\dd x}\nabla_vL(x,y_0,y_0')
+=
+\nabla_yL(x,y_0,y_0')$.
+Теперь можем проинтегрировать \ref{1}, получим 
+\[\int_a^b
+\langle\nabla_yL(x, y_0, y_0')-\frac{\dd}{\dd x}(\nabla_vL(x,y_0,y_0')),h(x)\rangle dx
++\langle\nabla_vL(x,y_0,y_0'), h_x\rangle\Big|_a^b=0 \qquad \forall h\in X
 \]
-Если сначала взять $h(a)=h(b)=0$, то получаем уравнение Эйлера--Лагранжа.
-После интегрирования по частям с учётом этого уравнения остаётся
+Первое слагаемое равно 0, тогда т.к. для любых $h$, то понятно, что на концах равным 0 может быть только градиент в обоих точках(можем взять такую $h: \quad h(b)=0 \, h(a)=e_j$):
 \[
-\left.\langle\nabla_vL(x,y_0,y_0'),h(x)\rangle\right|_a^b=0.
-\]
-Выбирая $h$ с произвольными значениями на концах, получаем естественные граничные условия
-\[
-\nabla_vL(a,y_0(a),y_0'(a))=0,
-\qquad
-\nabla_vL(b,y_0(b),y_0'(b))=0.
+\nabla_vL(a,y_0(a),y_0'(a))
+=
+\nabla_vL(b,y_0(b),y_0'(b))
+=0.
 \]
 \end{myproof}
 
 \begin{myremark}
-Уравнение Эйлера--Лагранжа вместе с естественными граничными условиями эквивалентно стационарности $y_0$.
+\ref{2} и \ref{3} $\quad \Rightarrow \quad y_0$ - стационарная точка функционала $J$
 \end{myremark}
 
 \begin{mytheorem}
@@ -1696,7 +1742,7 @@ L=L(x,y),
 \[
 \frac{\partial L}{\partial v_j}(x,y_0,y_0')=\mathrm{const}.
 \]
-В соответствующем случае
+В соответствующем случае, если зависит только от $(x,v)$:
 \[
 \nabla_vL(x,y_0,y_0')=\vec c,
 \]
@@ -1712,14 +1758,14 @@ y_0'(x)=f(x,\vec c),
 L=L(y,v),
 \]
 то
-\[
-\boxed{
-\frac{\dd}{\dd x}
+\[\frac{\dd}{\dd x}
 \left(
 L(y_0,y_0')-
 \langle y_0',\nabla_vL(y_0,y_0')\rangle
-\right)=0.}
+\right)=\]
+\[=\langle y_0',\nabla_yL(y_0, y_0')\rangle+\langle y_0'',\nabla_vL(y_0, y_0')\rangle-\langle y_0'',\nabla_vL(y_0, y_0')\rangle-\langle y_0',\frac{\dd}{\dd x}\nabla_yL(y_0, y_0')\rangle\underset{\text{Э.Л.}}{=}0
 \]
+Это закон сохранения энергии.
 \end{enumerate}
 
 \begin{myexample}
@@ -1775,6 +1821,7 @@ y'=\pm\frac{\sqrt{R^2-y^2}}{y}.
 \[
 \boxed{(x-a)^2+y^2=R^2.}
 \]
+Реализация геометрии Лобачевского. Длина кривой в такой плоскости это как раз интеграл $\int \frac{\sqrt{1+y'^2}}{y}\,\dd x$. Эти расстояния это как раз дуги.
 \end{myexample}
 
 % ============================================================
@@ -1821,18 +1868,18 @@ G\in C^1(X),
 M=\{f:\ G[f]=0\},
 \]
 и $u\in M$ не является стационарной точкой $G$.
-Тогда условие
+И пусть есть такой $h$:
 \[
 \delta G(u;h)=0
 \]
-эквивалентно существованию $\varepsilon>0$ и кривой
+тогда существовует $\varepsilon>0$ и путь
 \[
 w:(-\varepsilon,\varepsilon)\to X,
 \qquad w\in C^1,
 \]
 такой, что
 \[
-w(t)\in M,
+w(t)\in M, \,\, \forall t
 \qquad
 w(0)=u,
 \qquad
@@ -1841,23 +1888,69 @@ w'(0)=h.
 \end{mytheorem}
 
 \begin{myproof}
+\begin{tikzpicture}[>=Stealth, line cap=round, line join=round]
+ 
+  % --- ключевые точки и векторы (u -- начало координат) ---
+  \coordinate (u) at (0,0);
+  \coordinate (h) at (1.7,0.6);   % вектор в касательной плоскости
+  \coordinate (v) at (0.5,2.5);   % вектор вне касательной плоскости
+  \coordinate (a) at (2.4,0.2);   % направляющие касательной плоскости
+  \coordinate (b) at (0.9,1.0);
+ 
+  % --- множество M ---
+  \draw[thick, fill=gray!12]
+    plot[smooth cycle, tension=0.8] coordinates {
+      (-3.9,-0.3) (-3.0,1.3) (-0.8,1.8) (1.8,1.5)
+      (3.7,0.3) (3.2,-1.6) (0.8,-2.7) (-1.9,-2.3)};
+  \node[gray!60!black] at (-3.1,0.0) {$M$};
+ 
+  % --- кривая в M, проходящая через u ---
+  \draw[thick, blue!60!black]
+    plot[smooth, tension=0.8] coordinates {
+      (-1.5,-1.9) (-0.7,-0.8) (0,0) (0.6,0.9) (1.2,1.2)};
+  \node[blue!60!black, right] at (-1.45,-1.95) {$\gamma\subset M$};
+ 
+  % --- касательная плоскость T_u M ---
+  \filldraw[fill=green!25, fill opacity=0.45, draw=green!40!black, thick]
+    ($ -1*(a) -1*(b) $) -- ($ 1*(a) -1*(b) $) --
+    ($ 1*(a) +1*(b) $) -- ($ -1*(a) +1*(b) $) -- cycle;
+  \node[green!35!black, below right] at ($ 1*(a) -1*(b) $) {$T_uM$};
+ 
+  % --- плоскость, натянутая на h и v ---
+  \filldraw[fill=red!30, fill opacity=0.35, draw=red!60!black, thick]
+    ($ -0.8*(h) -0.4*(v) $) -- ($ 1.3*(h) -0.4*(v) $) --
+    ($ 1.3*(h) +0.9*(v) $) -- ($ -0.8*(h) +0.9*(v) $) -- cycle;
+  \node[red!60!black, above left] at ($ -0.8*(h) +0.9*(v) $) {$\Pi$};
+ 
+  % --- пересечение плоскостей: прямая вдоль h ---
+  \draw[dashed, black!70] ($ -0.8*(h) $) -- ($ 1.3*(h) $);
+ 
+  % --- векторы ---
+  \draw[->, very thick] (u) -- (h) node[below right] {$h$};
+  \draw[->, very thick] (u) -- (v) node[above right] {$v$};
+ 
+  % --- точка u ---
+  \fill (u) circle (2pt) node[above left] {$u$};
+ 
+\end{tikzpicture}
+
 Так как $u$ не является стационарной точкой $G$, существует $v\in X$ такое, что
 \[
 \delta G(u;v)\ne0.
 \]
 Положим
 \[
-\psi(s,t)=G[u+sv+th].
+\psi(s,t)=G[u+sv+th] \qquad \psi\in C^1(\R^2)
 \]
 Тогда
 \[
-\psi(0,0)=G[u]=0.
+\psi(0,0)=G[u]=0\,(u\in M)
 \]
 При $t=0$
 \[
 \psi(s,0)=G[u+sv]
 =
-G[u]+s\,\delta G(u;v)+o(s),
+G[u]+s\,\delta G(u;v)+o(s), \,\, s\to0
 \]
 поэтому
 \[
@@ -1869,7 +1962,7 @@ G[u]+s\,\delta G(u;v)+o(s),
 \[
 \psi(0,t)=G[u+th]
 =
-G[u]+t\,\delta G(u;h)+o(t),
+G[u]+t\,\delta G(u;h)+o(t), \,\, t\to0
 \]
 поэтому
 \[
@@ -1878,17 +1971,17 @@ G[u]+t\,\delta G(u;h)+o(t),
 \delta G(u;h)=0.
 \]
 
-По теореме о неявной функции существует функция $s=s(t)$,
+По теореме о неявной функции существует функция $s=s(t)$, такая что
 \[
-\psi(s(t),t)=0,
-\qquad
-s(0)=0,
+\psi(s,t)=0 \,\, \Leftrightarrow \,\,
+s=s(t), \quad s\in C^1 \,\, s(0)=0 \,(\text{единственное решения ур-я } \psi(s, 0)=0)
 \]
-и
+\[\psi(s(t), t=0) \,\,\xrightarrow[]{\frac{\dd}{\dd t}}\,\,\frac{\partial \psi}{\partial s}\frac{\dd s}{\dd t}+\frac{\partial \psi}{\partial t}=0\]
+Тогда:
 \[
-s'(0)
+\frac{\dd s}{\dd t}(0)
 =
--\frac{\partial_t\psi}{\partial_s\psi}(0,0)
+-\frac{\partial_t\psi}{\partial_s\psi}(0,0)=-\frac{\partial_t\psi(0,0)}{\partial_s\psi(0,0)}
 =0.
 \]
 Следовательно,
@@ -1898,12 +1991,12 @@ s(t)=o(t),
 \]
 Положим
 \[
-w(t)=u+s(t)v+th.
+w(t)=u+s(t)v+th, \quad w\in C^1((-\varepsilon, \varepsilon); X)
 \]
 Тогда
 \[
-G[w(t)]=0,
-\qquad
+G[w(t)]=\psi(s(t),t)=0 \,
+\Rightarrow \,
 w(t)\in M,
 \qquad
 w(0)=u,
@@ -1914,8 +2007,8 @@ w'(0)
 =
 \lim_{t\to0}\frac{w(t)-w(0)}{t}
 =
-\lim_{t\to0}\left(\frac{s(t)}t v+h\right)
-=h.
+\lim_{t\to0}\left(\frac{s(t)}t v+h\right)\underset{s(t)=o(t), t\to0}{=}
+h.
 \]
 Обратное утверждение получается дифференцированием $G[w(t)]=0$ при $t=0$.
 \end{myproof}
@@ -3477,5 +3570,1793 @@ j=1,\ldots,n.
 
 
 
+
+% ============================================================
+% Продолжение по рукописи «Матфизика Лекции.pdf», с. 22--54.
+% Весь исходный код перед этим блоком сохранён побайтово.
+% ============================================================
+\tcbset{lines before break=4}
+\newcommand{\manuscriptfigure}[1]{%
+  \begin{center}\fbox{\parbox{0.88\linewidth}{\centering
+  \textit{Место для рисунка.} #1}}\end{center}}
+
+% Рукопись, с. 22.
+\subsection{Естественные граничные условия}
+\begin{mytheorem}
+Пусть $\partial\Omega\in C^1$,
+$L\in C^2(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn})$,
+а $u_0\in C^2(\overline\Omega,\mathbb R^n)$ --- локальный экстремум $J$ на всём пространстве
+$X=C^1(\overline\Omega,\mathbb R^n)$. Тогда для $j=1,\ldots,n$
+\[
+\sum_{i=1}^k\frac{\partial}{\partial x_i}
+ \frac{\partial L(x,u_0,u_0')}{\partial w_{ij}}
+ =\frac{\partial L(x,u_0,u_0')}{\partial u_j}
+ \quad\text{в }\Omega,
+\]
+\[
+\boxed{\left.\sum_{i=1}^k
+ \frac{\partial L(x,u_0,u_0')}{\partial w_{ij}}\nu_i(x)
+ \right|_{\partial\Omega}=0.}
+\]
+Здесь $\nu$ --- внешняя единичная нормаль; последнее равенство называется естественным граничным условием.
+\end{mytheorem}
+\begin{myproof}
+Имеем $\delta J(u_0;h)=0$ для любого $h\in X$. Сначала выбираем $h|_{\partial\Omega}=0$ и получаем уравнения Эйлера--Остроградского. Для произвольного $h$ интегрирование по частям даёт
+\[
+0=\int_\Omega\sum_{j=1}^n
+ \left(\frac{\partial L}{\partial u_j}
+ -\sum_{i=1}^k\frac{\partial}{\partial x_i}
+ \frac{\partial L}{\partial w_{ij}}\right)h_j\,\dd x
+ +\int_{\partial\Omega}\sum_{j=1}^n\sum_{i=1}^k
+ \frac{\partial L}{\partial w_{ij}}h_j\nu_i\,\dd S.
+\]
+Первый интеграл равен нулю. Произвольность граничных значений $h_j$ даёт требуемые условия.
+\end{myproof}
+\begin{myremark}
+При условном экстремуме $m$ интегральным ограничениям соответствуют постоянные множители Лагранжа $\lambda_1,\ldots,\lambda_m\in\mathbb R$.
+При $m$ поточечных ограничениях множители являются функциями $\lambda_1(x),\ldots,\lambda_m(x)$.
+\end{myremark}
+\subsection{Примеры многомерных вариационных задач}
+\begin{myexample}
+Пусть $n=1$, $f\in C(\overline\Omega)$,
+\[
+J[u]=\int_\Omega\left(\frac12|\nabla u(x)|^2-f(x)u(x)\right)\dd x,
+\qquad L(x,u,w)=\frac12|w|^2-f(x)u.
+\]
+Тогда $L_u=-f(x)$, $L_{w_i}=w_i$. При фиксированных граничных значениях получаем
+\[
+\begin{cases}-\Delta u=f&\text{в }\Omega,\\u|_{\partial\Omega}=\varphi.\end{cases}
+\]
+При свободной границе естественное условие имеет вид
+\[
+\begin{cases}-\Delta u=f&\text{в }\Omega,\\
+\displaystyle\left.\frac{\partial u}{\partial\nu}\right|_{\partial\Omega}=0.
+\end{cases}
+\]
+\end{myexample}
+% Рукопись, с. 23.
+\begin{myexample}
+Пусть $k=n=3$, $\Omega\subset\mathbb R^3$, $u:\overline\Omega\to\mathbb R^3$,
+\[
+J[u]=\int_\Omega\left(\frac12\sum_{i,j=1}^3
+ \left(\frac{\partial u_j}{\partial x_i}\right)^2
+ -\sum_{j=1}^3 f_j(x)u_j(x)\right)\dd x.
+\]
+Ищем экстремум на множестве
+\[
+\{u\in C^1(\overline\Omega,\mathbb R^3):\operatorname{div}u=0,
+ \ u|_{\partial\Omega}=0\}.
+\]
+Ограничение записывается как
+$H(x,u,w)=w_{11}+w_{22}+w_{33}=\operatorname{tr}w=0$.
+Существует множитель Лагранжа $p(x)$, для которого $u_0$ --- стационарная точка
+$\int_\Omega(L-pH)\,\dd x$. Поскольку
+\[
+\frac{\partial(L-pH)}{\partial u_j}=-f_j(x),\qquad
+\frac{\partial(L-pH)}{\partial w_{ij}}=w_{ij}-p(x)\delta_{ij},
+\]
+получаем
+\[
+\sum_{i=1}^3\frac{\partial}{\partial x_i}
+ \left(\frac{\partial u_j}{\partial x_i}-p(x)\delta_{ij}\right)=-f_j(x).
+\]
+Итак,
+\[
+\boxed{\begin{cases}-\Delta\vec u+\nabla p=\vec f,\\
+\operatorname{div}\vec u=0,\\\vec u|_{\partial\Omega}=0.
+\end{cases}}
+\]
+Это система Стокса; $p$ интерпретируется как давление.
+\end{myexample}
+
+\section{Общая форма первой вариации}
+\subsection{Интегральные функционалы на кривых}
+\begin{mydef}
+Параметризованная кривая класса $C^r$, $r\in\mathbb N$, --- отображение
+$\gamma:[a,b]\to\mathbb R^n$ класса $C^r$ такое, что $\gamma'(x)\ne0$ для всех $x\in[a,b]$.
+\end{mydef}
+\begin{mydef}
+Кривые $\gamma_1:[a_1,b_1]\to\mathbb R^n$ и $\gamma_2:[a_2,b_2]\to\mathbb R^n$ эквивалентны, если существует биекция
+$\chi:[a_1,b_1]\to[a_2,b_2]$, $\chi,\chi^{-1}\in C^r$, $\chi'>0$, такая, что $\gamma_1=\gamma_2\circ\chi$.
+Ориентированная кривая --- класс эквивалентности таких параметризованных кривых.
+\end{mydef}
+\begin{myexe}
+Проверить, что $\sim$ является отношением эквивалентности.
+\end{myexe}
+\begin{myremark}
+У эквивалентных кривых совпадают образы, начальные и конечные точки, а также длины:
+\[
+\operatorname{Im}\gamma_1=\operatorname{Im}\gamma_2,\quad
+\gamma_1(a_1)=\gamma_2(a_2),\quad\gamma_1(b_1)=\gamma_2(b_2),\quad
+\ell(\gamma)=\int_a^b|\gamma'(x)|\,\dd x.
+\]
+\end{myremark}
+Пусть $F\in C(\mathbb R^n\times\mathbb R^n)$ положительно однородна степени один по второму аргументу:
+\[
+F(z,\lambda w)=\lambda F(z,w),\qquad\lambda>0.
+\]
+Рассмотрим $J[\gamma]=\int_a^b F(\gamma(x),\gamma'(x))\,\dd x$.
+% Рукопись, с. 24.
+\begin{mylemma}
+Функционал $J$ не зависит от выбора параметризации ориентированной кривой.
+\end{mylemma}
+\begin{myproof}
+Если $\gamma_1(x)=\gamma_2(\chi(x))$, то
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+J[\gamma_1]
+&=\int_{a_1}^{b_1}F(\gamma_2(\chi(x)),\chi'(x)\gamma_2'(\chi(x)))\,\dd x\\
+&=\int_{a_1}^{b_1}F(\gamma_2(\chi(x)),\gamma_2'(\chi(x)))\chi'(x)\,\dd x\\
+&=\int_{a_2}^{b_2}F(\gamma_2(s),\gamma_2'(s))\,\dd s=J[\gamma_2].
+\end{array}\]
+\end{myproof}
+\begin{myexample}
+Для $F(z,w)=f(z)|w|$, $f\in C(\mathbb R^n)$,
+\[
+J[\gamma]=\int_a^b f(\gamma(x))|\gamma'(x)|\,\dd x=\int_\gamma f\,\dd s.
+\]
+При $f\equiv1$ это длина кривой.
+\end{myexample}
+\begin{myexample}
+Пусть $\gamma(x)=(x,y(x))$, $y:[a,b]\to\mathbb R^m$, $n=m+1$.
+Для $z=(z_1,\widehat z)$, $w=(w_1,\widehat w)$, $w_1>0$, положим
+\[
+F(z,w)=L\left(z_1,\widehat z,\frac{\widehat w}{w_1}\right)w_1.
+\]
+Тогда $F(z,\lambda w)=\lambda F(z,w)$ и
+\[
+J[\gamma]=\int_a^b F(\gamma,\gamma')\,\dd x
+ =\int_a^b L(x,y(x),y'(x))\,\dd x.
+\]
+\end{myexample}
+\begin{myexe}
+Для $F\in C^1(\mathbb R^n\setminus\{0\})$ доказать эквивалентность
+\[
+F(\lambda w)=\lambda F(w)\quad(\lambda>0)
+\quad\Longleftrightarrow\quad
+F(w)=\langle\nabla F(w),w\rangle.
+\]
+\end{myexe}
+\subsection{Общая формула первой вариации}
+\begin{mytheorem}
+Пусть $F\in C^2(\mathbb R^n\times(\mathbb R^n\setminus\{0\}))$,
+$F(z,\lambda w)=\lambda F(z,w)$, а
+$\Gamma:[a,b]\times[\alpha_1,\alpha_2]\to\mathbb R^n$ --- гладкое семейство регулярных кривых.
+Обозначим
+\[
+\Phi(\alpha)=\int_a^b F(\Gamma(x,\alpha),\Gamma_x'(x,\alpha))\,\dd x,
+\]
+\[
+\mathcal E_F\{\gamma\}(x)=\nabla_zF(\gamma(x),\gamma'(x))
+ -\frac{\dd}{\dd x}\nabla_wF(\gamma(x),\gamma'(x)).
+\]
+Тогда
+\[
+\boxed{\Phi'(\alpha)=\int_a^b
+ \langle\mathcal E_F\{\Gamma(\cdot,\alpha)\},\Gamma_\alpha'\rangle\,\dd x
+ +\left.\langle\nabla_wF(\Gamma,\Gamma_x'),\Gamma_\alpha'\rangle\right|_a^b.}
+\]
+\end{mytheorem}
+\begin{myproof}
+Дифференцируем под знаком интеграла и интегрируем по частям:
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+\Phi'(\alpha)&=\int_a^b\left(
+ \langle\nabla_zF,\Gamma_\alpha'\rangle+
+ \langle\nabla_wF,\Gamma_{x\alpha}''\rangle\right)\dd x\\
+&=\int_a^b\left\langle\nabla_zF-\frac{\dd}{\dd x}\nabla_wF,
+ \Gamma_\alpha'\right\rangle\dd x
+ +\left.\langle\nabla_wF,\Gamma_\alpha'\rangle\right|_a^b.
+\end{array}\]
+\end{myproof}
+\begin{mylemma}
+Из однородности $F$ следуют равенства
+\[
+\nabla_zF(z,\lambda w)=\lambda\nabla_zF(z,w),\qquad
+\nabla_wF(z,\lambda w)=\nabla_wF(z,w),\quad\lambda>0.
+\]
+\end{mylemma}
+\begin{myproof}
+Первое равенство получается дифференцированием по $z$. Дифференцирование по $w_j$ даёт
+$\lambda F_{w_j}(z,\lambda w)=\lambda F_{w_j}(z,w)$.
+\end{myproof}
+% Рукопись, с. 25.
+\begin{mylemma}
+Если $\gamma_1=\gamma_2\circ\chi$, то
+\[
+\mathcal E_F\{\gamma_1\}(x)=\chi'(x)\mathcal E_F\{\gamma_2\}(\chi(x)).
+\]
+\end{mylemma}
+\begin{myproof}
+По предыдущей лемме и правилу дифференцирования сложной функции
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+\mathcal E_F\{\gamma_1\}
+&=\nabla_zF(\gamma_2(\chi),\chi'\gamma_2'(\chi))
+ -\frac{\dd}{\dd x}\nabla_wF(\gamma_2(\chi),\chi'\gamma_2'(\chi))\\
+&=\chi'\nabla_zF(\gamma_2(\chi),\gamma_2'(\chi))
+ -\chi'\left.\frac{\dd}{\dd s}\nabla_wF(\gamma_2(s),\gamma_2'(s))\right|_{s=\chi(x)}.
+\end{array}\]
+\end{myproof}
+\subsection{Уравнение Эйлера}
+\begin{mytheorem}
+Пусть $F$ удовлетворяет указанным выше условиям. Если $\gamma_0$ --- локальный экстремум $J$ на множестве регулярных $C^1$-кривых с
+$\gamma(a)=y_1$, $\gamma(b)=y_2$, и $\gamma_0\in C^2$, то
+\[
+\boxed{\mathcal E_F\{\gamma_0\}=0,\qquad
+\nabla_zF(\gamma_0,\gamma_0')-\frac{\dd}{\dd x}\nabla_wF(\gamma_0,\gamma_0')=0.}
+\]
+\end{mytheorem}
+\begin{myproof}
+Берём $\Gamma(x,\alpha)=\gamma_0(x)+\alpha h(x)$, где $h\in C^1$, $h(a)=h(b)=0$.
+Так как $\gamma_0'\ne0$ на компакте, существует $\delta_0>0$:
+$|\gamma_0'|\ge\delta_0$. Поэтому при достаточно малых $|\alpha|$ все кривые $\Gamma(\cdot,\alpha)$ регулярны.
+Точка $\alpha=0$ --- локальный экстремум $\Phi$, следовательно,
+\[
+0=\Phi'(0)=\int_a^b\langle\mathcal E_F\{\gamma_0\}(x),h(x)\rangle\,\dd x.
+\]
+Основная лемма вариационного исчисления завершает доказательство.
+\end{myproof}
+\begin{myremark}
+Условие $\mathcal E_F\{\gamma\}=0$ не зависит от параметризации.
+Кривая, удовлетворяющая уравнению Эйлера, называется экстремалью.
+\end{myremark}
+% Рукопись, с. 26.
+\subsection{Условия трансверсальности}
+\begin{myexe}
+Построить $\theta\in C^\infty(\mathbb R)$, равную единице в окрестности $a$ и нулю в окрестности $b$.
+\end{myexe}
+\begin{mytheorem}
+Пусть $M_1,M_2\subset\mathbb R^n$ --- подмногообразия класса $C^1$,
+а $\gamma_0\in C^2$ --- локальный экстремум $J$ на множестве регулярных кривых с
+$\gamma(a)\in M_1$, $\gamma(b)\in M_2$. Тогда
+\[
+\mathcal E_F\{\gamma_0\}=0,
+\]
+\[
+\boxed{\nabla_wF(\gamma_0(a),\gamma_0'(a))\perp T_{y_1}M_1,\qquad
+\nabla_wF(\gamma_0(b),\gamma_0'(b))\perp T_{y_2}M_2,}
+\qquad y_1=\gamma_0(a),\quad y_2=\gamma_0(b).
+\]
+Это условия трансверсальности.
+\end{mytheorem}
+\begin{myproof}
+Вариации с закреплёнными концами дают уравнение Эйлера.
+Пусть $u:(-\varepsilon,\varepsilon)\to M_1$, $u\in C^1$, $u(0)=y_1$.
+Положим
+\[
+\Gamma(x,\alpha)=\gamma_0(x)+\theta(x)(u(\alpha)-y_1).
+\]
+При малых $|\alpha|$ имеем $\Gamma_x'\ne0$, $\Gamma(a,\alpha)=u(\alpha)$,
+$\Gamma(b,\alpha)=y_2$ и $\Gamma_\alpha'=\theta(x)u'(\alpha)$.
+Общая формула первой вариации даёт
+\[
+0=\Phi'(0)=-\langle\nabla_wF(\gamma_0(a),\gamma_0'(a)),u'(0)\rangle.
+\]
+Векторы $u'(0)$ заполняют $T_{y_1}M_1$. Для второго конца рассуждение аналогично.
+\end{myproof}
+\begin{myremark}
+Вектор $\nabla_wF(\gamma,\gamma')$ не зависит от выбора параметризации.
+\end{myremark}
+\begin{myexe}
+Найти кривую с закреплёнными концами, ограничивающую вместе с отрезком прямой наибольшую площадь.
+Рассмотреть также вариант со скользящими по прямой концами, изображённый в рукописи.
+\manuscriptfigure{С. 26: дуга над прямой; в первом варианте два конца закреплены, во втором концы могут скользить по прямой.}
+\end{myexe}
+% Рукопись, с. 27.
+\begin{myexample}
+Расстояние между двумя подмногообразиями ищется минимизацией длины:
+\[
+F(z,w)=|w|,\quad\nabla_zF=0,\quad\nabla_wF=\frac{w}{|w|},\qquad
+J[\gamma]=\int_a^b|\gamma'|\,\dd x.
+\]
+Уравнение Эйлера имеет вид
+\[
+\frac{\dd}{\dd x}\frac{\gamma'}{|\gamma'|}=0.
+\]
+Единичный касательный вектор постоянен, поэтому экстремаль --- прямая.
+Условия трансверсальности означают, что она перпендикулярна обоим подмногообразиям в концах.
+Можно рассматривать также взвешенную длину $F(z,w)=f(z)|w|$, $J[\gamma]=\int_\gamma f\,\dd s$.
+\manuscriptfigure{С. 27: кратчайший отрезок между двумя кривыми, перпендикулярный им в концах.}
+\end{myexample}
+\begin{myexample}
+Пусть $n=2$, $M_1=\{(x,y):\varphi(x,y)=0\}$, $M_2=\{(x,y):\psi(x,y)=0\}$,
+$\gamma(x)=(x,y(x))$ и
+\[
+F(z,w)=L\left(z_1,z_2,\frac{w_2}{w_1}\right)w_1.
+\]
+Тогда $J[\gamma]=\int_a^b L(x,y,y')\,\dd x$, причём
+\[
+\frac{\partial F}{\partial w_1}=L-\frac{w_2}{w_1}L_v,\qquad
+\frac{\partial F}{\partial w_2}=L_v.
+\]
+Условие трансверсальности в точке $(x_0,y_0)\in M_1$:
+\[
+\nabla_wF\parallel\nabla\varphi.
+\]
+Если $\varphi_x,\varphi_y\ne0$, оно записывается как
+\[
+\left.\frac{L(x,y,y')-y'L_v(x,y,y')}{\varphi_x(x,y)}\right|_{(x_0,y_0)}
+=\left.\frac{L_v(x,y,y')}{\varphi_y(x,y)}\right|_{(x_0,y_0)}.
+\]
+Для вертикальной прямой $\varphi=x-a$ имеем $\nabla\varphi=(1,0)$, поэтому
+\[
+L_v(a,y(a),y'(a))=0.
+\]
+Для горизонтальной прямой $\varphi=y-c$ имеем $\nabla\varphi=(0,1)$, поэтому
+\[
+L(a,y(a),y'(a))-y'(a)L_v(a,y(a),y'(a))=0.
+\]
+\manuscriptfigure{С. 27: график с концом на кривой $M_1$; отдельно --- конец на вертикальной прямой $x=a$ и на горизонтальной прямой $y=c$.}
+\end{myexample}
+% Рукопись, с. 28.
+\subsection{Замена переменных. Теорема Нётер}
+Пусть $T:\mathbb R^n\to\mathbb R^n$, $T\in C^2$, $\det T'(z)\ne0$.
+Обозначим
+\[
+\gamma_T=T\circ\gamma,\qquad F_T(z,w)=F(T(z),T'(z)w),\qquad
+J_T[\gamma]=\int_a^b F_T(\gamma,\gamma')\,\dd x.
+\]
+По правилу дифференцирования сложной функции
+\[
+\frac{\dd}{\dd x}T(\gamma(x))=T'(\gamma(x))\gamma'(x),\qquad
+J[\gamma_T]=J_T[\gamma].
+\]
+\begin{myexe}
+Доказать, что
+$\mathcal E_F\{\gamma_T\}=0\Longleftrightarrow\mathcal E_{F_T}\{\gamma\}=0$.
+\end{myexe}
+\begin{mytheorem}
+\textbf{(Нётер.)} Пусть $T_\alpha:\mathbb R^n\to\mathbb R^n$ --- семейство замен переменных,
+$\det T_\alpha'(z)\ne0$, отображение $(\alpha,z)\mapsto T_\alpha(z)$ класса $C^2$ и $T_0(z)=z$.
+Пусть $F\in C^2(\mathbb R^n\times(\mathbb R^n\setminus\{0\}))$ однородна степени один по $w$,
+а $J_{T_\alpha}=J$ для всех $\alpha$ (в частности, достаточно $F_{T_\alpha}=F$).
+Тогда вдоль любой экстремали $\gamma$
+\[
+\boxed{\left\langle\nabla_wF(\gamma(x),\gamma'(x)),
+ \left.\frac{\partial T_\alpha(\gamma(x))}{\partial\alpha}\right|_{\alpha=0}
+ \right\rangle=\mathrm{const}.}
+\]
+\end{mytheorem}
+\begin{myproof}
+Фиксируем $a<c\le b$ и ограничение $\gamma_c$ на $[a,c]$.
+Положим $\Gamma(x,\alpha)=T_\alpha(\gamma_c(x))$.
+Тогда $\Gamma_x'=T_\alpha'(\gamma_c)\gamma_c'\ne0$, а $J[\Gamma(\cdot,\alpha)]$ не зависит от $\alpha$.
+Следовательно,
+\[
+0=\int_a^c\langle\mathcal E_F\{\Gamma\},\Gamma_\alpha'\rangle\,\dd x
+ +\left.\langle\nabla_wF(\Gamma,\Gamma_x'),\Gamma_\alpha'\rangle\right|_a^c.
+\]
+При $\alpha=0$ имеем $\Gamma=\gamma_c$ и $\mathcal E_F\{\gamma\}=0$.
+Значит, выражения в рамке в точках $a$ и $c$ совпадают. Точка $c$ произвольна.
+\end{myproof}
+\begin{myexample}
+Пусть $\gamma(t)=(t,r(t))$, $r(t)\in\mathbb R^N$, $n=N+1$,
+\[
+J[\gamma]=\int_a^b L(t,r(t),\dot r(t))\,\dd t,
+\qquad F(z,w)=L\left(z_1,\widehat z,\frac{\widehat w}{w_1}\right)w_1.
+\]
+Если $L(t,r,v)=L(r,v)$, функционал инвариантен относительно сдвигов времени
+$T_\alpha(z)=(z_1-\alpha,\widehat z)$, $T_\alpha(t,r)=(t-\alpha,r)$.
+При этом
+\[
+F_{w_1}=L-\left\langle\frac{\widehat w}{w_1},\nabla_vL\right\rangle,
+\quad\nabla_{\widehat w}F=\nabla_vL,
+\quad\frac{\partial T_\alpha}{\partial\alpha}=(-1,0).
+\]
+По теореме Нётер
+\[
+\boxed{\langle\dot r(t),\nabla_vL(r(t),\dot r(t))\rangle-L(r(t),\dot r(t))
+ =\mathrm{const},}
+\]
+что является законом сохранения энергии.
+\end{myexample}
+\begin{myexe}
+Получить из теоремы Нётер: 1) закон сохранения импульса из однородности пространства;
+2) закон сохранения момента импульса из изотропности пространства.
+\end{myexe}
+% Рукопись, с. 29--32.
+\section{Уравнения Гамильтона}
+\subsection{Преобразование Лежандра}
+Пусть $F:\mathbb R^n\to\mathbb R$, $F\in C^2$, и
+$\nabla F:\mathbb R^n\to\mathbb R^n$ --- биекция.
+\begin{mydef}
+Преобразованием Лежандра функции $F$ называется функция
+\[
+G(p)=\langle v,p\rangle-F(v),\qquad \nabla F(v)=p.
+\]
+Если $\Phi=(\nabla F)^{-1}$, то $G(p)=\langle\Phi(p),p\rangle-F(\Phi(p))$.
+При условии $\det(\nabla F)'(v)\ne0$ для всех $v$ имеем $\Phi\in C^1$.
+\end{mydef}
+\begin{myprop}
+\begin{enumerate}
+\item $\nabla G(p)=v=\Phi(p)$.
+\item Преобразование Лежандра $G$ равно $F$.
+\item При преобразовании по части переменных, если
+$G(y,p)=\langle\Phi(y,p),p\rangle-F(y,\Phi(y,p))$, то
+\[
+\nabla_yG(y,p)=-\nabla_yF(y,v),\qquad v=\Phi(y,p).
+\]
+\end{enumerate}
+\end{myprop}
+\begin{myproof}
+\[
+\frac{\partial G}{\partial p_i}=
+ \sum_{j=1}^n\frac{\partial\Phi_j}{\partial p_i}p_j+\Phi_i
+ -\sum_{j=1}^n\frac{\partial F}{\partial v_j}(\Phi(p))
+ \frac{\partial\Phi_j}{\partial p_i}=\Phi_i(p).
+\]
+Поэтому обратное преобразование даёт $\langle p,v\rangle-G(p)=F(v)$.
+Аналогично,
+\[
+\frac{\partial G}{\partial y_i}=
+ \sum_j\frac{\partial\Phi_j}{\partial y_i}p_j
+ -\frac{\partial F}{\partial y_i}(y,\Phi)
+ -\sum_j\frac{\partial F}{\partial v_j}(y,\Phi)
+ \frac{\partial\Phi_j}{\partial y_i}
+ =-\frac{\partial F}{\partial y_i}(y,v).
+\]
+\end{myproof}
+\subsection{Выпуклые функции}
+\begin{mydef}
+Функция $F:\mathbb R^n\to\mathbb R$ называется выпуклой, если в каждой точке $v_0$ существует опорная аффинная функция $\ell$:
+\[
+\ell(v_0)=F(v_0),\qquad F(v)\ge\ell(v)\quad\forall v.
+\]
+То есть существует $k\in\mathbb R^n$ такое, что
+\[
+F(v)\ge F(v_0)+\langle k,v-v_0\rangle\quad\forall v\in\mathbb R^n.
+\]
+\end{mydef}
+\begin{mylemma}
+Пусть $\{\ell_\beta\}$ --- семейство аффинных функций и
+$F(v)=\sup_\beta\ell_\beta(v)<+\infty$ для всех $v$. Тогда $F$ выпукла.
+\end{mylemma}
+\begin{myproof}
+Фиксируем $v_0$. Если супремум достигается на $\ell_\beta$, эта функция опорная.
+Иначе выбираем $\beta_m$ так, что $\ell_{\beta_m}(v_0)\to F(v_0)$, и пишем
+\[
+\ell_{\beta_m}(v)=\ell_{\beta_m}(v_0)+\langle k_m,v-v_0\rangle.
+\]
+Последовательность $k_m$ ограничена: подстановка $v=v_0\pm e_j$ ограничивает каждую её координату.
+Извлекаем подпоследовательность $k_{m_j}\to k_*$.
+Переходя к пределу в неравенстве $F(v)\ge\ell_{\beta_{m_j}}(v)$, получаем
+$F(v)\ge F(v_0)+\langle k_*,v-v_0\rangle$.
+\end{myproof}
+\begin{myexe}
+Пусть $F$ выпукла, $\alpha_j\ge0$, $\sum_{j=1}^m\alpha_j=1$. Доказать
+\[
+F\left(\sum_{j=1}^m\alpha_jv_j\right)\le\sum_{j=1}^m\alpha_jF(v_j).
+\]
+\end{myexe}
+\begin{mydef}
+Преобразование Лежандра выпуклой функции $F$ определяется формулой
+\[
+\boxed{G(p)=\sup_{v\in\mathbb R^n}(\langle v,p\rangle-F(v)).}
+\]
+Возможно значение $G(p)=+\infty$.
+\end{mydef}
+\begin{myprop}
+\begin{enumerate}
+\item $G(p)\ge-F(0)$.
+\item Если $G$ всюду конечна, она выпукла.
+\item $\langle v,p\rangle\le F(v)+G(p)$ для всех $v,p$.
+\item Если $G$ всюду конечна, её преобразование Лежандра равно $F$.
+\end{enumerate}
+\end{myprop}
+\begin{myproof}
+Первые три свойства непосредственно следуют из определения и леммы.
+Пусть $H(v_0)=\sup_p(\langle v_0,p\rangle-G(p))$. Из третьего свойства $H(v_0)\le F(v_0)$.
+По выпуклости найдётся $p_0$ такое, что
+\[
+F(v)\ge F(v_0)+\langle p_0,v-v_0\rangle.
+\]
+Отсюда $G(p_0)\le\langle v_0,p_0\rangle-F(v_0)$ и
+\[
+H(v_0)\ge\langle v_0,p_0\rangle-G(p_0)\ge F(v_0).
+\]
+Таким образом, $H=F$; в частности, $G(p_0)=\langle v_0,p_0\rangle-F(v_0)$.
+\end{myproof}
+\begin{myremark}
+Для гладкой выпуклой $F$ оба определения согласованы: если
+$G(p_0)=\langle v_0,p_0\rangle-F(v_0)$, то условие стационарности по $v$ даёт
+$p_0=\nabla F(v_0)$.
+Преобразование можно определять также на областях $\Omega_1,\Omega_2$, если
+$\nabla F:\Omega_1\to\Omega_2$ --- биекция.
+\end{myremark}
+\begin{myexample}
+Пусть $n=1$, $\Omega=(0,+\infty)$, $1<q,q'<\infty$, $1/q+1/q'=1$.
+Для $F(v)=v^q/q$ имеем $F'(v)=v^{q-1}$, $F''(v)=(q-1)v^{q-2}>0$.
+Из $v^{q-1}=p$ получаем $v=p^{1/(q-1)}$ и
+\[
+G(p)=vp-F(v)=\frac{p^{q'}}{q'}.
+\]
+Неравенство $vp\le F(v)+G(p)$ даёт неравенство Юнга
+\[
+xy\le\frac{x^q}{q}+\frac{y^{q'}}{q'},\qquad x,y>0.
+\]
+\end{myexample}
+\begin{myexample}
+Пусть $A=A^{\mathsf T}$ --- невырожденная вещественная матрица,
+$F(v)=\tfrac12\langle Av,v\rangle$. Тогда $\nabla F(v)=Av$, $v=A^{-1}p$,
+\[
+G(p)=\langle A^{-1}p,p\rangle
+ -\frac12\langle AA^{-1}p,A^{-1}p\rangle
+ =\frac12\langle A^{-1}p,p\rangle.
+\]
+Функция $F$ выпукла тогда и только тогда, когда все собственные значения $A$ неотрицательны.
+\end{myexample}
+\begin{myexe}
+Вычислить преобразования Лежандра: 1) $e^x$ на $\mathbb R$;
+2) $x^4+y^4$ и $(x^2+y^2)^2$ на $\mathbb R^2$.
+\end{myexe}
+\subsection{Канонические уравнения Гамильтона}
+\begin{mydef}
+Пусть $H\in C^1([a,b]\times\mathbb R^n\times\mathbb R^n)$.
+Системой уравнений Гамильтона для функций $f,g:[a,b]\to\mathbb R^n$ называется
+\[
+\boxed{\begin{cases}
+\dot f(t)=\nabla_pH(t,f(t),g(t)),\\
+\dot g(t)=-\nabla_qH(t,f(t),g(t)).
+\end{cases}}
+\]
+\end{mydef}
+\begin{mytheorem}
+Пусть $L,H\in C^2([a,b]\times\mathbb R^n\times\mathbb R^n)$ и
+для каждого $(t,q)$ функции $L(t,q,v)$ и $H(t,q,p)$ являются преобразованиями Лежандра друг друга.
+Тогда для $f\in C^1([a,b],\mathbb R^n)$ эквивалентны:
+\begin{enumerate}
+\item $\displaystyle\frac{\dd}{\dd t}\nabla_vL(t,f(t),\dot f(t))=\nabla_qL(t,f(t),\dot f(t))$;
+\item существует $g\in C^1([a,b],\mathbb R^n)$, для которого $(f,g)$ удовлетворяет уравнениям Гамильтона.
+\end{enumerate}
+\end{mytheorem}
+\begin{myproof}
+Из первого утверждения положим $g(t)=\nabla_vL(t,f(t),\dot f(t))$.
+Соотношения преобразования Лежандра дают
+\[
+\nabla_vL(t,q,v)=p\ \Longleftrightarrow\ \nabla_pH(t,q,p)=v,
+\qquad\nabla_qL(t,q,v)=-\nabla_qH(t,q,p).
+\]
+Следовательно, $\dot f=\nabla_pH(t,f,g)$ и
+$\dot g=\frac{\dd}{\dd t}\nabla_vL=\nabla_qL=-\nabla_qH(t,f,g)$.
+Обратно, из уравнений Гамильтона получаем
+$\nabla_vL(t,f,\dot f)=g$ и
+\[
+\frac{\dd}{\dd t}\nabla_vL(t,f,\dot f)=\dot g
+ =-\nabla_qH(t,f,g)=\nabla_qL(t,f,\dot f).
+\]
+\end{myproof}
+\begin{myremark}
+Вдоль решения
+$H(t,f,g)=\langle g(t),\dot f(t)\rangle-L(t,f(t),\dot f(t))$.
+\end{myremark}
+
+% Рукопись, с. 33--38.
+\section{Уравнения в частных производных первого порядка}
+\subsection{Характеристики}
+Рассмотрим уравнение
+\[
+\mathcal F(x,u(x),\nabla u(x))=0,\qquad
+\mathcal F:\mathbb R^n\times\mathbb R\times\mathbb R^n\to\mathbb R.
+\]
+Пусть $\Gamma$ --- гиперповерхность в $\mathbb R^n$,
+$\dim\Gamma=n-1$, и $u|_\Gamma=\varphi$.
+Для кривой $x(t)$, $x(0)=x_0\in\Gamma$, положим $z(t)=u(x(t))$, $p(t)=\nabla u(x(t))$.
+Тогда
+\[
+\dot p_j=\sum_k u_{x_jx_k}\dot x_k,\qquad
+\mathcal F_{x_j}+\mathcal F_z u_{x_j}+\sum_k\mathcal F_{p_k}u_{x_kx_j}=0.
+\]
+Выбирая $\dot x_k=\mathcal F_{p_k}$, получаем
+$\dot p_j=-\mathcal F_{x_j}-\mathcal F_zp_j$, а
+$\dot z=\sum_kp_k\dot x_k$.
+\begin{mydef}
+Характеристической системой уравнения $\mathcal F(x,u,\nabla u)=0$ называется система
+\[
+\boxed{\begin{cases}
+\dot x=\nabla_p\mathcal F(x,z,p),\\
+\dot z=\langle p,\nabla_p\mathcal F(x,z,p)\rangle,\\
+\dot p=-\nabla_x\mathcal F(x,z,p)-\mathcal F_z(x,z,p)p.
+\end{cases}}\tag{Х}
+\]
+Её интегральная кривая $(x(t),z(t),p(t))$ в $\mathbb R^{2n+1}$ называется характеристикой,
+а $x(t)$ --- проекцией характеристики в $\mathbb R^n$.
+\end{mydef}
+\begin{myremark}
+Функция $\mathcal F$ постоянна на характеристиках:
+\[
+\frac{\dd}{\dd t}\mathcal F(x,z,p)
+=\langle\nabla_x\mathcal F,\nabla_p\mathcal F\rangle
++\mathcal F_z\langle p,\nabla_p\mathcal F\rangle
+-\langle\nabla_p\mathcal F,\nabla_x\mathcal F+\mathcal F_zp\rangle=0.
+\]
+\end{myremark}
+\subsection{Начальные условия. Допустимые тройки}
+Пусть $\Gamma=\{x=(x_1,\ldots,x_{n-1},0)\}$. На ней задаём
+\[
+x(0)=x^0\in\Gamma,\quad z(0)=\varphi(x^0),\quad
+p_i(0)=\varphi_{x_i}(x^0),\ i=1,\ldots,n-1,
+\]
+\[
+\mathcal F(x^0,\varphi(x^0),p(0))=0.
+\]
+\begin{mydef}
+Тройка $(x^0,z^0,p^0)$ называется допустимой, если
+\[
+z^0=\varphi(x^0),\quad p_i^0=\varphi_{x_i}(x^0)\ (i<n),\quad
+\mathcal F(x^0,z^0,p^0)=0.
+\]
+\end{mydef}
+\begin{mylemma}
+Пусть $(x^0,z^0,p^0)$ --- допустимая тройка, $\mathcal F\in C^1$, $\varphi\in C^2$ и
+$\mathcal F_{p_n}(x^0,z^0,p^0)\ne0$.
+Тогда существует окрестность $W$ точки $x^0$ на $\Gamma$ и $q\in C^1(W,\mathbb R^n)$ такие, что
+\[
+q_i(y)=\varphi_{y_i}(y)\ (i<n),\qquad
+\mathcal F(y,\varphi(y),q(y))=0,\qquad q(x^0)=p^0.
+\]
+\end{mylemma}
+\begin{myproof}
+Положим
+\[
+G(y,w)=\mathcal F\bigl(y,\varphi(y),
+ (\varphi_{y_1}(y),\ldots,\varphi_{y_{n-1}}(y),w)\bigr).
+\]
+Имеем $G_w(x^0,p_n^0)=\mathcal F_{p_n}(x^0,z^0,p^0)\ne0$.
+По теореме о неявной функции существует $g\in C^1(W)$:
+$G(y,w)=0\Longleftrightarrow w=g(y)$ в соответствующей окрестности.
+Берём $q_n=g$ и $q_i=\varphi_{y_i}$ при $i<n$.
+\end{myproof}
+\begin{myremark}
+Условие $\mathcal F_{p_n}\ne0$ означает нехарактеристичность начальной гиперповерхности:
+$\langle\nabla_p\mathcal F,\nu\rangle\ne0$.
+\end{myremark}
+\subsection{Решение характеристической системы}
+Для допустимых троек $(y,\varphi(y),q(y))$ решим (Х) с начальными условиями
+\[
+x(y,0)=y,\qquad z(y,0)=\varphi(y),\qquad p(y,0)=q(y).
+\]
+\begin{mylemma}
+На области определения решения $\mathcal F(x(y,t),z(y,t),p(y,t))=0$.
+\end{mylemma}
+\begin{myproof}
+Производная по $t$ равна нулю, а при $t=0$ равенство следует из допустимости тройки.
+\end{myproof}
+Пусть теперь $\mathcal F\in C^2$, $\varphi\in C^2$ и $q\in C^1$.
+Решение $(x,z,p)$ класса $C^1$ по $(y,t)$; необходимые смешанные производные по $y,t$ существуют.
+\begin{mylemma}
+Имеем
+\[
+\frac{\partial z}{\partial t}=\sum_{k=1}^n p_k\frac{\partial x_k}{\partial t},\qquad
+\frac{\partial z}{\partial y_i}=\sum_{k=1}^n p_k\frac{\partial x_k}{\partial y_i},
+\quad i=1,\ldots,n-1.
+\]
+\end{mylemma}
+\begin{myproof}
+Первое равенство --- второе уравнение (Х). Для фиксированных $y,i$ положим
+\[
+r(t)=z_{y_i}(y,t)-\sum_kp_k(y,t)x_{k,y_i}(y,t).
+\]
+При $t=0$ получаем
+$r(0)=\varphi_{y_i}(y)-\sum_kq_k(y)\delta_{ki}=\varphi_{y_i}-q_i=0$.
+Дифференцируя первое равенство по $y_i$ и выражение для $r$ по $t$, находим
+\[
+\dot r=\sum_k(p_{k,y_i}x_{k,t}-p_{k,t}x_{k,y_i})
+=\sum_k\bigl(\mathcal F_{p_k}p_{k,y_i}
+ +(\mathcal F_{x_k}+\mathcal F_zp_k)x_{k,y_i}\bigr).
+\]
+Но дифференцирование $\mathcal F(x,z,p)=0$ по $y_i$ даёт
+\[
+\sum_k\mathcal F_{x_k}x_{k,y_i}+\mathcal F_z z_{y_i}
+ +\sum_k\mathcal F_{p_k}p_{k,y_i}=0.
+\]
+Следовательно, $\dot r=-\mathcal F_zr$, $r(0)=0$.
+По теореме единственности $r\equiv0$.
+\end{myproof}
+\subsection{Локальная обратимость}
+\begin{mylemma}
+При $\mathcal F_{p_n}(x^0,z^0,p^0)\ne0$ отображение $(y,t)\mapsto x(y,t)$ локально обратимо в точке $(x^0,0)$.
+Существуют окрестность $V$ точки $x^0$ в $\mathbb R^n$ и $h>0$ такие, что
+каждый $x\in V$ единственным образом представляется в виде $x=x(y,t)$ с $(y,t)$ в соответствующей окрестности $W\times(-h,h)$.
+\end{mylemma}
+\begin{myproof}
+При $t=0$ имеем $x_{j,y_i}=\delta_{ji}$, $i<n$, $j\le n$,
+а $x_{j,t}(x^0,0)=\mathcal F_{p_j}(x^0,z^0,p^0)$.
+Поэтому
+\[
+\det\frac{\partial x}{\partial(y,t)}(x^0,0)
+=\det\begin{pmatrix}
+1&\cdots&0&\mathcal F_{p_1}\\
+\vdots&\ddots&\vdots&\vdots\\
+0&\cdots&1&\mathcal F_{p_{n-1}}\\
+0&\cdots&0&\mathcal F_{p_n}
+\end{pmatrix}=\mathcal F_{p_n}\ne0.
+\]
+Применяем теорему об обратном отображении.
+\end{myproof}
+\manuscriptfigure{С. 35: начальная гиперплоскость $\Gamma$, точка $y$ и выходящая из неё проекция характеристики $x(y,t)$.}
+\subsection{Локальная теорема существования}
+\begin{mytheorem}
+Пусть $\mathcal F\in C^2(\mathbb R^{2n+1})$, $\varphi\in C^2(\Gamma)$,
+$(x^0,z^0,p^0)$ --- допустимая тройка и $\mathcal F_{p_n}(x^0,z^0,p^0)\ne0$.
+Построим $q$ и семейство характеристик, как выше.
+Пусть $(y(x),t(x))$ --- локальное обратное отображение к $(y,t)\mapsto x(y,t)$.
+Тогда в некоторой окрестности $V$ точки $x^0$ функция
+\[
+\boxed{u(x)=z(y(x),t(x))}
+\]
+решает задачу
+\[
+\mathcal F(x,u(x),\nabla u(x))=0,\qquad u|_{\Gamma\cap V}=\varphi.
+\]
+\end{mytheorem}
+\begin{myproof}
+Для $y_0\in\Gamma\cap V$ имеем $x(y_0,0)=y_0$, поэтому $u(y_0)=z(y_0,0)=\varphi(y_0)$.
+Уже известно, что $\mathcal F(x,u(x),p(y(x),t(x)))=0$.
+Остаётся проверить $\nabla u=p$. По предыдущей лемме
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+\frac{\partial u}{\partial x_j}
+&=\sum_{i=1}^{n-1}z_{y_i}y_{i,x_j}+z_t t_{x_j}\\
+&=\sum_kp_k\left(\sum_{i=1}^{n-1}x_{k,y_i}y_{i,x_j}+x_{k,t}t_{x_j}\right)
+ =\sum_kp_k\delta_{kj}=p_j.
+\end{array}\]
+Здесь выражение в скобках --- производная тождественного отображения $x\mapsto x(y(x),t(x))$.
+\end{myproof}
+\subsection{Квазилинейные уравнения первого порядка}
+Для однородного уравнения
+\[
+\langle a(x,u(x)),\nabla u(x)\rangle=0
+\]
+берём $\mathcal F(x,z,p)=\langle a(x,z),p\rangle$.
+Тогда $\dot x=a(x,z)$, $\dot z=\langle a,\nabla u\rangle=0$,
+то есть $z=\varphi(y)$ постоянно и достаточно решить $n$ уравнений
+\[
+\dot x(t)=a(x(t),\varphi(y)),\qquad x(0)=y.
+\]
+Иногда характеристики записывают в симметрической форме
+$\dd x_1/a_1=\cdots=\dd x_n/a_n$.
+\begin{myexample}
+При $n=2$ уравнение
+\[
+x_1u_{x_2}-x_2u_{x_1}=0
+\]
+имеет характеристики $\dot x_1=-x_2$, $\dot x_2=x_1$.
+Отсюда $\ddot x_1=-x_1$,
+\[
+x_1=A\cos t+B\sin t,\qquad x_2=A\sin t-B\cos t,\qquad
+x_1^2+x_2^2=A^2+B^2.
+\]
+Решения имеют вид $u(x)=f(x_1^2+x_2^2)$.
+Условие нехарактеристичности начальной кривой означает, что её нормаль не перпендикулярна вектору $(-x_2,x_1)$;
+эквивалентно, её касательная не параллельна этому вектору.
+\end{myexample}
+\begin{myexe}
+\textbf{Уравнение Бюргерса.} Рассмотреть задачу
+\[
+\begin{cases}u_\tau(\tau,x)+u(\tau,x)u_x(\tau,x)=0,&\tau\ge0,\ x\in\mathbb R,\\
+u(0,x)=\varphi(x),\end{cases}\qquad
+\varphi(x)=\begin{cases}1,&x\le0,\\1-x,&0<x<1,\\0,&x\ge1.\end{cases}
+\]
+Найти решение при $\tau<1$; показать невозможность продолжения в том же классическом смысле на $\tau>1$.
+% В рукописи начальная функция кусочно-гладкая; класс гладкости решения там не уточнён.
+\end{myexe}
+Для неоднородного квазилинейного уравнения
+\[
+\langle a(x,u),\nabla u\rangle=b(x,u),\qquad
+\mathcal F(x,z,p)=\langle a(x,z),p\rangle-b(x,z),
+\]
+имеем $\dot z=\langle a,p\rangle=\mathcal F+b=b$ на уровне $\mathcal F=0$.
+Достаточно системы из $n+1$ уравнений
+\[
+\boxed{\dot x=a(x,z),\qquad\dot z=b(x,z).}
+\]
+\subsection{Уравнение Гамильтона--Якоби}
+Пусть $\mathcal F$ не зависит от $z$, $n=m+1$, $x=(x_0,\vec x)$, и
+\[
+\mathcal F(x,p)=p_0+H(x_0,\vec x,\vec p).
+\]
+Так как $\dot x_0=\mathcal F_{p_0}=1$, можно взять $x_0=t$, $u(x)=S(t,\vec x)$.
+Получаем уравнение Гамильтона--Якоби
+\[
+\boxed{S_t(t,\vec x)+H(t,\vec x,\nabla_{\vec x}S(t,\vec x))=0.}
+\]
+Его характеристическая система содержит уравнения Гамильтона
+\[
+\dot{\vec x}=\nabla_{\vec p}H(t,\vec x,\vec p),\qquad
+\dot{\vec p}=-\nabla_{\vec x}H(t,\vec x,\vec p),\qquad
+\dot p_0=-H_t,
+\]
+а на уровне $\mathcal F=0$ имеем $p_0=S_t=-H$ и
+\[
+\dot z=p_0+\langle\vec p,\dot{\vec x}\rangle
+ =\langle\vec p,\dot{\vec x}\rangle-H.
+\]
+Таким образом, вдоль характеристики $\gamma$
+\[
+S(t,\vec x(t))=S(t_0,\vec x(t_0))+
+\int_{t_0}^t\bigl(\langle\vec p(\tau),\dot{\vec x}(\tau)\rangle
+ -H(\tau,\vec x(\tau),\vec p(\tau))\bigr)\dd\tau.
+\]
+% В рукописи интеграл действия записан без начальной аддитивной константы.
+% ============================================================
+% Рукопись, с. 39--49. В рукописи глава обозначена V.
+% ============================================================
+
+\begin{comment}
+
+\chapter{Асимптотики интегралов, зависящих от параметров}
+Рассматриваются интегралы
+\[
+I(N)=\int_C e^{N\varphi(x)}F(x)\,\dd x,\qquad N\to+\infty.
+\]
+\begin{enumerate}
+\item $C=[a,b]$, $\varphi$ вещественна --- метод Лапласа.
+\item $C=[a,b]$, $\varphi$ чисто мнима --- метод стационарной фазы.
+\item $C\subset\mathbb C$, $\varphi,F$ аналитичны --- метод перевала.
+\end{enumerate}
+\section{Асимптотические ряды}
+\begin{mydef}
+Запись
+\[
+f(x)\sim\sum_{k=0}^\infty c_k(x-a)^k,\quad x\to a,
+\]
+означает, что для каждого $M\ge0$
+\[
+f(x)-\sum_{k=0}^M c_k(x-a)^k=o((x-a)^M),\qquad x\to a.
+\]
+Аналогично,
+\[
+f(x)\sim\sum_{k=0}^\infty\frac{c_k}{x^k},\quad x\to\infty
+\quad\Longleftrightarrow\quad
+f(x)-\sum_{k=0}^M\frac{c_k}{x^k}=o(x^{-M})\quad\forall M.
+\]
+\end{mydef}
+\begin{myexample}
+Сходящийся степенной ряд задаёт асимптотический ряд своей суммы в центре разложения.
+\end{myexample}
+\begin{myexample}
+Пусть $F(x)=\int_x^\infty e^{x-t}\,\dd t/t$, $x>0$.
+Последовательное интегрирование по частям даёт
+\[
+F(x)=\frac1x-\frac1{x^2}+\frac2{x^3}-\cdots+
+ \frac{(-1)^n n!}{x^{n+1}}
+ +(-1)^{n+1}(n+1)!\int_x^\infty\frac{e^{x-t}}{t^{n+2}}\,\dd t.
+\]
+При этом
+\[
+\left|F(x)-\sum_{k=0}^n\frac{(-1)^kk!}{x^{k+1}}\right|
+\le\frac{(n+1)!}{x^{n+2}}e^x\int_x^\infty e^{-t}\,\dd t
+=\frac{(n+1)!}{x^{n+2}}=o(x^{-n-1}).
+\]
+Следовательно, $F(x)\sim\sum_{n=0}^\infty(-1)^nn!/x^{n+1}$ при $x\to\infty$.
+\end{myexample}
+\begin{mydef}
+В общем случае запись $f(x)\sim\sum_{k=0}^\infty g_k(x)$ при $x\to a$ означает
+\[
+g_{k+1}(x)=o(g_k(x)),\qquad
+f(x)-\sum_{k=0}^M g_k(x)=o(g_M(x))\quad\forall M.
+\]
+\end{mydef}
+\section{Метод Лапласа}
+Пусть $I(N)=\int_a^b e^{N\varphi(x)}F(x)\,\dd x$,
+$\varphi,F\in C^\infty[a,b]$, $\varphi$ вещественна.
+\subsection{Отсутствие стационарных точек}
+Сначала предположим $\varphi'(x)>0$ на $[a,b]$.
+Положим $F_0=F$, $F_{j+1}=(F_j/\varphi')'$. Интегрирование по частям даёт
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+I(N)&=\left.\frac{e^{N\varphi}F}{N\varphi'}\right|_a^b
+ -\frac1N\int_a^b e^{N\varphi}F_1\,\dd x\\
+&=\sum_{j=0}^{m-1}\frac{(-1)^j}{N^{j+1}}
+ \left.\frac{e^{N\varphi(x)}F_j(x)}{\varphi'(x)}\right|_a^b
+ +\frac{(-1)^m}{N^m}\int_a^b e^{N\varphi(x)}F_m(x)\,\dd x.
+\end{array}\]
+Так как $\varphi(a)<\varphi(b)$, для любого $m$
+$e^{N\varphi(a)}=o(e^{N\varphi(b)}/N^m)$.
+Поэтому
+\[
+\boxed{I(N)\sim\frac{e^{N\varphi(b)}}{\varphi'(b)}
+ \left(\frac{F(b)}N-\frac{F_1(b)}{N^2}+\frac{F_2(b)}{N^3}-\cdots\right).}
+\]
+% Рукопись, с. 40.
+\begin{mylemma}
+При $\varphi'>0$
+\[
+I(N)-\frac{e^{N\varphi(b)}F(b)}{N\varphi'(b)}
+ =O\left(\frac{e^{N\varphi(b)}}{N^2}\right).
+\]
+\end{mylemma}
+\begin{myproof}
+Дважды интегрируем по частям. Граничные члены в $a$ экспоненциально малы,
+член с $F_1(b)$ имеет требуемый порядок, а
+\[
+\left|\frac1{N^2}\int_a^b e^{N\varphi(x)}F_2(x)\,\dd x\right|
+\le\frac{C(b-a)e^{N\varphi(b)}}{N^2}.
+\]
+\end{myproof}
+\begin{myremark}
+\begin{enumerate}
+\item Если $F(b)=F_1(b)=\cdots=F_{m-1}(b)=0$ и $F_m(b)\ne0$, то
+\[
+I(N)\sim\frac{(-1)^me^{N\varphi(b)}F_m(b)}{N^{m+1}\varphi'(b)}.
+\]
+\item Если $\varphi'<0$ на $[a,b]$, то
+\[
+I(N)\sim\frac{e^{N\varphi(a)}}{\varphi'(a)}
+ \left(-\frac{F(a)}N+\frac{F_1(a)}{N^2}-\frac{F_2(a)}{N^3}+\cdots\right).
+\]
+\end{enumerate}
+\end{myremark}
+\subsection{Стационарная точка}
+\begin{mylemma}
+Для $\delta>0$
+\[
+\int_{-\delta}^{\delta}e^{-Nt^2}\,\dd t
+ =\sqrt{\frac\pi N}+o(e^{-N\delta^2}),\qquad N\to\infty.
+\]
+\end{mylemma}
+\begin{myproof}
+Интеграл по $\mathbb R$ равен $\sqrt{\pi/N}$, а
+\[
+\int_\delta^\infty e^{-Nt^2}\,\dd t
+ =\frac12\int_{\delta^2}^\infty\frac{e^{-Ns}}{\sqrt s}\,\dd s
+ \le\frac{e^{-N\delta^2}}{2\delta N}=o(e^{-N\delta^2}).
+\]
+Левый хвост оценивается так же.
+\end{myproof}
+\begin{myremark}
+$\displaystyle\int_0^\delta e^{-Nt^2}\,\dd t=\frac12\sqrt{\pi/N}+o(e^{-N\delta^2})$.
+\end{myremark}
+\begin{mylemma}
+Пусть $\varphi\in C^\infty[a,b]$, $\varphi'(c)=0$. Тогда функция
+\[
+h(x)=\begin{cases}
+\displaystyle\frac{\varphi(x)-\varphi(c)}{(x-c)^2},&x\ne c,\\
+\varphi''(c)/2,&x=c
+\end{cases}
+\]
+принадлежит $C^\infty[a,b]$.
+\end{mylemma}
+\begin{myproof}
+Разложение Тейлора даёт
+\[
+\varphi(x)=\varphi(c)+\frac{\varphi''(c)}2(x-c)^2
+ +\frac{\varphi'''(c)}6(x-c)^3+\frac{\varphi^{(4)}(c)}{24}(x-c)^4
+ +o((x-c)^4),
+\]
+\[
+h(x)=\frac{\varphi''(c)}2+\frac{\varphi'''(c)}6(x-c)
+ +\frac{\varphi^{(4)}(c)}{24}(x-c)^2+o((x-c)^2).
+\]
+Отсюда непрерывность $h$ и $h'(c)=\varphi'''(c)/6$.
+Вне $c$ производная $h'$ имеет вид $\widetilde\varphi(x)/(x-c)^3$.
+Разложив числитель, запишем
+\[
+h'(x)=\frac{A_3}{(x-c)^3}+\frac{A_2}{(x-c)^2}
+ +\frac{A_1}{x-c}+B_0+B_1(x-c)+o(x-c).
+\]
+Интегрируемость $h'$ в окрестности $c$ и существование конечного предела $h(c)$
+дают $A_3=A_2=A_1=0$.
+Интегрирование оставшихся членов и сравнение с разложением $h$ дают
+$B_0=\varphi'''(c)/6$, $B_1=\varphi^{(4)}(c)/12$.
+Таким образом, $h\in C^1$.
+Аналогично для $h''$:
+\[
+h''(x)=\frac{\widehat A_4}{(x-c)^4}+\cdots+
+ \frac{\widehat A_1}{x-c}+\widehat B_0+o(1).
+\]
+Все сингулярные коэффициенты равны нулю, а
+$\widehat B_0=\varphi^{(4)}(c)/12=h''(c)$. Продолжая, получаем гладкость всех порядков.
+\end{myproof}
+% Рукопись, с. 41--42.
+\begin{mytheorem}[unbreakable]
+Пусть $\varphi,F\in C^\infty[a,b]$, $c\in(a,b)$ --- единственная точка абсолютного максимума $\varphi$,
+$\varphi'(c)=0$, $\varphi''(c)<0$. Тогда
+\[
+\boxed{I(N)=\sqrt{\frac{2\pi}{-N\varphi''(c)}}e^{N\varphi(c)}F(c)
+ +O\left(\frac{e^{N\varphi(c)}}{N^{3/2}}\right),\quad N\to\infty.}
+\]
+\end{mytheorem}
+\begin{myproof}
+Используем функцию $h$ из предыдущей леммы. В окрестности $c$ она отрицательна.
+Положим
+\[
+t(x)=(x-c)\sqrt{\frac{2h(x)}{\varphi''(c)}}.
+\]
+Тогда $t\in C^\infty$, $t(c)=0$, $t'(c)=1$ и
+$\varphi(x)=\varphi(c)+\tfrac12\varphi''(c)t(x)^2$.
+По теореме об обратной функции существуют $\delta,\varepsilon_1,\varepsilon_2>0$, для которых
+$t:[c-\varepsilon_1,c+\varepsilon_2]\to[-\delta,\delta]$ --- биекция.
+Обратная функция $\chi=t^{-1}$ удовлетворяет $\chi(0)=c$, $\chi'(0)=1$.
+Разбиваем интеграл на $I_a+I_c+I_b$ по этим трём промежуткам.
+Так как максимум единственный, внешние части для любого $m$ имеют порядок
+\[
+I_a,I_b=O\left(\frac{e^{N\varphi(c)}}{N^m}\right).
+\]
+Например,
+$|I_a|\le(b-a)\max|F|\exp(N\max_{[a,c-\varepsilon_1]}\varphi)$.
+В центральном интеграле делаем замену $x=\chi(t)$:
+\[
+I_c=e^{N\varphi(c)}\int_{-\delta}^{\delta}
+ e^{N\varphi''(c)t^2/2}F_1(t)\,\dd t,
+\quad F_1(t)=F(\chi(t))\chi'(t),\quad F_1(0)=F(c).
+\]
+Пишем $F_1(t)=F_1(0)+F_1'(0)t+R(t)$, $|R(t)|\le Kt^2$.
+Нечётный член интегрируется в нуль, постоянный даёт
+\[
+\int_{-\delta}^{\delta}e^{N\varphi''(c)t^2/2}\,\dd t
+ =\sqrt{\frac{2\pi}{-N\varphi''(c)}}
+ +o(e^{N\varphi''(c)\delta^2/2}).
+\]
+Для остатка, заменяя $s=\sqrt{-N\varphi''(c)/2}\,t$, получаем
+\[
+\left|\int_{-\delta}^{\delta}e^{N\varphi''(c)t^2/2}R(t)\,\dd t\right|
+\le K\left(\frac2{-N\varphi''(c)}\right)^{3/2}
+ \int_{\mathbb R}e^{-s^2}s^2\,\dd s=O(N^{-3/2}).
+\]
+Суммирование оценок завершает доказательство.
+\end{myproof}
+\manuscriptfigure{С. 41: локальная замена $x\mapsto t(x)$ около максимума $c$, переводящая фазу в квадрат.}
+\begin{myremark}
+\begin{enumerate}
+\item Следующее слагаемое находится из члена с $t^2$ и гауссова момента
+$N^{-3/2}\int_{\mathbb R}e^{-s^2}s^2\,\dd s$.
+\item Если максимум достигается в $c=b$, $\varphi'(b)=0$, $\varphi''(b)<0$, то
+\[
+I(N)=\frac12\sqrt{\frac{2\pi}{-N\varphi''(b)}}e^{N\varphi(b)}F(b)
+ +O\left(\frac{e^{N\varphi(b)}}N\right).
+\]
+\item Если имеется несколько равных абсолютных максимумов $c_1,\ldots,c_\ell$,
+главные вклады складываются: $I\sim I^{(c_1)}+\cdots+I^{(c_\ell)}$.
+Максимумы меньшей высоты дают экспоненциально меньшие вклады.
+\end{enumerate}
+\end{myremark}
+\begin{myexe}
+Пусть $c$ --- единственный максимум, $\varphi'(c)=\varphi''(c)=\varphi'''(c)=0$,
+$\varphi^{(4)}(c)<0$. Найти главную асимптотику $I(N)$.
+\end{myexe}
+\subsection{Формула Стирлинга}
+Рассмотрим при $z\to+\infty$
+\[
+\Gamma(z+1)=\int_0^\infty e^{-t}t^z\,\dd t.
+\]
+Замена $t=zx$ даёт
+\[
+\Gamma(z+1)=z^{z+1}\int_0^\infty e^{z(-x+\ln x)}\,\dd x.
+\]
+Здесь $N=z$, $F(x)=1$, $\varphi(x)=-x+\ln x$,
+$\varphi'(x)=-1+1/x$, $c=1$, $\varphi(c)=-1$, $\varphi''(c)=-1$.
+\begin{myexe}
+Доказать, что $-x+\ln x<-x/2$ при $x\ge3$.
+\end{myexe}
+Следовательно,
+\[
+\int_3^\infty e^{z(-x+\ln x)}\,\dd x
+ \le\int_3^\infty e^{-zx/2}\,\dd x
+ =\frac2z e^{-3z/2}=O(e^{-z}/z^{100}).
+\]
+На конечном промежутке применяется метод Лапласа
+(окрестность $0$, где $\ln x$ не гладок, отделяется как экспоненциально малая часть).
+Получаем
+\[
+\int_0^3 e^{z(-x+\ln x)}\,\dd x
+ =\sqrt{\frac{2\pi}z}e^{-z}(1+O(z^{-1})),
+\]
+\[
+\boxed{\Gamma(z+1)=\sqrt{2\pi z}\,z^ze^{-z}(1+O(z^{-1})).}
+\]
+В частности,
+\[
+n!=\sqrt{2\pi n}\left(\frac ne\right)^n(1+O(n^{-1})),
+\]
+\[
+\ln\Gamma(z+1)=z\ln z-z+\frac12\ln z+\ln\sqrt{2\pi}+O(z^{-1}),
+\]
+\[
+\ln\Gamma(z)=z\ln z-z-\frac12\ln z+\ln\sqrt{2\pi}+O(z^{-1}).
+\]
+\manuscriptfigure{С. 42: график $\varphi(x)=-x+\ln x$ с единственным максимумом в $x=1$.}
+% Рукопись, с. 43--47.
+\section{Метод стационарной фазы}
+Пусть
+\[
+I(N)=\int_a^b e^{iN\varphi(x)}F(x)\,\dd x,
+\qquad\varphi,F\in C^\infty[a,b],\quad\varphi(x)\in\mathbb R.
+\]
+\subsection{Нестационарная фаза}
+Если $\varphi'\ne0$ на $[a,b]$, делаем замену $t=\varphi(x)$,
+$\widetilde F(t)=F(x)/\varphi'(x)$, где $x=\varphi^{-1}(t)$,
+$\widetilde a=\varphi(a)$, $\widetilde b=\varphi(b)$.
+Тогда $I(N)=\int_{\widetilde a}^{\widetilde b}e^{iNt}\widetilde F(t)\,\dd t$ и
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+I(N)&=\left.\frac{e^{iNt}\widetilde F(t)}{iN}\right|_{\widetilde a}^{\widetilde b}
+ -\frac1{iN}\int_{\widetilde a}^{\widetilde b}e^{iNt}\widetilde F'(t)\,\dd t\\
+&\sim\sum_{k=0}^\infty\frac{(-1)^k}{(iN)^{k+1}}
+ \bigl(e^{iN\widetilde b}\widetilde F^{(k)}(\widetilde b)
+       -e^{iN\widetilde a}\widetilde F^{(k)}(\widetilde a)\bigr).
+\end{array}\]
+При возвращении к $x$ используется $\dd/\dd t=(\varphi')^{-1}\dd/\dd x$.
+\begin{mylemma}
+Если $\varphi'\ne0$ на $[a,b]$, то
+\[
+I(N)=\frac{e^{iN\varphi(b)}F(b)}{iN\varphi'(b)}
+ -\frac{e^{iN\varphi(a)}F(a)}{iN\varphi'(a)}+O(N^{-2}).
+\]
+\end{mylemma}
+\begin{mylemma}
+Если $\varphi'\ne0$ на $[a,b]$, $F\in C_0^\infty(a,b)$, то
+$I(N)=O(N^{-m})$ для любого $m$.
+\end{mylemma}
+\begin{myproof}
+Последовательно интегрируем по частям. В первом случае два интегрирования дают заявленный остаток.
+Во втором все граничные члены исчезают, и число интегрирований можно выбрать произвольно большим.
+\end{myproof}
+\subsection{Леммы о квадратичной фазе}
+\begin{mylemma}
+Пусть $a>\delta>0$, $f\in C_0^\infty(-a,a)$ и $f\equiv1$ на $[-\delta,\delta]$.
+Тогда для любого $m$
+\[
+\int_{-a}^a e^{iNt^2}f(t)\,\dd t
+ =\sqrt{\frac\pi N}e^{i\pi/4}+O(N^{-m}).
+\]
+\end{mylemma}
+\begin{myproof}
+Деформируем центральный отрезок контура на отрезок прямой $t=e^{i\pi/4}x$,
+$-\delta/\sqrt2\le x\le\delta/\sqrt2$, соединив его концы вертикальными отрезками с точками $\pm\delta$.
+В центральной части $f=1$, поэтому деформация разрешена аналитичностью экспоненты.
+На наклонном отрезке
+\[
+\int e^{iNt^2}\,\dd t
+ =e^{i\pi/4}\int_{-\delta/\sqrt2}^{\delta/\sqrt2}e^{-Nx^2}\,\dd x
+ =e^{i\pi/4}\sqrt{\frac\pi N}+o(e^{-N\delta^2/2}).
+\]
+Оставшиеся части контура состоят из внешних вещественных отрезков и вертикальных соединений.
+На них фаза нестационарна. Интегрируем по частям, используя
+\[
+\int e^{iNt^2}f(t)\,\dd t
+ =\left.\frac{e^{iNt^2}f(t)}{2iNt}\right|_{\partial\gamma}
+ -\frac1{2iN}\int e^{iNt^2}\left(\frac{f(t)}t\right)'\dd t.
+\]
+Повторение даёт экспоненциально малые граничные члены и остаток
+$(2iN)^{-m}\int e^{iNt^2}F_m(t)\,\dd t=O(N^{-m})$.
+На вертикальных частях используется следующая формула интегрирования по частям.
+\end{myproof}
+\manuscriptfigure{С. 43: срезающая функция $f=1$ около нуля; контур из внешних вещественных отрезков, двух вертикальных соединений и центрального отрезка под углом $\pi/4$.}
+\begin{mylemma}
+Пусть $[B,C]$ --- вертикальный отрезок, $u$ гладкая вдоль него, а $v$ аналитична в его окрестности.
+Тогда
+\[
+\int_B^C u'(z)v(z)\,\dd z
+ =-\int_B^C u(z)v'(z)\,\dd z+u(C)v(C)-u(B)v(B).
+\]
+\end{mylemma}
+\begin{myproof}
+Параметризуем отрезок: $z=x_0+iy$, $y\in[y_B,y_C]$, $\dd z=i\,\dd y$,
+$\dd/\dd z=-i\,\dd/\dd y$. Обычное интегрирование по частям даёт
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+\int_B^C u'v\,\dd z
+&=\int_{y_B}^{y_C}\frac{\dd}{\dd y}u(x_0+iy)v(x_0+iy)\,\dd y\\
+&=[u(x_0+iy)v(x_0+iy)]_{y_B}^{y_C}
+ -\int_{y_B}^{y_C}u(x_0+iy)\frac{\dd}{\dd y}v(x_0+iy)\,\dd y.
+\end{array}\]
+\end{myproof}
+\begin{mylemma}
+При тех же условиях на $f$
+\[
+\int_{-a}^a e^{iNt^2}tf(t)\,\dd t=O(N^{-m})\qquad\forall m.
+\]
+\end{mylemma}
+\begin{myproof}
+На деформированном центральном отрезке интеграл равен
+$e^{i\pi/2}\int_{-\delta/\sqrt2}^{\delta/\sqrt2}e^{-Nx^2}x\,\dd x=0$
+по нечётности. Остальные части оцениваются как в предыдущей лемме.
+\end{myproof}
+\begin{mylemma}
+При тех же условиях
+\[
+\int_{-a}^a e^{iNt^2}t^2f(t)\,\dd t=O(N^{-3/2}).
+\]
+\end{mylemma}
+\begin{myproof}
+После той же деформации центральная часть по модулю не превосходит
+\[
+\int_{\mathbb R}e^{-Nx^2}x^2\,\dd x
+ =N^{-3/2}\int_{\mathbb R}e^{-y^2}y^2\,\dd y.
+\]
+Остальные части имеют сколь угодно высокий порядок малости.
+\end{myproof}
+\begin{mytheorem}
+Для $f\in C_0^\infty(-a,a)$
+\[
+\boxed{\int_{-a}^a e^{iNt^2}f(t)\,\dd t
+ =\sqrt{\frac\pi N}e^{i\pi/4}f(0)+O(N^{-3/2}).}
+\]
+\end{mytheorem}
+\begin{myproof}
+Выбираем $\psi\in C_0^\infty(-a,a)$, $\psi=1$ на $[-\delta,\delta]$.
+По лемме о нестационарной фазе
+\[
+\int_{-a}^a e^{iNt^2}f(t)\,\dd t
+ =\int_{-a}^a e^{iNt^2}f(t)\psi(t)\,\dd t+O(N^{-m})\qquad\forall m.
+\]
+Разложим
+$f(t)=f(0)+f'(0)t+\tfrac12f''(0)t^2+t^3h(t)$, где $h\in C^\infty$.
+Три первых члена оцениваются предыдущими леммами.
+Остаётся интеграл с $q(t)=t^3h(t)\psi(t)$.
+Дважды интегрируя по частям, получаем
+\[
+\int_{-a}^a e^{iNt^2}q(t)\,\dd t
+ =\frac1{(2iN)^2}\int_{-a}^a e^{iNt^2}
+ \left[\frac1t\left(\frac{q(t)}t\right)'\right]'\dd t=O(N^{-2}).
+\]
+Граничные члены исчезают; подынтегральная амплитуда гладкая и ограниченная,
+так как $q$ содержит множитель $t^3$.
+\end{myproof}
+\begin{myprop}
+Для $f\in C_0^\infty(-a,a)$
+\[
+\int_{-a}^a e^{-iNt^2}f(t)\,\dd t
+ =\sqrt{\frac\pi N}e^{-i\pi/4}f(0)+O(N^{-3/2}).
+\]
+\end{myprop}
+\begin{myproof}
+Применяем теорему к $\overline f$ и комплексно сопрягаем результат.
+\end{myproof}
+\begin{myremark}
+Если $f\in C^\infty[0,a]$ и $f=0$ в окрестности $a$, то
+\[
+\int_0^a e^{iNt^2}f(t)\,\dd t
+ =\frac12\sqrt{\frac\pi N}e^{i\pi/4}f(0)+O(N^{-1}).
+\]
+\end{myremark}
+% Рукопись, с. 45--46.
+\subsection{Общая формула стационарной фазы}
+\begin{mytheorem}
+Пусть $\varphi,F\in C^\infty[a,b]$, $\varphi$ вещественна, все её стационарные точки
+$c_k$ невырождены: $\varphi'(c_k)=0$, $\varphi''(c_k)\ne0$.
+Главные вклады в $I(N)$ дают концы $a,b$ и точки $c_k$.
+Если $\varphi'(a)\ne0$, то вклад левого конца
+\[
+I_a=-\frac{e^{iN\varphi(a)}F(a)}{iN\varphi'(a)}+O(N^{-2});
+\]
+если $\varphi'(b)\ne0$, то вклад правого конца
+\[
+I_b=\frac{e^{iN\varphi(b)}F(b)}{iN\varphi'(b)}+O(N^{-2}).
+\]
+Для $c_k\in(a,b)$
+\[
+\boxed{I_{c_k}=e^{iN\varphi(c_k)}
+ \sqrt{\frac{2\pi}{N|\varphi''(c_k)|}}
+ e^{i\pi\operatorname{sgn}\varphi''(c_k)/4}F(c_k)+O(N^{-3/2}).}
+\]
+Если $c_k=a$ или $b$, соответствующий главный член умножается на $1/2$, а остаток равен $O(N^{-1})$.
+Интеграл равен сумме этих локальных вкладов.
+% В формулировке на с. 45 у стационарных вкладов пропущен множитель e^{iN\varphi(c_k)};
+% он явно присутствует в доказательстве на с. 46 и здесь восстановлен.
+\end{mytheorem}
+\begin{myproof}
+Вблизи каждой $c_k$ вводим гладкую координату $t_k$:
+\[
+\varphi(x)=\varphi(c_k)+\frac{\varphi''(c_k)}2t_k(x)^2,
+\quad t_k(c_k)=0,\quad t_k'(c_k)=1.
+\]
+Выбираем обратную функцию $\chi_k$ на $[-\delta_k,\delta_k]$,
+$\chi_k(0)=c_k$, $\chi_k'(0)=1$.
+Покрываем $[a,b]$ этими окрестностями, окрестностями концов и промежутками без стационарных точек.
+Выбираем подчинённое гладкое разбиение единицы $\{\eta_j\}_{j=1}^M$:
+\[
+\sum_{j=1}^M\eta_j(x)=1\quad\text{на }[a,b],\qquad
+I(N)=\sum_{j=1}^M\int_a^b e^{iN\varphi(x)}F(x)\eta_j(x)\,\dd x.
+\]
+Внутренние нестационарные части имеют порядок $O(N^{-m})$ для любого $m$.
+Вклады концов следуют из интегрирования по частям.
+Около внутренней стационарной точки, выбирая локальную срезку равной единице при $c_k$, имеем
+\[
+I_{c_k}=e^{iN\varphi(c_k)}\int_{-\delta_k}^{\delta_k}
+ e^{iN\varphi''(c_k)t^2/2}
+ F(\chi_k(t))\eta_k(\chi_k(t))\chi_k'(t)\,\dd t.
+\]
+Применяем теорему о квадратичной фазе с учётом знака $\varphi''(c_k)$.
+В стационарном конце применяется её односторонний вариант.
+\end{myproof}
+\manuscriptfigure{С. 45: несколько стационарных точек $c_1,c_2,c_3$, их непересекающиеся окрестности и подчинённое разбиение единицы.}
+\subsection{Асимптотика функций Бесселя}
+Функции Бесселя удовлетворяют уравнению
+\[
+z^2w''+zw'+(z^2-\nu^2)w=0,
+\]
+\[
+J_\nu(z)=\sum_{k=0}^\infty\frac{(-1)^k}{k!\,\Gamma(k+\nu+1)}
+ \left(\frac z2\right)^{2k+\nu}.
+\]
+При целом $n$
+\[
+J_n(z)=\frac1{2\pi}\int_{-\pi}^\pi e^{iz\sin\theta-in\theta}\,\dd\theta.
+\]
+Для $z=N\to+\infty$ имеем $\varphi(\theta)=\sin\theta$, $F(\theta)=e^{-in\theta}$,
+$\varphi'=\cos\theta$, $\varphi''=-\sin\theta$, $c_1=-\pi/2$, $c_2=\pi/2$.
+Нестационарные вклады концов противоположны:
+\[
+I_{-\pi}=\frac{e^{in\pi}}{iz}+O(z^{-2}),\qquad
+I_\pi=-\frac{e^{-in\pi}}{iz}+O(z^{-2}).
+\]
+% На с. 46 у одного из двух концевых вкладов потерян знак минус;
+% для целого n их главные члены сокращаются.
+Вклады стационарных точек равны
+\[
+I_{-\pi/2}=e^{-iz}\sqrt{\frac{2\pi}z}e^{i\pi/4}e^{in\pi/2}+O(z^{-3/2}),
+\]
+\[
+I_{\pi/2}=e^{iz}\sqrt{\frac{2\pi}z}e^{-i\pi/4}e^{-in\pi/2}+O(z^{-3/2}).
+\]
+Следовательно,
+\[
+\boxed{J_n(z)=\sqrt{\frac2{\pi z}}
+ \cos\left(z-\frac{n\pi}2-\frac\pi4\right)+O(z^{-3/2}).}
+\]
+\begin{myremark}
+Такая асимптотика справедлива и для произвольного фиксированного $\nu\ge0$.
+\end{myremark}
+\subsection{Поведение волновой функции при больших временах}
+Рассмотрим свободное уравнение Шрёдингера
+\[
+\begin{cases}
+i\psi_t=-\tfrac12\psi_{xx},&t\ge0,\ x\in\mathbb R,\\
+\psi|_{t=0}=\psi_0(x).
+\end{cases}
+\]
+Преобразование Фурье
+\[
+\widehat\psi(t,k)=\frac1{\sqrt{2\pi}}\int_{\mathbb R}e^{-ikx}\psi(t,x)\,\dd x
+\]
+даёт $i\partial_t\widehat\psi=\tfrac12k^2\widehat\psi$, поэтому
+$\widehat\psi(t,k)=e^{-ik^2t/2}\widehat\psi_0(k)$.
+По равенству Парсеваля
+\[
+\int_{\mathbb R}|\psi(t,x)|^2\,\dd x
+ =\int_{\mathbb R}|\widehat\psi(t,k)|^2\,\dd k
+ =\int_{\mathbb R}|\widehat\psi_0(k)|^2\,\dd k
+ =\int_{\mathbb R}|\psi_0(x)|^2\,\dd x.
+\]
+Для фиксированного $x$ найдём асимптотику
+\[
+\psi(t,x)=\frac1{\sqrt{2\pi}}\int_{\mathbb R}
+ e^{ikx-ik^2t/2}\widehat\psi_0(k)\,\dd k,\qquad t\to\infty.
+\]
+Здесь $N=t$, $\varphi(k)=-k^2/2$, $F(k)=e^{ikx}\widehat\psi_0(k)$,
+$\varphi'(k)=-k$, $c=0$, $\varphi''=-1$.
+При достаточной гладкости и убывании начальных данных метод стационарной фазы даёт
+\[
+\boxed{\psi(t,x)=\frac{e^{-i\pi/4}}{\sqrt t}\widehat\psi_0(0)+O(t^{-3/2}).}
+\]
+% В рукописи записано ~; аддитивная форма сохраняет смысл и при \widehat\psi_0(0)=0.
+\begin{myexe}
+Получить первый закон Ньютона из уравнения Шрёдингера.
+% Рукопись, с. 47: «Ур. Шредингера ⇒ 1-й з. Н.».
+\end{myexe}
+% Рукопись, с. 47--49.
+\section{Метод перевала}
+Пусть
+\[
+I(N)=\int_C e^{N\varphi(z)}F(z)\,\dd z,\qquad C\subset\mathbb C,
+\]
+а $\varphi,F$ голоморфны в окрестности контура и области его допустимой деформации.
+\subsection{Основная идея метода}
+Разложение экспоненты имеет вид
+$e^{N\varphi}=e^{N\operatorname{Re}\varphi}e^{iN\operatorname{Im}\varphi}$.
+Нужно выбирать контур с возможно меньшим максимумом $\operatorname{Re}\varphi$.
+Поскольку
+\[
+\Delta\varphi=(\partial_x-i\partial_y)(\partial_x+i\partial_y)\varphi=0,
+\qquad\Delta\operatorname{Re}\varphi=0,
+\]
+вещественная часть непостоянной голоморфной функции не имеет внутреннего локального максимума.
+Если два допустимо деформируемых контура $C_1,C_2$ соединяют $A$ и $B$, причём
+\[
+\max_{C_1}\operatorname{Re}\varphi=\operatorname{Re}\varphi(z_1)
+ >\max_{C_2}\operatorname{Re}\varphi=\operatorname{Re}\varphi(z_2),
+\]
+то оценка по $C_2$ может быть экспоненциально точнее:
+$|I(N)|=O(e^{N\operatorname{Re}\varphi(z_2)})$.
+\begin{myexample}
+Для $\varphi(z)=z^2$, $z=x+iy$,
+\[
+\varphi(z)=x^2-y^2+2ixy,\quad
+\operatorname{Re}\varphi=x^2-y^2,\quad\operatorname{Im}\varphi=2xy.
+\]
+В точке $z_0=0$ имеем $\varphi'(z_0)=0$, $\varphi''(z_0)\ne0$.
+По вещественной оси $\operatorname{Re}\varphi=x^2$, по мнимой $\operatorname{Re}\varphi=-y^2$;
+поверхность $\operatorname{Re}\varphi$ имеет седло.
+В общем случае
+\[
+\varphi(z)=\varphi(z_0)+\frac{\varphi''(z_0)}2(z-z_0)^2+O((z-z_0)^3).
+\]
+\end{myexample}
+\manuscriptfigure{С. 47: два контура $C_1,C_2$ между $A,B$; седловая поверхность $\operatorname{Re}z^2$; оси и прямые $y=\pm x$, на которых $\operatorname{Re}z^2=0$.}
+\begin{enumerate}
+\item Если концы $A,B$ находятся по одну сторону перевала и
+$\operatorname{Re}\varphi(B)>\operatorname{Re}\varphi(A)$, контур можно провести по $AM$ с
+$\operatorname{Re}\varphi=\operatorname{Re}\varphi(A)$ и затем по $MB$ с
+$\operatorname{Im}\varphi=\mathrm{const}$. Вклад $AM$ экспоненциально мал, на $MB$ применяется метод Лапласа.
+\item Если $\operatorname{Re}\varphi(A),\operatorname{Re}\varphi(B)<\operatorname{Re}\varphi(z_0)$,
+контур проводят по $AM_1$, $M_1M_2$, $M_2B$.
+На внешних частях вещественная часть фазы постоянна и равна её значению в соответствующем конце;
+на центральной части $\operatorname{Im}\varphi=\mathrm{const}$ и контур проходит через перевал $z_0$.
+Внешние вклады экспоненциально малы, центральный вычисляется методом Лапласа.
+\end{enumerate}
+Если направление ориентированной касательной центрального контура при $z_0$ задано углом $\alpha$,
+так что $z-z_0\sim s e^{i\alpha}$, $s\in\mathbb R$, и
+$\varphi''(z_0)e^{2i\alpha}=-|\varphi''(z_0)|$, то
+\[
+\boxed{I(N)\sim\sqrt{\frac{2\pi}{N|\varphi''(z_0)|}}
+ e^{N\varphi(z_0)}e^{i\alpha}F(z_0).}
+\]
+\manuscriptfigure{С. 48: два варианта деформации около перевала; в первом контур обходит седло с одной стороны, во втором проходит через него по линии постоянной мнимой части фазы.}
+\begin{myremark}
+При деформации нужно учитывать полюса $F$ и точки ветвления.
+Пересечение полюса изменяет интеграл на соответствующий вычет, а ветвление требует согласованного выбора ветви и контура.
+\end{myremark}
+\subsection{Уравнение Эйри}
+Рассмотрим уравнение
+\[
+w''(t)-tw(t)=0.
+\]
+Ищем решение в виде $w(t)=\int_\Gamma e^{tz}V(z)\,\dd z$. Тогда
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+w''-tw&=\int_\Gamma(e^{tz}z^2V-te^{tz}V)\,\dd z\\
+&=\int_\Gamma e^{tz}(z^2V+V')\,\dd z-\left.e^{tz}V(z)\right|_{\partial\Gamma}.
+\end{array}\]
+Выбираем $V'=-z^2V$, то есть $V(z)=Ce^{-z^3/3}$, а концы контура уводим в сектора,
+где $\operatorname{Re}z^3\to+\infty$ и граничные члены исчезают.
+Получаем решения
+\[
+w(t)=\int_\Gamma e^{tz-z^3/3}\,\dd z.
+\]
+\manuscriptfigure{С. 48: три направления ухода контура на бесконечность: положительная вещественная полуось и лучи с аргументами $\pm2\pi/3$.}
+Для контура из нижнего левого сектора к положительной вещественной полуоси найдём асимптотику при $t\to+\infty$.
+Замена $z=\sqrt t\,\zeta$ даёт
+\[
+w(t)=\sqrt t\int_{\widetilde\Gamma}
+ e^{t\sqrt t(\zeta-\zeta^3/3)}\,\dd\zeta,
+\qquad N=t\sqrt t,\quad F=1,\quad\varphi(\zeta)=\zeta-\zeta^3/3.
+\]
+Пусть $\zeta=\xi+i\eta$. Тогда
+\[
+\operatorname{Re}\varphi=\xi-\frac{\xi^3}3+\xi\eta^2,
+\qquad
+\operatorname{Im}\varphi=\eta\left(1-\xi^2+\frac{\eta^2}3\right).
+\]
+Линии $\operatorname{Im}\varphi=0$ задаются $\eta=0$ или $\xi^2-\eta^2/3=1$;
+асимптоты гипербол --- $\eta=\pm\sqrt3\,\xi$.
+Стационарные точки $\zeta=\pm1$ имеют значения
+$\varphi(-1)=-2/3$, $\varphi(1)=2/3$.
+Для выбранного контура главный вклад даёт точка $\zeta=1$, где $\varphi''(1)=-2$:
+\[
+w(t)\sim\sqrt t\sqrt{\frac{2\pi}{2t\sqrt t}}e^{2t\sqrt t/3}.
+\]
+Итак,
+\[
+\boxed{w(t)=\frac{\sqrt\pi}{t^{1/4}}e^{\frac23t^{3/2}}
+ \bigl(1+O(t^{-3/2})\bigr),\qquad t\to+\infty.}
+\]
+\manuscriptfigure{С. 49: линии $\operatorname{Im}(\zeta-\zeta^3/3)=0$ --- вещественная ось и две ветви гиперболы, седловые точки $\pm1$ и деформированный контур.}
+\begin{myexe}
+\begin{enumerate}
+\item Найти асимптотику $w(t)$ при $t\to-\infty$.
+\item Найти при $t\to+\infty$ асимптотику интеграла по другому контуру: из нижнего левого сектора в верхний левый сектор.
+\end{enumerate}
+\manuscriptfigure{С. 49: дополнительный контур идёт от нижнего левого луча к верхнему левому лучу через левую область плоскости.}
+\end{myexe}
+
+% ============================================================
+% Рукопись, с. 50--54. В рукописи глава VI.
+% ============================================================
+\chapter{Интегральные уравнения}
+Основные типы интегральных уравнений:
+\[
+\int_a^b K(t,s)f(s)\,\dd s=h(t)
+\quad\text{--- уравнение Фредгольма первого рода},
+\]
+\[
+f(t)+\int_a^b K(t,s)f(s)\,\dd s=h(t)
+\quad\text{--- уравнение Фредгольма второго рода},
+\]
+\[
+\int_a^t K(t,s)f(s)\,\dd s=h(t)
+\quad\text{--- уравнение Вольтерра первого рода},
+\]
+\[
+f(t)+\int_a^t K(t,s)f(s)\,\dd s=h(t)
+\quad\text{--- уравнение Вольтерра второго рода}.
+\]
+\section{Линейные операторы в банаховых пространствах}
+\subsection{Определения}
+Пусть $X$ --- полное линейное нормированное пространство (банахово пространство).
+\begin{myexample}
+\[
+X=C[a,b],\qquad\|f\|_X=\max_{[a,b]}|f(x)|;
+\qquad
+X=L_2(a,b),\qquad\|f\|_X=\left(\int_a^b|f(x)|^2\,\dd x\right)^{1/2}.
+\]
+\end{myexample}
+\begin{mydef}
+Оператор $A:X\to X$ называется линейным, если
+$A(\alpha x+\beta y)=\alpha Ax+\beta Ay$.
+Он называется ограниченным, если существует $C$ такое, что
+$\|Ax\|_X\le C\|x\|_X$ для всех $x\in X$.
+Его норма
+\[
+\|A\|=\sup_{x\ne0}\frac{\|Ax\|_X}{\|x\|_X},\qquad
+\|Ax\|_X\le\|A\|\|x\|_X.
+\]
+\end{mydef}
+\begin{mylemma}
+Ограниченный линейный оператор непрерывен.
+\end{mylemma}
+\begin{myproof}
+Если $x_n\to x$, то $\|Ax_n-Ax\|_X\le\|A\|\|x_n-x\|_X\to0$.
+\end{myproof}
+\begin{myexe}
+Доказать, что непрерывный линейный оператор ограничен.
+\end{myexe}
+Обозначим через $B(X)$ пространство всех ограниченных линейных операторов в $X$.
+Сложение определяется поточечно: $(A_1+A_2)x=A_1x+A_2x$.
+Операторная норма обладает свойствами
+\[
+\|A\|\ge0,\quad\|A\|=0\Longleftrightarrow A=0,\quad
+\|\alpha A\|=|\alpha|\|A\|,\quad\|A_1+A_2\|\le\|A_1\|+\|A_2\|.
+\]
+Последнее следует из
+$\|(A_1+A_2)x\|_X\le\|A_1x\|_X+\|A_2x\|_X
+\le(\|A_1\|+\|A_2\|)\|x\|_X$.
+\begin{myexe}
+Доказать полноту $B(X)$ в операторной норме.
+\end{myexe}
+Произведение операторов --- композиция: $(A_1A_2)x=A_1(A_2x)$.
+Имеем
+\[
+\|A_1A_2\|\le\|A_1\|\|A_2\|,\quad A(BC)=(AB)C,\quad
+(A+B)C=AC+BC.
+\]
+Определяем $A^m=A\cdots A$ ($m$ множителей), $A^0=I$.
+\begin{mydef}
+Если $BA=AB=I$, то $B$ называется обратным к $A$ и обозначается $A^{-1}$.
+Для обратимого $A$ определены целые степени, причём $A^{n+m}=A^nA^m$.
+\end{mydef}
+% Рукопись, с. 51.
+\subsection{Ряды в банаховых пространствах}
+\begin{mydef}
+Ряд $\sum_{k=1}^\infty x_k$ сходится к $y\in X$, если
+$\|\sum_{k=1}^n x_k-y\|_X\to0$ при $n\to\infty$.
+\end{mydef}
+\begin{mylemma}
+Если $\sum_{k=1}^\infty\|x_k\|_X<\infty$, то ряд $\sum_{k=1}^\infty x_k$ сходится.
+\end{mylemma}
+\begin{myproof}
+Для $\varepsilon>0$ выбираем $N$ так, что $\sum_{k=N}^\infty\|x_k\|_X<\varepsilon$.
+Если $n>m>N$, то для $S_n=\sum_{k=1}^n x_k$
+\[
+\|S_n-S_m\|_X=\left\|\sum_{k=m+1}^n x_k\right\|_X
+ \le\sum_{k=m+1}^n\|x_k\|_X<\varepsilon.
+\]
+Последовательность частичных сумм фундаментальна; полнота $X$ даёт её предел.
+\end{myproof}
+\begin{myremark}
+$\|\sum_{k=1}^\infty x_k\|_X\le\sum_{k=1}^\infty\|x_k\|_X$.
+Это применимо и к рядам операторов в $B(X)$.
+\end{myremark}
+\begin{mylemma}
+Пусть $A\in B(X)$ и $\sum_{k=0}^\infty\|A^k\|<\infty$.
+Тогда $(I-A)^{-1}\in B(X)$ и
+\[
+\boxed{(I-A)^{-1}=\sum_{k=0}^\infty A^k.}
+\]
+Это ряд Неймана.
+\end{mylemma}
+\begin{myproof}
+Положим $B=\sum_{k=0}^\infty A^k=I+A+A^2+\cdots$.
+В силу сходимости в операторной норме можно умножать ряд на $A$:
+$AB=A+A^2+\cdots=B-I$, $BA=B-I$.
+Следовательно, $(I-A)B=B(I-A)=I$.
+\end{myproof}
+\begin{myprop}
+Если $\|A\|<1$, то $(I-A)^{-1}$ существует и
+\[
+\|(I-A)^{-1}\|\le\frac1{1-\|A\|}.
+\]
+\end{myprop}
+\begin{myproof}
+$\|A^k\|\le\|A\|^k$, поэтому сумма норм ограничена геометрическим рядом.
+\end{myproof}
+\begin{myprop}
+Если $A\in B(X)$, $\lambda\in\mathbb C$, $|\lambda|>\|A\|$, то $(A-\lambda I)^{-1}\in B(X)$.
+\end{myprop}
+\begin{myproof}
+$\|A/\lambda\|<1$ и
+$A-\lambda I=-\lambda(I-A/\lambda)$, откуда
+$(A-\lambda I)^{-1}=-\lambda^{-1}(I-A/\lambda)^{-1}$.
+\end{myproof}
+% Рукопись, с. 52.
+\subsection{Уравнения Вольтерра}
+Пусть $X=C[a,b]$, $h\in C[a,b]$, а ядро $K(t,s)$ непрерывно в треугольнике $a\le s\le t\le b$.
+Рассмотрим
+\[
+f(t)-\int_a^t K(t,s)f(s)\,\dd s=h(t).
+\]
+Обозначая тем же символом интегральный оператор,
+\[
+(Kf)(t)=\int_a^t K(t,s)f(s)\,\dd s,\qquad K:X\to X,
+\]
+переписываем уравнение как $(I-K)f=h$.
+\begin{mylemma}
+Если $M=\max_{a\le s\le t\le b}|K(t,s)|$, то
+\[
+|(K^jf)(t)|\le\frac{M^j(t-a)^j}{j!}\|f\|_C,\qquad j\ge0.
+\]
+\end{mylemma}
+\begin{myproof}
+При $j=0$ утверждение очевидно. Индукционный переход:
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+|(K^{j+1}f)(t)|
+&\le M\int_a^t\frac{M^j(s-a)^j}{j!}\|f\|_C\,\dd s\\
+&=\frac{M^{j+1}(t-a)^{j+1}}{(j+1)!}\|f\|_C.
+\end{array}\]
+\end{myproof}
+\begin{mytheorem}[unbreakable]
+При непрерывном ядре $K$ в указанном треугольнике для каждого $h\in C[a,b]$ существует единственное
+$f\in C[a,b]$, удовлетворяющее уравнению Вольтерра второго рода. При этом
+\[
+\boxed{\|f\|_C\le e^{M(b-a)}\|h\|_C.}
+\]
+\end{mytheorem}
+\begin{myproof}
+Из леммы $\|K^j\|\le M^j(b-a)^j/j!$, поэтому
+$\sum_{j=0}^\infty\|K^j\|\le e^{M(b-a)}$.
+Ряд Неймана даёт $(I-K)^{-1}=I+K+K^2+\cdots$ и нужную оценку.
+\end{myproof}
+\begin{myremark}
+Решение представляется рядом
+\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
+f(t)=h(t)&+\int_a^t K(t,s)h(s)\,\dd s\\
+&+\int_a^t K(t,t_1)\int_a^{t_1}K(t_1,s)h(s)\,\dd s\,\dd t_1+\cdots.
+\end{array}\]
+\end{myremark}
+\begin{myexe}
+Пусть $h\in C[0,\infty)$, $|h(t)|\le L$, ядро непрерывно на $0\le s\le t$ и $|K(t,s)|\le M$.
+Доказать существование и единственность $f\in C[0,\infty)$ для
+\[
+f(t)-\int_0^t K(t,s)f(s)\,\dd s=h(t),\qquad |f(t)|\le Le^{Mt}.
+\]
+\end{myexe}
+\begin{myremark}
+Для уравнения Вольтерра первого рода
+$\int_a^t K(t,s)f(s)\,\dd s=h(t)$ необходимо $h(a)=0$.
+Если $K,h\in C^1$, дифференцирование даёт
+\[
+K(t,t)f(t)+\int_a^t\partial_tK(t,s)f(s)\,\dd s=h'(t).
+\]
+При $K(t,t)>0$ получаем уравнение второго рода:
+\[
+f(t)+\int_a^t\frac{\partial_tK(t,s)}{K(t,t)}f(s)\,\dd s
+ =\frac{h'(t)}{K(t,t)}.
+\]
+\end{myremark}
+% Рукопись, с. 53--54.
+\section{Гильбертовы пространства}
+\subsection{Определения}
+\begin{mydef}
+Гильбертово пространство $H$ --- полное комплексное линейное пространство со скалярным произведением.
+В рассматриваемом случае оно бесконечномерно. Приняты соглашения
+\[
+(x,y)=\overline{(y,x)},\qquad (x,x)\ge0,\quad (x,x)=0\Longleftrightarrow x=0,
+\]
+\[
+(\alpha x_1+\beta x_2,y)=\alpha(x_1,y)+\beta(x_2,y),\qquad
+\|x\|_H=\sqrt{(x,x)}.
+\]
+\end{mydef}
+\begin{myexe}
+Доказать неравенство Коши--Буняковского: $|(x,y)|\le\|x\|_H\|y\|_H$.
+\end{myexe}
+Если $x_n\to x$, $y_n\to y$, то $(x_n,y_n)\to(x,y)$, поскольку
+\[
+|(x_n,y_n)-(x,y)|
+\le\|x_n-x\|_H\|y_n\|_H+\|x\|_H\|y_n-y\|_H\to0.
+\]
+Здесь сходящаяся последовательность $y_n$ ограничена.
+\begin{mydef}
+Пространство $H$ сепарабельно, если в нём существует счётное плотное множество
+$Y=\{y_j\}_{j=1}^\infty$.
+\end{mydef}
+\begin{myremark}
+Если $z\perp y_j$ для всех $j$, то $z=0$.
+Действительно, из плотности выбирается $y_{j_k}\to z$; тогда
+$0=(y_{j_k},z)\to\|z\|_H^2$.
+\end{myremark}
+\begin{myexe}
+Доказать, что любое подпространство сепарабельного гильбертова пространства сепарабельно.
+\end{myexe}
+\begin{mylemma}
+Пусть $\{\varphi_k\}_{k=1}^\infty$ --- ортонормированная система:
+$(\varphi_k,\varphi_j)=\delta_{kj}$. Тогда для каждого $x\in H$ при $c_k=(x,\varphi_k)$
+ряд $\sum_{k=1}^\infty c_k\varphi_k$ сходится в норме $H$.
+\end{mylemma}
+\begin{myproof}
+Для $S_N=\sum_{k=1}^N c_k\varphi_k$ имеем
+\[
+\|S_N\|_H^2=\sum_{k=1}^N|c_k|^2=(x,S_N)
+\le\|x\|_H\|S_N\|_H.
+\]
+Поэтому $\sum_{k=1}^N|c_k|^2\le\|x\|_H^2$, и, переходя к пределу, получаем неравенство Бесселя
+\[
+\boxed{\sum_{k=1}^\infty|c_k|^2\le\|x\|_H^2.}
+\]
+При $n>m$
+\[
+\|S_n-S_m\|_H^2=\sum_{k=m+1}^n|c_k|^2\to0.
+\]
+Полнота $H$ даёт сходимость ряда.
+\end{myproof}
+\begin{myremark}
+Сходимость этого ряда не обязана быть абсолютной: ряд
+$\sum\|c_k\varphi_k\|_H=\sum|c_k|$ может расходиться.
+\end{myremark}
+\begin{mylemma}
+В сепарабельном гильбертовом пространстве существует счётный ортонормированный базис.
+\end{mylemma}
+\begin{myproof}
+Берём счётное плотное множество $\{y_j\}_{j=1}^\infty$ и применяем процесс ортогонализации,
+пропуская векторы, лежащие в линейной оболочке предыдущих:
+\[
+\varphi_1=\frac{y_1}{\|y_1\|_H},\quad
+\varphi_2=\frac{y_2-(y_2,\varphi_1)\varphi_1}
+ {\|y_2-(y_2,\varphi_1)\varphi_1\|_H},
+\]
+\[
+\varphi_3=\frac{y_3-(y_3,\varphi_1)\varphi_1-(y_3,\varphi_2)\varphi_2}
+ {\|y_3-(y_3,\varphi_1)\varphi_1-(y_3,\varphi_2)\varphi_2\|_H},\quad\ldots.
+\]
+Получаем $(\varphi_k,\varphi_j)=\delta_{kj}$ и совпадение линейных оболочек выбранных начальных систем.
+Для $x\in H$ положим $c_k=(x,\varphi_k)$, $\widetilde x=\sum_{k=1}^\infty c_k\varphi_k$.
+По предыдущей лемме этот ряд сходится, а
+$(x-\widetilde x,\varphi_j)=c_j-c_j=0$ для всех $j$.
+Значит, $x-\widetilde x\perp y_j$ для всех $j$. Из плотности следует $x=\widetilde x$.
+Таким образом, система полна и является ортонормированным базисом.
+\end{myproof}
+\begin{myremark}
+\begin{enumerate}
+\item Существование счётного ортонормированного базиса влечёт сепарабельность:
+счётное плотное множество образуют конечные суммы
+\[
+\left\{\sum_{k=1}^N(\alpha_k+i\beta_k)\varphi_k:
+ \alpha_k,\beta_k\in\mathbb Q,\ N\in\mathbb N\right\}.
+\]
+\item Если $H_1,H_2$ --- сепарабельные бесконечномерные гильбертовы пространства с ортонормированными базисами
+$\{\varphi_k\}$, $\{\psi_k\}$, то отображение
+\[
+H_1\to H_2,\qquad x=\sum_{k=1}^\infty c_k\varphi_k
+ \longmapsto y=\sum_{k=1}^\infty c_k\psi_k
+\]
+является изоморфизмом гильбертовых пространств.
+\end{enumerate}
+\end{myremark}
+    
+\end{comment}
 
 \end{document}

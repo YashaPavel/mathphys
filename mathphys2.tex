@@ -584,9 +584,9 @@ $
 Положим
 \[
 \eta(x):=\int_A\omega_\rho(x-y)\,\dd y
-=(\omega_\rho*\chi_A)(x).
+=(\omega_\rho*\kappa_A)(x).
 \]
-$\chi_A$ - характеристическая функция на множестве A.
+$\kappa_A$ - характеристическая функция на множестве A.
 Имеем
 \[
 \eta\in C^\infty(\text{можно дифф. по х}),
@@ -1200,6 +1200,7 @@ f\equiv0.
 \end{mylemma}
 
 \begin{myproof}
+    Слева направо очевидно. Докажем справа налево.\\
 Предположим противное. Тогда существует $a\in\Omega$ такое, что, например,
 \[
 f(a)>0.
@@ -1339,7 +1340,7 @@ h''(x)=g(x)-\alpha(x-a)-\beta.
 -
 \beta\frac{(b-a)^2}{2}=0.
 \]
-Хотим понять существуют ли такие $\alpha, \beta$, поэтому берём их за переменные и если определитель системы не равен 0, то для любой правой части будет единсвтенное решение. Её определитель равен
+Хотим понять существуют ли такие $\alpha, \beta$, поэтому берём их за переменные и если определитель системы не равен 0, то для любой правой части будет единственное решение. Её определитель равен
 \[
 \begin{vmatrix}
 \dfrac{(b-a)^2}{2} & b-a\\[2mm]
@@ -1677,7 +1678,7 @@ J[y]=\int_a^bL(x,y,y')\,\dd x
 \langle\nabla_yL(x, y_0, y_0')-\frac{\dd}{\dd x}(\nabla_vL(x,y_0,y_0')),h(x)\rangle dx
 +\langle\nabla_vL(x,y_0,y_0'), h_x\rangle\Big|_a^b=0 \qquad \forall h\in X
 \]
-Первое слагаемое равно 0, тогда т.к. для любых $h$, то понятно, что на концах равным 0 может быть только градиент в обоих точках(можем взять такую $h: \quad h(b)=0 \, h(a)=e_j$):
+Первое слагаемое равно 0, тогда т.к. для любых $h$, то понятно, что на концах равным 0 может быть только градиент в обоих точках(можем взять такую $h: \, h(b)=0, \, h(a)=e_j$):
 \[
 \nabla_vL(a,y_0(a),y_0'(a))
 =
@@ -1764,7 +1765,9 @@ L(y_0,y_0')-
 \langle y_0',\nabla_vL(y_0,y_0')\rangle
 \right)=\]
 \[=\langle y_0',\nabla_yL(y_0, y_0')\rangle+\langle y_0'',\nabla_vL(y_0, y_0')\rangle-\langle y_0'',\nabla_vL(y_0, y_0')\rangle-\langle y_0',\frac{\dd}{\dd x}\nabla_yL(y_0, y_0')\rangle\underset{\text{Э.Л.}}{=}0
-\]
+\Rightarrow\]
+\[\Rightarrow L(y_0,y_0')-
+\langle y_0',\nabla_vL(y_0,y_0')\rangle=const\]
 Это закон сохранения энергии.
 \end{enumerate}
 
@@ -1845,7 +1848,7 @@ G'_F[f]\ne0
 \]
 Тогда $M$ --- гиперповерхность.
 
-Касательное пространство к $M$ в точке $u\in M$ имеет вид
+Касательная плоскость к $M$ в точке $u\in M$ имеет вид
 \[
 \{u+h:\ G'_F[u]h=0\}
 =
@@ -1888,6 +1891,7 @@ w'(0)=h.
 \end{mytheorem}
 
 \begin{myproof}
+    \begin{center}
 \begin{tikzpicture}[>=Stealth, line cap=round, line join=round]
  
   % --- ключевые точки и векторы (u -- начало координат) ---
@@ -1933,6 +1937,7 @@ w'(0)=h.
   \fill (u) circle (2pt) node[above left] {$u$};
  
 \end{tikzpicture}
+\end{center}
 
 Так как $u$ не является стационарной точкой $G$, существует $v\in X$ такое, что
 \[
@@ -2226,19 +2231,20 @@ G[\rho]
 \right)
  h(x)\,\dd S(x)=0.
 \]
-Следовательно,
+Так как это верно для любого $h$, следовательно,
 \[
-\boxed{
 \int_\Gamma\frac{\rho(y)}{|x-y|}\,\dd S(y)
 =-\frac{\lambda}{2},
-\qquad x\in\Gamma.}
+\qquad x\in\Gamma.
 \]
-Это задача Робена.
-Если
+Это задача и называется задачей \textbf{Робена}.
+\end{myexample}
+\begin{myremark}
+    Выше был получен потенциал в точке $x\in\Gamma$:
 \[
 \varphi(x)=\int_\Gamma\frac{\rho(y)}{|x-y|}\,\dd S(y),
 \]
-то
+значит выполнено
 \[
 \Delta\varphi(x)=0\quad\text{в }\Omega,
 \qquad
@@ -2247,9 +2253,11 @@ G[\rho]
 откуда
 \[
 \varphi(x)=-\frac\lambda2
-\qquad\text{в }\Omega.
+\quad\text{в }\Omega.
 \]
-\end{myexample}
+\end{myremark}
+
+
 
 % ------------------------------------------------------------
 % 15.09.26
@@ -2281,7 +2289,18 @@ J[y]
 \[
 M=\{y\in X:\ G_j[y]=0,\ j=1,\ldots,m\}.
 \]
-Пусть $y_0$ --- локальный экстремум $J$ на $M$ и
+Пусть $y_0$ --- локальный экстремум $J$ на $M$. Рассмотрим уже знакомый нам линейный оператор
+\[
+\vec G'_F[y]:X\to\mathbb R^n,
+\qquad
+h\longmapsto
+\begin{pmatrix}
+\delta G_1(y;h)\\
+\vdots\\
+\delta G_m(y;h)
+\end{pmatrix}.
+\]
+Тогда пусть
 \[
 \operatorname{Im}\vec G'_F[y_0]=\mathbb R^m.
 \]
@@ -2295,21 +2314,27 @@ F(x,y,v)
 =
 L(x,y,v)+\sum_{j=1}^{m}\lambda_jg_j(x,y,v)
 \]
-выполняются условия
-\[
-\boxed{
+выполняются два условия
+\begin{enumerate}
+    \item \[
 \frac{\dd}{\dd x}\nabla_vF(x,y_0,y_0')
 =
-\nabla_yF(x,y_0,y_0')}
+\nabla_yF(x,y_0,y_0')
 \]
-и, в случае свободных концов,
-\[
-\boxed{
-\nabla_vF(x,y_0(x),y_0'(x))\big|_{x=a,b}=0.}
+\item \[
+\nabla_vF(x,y_0(x),y_0'(x))\big|_{x=a,b}=0.
 \]
+\end{enumerate}
 \end{mytheorem}
 
-\begin{myremark}
+\begin{myproof}
+    По теореме о множителях Лагранжа: существует $\lambda_1,\ldots,\lambda_m\in\mathbb R$ такие, что $y_0$ является стационарной точкой функционала
+\[
+J+\sum_{j=1}^{m}\lambda_jG_j=\int_a^bF(x,y,y')\,\dd x.
+\]
+\end{myproof}
+
+\begin{myexe}
 Если $y_0$ --- локальный экстремум $J$ на множестве
 \[
 M=
@@ -2323,7 +2348,7 @@ M=
 \[
 \frac{\dd}{\dd x}\nabla_vF=\nabla_yF.
 \]
-\end{myremark}
+\end{myexe}
 
 \begin{myremark}
 Получается $n$ уравнений второго порядка, то есть $2n+m$ неизвестных постоянных. На них имеются $2n$ граничных условий и $m$ интегральных условий
@@ -2334,15 +2359,40 @@ M=
 
 \subsection{Задача Лагранжа}
 
-Рассмотрим
 \[
-J[y]=\int_a^bL(x,y,y')\,\dd x
+J[y]=\int_a^b L(x,y(x),y'(x))\,dx,
+\qquad
+H_i\colon [a,b]\times\mathbb{R}^n\times\mathbb{R}^n
+\to\mathbb{R},
+\quad i=1,\ldots,m.
 \]
-при связях
+Для которых выполнено   
 \[
 H_i(x,y(x),y'(x))=0,
-\qquad i=1,\ldots,m.
+\qquad x\in[a,b],\quad i=1,\ldots,m.
 \]
+Множество допустимых функций имеет вид
+\[
+M=\left\{
+y\in C^1([a,b],\mathbb{R}^n):
+H_i(x,y(x),y'(x))=0
+\; \forall x\in[a,b],\; i=1,\ldots,m
+\right\}.
+\]
+Это все имеет смысл, только при \(n>m\). \\Например, движение по поверхности
+в \(\mathbb{R}^3\) задаётся одним ограничением:
+\(n=3\), \(m=1\).
+
+В отличие от отображения
+\[
+\vec G\colon X\to\mathbb{R}^m,
+\]
+здесь ограничения задаются отображением
+\[
+\vec H\colon C^1([a,b],\mathbb{R}^n)
+\to C([a,b],\mathbb{R}^m).
+\]
+
 
 \begin{mytheorem}
 Пусть
@@ -2353,7 +2403,7 @@ C^2([a,b]\times\mathbb R^n\times\mathbb R^n),
 \]
 и $y_0$ --- локальный экстремум $J$ на множестве
 \[
-\left\{
+M=\left\{
  y\in X:
  H_i(x,y(x),y'(x))=0,
 \ i=1,\ldots,m,
@@ -2364,7 +2414,7 @@ C^2([a,b]\times\mathbb R^n\times\mathbb R^n),
 Пусть $n>m$. Предположим, что выполнено одно из условий:
 
 \begin{enumerate}
-\item $H=H(x,y,v)$ и
+\item $H=H(x,y,v)$ (неголономная связь) и
 \[
 \operatorname{rank}
 \left(
@@ -2372,7 +2422,7 @@ C^2([a,b]\times\mathbb R^n\times\mathbb R^n),
 \right)=m
 \qquad\forall x,y,v;
 \]
-\item $H=H(x,y)$ и
+\item Если $H=H(x,y)$, то
 \[
 \operatorname{rank}
 \left(
@@ -2394,10 +2444,9 @@ L(x,y,v)+\sum_{i=1}^{m}\lambda_i(x)H_i(x,y,v)
 \]
 выполняется
 \[
-\boxed{
 \frac{\dd}{\dd x}\nabla_vF(x,y_0,y_0')
 =
-\nabla_yF(x,y_0,y_0').}
+\nabla_yF(x,y_0,y_0').
 \]
 \end{mytheorem}
 
@@ -2451,17 +2500,15 @@ F(x,y,v)=p(x)v^2+q(x)y^2-\lambda y^2.
 \]
 то есть
 \[
-\boxed{
-(p y_0')'+(\lambda-q)y_0=0,}
+(p y_0')'+(\lambda-q)y_0=0,
 \qquad
-\boxed{y_0(a)=y_0(b)=0.}
+y_0(a)=y_0(b)=0.
 \]
 \end{myremark}
-
+Будем пытать доказать, сущестуует или минимум у функционала $J[y]$ на множестве $M_1$.
 Положим
 \[
-\lambda_1:=\inf_{M_1}J[y].
-\]
+\lambda_1:=\inf_{M_1}J[y].\]
 
 \begin{mylemma}
 Если
@@ -2495,8 +2542,7 @@ f(a)=f(b)=0,
 \]
 то
 \[
-\boxed{
-J[f]\ge\lambda_1\int_a^b f(x)^2\,\dd x.}
+J[f]\ge\lambda_1\int_a^b f(x)^2\,\dd x.
 \]
 \end{mylemma}
 
@@ -2520,14 +2566,21 @@ J[y]\ge\lambda_1.
 \qquad
 J[f_m]\to\lambda_1.
 \]
-
+И если существует $\inf,$ то существует и $\min$, то существует последовательность, которая стремится к $\lambda_1$.
 \begin{mytheorem}
 \textbf{Теорема Арцела--Асколи.}\par
-Пусть
+Пусть существует семейство функций
 \[
 \{h_k\}_{k=1}^{\infty}\subset C[a,b]
 \]
---- равномерно ограниченное и равностепенно непрерывное семейство. Тогда существует подпоследовательность
+Которые:
+\begin{enumerate}
+    \item равномерно ограничены, то есть существует $C_1>0$ такое, что
+    \[|h_k(x)|\le C_1\quad\forall x\in[a,b],\ \forall k\]
+    \item равностепенно непрерывны, то есть для любого $\varepsilon>0$ существует $\delta>0$ такое, что
+    \[|h_k(x')-h_k(x'')|<\varepsilon\quad\forall x',x''\in[a,b],\ |x'-x''|<\delta,\ \forall k\]
+\end{enumerate}
+Тогда существует подпоследовательность
 \[
 \{h_{k_j}\}_{j=1}^{\infty}
 \]
@@ -2564,7 +2617,7 @@ f_m(a)=0,
 \le
 \sqrt{x_2-x_1}\,\sqrt K.
 \]
-Следовательно, семейство $\{f_m\}$ равностепенно непрерывно.
+Следовательно, семейство $\{f_m\}$ равностепенно непрерывно (достаточно взять $\delta = \frac{\varepsilon^2}{\sqrt{K}}$).
 Кроме того, при $x_1=a$, $x_2=x$ получаем
 \[
 |f_m(x)|\le\sqrt{(b-a)K},
@@ -2579,10 +2632,9 @@ p_0:=\min_{[a,b]}p(x)>0.
 \]
 Тогда для $f\in M_1$
 \[
-\boxed{
 \int_a^b f'(x)^2\,\dd x
 \le
-\frac{J[f]-q_0}{p_0}.}
+\frac{J[f]-q_0}{p_0}.
 \]
 \end{mylemma}
 
@@ -2644,7 +2696,7 @@ y_1(a)=y_1(b)=0,
 \int_a^b y_1(x)^2\,\dd x=1.
 \]
 
-Введём оператор
+Вспомним опертор Штурма--Лиувилля
 \[
 \mathcal L
 =
@@ -2661,10 +2713,9 @@ y_1(a)=y_1(b)=0,
 \begin{mylemma}
 Для любого $h\in\operatorname{Dom}\mathcal L$
 \[
-\boxed{
 \int_a^b y_1\,\mathcal L h\,\dd x
 =
-\lambda_1\int_a^b y_1h\,\dd x.}
+\lambda_1\int_a^b y_1h\,\dd x.
 \]
 \end{mylemma}
 
@@ -2689,12 +2740,12 @@ J[f_m]
 +2\tau\lambda_1\int_a^b f_mh\,\dd x
 +\tau^2\lambda_1\int_a^b h^2\,\dd x.
 \]
-Переходя к пределу по подпоследовательности и используя
+Переходя к пределу по подпоследовательности и используя интегрировани по частям, получаем
 \[
 \int_a^b(pf_m'h'+qf_mh)\,\dd x
 =
 \int_a^b f_m\,\mathcal Lh\,\dd x,
-\]
+\]ч
 получаем
 \[
 \lambda_1
@@ -2704,15 +2755,6 @@ J[f_m]
 \lambda_1
 +2\tau\lambda_1\int_a^b y_1h\,\dd x
 +\tau^2\lambda_1\int_a^b h^2\,\dd x.
-\]
-Это неравенство имеет вид
-\[
-A\tau^2+B\tau\ge0
-\qquad\forall\tau\in\mathbb R,
-\]
-откуда
-\[
-B=0.
 \]
 Следовательно,
 \[
@@ -2806,16 +2848,21 @@ y\in C^2[a,b].
 \]
 то есть
 \[
-\mathcal Ly=\lambda y.
+\mathcal Ly=0.
 \]
-Наконец, интегрирование по частям в исходном слабом равенстве даёт
-\[
--py h'\Big|_a^b=0
+Покажем, что $y(a)=y(b)=0$. Для этого положим
+\[\int_a^b (-(py')'+qy)h\,\dd x=0=\int_a^b y((-ph')'+qh)\,\dd x\]
+для всех $h\in C^2[a,b]$ с
+\[h(a)=h(b)=0.
 \]
-для всех допустимых $h$, следовательно
-\[
-py\Big|_a^b=0.
-\]
+Правая и лева часть отличаются на
+\[\int_a^b (py'h'-p'yh)\,\dd x
+=
+\int_a^b (py'h'-pyh')'\,\dd x
+=
+(py'h-pyh')\big|_a^b
+=0.
+\]  
 Так как $p>0$,
 \[
 y(a)=y(b)=0.
@@ -2861,11 +2908,8 @@ J[y_1]=\lambda_1=\min_{M_1}J,
 \end{mytheorem}
 
 \begin{myproof}
-По слабому равенству
-\[
-\mathcal Ly_1=\lambda_1y_1.
-\]
-Тогда
+Мы выше уже показли, что $y_1 \in M_1 \cap \operatorname{Dom}\mathcal L$ и $\mathcal L y_1=\lambda_1y_1$.
+Остается показать, что $J[y_1]=\lambda_1$. Для этого просто это напишем
 \[
 J[y_1]
 =
@@ -2974,10 +3018,9 @@ h_1:=h-h_0.
 \begin{mylemma}
 Для любого $h\in\operatorname{Dom}\mathcal L$
 \[
-\boxed{
 \int_a^b y_n\mathcal Lh\,\dd x
 =
-\lambda_n\int_a^b y_nh\,\dd x.}
+\lambda_n\int_a^b y_nh\,\dd x.
 \]
 \end{mylemma}
 
@@ -2987,7 +3030,9 @@ h_1:=h-h_0.
 \int_a^b h_1y_k\,\dd x=0,
 \qquad k=1,\ldots,n-1.
 \]
-Тогда, варьируя минимизирующую последовательность в направлении $h_1$, получаем
+Тогда, варьируя минимизирующую последовательность в направлении $h_1$, делаем все тоже самое, что и в доказательстве для $y_1$, и получаем
+\[J[f_m+\tau h_1]\neq \lambda_n \int_a^b (f_m+\tau h_1)^2\,\dd x\]
+Откуда сразу следует, что
 \[
 \int_a^b y_n\mathcal Lh_1\,\dd x
 =
@@ -3033,7 +3078,7 @@ y_n\in\operatorname{Dom}\mathcal L,
 \qquad
 \mathcal Ly_n=\lambda_ny_n.
 \]
-Далее
+Далее интегрируем по частям и получаем
 \[
 J[y_n]
 =(\mathcal Ly_n,y_n)
@@ -3046,12 +3091,11 @@ J[y_n]
 % ------------------------------------------------------------
 
 \begin{mylemma}
-Собственные числа удовлетворяют
+Собственные числа оператора Штурма-Лиувилля удовлетворяют
 \[
-\boxed{
 \lambda_{n+1}>\lambda_n,
 \qquad
-\lambda_n\to+\infty.}
+\lambda_n\to+\infty.чё
 \]
 \end{mylemma}
 
@@ -3085,7 +3129,7 @@ y_{n_k}\to z
 \int_a^b|y_{n_k}-y_{n_j}|^2\,\dd x\to0
 \qquad k,j\to\infty.
 \]
-Но при $k\ne j$ из ортонормированности
+Но при $k\ne j$ из ортогональности $y_{n_k}$ и $y_{n_j}$ следует
 \[
 \int_a^b|y_{n_k}-y_{n_j}|^2\,\dd x=2,
 \]
@@ -3143,7 +3187,7 @@ f_N\in\operatorname{Dom}\mathcal L
 \]
 и
 \[
-\int_a^b f_N(x)y_k(x)\,\dd x=0,
+\int_a^b f_N(x)y_k(x)\,\dd x=\int_a^b fy_k\dd x-\sum_{j=1}^{N-1}c_j\int_a^b y_j(x)y_k(x)\,\dd x=0,
 \qquad k=1,\ldots,N-1.
 \]
 Следовательно,
@@ -3155,9 +3199,10 @@ J[f_N]
 С другой стороны,
 \[
 J[f_N]
+=\int_a^b(pf_N'^2+qf_N^2)\,\dd x= \int_a^b ((-pf_N')'+qf_N)f_N\,\dd x
 =
 \int_a^b(\mathcal Lf_N)f_N\,\dd x
-\le
+\le\]\[\le
 \left(\int_a^b(\mathcal Lf_N)^2\,\dd x\right)^{1/2}
 \left(\int_a^b f_N^2\,\dd x\right)^{1/2}.
 \]
@@ -3165,10 +3210,7 @@ J[f_N]
 \[
 \lambda_N\|f_N\|_{L_2}^2
 \le
-\|\mathcal Lf_N\|_{L_2}\|f_N\|_{L_2},
-\]
-то есть
-\[
+\|\mathcal Lf_N\|_{L_2}\|f_N\|_{L_2}\Rightarrow
 \|f_N\|_{L_2}
 \le
 \frac{\|\mathcal Lf_N\|_{L_2}}{\lambda_N}.
@@ -3206,21 +3248,19 @@ J[f_N]
 \]
 Следовательно,
 \[
-\boxed{
 \|f_N\|_{L_2(a,b)}
 \le
 \frac{\|\mathcal Lf\|_{L_2(a,b)}}{\lambda_N}
-\longrightarrow0.}
+\xrightarrow{N\to +\infty}0.
 \]
 \end{myproof}
 
 \begin{myprop}
 Для $f\in\operatorname{Dom}\mathcal L$
 \[
-\boxed{
 \int_a^b f(x)^2\,\dd x
 =
-\sum_{k=1}^{\infty}c_k^2.}
+\sum_{k=1}^{\infty}c_k^2.
 \]
 \end{myprop}
 
@@ -3344,29 +3384,28 @@ M_n=
 \]
 достигается на некоторой функции $y_n$, причём
 \[
-\boxed{
-(p y_n')'+(\lambda_nr-q)y_n=0,}
+y_n\in\operatorname{Dom}\mathcal L \cap M_n, \qquad
+(p y_n')'+(\lambda_nr-q)y_n=0,
 \qquad
-\boxed{y_n(a)=y_n(b)=0.}
+y_n(a)=y_n(b)=0.
 \]
 Других собственных значений и собственных функций нет,
-\[
+$
 \lambda_n\to+\infty.
-\]
+$
 Если
 \[
 c_k:=\int_a^b f(x)y_k(x)r(x)\,\dd x,
 \]
 то
 \[
-\sum_{k=1}^{\infty}c_ky_k(x)=f(x)
+\sum_{k=1}^{\infty}c_ky_k(x)=f(x).
 \]
-в соответствующем смысле, и
+И выполнено равенство Парсеваля:
 \[
-\boxed{
 \int_a^b f(x)^2r(x)\,\dd x
 =
-\sum_{k=1}^{\infty}c_k^2.}
+\sum_{k=1}^{\infty}c_k^2.
 \]
 \end{myremark}
 
@@ -3378,11 +3417,11 @@ c_k:=\int_a^b f(x)y_k(x)r(x)\,\dd x,
 
 \subsection{Уравнение Эйлера--Остроградского}
 
-Пусть
+Пусть есть ограниченная область
 \[
 \Omega\subset\mathbb R^k
 \]
---- ограниченная область и
+и функция
 \[
 u:\overline\Omega\to\mathbb R^n.
 \]
@@ -3426,7 +3465,7 @@ w_{ij}=\frac{\partial u_j}{\partial x_i}.
 \[
 L\in C(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}),
 \]
-то $J$ непрерывен на $X$.
+то $J$ непрерывен на $X$.\\
 Если
 \[
 L\in C^1(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}),
@@ -3437,7 +3476,6 @@ J\in C^1(X)
 \]
 и
 \[
-\boxed{
 \delta J(u;h)
 =
 \int_\Omega
@@ -3448,15 +3486,15 @@ J\in C^1(X)
 \sum_{i=1}^{k}\sum_{j=1}^{n}
 \frac{\partial L}{\partial w_{ij}}(x,u,u')
 \frac{\partial h_j(x)}{\partial x_i}
-\right)\dd x.}
+\right)\dd x.
 \]
 
 \begin{mytheorem}
 Пусть
 \[
-L\in C^1(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}),
+L\in C^2(\overline\Omega\times\mathbb R^n\times\mathbb R^{kn}),
 \]
-граница $\partial\Omega$ достаточно гладкая и задана функция
+граница $\partial\Omega \in C^1$ достаточно гладкая и задана функция
 \[
 \varphi\in C(\partial\Omega).
 \]
@@ -3477,7 +3515,6 @@ u_0\in C^2(\overline\Omega,\mathbb R^n).
 \]
 Тогда
 \[
-\boxed{
 \sum_{i=1}^{k}
 \frac{\partial}{\partial x_i}
 \left(
@@ -3485,7 +3522,7 @@ u_0\in C^2(\overline\Omega,\mathbb R^n).
 \right)
 =
 \frac{\partial L(x,u_0(x),u_0'(x))}{\partial u_j},
-\quad j=1,\ldots,n.}
+\quad j=1,\ldots,n.
 \]
 \end{mytheorem}
 
@@ -3548,12 +3585,11 @@ h\big|_{\partial\Omega}=0.
 \right)h_j(x)\,\dd x
 =0.
 \]
-Фиксируем $j$ и берём
+Фиксируем $j$ и берём $h_j: \, h_j\big|_{\partial\Omega}=0 \,\forall j$, а отстальные
 \[
 h_1=\cdots=h_{j-1}=h_{j+1}=\cdots=h_n=0.
 \]
-По основной лемме вариационного исчисления
-\[
+Тогда просто получим уравнение Э.О.:\[
 \frac{\partial L(x,u_0,u_0')}{\partial u_j}
 =
 \sum_{i=1}^{k}
@@ -3594,9 +3630,9 @@ $X=C^1(\overline\Omega,\mathbb R^n)$. Тогда для $j=1,\ldots,n$
  \quad\text{в }\Omega,
 \]
 \[
-\boxed{\left.\sum_{i=1}^k
+\left.\sum_{i=1}^k
  \frac{\partial L(x,u_0,u_0')}{\partial w_{ij}}\nu_i(x)
- \right|_{\partial\Omega}=0.}
+ \right|_{\partial\Omega}=0.
 \]
 Здесь $\nu$ --- внешняя единичная нормаль; последнее равенство называется естественным граничным условием.
 \end{mytheorem}
@@ -3610,7 +3646,7 @@ $X=C^1(\overline\Omega,\mathbb R^n)$. Тогда для $j=1,\ldots,n$
  +\int_{\partial\Omega}\sum_{j=1}^n\sum_{i=1}^k
  \frac{\partial L}{\partial w_{ij}}h_j\nu_i\,\dd S.
 \]
-Первый интеграл равен нулю. Произвольность граничных значений $h_j$ даёт требуемые условия.
+Первый интеграл равен нулю. Произвольность граничных значений $h_j$ даёт требуемые естественные граничные условия.
 \end{myproof}
 \begin{myremark}
 При условном экстремуме $m$ интегральным ограничениям соответствуют постоянные множители Лагранжа $\lambda_1,\ldots,\lambda_m\in\mathbb R$.
@@ -3677,7 +3713,7 @@ $\gamma:[a,b]\to\mathbb R^n$ класса $C^r$ такое, что $\gamma'(x)\n
 \end{mydef}
 \begin{mydef}
 Кривые $\gamma_1:[a_1,b_1]\to\mathbb R^n$ и $\gamma_2:[a_2,b_2]\to\mathbb R^n$ эквивалентны, если существует биекция
-$\chi:[a_1,b_1]\to[a_2,b_2]$, $\chi,\chi^{-1}\in C^r$, $\chi'>0$, такая, что $\gamma_1=\gamma_2\circ\chi$.
+$\kappa:[a_1,b_1]\to[a_2,b_2]$, $\kappa,\kappa^{-1}\in C^r$, $\kappa'>0$, такая, что $\gamma_1=\gamma_2\circ\kappa$.
 Ориентированная кривая --- класс эквивалентности таких параметризованных кривых.
 \end{mydef}
 \begin{myexe}
@@ -3701,13 +3737,12 @@ F(z,\lambda w)=\lambda F(z,w),\qquad\lambda>0.
 Функционал $J$ не зависит от выбора параметризации ориентированной кривой.
 \end{mylemma}
 \begin{myproof}
-Если $\gamma_1(x)=\gamma_2(\chi(x))$, то
-\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
-J[\gamma_1]
-&=\int_{a_1}^{b_1}F(\gamma_2(\chi(x)),\chi'(x)\gamma_2'(\chi(x)))\,\dd x\\
-&=\int_{a_1}^{b_1}F(\gamma_2(\chi(x)),\gamma_2'(\chi(x)))\chi'(x)\,\dd x\\
-&=\int_{a_2}^{b_2}F(\gamma_2(s),\gamma_2'(s))\,\dd s=J[\gamma_2].
-\end{array}\]
+Если $\gamma_1(x)=\gamma_2(\kappa(x))$, то
+\[
+J[\gamma_1]=\int_a^b F(\gamma_1(x),\gamma_1'(x))\,\dd x=
+\int_{a_1}^{b_1}F(\gamma_2(\kappa(x)),\kappa'(x)\gamma_2'(\kappa(x)))\,\dd x
+=\]\[=\int_{a_1}^{b_1}F(\gamma_2(\kappa(x)),\gamma_2'(\kappa(x)))\kappa'(x)\,\dd x
+=\int_{a_2}^{b_2}F(\gamma_2(s),\gamma_2'(s))\,\dd s=J[\gamma_2].\]
 \end{myproof}
 \begin{myexample}
 Для $F(z,w)=f(z)|w|$, $f\in C(\mathbb R^n)$,
@@ -3737,38 +3772,42 @@ F(w)=\langle\nabla F(w),w\rangle.
 \]
 \end{myexe}
 \subsection{Общая формула первой вариации}
+Рассмотрим семейство кривых
+\[
+\Gamma\colon [a,b]\times[\alpha_1,\alpha_2]\to\mathbb{R}^n.
+\]
 \begin{mytheorem}
 Пусть $F\in C^2(\mathbb R^n\times(\mathbb R^n\setminus\{0\}))$,
 $F(z,\lambda w)=\lambda F(z,w)$, а
-$\Gamma:[a,b]\times[\alpha_1,\alpha_2]\to\mathbb R^n$ --- гладкое семейство регулярных кривых.
+$\Gamma:[a,b]\times[\alpha_1,\alpha_2]\to\mathbb R^n$ --- гладкое семейство регулярных кривых, таких $\Gamma'_{\alpha}\ne0;\,\forall x, \alpha$.
 Обозначим
 \[
-\Phi(\alpha)=\int_a^b F(\Gamma(x,\alpha),\Gamma_x'(x,\alpha))\,\dd x,
-\]
-\[
-\mathcal E_F\{\gamma\}(x)=\nabla_zF(\gamma(x),\gamma'(x))
- -\frac{\dd}{\dd x}\nabla_wF(\gamma(x),\gamma'(x)).
+\phi(\alpha)=\int_a^b F(\Gamma(x,\alpha),\Gamma_x'(x,\alpha))\,\dd x,
 \]
 Тогда
 \[
-\boxed{\Phi'(\alpha)=\int_a^b
- \langle\mathcal E_F\{\Gamma(\cdot,\alpha)\},\Gamma_\alpha'\rangle\,\dd x
- +\left.\langle\nabla_wF(\Gamma,\Gamma_x'),\Gamma_\alpha'\rangle\right|_a^b.}
+\phi'(\alpha)=\int_a^b
+ \langle F\{\Gamma(\cdot,\alpha)\},\Gamma_\alpha'\rangle\,\dd x
+ +\langle\nabla_wF(\Gamma(b,\alpha)),\Gamma_x'(b,\alpha)),\Gamma_\alpha'(b,\alpha)\rangle-\langle\nabla_wF(\Gamma(a,\alpha)),\Gamma_x'(a,\alpha)),\Gamma_\alpha'(a,\alpha)\rangle,
+\]где
+\[
+ F\{\gamma\}(x)=\nabla_zF(\gamma(x),\gamma'(x))
+ -\frac{\dd}{\dd x}\nabla_wF(\gamma(x),\gamma'(x)).
 \]
+
 \end{mytheorem}
 \begin{myproof}
 Дифференцируем под знаком интеграла и интегрируем по частям:
-\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
-\Phi'(\alpha)&=\int_a^b\left(
+\[
+\phi'(\alpha)=\int_a^b\left(
  \langle\nabla_zF,\Gamma_\alpha'\rangle+
- \langle\nabla_wF,\Gamma_{x\alpha}''\rangle\right)\dd x\\
-&=\int_a^b\left\langle\nabla_zF-\frac{\dd}{\dd x}\nabla_wF,
+ \langle\nabla_wF,\Gamma_{x\alpha}''\rangle\right)\dd x=\int_a^b\left\langle\nabla_zF-\frac{\dd}{\dd x}\nabla_wF,
  \Gamma_\alpha'\right\rangle\dd x
  +\left.\langle\nabla_wF,\Gamma_\alpha'\rangle\right|_a^b.
-\end{array}\]
+\]
 \end{myproof}
 \begin{mylemma}
-Из однородности $F$ следуют равенства
+Из однородности $F: F(z,\lambda w)=\lambda F(z,w)$ --  следуют равенства
 \[
 \nabla_zF(z,\lambda w)=\lambda\nabla_zF(z,w),\qquad
 \nabla_wF(z,\lambda w)=\nabla_wF(z,w),\quad\lambda>0.
@@ -3780,62 +3819,155 @@ $\lambda F_{w_j}(z,\lambda w)=\lambda F_{w_j}(z,w)$.
 \end{myproof}
 % Рукопись, с. 25.
 \begin{mylemma}
-Если $\gamma_1=\gamma_2\circ\chi$, то
+    Пусть
 \[
-\mathcal E_F\{\gamma_1\}(x)=\chi'(x)\mathcal E_F\{\gamma_2\}(\chi(x)).
+F\in C^2\!\left(
+\mathbb{R}^n\times(\mathbb{R}^n\setminus\{0\})
+\right);\qquad
+F(z,\lambda w)=\lambda F(z,w),
+\qquad \lambda>0.
+\]
+Если $\gamma_1=\gamma_2\circ\kappa$, то есть $\gamma_1(x)=\gamma_2(\kappa(x))$, $\kappa'>0$, то
+\[
+ F\{\gamma_1\}(x)=\kappa'(x) F\{\gamma_2\}(\kappa(x)).
 \]
 \end{mylemma}
 \begin{myproof}
 По предыдущей лемме и правилу дифференцирования сложной функции
-\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
-\mathcal E_F\{\gamma_1\}
-&=\nabla_zF(\gamma_2(\chi),\chi'\gamma_2'(\chi))
- -\frac{\dd}{\dd x}\nabla_wF(\gamma_2(\chi),\chi'\gamma_2'(\chi))\\
-&=\chi'\nabla_zF(\gamma_2(\chi),\gamma_2'(\chi))
- -\chi'\left.\frac{\dd}{\dd s}\nabla_wF(\gamma_2(s),\gamma_2'(s))\right|_{s=\chi(x)}.
-\end{array}\]
+\[
+ F\{\gamma_1\}(x)=\nabla_zF(\gamma_2(\kappa(x)),\kappa'(x)\gamma_2'(\kappa(x)))
+ -\frac{\dd}{\dd x}\nabla_wF(\gamma_2(\kappa(x)),\kappa'(x)\gamma_2'(\kappa(x)))=\]\[=\kappa'(x)\nabla_zF(\gamma_2(\kappa(x)),\gamma_2'(\kappa(x)))
+ -\kappa'(x)\left.\frac{\dd}{\dd s}\nabla_wF(\gamma_2(\kappa(x)),\gamma_2'(\kappa(x)))\right|_{s=\kappa(x)}=\]
+ \[=\kappa'(x)\left(\nabla_zF(\gamma_2,\gamma_2')
+ -\nabla_wF(\gamma_2,\gamma_2')\right)
+\]
 \end{myproof}
 \subsection{Уравнение Эйлера}
 \begin{mytheorem}
-Пусть $F$ удовлетворяет указанным выше условиям. Если $\gamma_0$ --- локальный экстремум $J$ на множестве регулярных $C^1$-кривых с
-$\gamma(a)=y_1$, $\gamma(b)=y_2$, и $\gamma_0\in C^2$, то
+    Пусть
 \[
-\boxed{\mathcal E_F\{\gamma_0\}=0,\qquad
-\nabla_zF(\gamma_0,\gamma_0')-\frac{\dd}{\dd x}\nabla_wF(\gamma_0,\gamma_0')=0.}
+F\in C^2\!\left(
+\mathbb{R}^n\times(\mathbb{R}^n\setminus\{0\})
+\right);\qquad
+F(z,\lambda w)=\lambda F(z,w),
+\qquad \lambda>0.
+\]
+Если $\gamma_0$ --- локальный экстремум $J[y]=\int_a^b F(\gamma(x),\gamma'(x))\,\dd x$ на множестве 
+\[
+\{\gamma\in \Gamma^1_n:\, \gamma(a)=y_1,\, \gamma(b)=y_2\}
+\] 
+и пусть $\gamma_0\in C^2$, то
+\[
+F\{\gamma_0\}=0,\qquad
+\nabla_zF(\gamma_0,\gamma_0')-\frac{\dd}{\dd x}\nabla_wF(\gamma_0,\gamma_0')=0.
 \]
 \end{mytheorem}
 \begin{myproof}
-Берём $\Gamma(x,\alpha)=\gamma_0(x)+\alpha h(x)$, где $h\in C^1$, $h(a)=h(b)=0$.
-Так как $\gamma_0'\ne0$ на компакте, существует $\delta_0>0$:
-$|\gamma_0'|\ge\delta_0$. Поэтому при достаточно малых $|\alpha|$ все кривые $\Gamma(\cdot,\alpha)$ регулярны.
-Точка $\alpha=0$ --- локальный экстремум $\Phi$, следовательно,
+Положим
 \[
-0=\Phi'(0)=\int_a^b\langle\mathcal E_F\{\gamma_0\}(x),h(x)\rangle\,\dd x.
+\Gamma(x,\alpha)=\gamma_0(x)+\alpha h(x),
+\qquad h:[a,b]\to\mathbb{R}^n,\qquad
+h\in C^1([a,b],\mathbb{R}^n),
+\qquad h(a)=h(b)=0.
 \]
-Основная лемма вариационного исчисления завершает доказательство.
+Так как мы смотрим на параметризацию кривой, то можно считать, что $\gamma'_0\neq0$:
+\[|\gamma'_0(x)| \geq \delta>0\]
+Существует \(\varepsilon>0\) такое, что
+\[
+\Gamma_x'(x,\alpha)\ne0
+\qquad
+\forall x\in[a,b],\quad
+\forall\alpha\in[-\varepsilon,\varepsilon].
+\]
+Положим
+\[
+\varphi(\alpha)=J[\Gamma(\cdot,\alpha)].
+\]
+При \(\alpha=0\) функция \(\varphi\) имеет локальный экстремум,
+следовательно,
+\[\varphi(\alpha)=J[\Gamma(\cdot,\alpha)]\Rightarrow
+\varphi'(0)=0.
+\]
+По формуле первой вариации
+\[
+\varphi'(\alpha)
+=
+\int_a^b
+\left\langle
+F\{\Gamma(\cdot,\alpha)\}(x),
+\Gamma_\alpha'(x,\alpha)
+\right\rangle\,\dd x
++
+\left.
+\left\langle
+\nabla_wF(\Gamma,\Gamma_x'),
+\Gamma_\alpha'
+\right\rangle
+\right|_a^b.
+\]
+Имеем
+\[
+\Gamma(x,0)=\gamma_0(x),
+\qquad
+\Gamma_x'(x,0)=\gamma_0'(x),
+\]
+\[
+\Gamma_\alpha'(x,\alpha)=h(x),
+\qquad
+\Gamma_\alpha'(a,\alpha)
+=
+\Gamma_\alpha'(b,\alpha)=0.
+\]
+Поэтому
+\[\varphi'(\alpha)=
+\int_a^b
+\left\langle F\{\gamma_0\}(x),h(x)\right\rangle
+\,\dd x=0
+\qquad
+\forall h\in C^1([a,b],\mathbb{R}^n):
+\quad h(a)=h(b)=0.
+\]
+По основной лемме вариационного исчисления
+\[
+F\{\gamma_0\}(x)=0\Rightarrow \nabla_zF(\gamma_0,\gamma_0')-\frac{\dd}{\dd x}\nabla_wF(\gamma_0,\gamma_0')=0.
+\]
 \end{myproof}
 \begin{myremark}
-Условие $\mathcal E_F\{\gamma\}=0$ не зависит от параметризации.
+Условие $ F\{\gamma\}=0$ не зависит от параметризации.
 Кривая, удовлетворяющая уравнению Эйлера, называется экстремалью.
 \end{myremark}
-% Рукопись, с. 26.
+
+\begin{mydef}
+    Кривую, которая удовлетворяет уравнению Эйлера, называют экстремалью.
+\end{mydef}
+
 \subsection{Условия трансверсальности}
 \begin{myexe}
 Построить $\theta\in C^\infty(\mathbb R)$, равную единице в окрестности $a$ и нулю в окрестности $b$.
 \end{myexe}
 \begin{mytheorem}
-Пусть $M_1,M_2\subset\mathbb R^n$ --- подмногообразия класса $C^1$,
-а $\gamma_0\in C^2$ --- локальный экстремум $J$ на множестве регулярных кривых с
-$\gamma(a)\in M_1$, $\gamma(b)\in M_2$. Тогда
+Пусть $M_1,M_2\subset\mathbb R^n$ --- подмногообразия класса $C^1$.
+ Пусть
 \[
-\mathcal E_F\{\gamma_0\}=0,
+F\in C^2\!\left(
+\mathbb{R}^n\times(\mathbb{R}^n\setminus\{0\})
+\right);\qquad
+F(z,\lambda w)=\lambda F(z,w),
+\qquad \lambda>0.
 \]
+Если $\gamma_0$ --- локальный экстремум $J[y]=\int_a^b F(\gamma(x),\gamma'(x))\dd x$ на множестве 
 \[
-\boxed{\nabla_wF(\gamma_0(a),\gamma_0'(a))\perp T_{y_1}M_1,\qquad
-\nabla_wF(\gamma_0(b),\gamma_0'(b))\perp T_{y_2}M_2,}
-\qquad y_1=\gamma_0(a),\quad y_2=\gamma_0(b).
+\{\gamma\in \Gamma^1_n:\, \gamma(a)\in M_1,\, \gamma(b)\in M_2\}\] и пусть $\gamma_0\in C^2$, то
+\begin{itemize}
+\item \[
+ F\{\gamma_0\}=0.
 \]
-Это условия трансверсальности.
+\item Выполняется \textbf{условие трансверсальности}\[
+\nabla_wF(\gamma_0(a),\gamma_0'(a))\perp T_{y_1}M_1,\qquad
+\nabla_wF(\gamma_0(b),\gamma_0'(b))\perp T_{y_2}M_2,
+\qquad y_1=\gamma_0(a),\quad y_2=\gamma_0(b),
+\] где $T_{y_1}M_1$ и $T_{y_2}M_2$ --- касательные плоскости концах кривой.
+\end{itemize}
 \end{mytheorem}
 \begin{myproof}
 Вариации с закреплёнными концами дают уравнение Эйлера.
@@ -3848,7 +3980,7 @@ $\gamma(a)\in M_1$, $\gamma(b)\in M_2$. Тогда
 $\Gamma(b,\alpha)=y_2$ и $\Gamma_\alpha'=\theta(x)u'(\alpha)$.
 Общая формула первой вариации даёт
 \[
-0=\Phi'(0)=-\langle\nabla_wF(\gamma_0(a),\gamma_0'(a)),u'(0)\rangle.
+0=\phi'(0)=-\langle\nabla_wF(\gamma_0(a),\gamma_0'(a)),u'(0)\rangle.
 \]
 Векторы $u'(0)$ заполняют $T_{y_1}M_1$. Для второго конца рассуждение аналогично.
 \end{myproof}
@@ -3921,7 +4053,7 @@ J[\gamma_T]=J_T[\gamma].
 \]
 \begin{myexe}
 Доказать, что
-$\mathcal E_F\{\gamma_T\}=0\Longleftrightarrow\mathcal E_{F_T}\{\gamma\}=0$.
+$ F\{\gamma_T\}=0\Longleftrightarrow\mathcal E_{F_T}\{\gamma\}=0$.
 \end{myexe}
 \begin{mytheorem}
 \textbf{(Нётер.)} Пусть $T_\alpha:\mathbb R^n\to\mathbb R^n$ --- семейство замен переменных,
@@ -3941,10 +4073,10 @@ $\det T_\alpha'(z)\ne0$, отображение $(\alpha,z)\mapsto T_\alpha(z)$ 
 Тогда $\Gamma_x'=T_\alpha'(\gamma_c)\gamma_c'\ne0$, а $J[\Gamma(\cdot,\alpha)]$ не зависит от $\alpha$.
 Следовательно,
 \[
-0=\int_a^c\langle\mathcal E_F\{\Gamma\},\Gamma_\alpha'\rangle\,\dd x
+0=\int_a^c\langle F\{\Gamma\},\Gamma_\alpha'\rangle\,\dd x
  +\left.\langle\nabla_wF(\Gamma,\Gamma_x'),\Gamma_\alpha'\rangle\right|_a^c.
 \]
-При $\alpha=0$ имеем $\Gamma=\gamma_c$ и $\mathcal E_F\{\gamma\}=0$.
+При $\alpha=0$ имеем $\Gamma=\gamma_c$ и $ F\{\gamma\}=0$.
 Значит, выражения в рамке в точках $a$ и $c$ совпадают. Точка $c$ произвольна.
 \end{myproof}
 \begin{myexample}
@@ -4583,7 +4715,7 @@ t(x)=(x-c)\sqrt{\frac{2h(x)}{\varphi''(c)}}.
 $\varphi(x)=\varphi(c)+\tfrac12\varphi''(c)t(x)^2$.
 По теореме об обратной функции существуют $\delta,\varepsilon_1,\varepsilon_2>0$, для которых
 $t:[c-\varepsilon_1,c+\varepsilon_2]\to[-\delta,\delta]$ --- биекция.
-Обратная функция $\chi=t^{-1}$ удовлетворяет $\chi(0)=c$, $\chi'(0)=1$.
+Обратная функция $\kappa=t^{-1}$ удовлетворяет $\kappa(0)=c$, $\kappa'(0)=1$.
 Разбиваем интеграл на $I_a+I_c+I_b$ по этим трём промежуткам.
 Так как максимум единственный, внешние части для любого $m$ имеют порядок
 \[
@@ -4591,11 +4723,11 @@ I_a,I_b=O\left(\frac{e^{N\varphi(c)}}{N^m}\right).
 \]
 Например,
 $|I_a|\le(b-a)\max|F|\exp(N\max_{[a,c-\varepsilon_1]}\varphi)$.
-В центральном интеграле делаем замену $x=\chi(t)$:
+В центральном интеграле делаем замену $x=\kappa(t)$:
 \[
 I_c=e^{N\varphi(c)}\int_{-\delta}^{\delta}
  e^{N\varphi''(c)t^2/2}F_1(t)\,\dd t,
-\quad F_1(t)=F(\chi(t))\chi'(t),\quad F_1(0)=F(c).
+\quad F_1(t)=F(\kappa(t))\kappa'(t),\quad F_1(0)=F(c).
 \]
 Пишем $F_1(t)=F_1(0)+F_1'(0)t+R(t)$, $|R(t)|\le Kt^2$.
 Нечётный член интегрируется в нуль, постоянный даёт
@@ -4856,8 +4988,8 @@ I_b=\frac{e^{iN\varphi(b)}F(b)}{iN\varphi'(b)}+O(N^{-2}).
 \varphi(x)=\varphi(c_k)+\frac{\varphi''(c_k)}2t_k(x)^2,
 \quad t_k(c_k)=0,\quad t_k'(c_k)=1.
 \]
-Выбираем обратную функцию $\chi_k$ на $[-\delta_k,\delta_k]$,
-$\chi_k(0)=c_k$, $\chi_k'(0)=1$.
+Выбираем обратную функцию $\kappa_k$ на $[-\delta_k,\delta_k]$,
+$\kappa_k(0)=c_k$, $\kappa_k'(0)=1$.
 Покрываем $[a,b]$ этими окрестностями, окрестностями концов и промежутками без стационарных точек.
 Выбираем подчинённое гладкое разбиение единицы $\{\eta_j\}_{j=1}^M$:
 \[
@@ -4870,7 +5002,7 @@ I(N)=\sum_{j=1}^M\int_a^b e^{iN\varphi(x)}F(x)\eta_j(x)\,\dd x.
 \[
 I_{c_k}=e^{iN\varphi(c_k)}\int_{-\delta_k}^{\delta_k}
  e^{iN\varphi''(c_k)t^2/2}
- F(\chi_k(t))\eta_k(\chi_k(t))\chi_k'(t)\,\dd t.
+ F(\kappa_k(t))\eta_k(\kappa_k(t))\kappa_k'(t)\,\dd t.
 \]
 Применяем теорему о квадратичной фазе с учётом знака $\varphi''(c_k)$.
 В стационарном конце применяется её односторонний вариант.

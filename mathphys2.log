@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  30 OCT 2026 14:52
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  2 NOV 2026 01:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1240,7 +1240,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [15]
 
 [16]
-Overfull \hbox (15.12746pt too wide) detected at line 1589
+Overfull \hbox (15.12746pt too wide) detected at line 1590
 \OML/cmm/m/it/10.95 D\OT1/cmr/m/n/10.95 ^^H = [] []
  []
 
@@ -1249,7 +1249,7 @@ Overfull \hbox (15.12746pt too wide) detected at line 1589
 [17]
 
 [18]
-Underfull \hbox (badness 4156) in paragraph at lines 1672--1676
+Underfull \hbox (badness 4156) in paragraph at lines 1673--1677
 []\TU/TimesNewRoman(1)/m/n/10.95 В частности выполняется для $\OML/cmm/m/it/10.95 h$ \TU/TimesNewRoman(1)/m/n/10.95 с 0 на концах. Т.е. из предыдущего параграфа существует
  []
 
@@ -1286,6 +1286,9 @@ Underfull \hbox (badness 4156) in paragraph at lines 1672--1676
 [33]
 
 [34]
+Missing character: There is no ч ("447) in font cmmi10!
+Missing character: There is no ё ("451) in font cmmi10!
+
 
 [35]
 
@@ -1298,24 +1301,29 @@ Underfull \hbox (badness 4156) in paragraph at lines 1672--1676
 [39]
 
 [40]
-Underfull \hbox (badness 1383) in paragraph at lines 3616--3618
+
+[41]
+Underfull \hbox (badness 1383) in paragraph at lines 3652--3654
 \TU/TimesNewRoman(1)/m/n/10.95 Лагранжа $\OML/cmm/m/it/10.95 ^^U[]; [] ; ^^U[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 R$\TU/TimesNewRoman(1)/m/n/10.95 . При $\OML/cmm/m/it/10.95 m$ \TU/TimesNewRoman(1)/m/n/10.95 поточечных ограничениях множители являются функциями
  []
 
 
 
-[41]
-
 [42]
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 3778--3780
-[]\TU/TimesNewRoman(1)/m/n/10.95 Первое равенство получается дифференцированием по $\OML/cmm/m/it/10.95 z$\TU/TimesNewRoman(1)/m/n/10.95 . Дифференцирование по $\OML/cmm/m/it/10.95 w[]$ \TU/TimesNewRoman(1)/m/n/10.95 даёт
+Overfull \hbox (15.8486pt too wide) detected at line 3792
+\OML/cmm/m/it/10.95 '[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^K\OT1/cmr/m/n/10.95 ) = [][]\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 F\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 ^^@(\OMS/cmsy/m/n/10.95 ^^A\OML/cmm/m/it/10.95 ; ^^K\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 ^^@[]\OMS/cmsy/m/n/10.95 i  []  []\OML/cmm/m/it/10.95 x \OT1/cmr/m/n/10.95 + \OMS/cmsy/m/n/10.95 hr[]\OML/cmm/m/it/10.95 F\OT1/cmr/m/n/10.95 (^^@(\OML/cmm/m/it/10.95 b; ^^K\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 ^^@[](\OML/cmm/m/it/10.95 b; ^^K\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 ^^@[](\OML/cmm/m/it/10.95 b; ^^K\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 i ^^@ hr[]\OML/cmm/m/it/10.95 F\OT1/cmr/m/n/10.95 (^^@(\OML/cmm/m/it/10.95 a; ^^K\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 ^^@[](\OML/cmm/m/it/10.95 a; ^^K\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 ^^@[](\OML/cmm/m/it/10.95 a; ^^K\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 i\OML/cmm/m/it/10.95 ;
  []
 
 
 
 [44]
+Underfull \hbox (badness 10000) in paragraph at lines 3817--3819
+[]\TU/TimesNewRoman(1)/m/n/10.95 Первое равенство получается дифференцированием по $\OML/cmm/m/it/10.95 z$\TU/TimesNewRoman(1)/m/n/10.95 . Дифференцирование по $\OML/cmm/m/it/10.95 w[]$ \TU/TimesNewRoman(1)/m/n/10.95 даёт
+ []
+
+
 
 [45]
 
@@ -1326,15 +1334,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 3778--3780
 [48]
 
 [49]
+
+[50]
+
+[51]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `Arial' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-
-[50]
-
-[51]
 
 [52]
 
@@ -1342,25 +1350,25 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 [54]
 
-[55] (./mathphys2.aux)
+[55]
+
+[56]
+
+[57] (./mathphys2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `mathphys2.out' has not changed.
 (rerunfilecheck)             Checksum: 1064D5C298777883C14A7EDA3E7EFBBA;11589.
  ) 
 Here is how much of TeX's memory you used:
- 48640 strings out of 473832
- 1164105 string characters out of 5729482
- 1935967 words of memory out of 5000000
- 70896 multiletter control sequences out of 15000+600000
+ 48649 strings out of 473832
+ 1164288 string characters out of 5729482
+ 1936966 words of memory out of 5000000
+ 70905 multiletter control sequences out of 15000+600000
  572008 words of font info for 152 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,16n,96p,1052b,1048s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,96p,1052b,1050s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on mathphys2.pdf (56 pages).
+Output written on mathphys2.pdf (58 pages).

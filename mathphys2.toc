@@ -26,16 +26,16 @@
 \contentsline {subsection}{\numberline {1.5.2}Общая формула первой вариации}{44}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}Уравнение Эйлера}{46}{subsection.1.5.3}%
 \contentsline {subsection}{\numberline {1.5.4}Условия трансверсальности}{47}{subsection.1.5.4}%
-\contentsline {subsection}{\numberline {1.5.5}Замена переменных. Теорема Нётер}{49}{subsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.5.5}Замена переменных. Теорема Нётер}{48}{subsection.1.5.5}%
 \contentsline {section}{\numberline {1.6}Уравнения Гамильтона}{50}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}Преобразование Лежандра}{50}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Выпуклые функции}{51}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.2}Выпуклые функции}{50}{subsection.1.6.2}%
 \contentsline {subsection}{\numberline {1.6.3}Канонические уравнения Гамильтона}{52}{subsection.1.6.3}%
 \contentsline {section}{\numberline {1.7}Уравнения в частных производных первого порядка}{53}{section.1.7}%
 \contentsline {subsection}{\numberline {1.7.1}Характеристики}{53}{subsection.1.7.1}%
-\contentsline {subsection}{\numberline {1.7.2}Начальные условия. Допустимые тройки}{54}{subsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.7.3}Решение характеристической системы}{54}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.2}Начальные условия. Допустимые тройки}{53}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Свойства решение характеристической системы}{54}{subsection.1.7.3}%
 \contentsline {subsection}{\numberline {1.7.4}Локальная обратимость}{55}{subsection.1.7.4}%
-\contentsline {subsection}{\numberline {1.7.5}Локальная теорема существования}{56}{subsection.1.7.5}%
+\contentsline {subsection}{\numberline {1.7.5}Локальная теорема существования}{55}{subsection.1.7.5}%
 \contentsline {subsection}{\numberline {1.7.6}Квазилинейные уравнения первого порядка}{56}{subsection.1.7.6}%
-\contentsline {subsection}{\numberline {1.7.7}Уравнение Гамильтона--Якоби}{57}{subsection.1.7.7}%
+\contentsline {subsection}{\numberline {1.7.7}Уравнение Гамильтона--Якоби}{56}{subsection.1.7.7}%

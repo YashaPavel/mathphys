@@ -1822,7 +1822,7 @@ y'=\pm\frac{\sqrt{R^2-y^2}}{y}.
 \]
 Следовательно,
 \[
-\boxed{(x-a)^2+y^2=R^2.}
+(x-a)^2+y^2=R^2.
 \]
 Реализация геометрии Лобачевского. Длина кривой в такой плоскости это как раз интеграл $\int \frac{\sqrt{1+y'^2}}{y}\,\dd x$. Эти расстояния это как раз дуги.
 \end{myexample}
@@ -3031,7 +3031,7 @@ h_1:=h-h_0.
 \qquad k=1,\ldots,n-1.
 \]
 Тогда, варьируя минимизирующую последовательность в направлении $h_1$, делаем все тоже самое, что и в доказательстве для $y_1$, и получаем
-\[J[f_m+\tau h_1]\neq \lambda_n \int_a^b (f_m+\tau h_1)^2\,\dd x\]
+\[J[f_m+\tau h_1]\geq \lambda_n \int_a^b (f_m+\tau h_1)^2\,\dd x\]
 Откуда сразу следует, что
 \[
 \int_a^b y_n\mathcal Lh_1\,\dd x
@@ -3934,7 +3934,7 @@ F\{\gamma_0\}(x)=0\Rightarrow \nabla_zF(\gamma_0,\gamma_0')-\frac{\dd}{\dd x}\na
 \end{myproof}
 \begin{myremark}
 Условие $ F\{\gamma\}=0$ не зависит от параметризации.
-Кривая, удовлетворяющая уравнению Эйлера, называется экстремалью.
+Уравненение Эйлера характеризует саму кривую.
 \end{myremark}
 
 \begin{mydef}
@@ -3966,11 +3966,11 @@ F(z,\lambda w)=\lambda F(z,w),
 \nabla_wF(\gamma_0(a),\gamma_0'(a))\perp T_{y_1}M_1,\qquad
 \nabla_wF(\gamma_0(b),\gamma_0'(b))\perp T_{y_2}M_2,
 \qquad y_1=\gamma_0(a),\quad y_2=\gamma_0(b),
-\] где $T_{y_1}M_1$ и $T_{y_2}M_2$ --- касательные плоскости концах кривой.
+\] где $T_{y_1}M_1$ и $T_{y_2}M_2$ --- касательные плоскости на концах кривой.
 \end{itemize}
 \end{mytheorem}
 \begin{myproof}
-Вариации с закреплёнными концами дают уравнение Эйлера.
+
 Пусть $u:(-\varepsilon,\varepsilon)\to M_1$, $u\in C^1$, $u(0)=y_1$.
 Положим
 \[
@@ -3989,8 +3989,7 @@ $\Gamma(b,\alpha)=y_2$ и $\Gamma_\alpha'=\theta(x)u'(\alpha)$.
 \end{myremark}
 \begin{myexe}
 Найти кривую с закреплёнными концами, ограничивающую вместе с отрезком прямой наибольшую площадь.
-Рассмотреть также вариант со скользящими по прямой концами, изображённый в рукописи.
-\manuscriptfigure{С. 26: дуга над прямой; в первом варианте два конца закреплены, во втором концы могут скользить по прямой.}
+Рассмотреть также вариант со скользящими по прямой концами.
 \end{myexe}
 % Рукопись, с. 27.
 \begin{myexample}
@@ -4053,31 +4052,31 @@ J[\gamma_T]=J_T[\gamma].
 \]
 \begin{myexe}
 Доказать, что
-$ F\{\gamma_T\}=0\Longleftrightarrow\mathcal E_{F_T}\{\gamma\}=0$.
+$ F\{\gamma_T\}=0\Longleftrightarrow F_T\{\gamma\}=0,$ где $F\{\gamma\}=\nabla_zF-\dfrac{\dd}{\dd x}\nabla_wF$.
 \end{myexe}
 \begin{mytheorem}
-\textbf{(Нётер.)} Пусть $T_\alpha:\mathbb R^n\to\mathbb R^n$ --- семейство замен переменных,
-$\det T_\alpha'(z)\ne0$, отображение $(\alpha,z)\mapsto T_\alpha(z)$ класса $C^2$ и $T_0(z)=z$.
+\textbf{Теорема Нётер} \\Пусть $T_\alpha:\mathbb R^n\to\mathbb R^n$ --- семейство замен переменных,
+$\det T_\alpha'(z)\ne0$, отображение $(\alpha,z)\mapsto T_\alpha(z)$ класса $C^2$ и $T_0(z)=z$.\\
 Пусть $F\in C^2(\mathbb R^n\times(\mathbb R^n\setminus\{0\}))$ однородна степени один по $w$,
 а $J_{T_\alpha}=J$ для всех $\alpha$ (в частности, достаточно $F_{T_\alpha}=F$).
 Тогда вдоль любой экстремали $\gamma$
 \[
-\boxed{\left\langle\nabla_wF(\gamma(x),\gamma'(x)),
+\left\langle\nabla_wF(\gamma(x),\gamma'(x)),
  \left.\frac{\partial T_\alpha(\gamma(x))}{\partial\alpha}\right|_{\alpha=0}
- \right\rangle=\mathrm{const}.}
+ \right\rangle=\mathrm{const}.
 \]
 \end{mytheorem}
 \begin{myproof}
-Фиксируем $a<c\le b$ и ограничение $\gamma_c$ на $[a,c]$.
+Фиксируем $a<c\le b$ и ограничение $\gamma_c$ на $[a,c]$.\\
 Положим $\Gamma(x,\alpha)=T_\alpha(\gamma_c(x))$.
 Тогда $\Gamma_x'=T_\alpha'(\gamma_c)\gamma_c'\ne0$, а $J[\Gamma(\cdot,\alpha)]$ не зависит от $\alpha$.
 Следовательно,
 \[
-0=\int_a^c\langle F\{\Gamma\},\Gamma_\alpha'\rangle\,\dd x
+\dfrac{\dd}{\dd \alpha}J[\Gamma(\cdot, \alpha)]_{\alpha=0}=\int_a^c\langle F\{\cdot, \Gamma\},\Gamma_\alpha'\rangle\,\dd x
  +\left.\langle\nabla_wF(\Gamma,\Gamma_x'),\Gamma_\alpha'\rangle\right|_a^c.
 \]
 При $\alpha=0$ имеем $\Gamma=\gamma_c$ и $ F\{\gamma\}=0$.
-Значит, выражения в рамке в точках $a$ и $c$ совпадают. Точка $c$ произвольна.
+Значит, выражения выше,  в точках $a$ и $c$ совпадают. Точка $c$ произвольна.
 \end{myproof}
 \begin{myexample}
 Пусть $\gamma(t)=(t,r(t))$, $r(t)\in\mathbb R^N$, $n=N+1$,
@@ -4095,8 +4094,8 @@ F_{w_1}=L-\left\langle\frac{\widehat w}{w_1},\nabla_vL\right\rangle,
 \]
 По теореме Нётер
 \[
-\boxed{\langle\dot r(t),\nabla_vL(r(t),\dot r(t))\rangle-L(r(t),\dot r(t))
- =\mathrm{const},}
+\langle\dot r(t),\nabla_vL(r(t),\dot r(t))\rangle-L(r(t),\dot r(t))
+ =\mathrm{const},
 \]
 что является законом сохранения энергии.
 \end{myexample}
@@ -4107,7 +4106,7 @@ F_{w_1}=L-\left\langle\frac{\widehat w}{w_1},\nabla_vL\right\rangle,
 % Рукопись, с. 29--32.
 \section{Уравнения Гамильтона}
 \subsection{Преобразование Лежандра}
-Пусть $F:\mathbb R^n\to\mathbb R$, $F\in C^2$, и
+Пусть $F:\mathbb R^n\to\mathbb R$, $F\in C^2(\R^n)$, и
 $\nabla F:\mathbb R^n\to\mathbb R^n$ --- биекция.
 \begin{mydef}
 Преобразованием Лежандра функции $F$ называется функция
@@ -4115,7 +4114,7 @@ $\nabla F:\mathbb R^n\to\mathbb R^n$ --- биекция.
 G(p)=\langle v,p\rangle-F(v),\qquad \nabla F(v)=p.
 \]
 Если $\Phi=(\nabla F)^{-1}$, то $G(p)=\langle\Phi(p),p\rangle-F(\Phi(p))$.
-При условии $\det(\nabla F)'(v)\ne0$ для всех $v$ имеем $\Phi\in C^1$.
+При условии $\det(\nabla F)'(v)\ne0$ для всех $v$ имеем $\Phi\in C^1(\R^n, \R^n)$.
 \end{mydef}
 \begin{myprop}
 \begin{enumerate}
@@ -4167,9 +4166,8 @@ $F(v)=\sup_\beta\ell_\beta(v)<+\infty$ для всех $v$. Тогда $F$ вы�
 \[
 \ell_{\beta_m}(v)=\ell_{\beta_m}(v_0)+\langle k_m,v-v_0\rangle.
 \]
-Последовательность $k_m$ ограничена: подстановка $v=v_0\pm e_j$ ограничивает каждую её координату.
-Извлекаем подпоследовательность $k_{m_j}\to k_*$.
-Переходя к пределу в неравенстве $F(v)\ge\ell_{\beta_{m_j}}(v)$, получаем
+Последовательность $k_m$ ограничена, значит можно выделить сходящуюсю подпоследовательность $k_{m_j}\to k_*$.
+Переходя к пределу $j\to \infty$ в неравенстве $F(v)\ge\ell_{\beta_{m_j}}(v)$, получаем
 $F(v)\ge F(v_0)+\langle k_*,v-v_0\rangle$.
 \end{myproof}
 \begin{myexe}
@@ -4181,7 +4179,7 @@ F\left(\sum_{j=1}^m\alpha_jv_j\right)\le\sum_{j=1}^m\alpha_jF(v_j).
 \begin{mydef}
 Преобразование Лежандра выпуклой функции $F$ определяется формулой
 \[
-\boxed{G(p)=\sup_{v\in\mathbb R^n}(\langle v,p\rangle-F(v)).}
+G(p)=\sup_{v\in\mathbb R^n}(\langle v,p\rangle-F(v)).
 \]
 Возможно значение $G(p)=+\infty$.
 \end{mydef}
@@ -4244,10 +4242,10 @@ G(p)=\langle A^{-1}p,p\rangle
 Пусть $H\in C^1([a,b]\times\mathbb R^n\times\mathbb R^n)$.
 Системой уравнений Гамильтона для функций $f,g:[a,b]\to\mathbb R^n$ называется
 \[
-\boxed{\begin{cases}
+\begin{cases}
 \dot f(t)=\nabla_pH(t,f(t),g(t)),\\
 \dot g(t)=-\nabla_qH(t,f(t),g(t)).
-\end{cases}}
+\end{cases}
 \]
 \end{mydef}
 \begin{mytheorem}
@@ -4301,12 +4299,12 @@ $\dot p_j=-\mathcal F_{x_j}-\mathcal F_zp_j$, а
 $\dot z=\sum_kp_k\dot x_k$.
 \begin{mydef}
 Характеристической системой уравнения $\mathcal F(x,u,\nabla u)=0$ называется система
-\[
-\boxed{\begin{cases}
+\[ 
+\begin{cases}
 \dot x=\nabla_p\mathcal F(x,z,p),\\
 \dot z=\langle p,\nabla_p\mathcal F(x,z,p)\rangle,\\
 \dot p=-\nabla_x\mathcal F(x,z,p)-\mathcal F_z(x,z,p)p.
-\end{cases}}\tag{Х}
+\end{cases}\tag{Х}
 \]
 Её интегральная кривая $(x(t),z(t),p(t))$ в $\mathbb R^{2n+1}$ называется характеристикой,
 а $x(t)$ --- проекцией характеристики в $\mathbb R^n$.
@@ -4360,7 +4358,7 @@ $G(y,w)=0\Longleftrightarrow w=g(y)$ в соответствующей окре�
 Условие $\mathcal F_{p_n}\ne0$ означает нехарактеристичность начальной гиперповерхности:
 $\langle\nabla_p\mathcal F,\nu\rangle\ne0$.
 \end{myremark}
-\subsection{Решение характеристической системы}
+\subsection{Свойства решение характеристической системы}
 Для допустимых троек $(y,\varphi(y),q(y))$ решим (Х) с начальными условиями
 \[
 x(y,0)=y,\qquad z(y,0)=\varphi(y),\qquad p(y,0)=q(y).
@@ -4423,7 +4421,6 @@ $r(0)=\varphi_{y_i}(y)-\sum_kq_k(y)\delta_{ki}=\varphi_{y_i}-q_i=0$.
 \]
 Применяем теорему об обратном отображении.
 \end{myproof}
-\manuscriptfigure{С. 35: начальная гиперплоскость $\Gamma$, точка $y$ и выходящая из неё проекция характеристики $x(y,t)$.}
 \subsection{Локальная теорема существования}
 \begin{mytheorem}
 Пусть $\mathcal F\in C^2(\mathbb R^{2n+1})$, $\varphi\in C^2(\Gamma)$,
@@ -4432,7 +4429,7 @@ $(x^0,z^0,p^0)$ --- допустимая тройка и $\mathcal F_{p_n}(x^0,z
 Пусть $(y(x),t(x))$ --- локальное обратное отображение к $(y,t)\mapsto x(y,t)$.
 Тогда в некоторой окрестности $V$ точки $x^0$ функция
 \[
-\boxed{u(x)=z(y(x),t(x))}
+u(x)=z(y(x),t(x)),\quad x\in V
 \]
 решает задачу
 \[
@@ -4443,12 +4440,10 @@ $(x^0,z^0,p^0)$ --- допустимая тройка и $\mathcal F_{p_n}(x^0,z
 Для $y_0\in\Gamma\cap V$ имеем $x(y_0,0)=y_0$, поэтому $u(y_0)=z(y_0,0)=\varphi(y_0)$.
 Уже известно, что $\mathcal F(x,u(x),p(y(x),t(x)))=0$.
 Остаётся проверить $\nabla u=p$. По предыдущей лемме
-\[\begin{array}{@{}>{\displaystyle}r@{}>{\displaystyle}l@{}}
-\frac{\partial u}{\partial x_j}
-&=\sum_{i=1}^{n-1}z_{y_i}y_{i,x_j}+z_t t_{x_j}\\
-&=\sum_kp_k\left(\sum_{i=1}^{n-1}x_{k,y_i}y_{i,x_j}+x_{k,t}t_{x_j}\right)
- =\sum_kp_k\delta_{kj}=p_j.
-\end{array}\]
+\[
+\frac{\partial u}{\partial x_j}=\sum_{i=1}^{n-1}z_{y_i}y_{i,x_j}+z_t t_{x_j}
+=\sum_kp_k\left(\sum_{i=1}^{n-1}x_{k,y_i}y_{i,x_j}+x_{k,t}t_{x_j}\right)
+ =\sum_kp_k\delta_{kj}=p_j.\]
 Здесь выражение в скобках --- производная тождественного отображения $x\mapsto x(y(x),t(x))$.
 \end{myproof}
 \subsection{Квазилинейные уравнения первого порядка}
